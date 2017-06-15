@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78040E701EF32C69006D2683 /* FlowCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78040E6F1EF32C69006D2683 /* FlowCard.xib */; };
+		78040E721EF32C86006D2683 /* FlowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E711EF32C86006D2683 /* FlowCard.swift */; };
+		78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E731EF334E3006D2683 /* RepositoriesViewController.swift */; };
 		784988BF1ED38CF600A0724E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988BE1ED38CF600A0724E /* AppDelegate.swift */; };
 		784988C11ED38CF600A0724E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988C01ED38CF600A0724E /* ViewController.swift */; };
 		784988C41ED38CF600A0724E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 784988C21ED38CF600A0724E /* Main.storyboard */; };
-		784988C61ED38CF600A0724E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 784988C51ED38CF600A0724E /* Assets.xcassets */; };
 		784988C91ED38CF600A0724E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 784988C71ED38CF600A0724E /* LaunchScreen.storyboard */; };
 		784988DA1ED38E5C00A0724E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988D31ED38E5C00A0724E /* UIColor.swift */; };
 		784988DB1ED38E5C00A0724E /* UIViewController+Apparence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988D41ED38E5C00A0724E /* UIViewController+Apparence.swift */; };
@@ -55,10 +57,7 @@
 		784989301ED38F5600A0724E /* IssuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849892C1ED38F5600A0724E /* IssuesTableViewController.swift */; };
 		784989311ED38F5600A0724E /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849892D1ED38F5600A0724E /* IssueTableViewCell.swift */; };
 		784989321ED38F5600A0724E /* IssueDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849892E1ED38F5600A0724E /* IssueDetailsTableViewController.swift */; };
-		784989381ED38F6600A0724E /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784989341ED38F6600A0724E /* RepositoriesTableViewController.swift */; };
 		784989391ED38F6600A0724E /* Repositories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 784989351ED38F6600A0724E /* Repositories.storyboard */; };
-		7849893A1ED38F6600A0724E /* RepositoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784989361ED38F6600A0724E /* RepositoriesTableViewCell.swift */; };
-		7849893B1ED38F6600A0724E /* RepositoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784989371ED38F6600A0724E /* RepositoryCollectionViewCell.swift */; };
 		7849893D1ED38F8400A0724E /* PopoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849893C1ED38F8400A0724E /* PopoverBackgroundView.swift */; };
 		7849893F1ED38F8B00A0724E /* NavigationForPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849893E1ED38F8B00A0724E /* NavigationForPopoverViewController.swift */; };
 		784989411ED38F9500A0724E /* LiveScrollTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784989401ED38F9500A0724E /* LiveScrollTableViewController.swift */; };
@@ -147,7 +146,6 @@
 		784988BE1ED38CF600A0724E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		784988C01ED38CF600A0724E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		784988C31ED38CF600A0724E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		784988C51ED38CF600A0724E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		784988C81ED38CF600A0724E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		784988CA1ED38CF600A0724E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		784988D31ED38E5C00A0724E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -193,10 +191,7 @@
 		7849892C1ED38F5600A0724E /* IssuesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesTableViewController.swift; sourceTree = "<group>"; };
 		7849892D1ED38F5600A0724E /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		7849892E1ED38F5600A0724E /* IssueDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailsTableViewController.swift; sourceTree = "<group>"; };
-		784989341ED38F6600A0724E /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		784989351ED38F6600A0724E /* Repositories.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Repositories.storyboard; sourceTree = "<group>"; };
-		784989361ED38F6600A0724E /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
-		784989371ED38F6600A0724E /* RepositoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7849893C1ED38F8400A0724E /* PopoverBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverBackgroundView.swift; sourceTree = "<group>"; };
 		7849893E1ED38F8B00A0724E /* NavigationForPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationForPopoverViewController.swift; sourceTree = "<group>"; };
 		784989401ED38F9500A0724E /* LiveScrollTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScrollTableViewController.swift; sourceTree = "<group>"; };
@@ -316,7 +311,6 @@
 				7849891C1ED38F2100A0724E /* selector */,
 				7849890E1ED38ED800A0724E /* view-components */,
 				784988BE1ED38CF600A0724E /* AppDelegate.swift */,
-				784988C51ED38CF600A0724E /* Assets.xcassets */,
 				784988CA1ED38CF600A0724E /* Info.plist */,
 				784988C71ED38CF600A0724E /* LaunchScreen.storyboard */,
 				784988C21ED38CF600A0724E /* Main.storyboard */,
@@ -331,7 +325,6 @@
 			children = (
 				784988E11ED38E6800A0724E /* UIlabel+Ionicons.swift */,
 			);
-			name = ionicons;
 			path = ionicons;
 			sourceTree = "<group>";
 		};
@@ -346,7 +339,6 @@
 				784988D91ED38E5C00A0724E /* UITableView.swift */,
 				784988D41ED38E5C00A0724E /* UIViewController+Apparence.swift */,
 			);
-			name = extensions;
 			path = extensions;
 			sourceTree = "<group>";
 		};
@@ -357,7 +349,6 @@
 				784988E61ED38E8800A0724E /* http */,
 				784988E41ED38E7A00A0724E /* service */,
 			);
-			name = api;
 			path = api;
 			sourceTree = "<group>";
 		};
@@ -370,7 +361,6 @@
 				784989081ED38EC200A0724E /* TeamsService.swift */,
 				784989051ED38EC200A0724E /* UserService.swift */,
 			);
-			name = service;
 			path = service;
 			sourceTree = "<group>";
 		};
@@ -385,7 +375,6 @@
 				784988F41ED38E9B00A0724E /* SimpleUser.swift */,
 				784988F01ED38E9B00A0724E /* User.swift */,
 			);
-			name = domain;
 			path = domain;
 			sourceTree = "<group>";
 		};
@@ -397,7 +386,6 @@
 				784988E91ED38E9300A0724E /* HttpStatusCode.swift */,
 				784988EA1ED38E9300A0724E /* SearchResult.swift */,
 			);
-			name = http;
 			path = http;
 			sourceTree = "<group>";
 		};
@@ -409,7 +397,6 @@
 				784988FD1ED38EAA00A0724E /* IssueStatus.swift */,
 				784988FC1ED38EAA00A0724E /* IssueUser.swift */,
 			);
-			name = issues;
 			path = issues;
 			sourceTree = "<group>";
 		};
@@ -422,7 +409,6 @@
 				784989111ED38EE400A0724E /* LaunchScreenView.xib */,
 				784989931ED3903C00A0724E /* UIViewFromXIB.swift */,
 			);
-			name = "view-components";
 			path = "view-components";
 			sourceTree = "<group>";
 		};
@@ -432,7 +418,6 @@
 				784989181ED38F1500A0724E /* TableViewCellWithPhoto.swift */,
 				784989191ED38F1500A0724E /* TableViewCellWithPhoto.xib */,
 			);
-			name = cell;
 			path = cell;
 			sourceTree = "<group>";
 		};
@@ -447,7 +432,6 @@
 				7849893C1ED38F8400A0724E /* PopoverBackgroundView.swift */,
 				7849891F1ED38F2800A0724E /* SelectableTableView.swift */,
 			);
-			name = selector;
 			path = selector;
 			sourceTree = "<group>";
 		};
@@ -458,7 +442,6 @@
 				784989261ED38F3600A0724E /* StatusSelectViewController.swift */,
 				784989251ED38F3600A0724E /* UserSelectViewController.swift */,
 			);
-			name = impl;
 			path = impl;
 			sourceTree = "<group>";
 		};
@@ -470,7 +453,6 @@
 				7849892B1ED38F5600A0724E /* Issues.storyboard */,
 				7849892C1ED38F5600A0724E /* IssuesTableViewController.swift */,
 			);
-			name = issues;
 			path = issues;
 			sourceTree = "<group>";
 		};
@@ -478,11 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				784989351ED38F6600A0724E /* Repositories.storyboard */,
-				784989361ED38F6600A0724E /* RepositoriesTableViewCell.swift */,
-				784989341ED38F6600A0724E /* RepositoriesTableViewController.swift */,
-				784989371ED38F6600A0724E /* RepositoryCollectionViewCell.swift */,
 			);
-			name = repositories;
 			path = repositories;
 			sourceTree = "<group>";
 		};
@@ -551,7 +529,6 @@
 				784988C91ED38CF600A0724E /* LaunchScreen.storyboard in Resources */,
 				784989391ED38F6600A0724E /* Repositories.storyboard in Resources */,
 				7849892F1ED38F5600A0724E /* Issues.storyboard in Resources */,
-				784988C61ED38CF600A0724E /* Assets.xcassets in Resources */,
 				784988C41ED38CF600A0724E /* Main.storyboard in Resources */,
 				784989151ED38EE400A0724E /* LaunchScreenView.xib in Resources */,
 			);
@@ -569,7 +546,6 @@
 				784989031ED38EAA00A0724E /* IssueComment.swift in Sources */,
 				784989201ED38F2800A0724E /* LiveScrollWithSingleSelectionTableViewController.swift in Sources */,
 				784989271ED38F3600A0724E /* RepositorySelectViewController.swift in Sources */,
-				7849893A1ED38F6600A0724E /* RepositoriesTableViewCell.swift in Sources */,
 				784989091ED38EC200A0724E /* Service.swift in Sources */,
 				784988F51ED38E9B00A0724E /* BasicEntity.swift in Sources */,
 				784989131ED38EE400A0724E /* CardView.swift in Sources */,
@@ -601,7 +577,6 @@
 				784988F91ED38E9B00A0724E /* Repository.swift in Sources */,
 				784988C11ED38CF600A0724E /* ViewController.swift in Sources */,
 				784988EE1ED38E9300A0724E /* SearchResult.swift in Sources */,
-				784989381ED38F6600A0724E /* RepositoriesTableViewController.swift in Sources */,
 				784989291ED38F3600A0724E /* StatusSelectViewController.swift in Sources */,
 				784988DA1ED38E5C00A0724E /* UIColor.swift in Sources */,
 				784988E21ED38E6800A0724E /* UIlabel+Ionicons.swift in Sources */,
@@ -612,7 +587,6 @@
 				784988ED1ED38E9300A0724E /* HttpStatusCode.swift in Sources */,
 				784989301ED38F5600A0724E /* IssuesTableViewController.swift in Sources */,
 				784988EC1ED38E9300A0724E /* HttpDebugProtocol.swift in Sources */,
-				7849893B1ED38F6600A0724E /* RepositoryCollectionViewCell.swift in Sources */,
 				7849890C1ED38EC200A0724E /* RepositoryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

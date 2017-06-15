@@ -1,75 +1,87 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cro-Ww-KEY">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TYU-0F-6U2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Repositories Table View Controller-->
-        <scene sceneID="wCJ-tw-xU9">
+        <!--Repositories View Controller-->
+        <scene sceneID="xbI-6c-L9U">
             <objects>
-                <tableViewController storyboardIdentifier="RepositoriesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cro-Ww-KEY" customClass="RepositoriesTableViewController" customModule="test_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="266" sectionHeaderHeight="28" sectionFooterHeight="28" id="XKo-lr-lGg">
+                <viewController id="TYU-0F-6U2" customClass="RepositoriesViewController" customModule="IssueViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VUc-0u-fgT"/>
+                        <viewControllerLayoutGuide type="bottom" id="QkG-Mc-YTi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QwW-bj-k1c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWC-oD-Mtr" customClass="FlowCard" customModule="IssueViewer" customModuleProvider="target">
+                                <rect key="frame" x="12" y="32" width="351" height="360"/>
+                                <color key="backgroundColor" red="0.12549019607843137" green="0.31372549019607843" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="tx0-U4-mnq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1G1-GM-cGL">
+                                <rect key="frame" x="12" y="412" width="351" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="eJ4-Du-UuB"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf6-KB-dyT">
+                                <rect key="frame" x="12" y="421" width="48.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnf-13-NS5">
+                                <rect key="frame" x="12" y="454" width="351" height="328.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="161" id="RF1-6Z-q5H"/>
+                                </constraints>
+                                <mutableString key="text">La principal utilidad de un wiki es que permite crear y mejorar las páginas de forma inmediata, dando una gran libertad al usuario, y por medio de una interfaz muy simple. Esto hace que más gente participe en su modificación, a diferencia de los sistemas tradicionales, donde resulta más difícil que los usuarios del sitio contribuyan a mejorarlo. En entornos privados, como empresas u organizaciones, permite que los usuarios gestionen contenidos e información de forma procesional, pudiendo hacer uso de todo tipo de extras, como envío de correos entre usuarios y chat en línea, entre muchas otras extensiones disponibles.</mutableString>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RepositoriesTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoriesTableViewCell" rowHeight="266" id="TtU-vd-2K9" customClass="RepositoriesTableViewCell" customModule="test_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="266"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TtU-vd-2K9" id="pdF-qY-GL9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dYO-rm-4xZ">
-                                            <rect key="frame" x="0.0" y="4" width="375" height="258"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xJD-jg-hzz">
-                                                <size key="itemSize" width="292" height="253"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                            <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RepositoryCollectionViewCell" reuseIdentifier="RepositoryCollectionViewCell" id="I1t-0U-CVE" customClass="RepositoryCollectionViewCell" customModule="test_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="3" width="292" height="253"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                        <rect key="frame" x="0.0" y="0.0" width="292" height="253"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </view>
-                                                    <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                </collectionViewCell>
-                                            </cells>
-                                        </collectionView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="dYO-rm-4xZ" secondAttribute="trailing" id="B1Y-Pq-pQS"/>
-                                        <constraint firstItem="dYO-rm-4xZ" firstAttribute="top" secondItem="pdF-qY-GL9" secondAttribute="top" constant="4" id="ThA-g6-W8E"/>
-                                        <constraint firstItem="dYO-rm-4xZ" firstAttribute="leading" secondItem="pdF-qY-GL9" secondAttribute="leading" id="UTm-YM-O7S"/>
-                                        <constraint firstAttribute="bottom" secondItem="dYO-rm-4xZ" secondAttribute="bottom" constant="4" id="ZSn-Cn-LXu"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="collectionView" destination="dYO-rm-4xZ" id="Ehl-hV-W9i"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="cro-Ww-KEY" id="NQY-II-j8v"/>
-                            <outlet property="delegate" destination="cro-Ww-KEY" id="jwu-AK-dpl"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Wk-Qr-bfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="hnf-13-NS5" firstAttribute="leading" secondItem="Pf6-KB-dyT" secondAttribute="leading" id="2uu-Bs-QFj"/>
+                            <constraint firstItem="1G1-GM-cGL" firstAttribute="trailing" secondItem="UWC-oD-Mtr" secondAttribute="trailing" id="3yS-ZF-eX6"/>
+                            <constraint firstItem="Pf6-KB-dyT" firstAttribute="leading" secondItem="1G1-GM-cGL" secondAttribute="leading" id="A9F-uC-gun"/>
+                            <constraint firstItem="UWC-oD-Mtr" firstAttribute="leading" secondItem="QwW-bj-k1c" secondAttribute="leading" constant="12" id="Eh6-oB-PU2"/>
+                            <constraint firstItem="hnf-13-NS5" firstAttribute="top" secondItem="Pf6-KB-dyT" secondAttribute="bottom" constant="12" id="L18-qD-zok"/>
+                            <constraint firstItem="1G1-GM-cGL" firstAttribute="top" secondItem="UWC-oD-Mtr" secondAttribute="bottom" constant="20" id="N6n-fr-xJ0"/>
+                            <constraint firstAttribute="trailing" secondItem="hnf-13-NS5" secondAttribute="trailing" constant="12" id="UXw-HP-XVU"/>
+                            <constraint firstItem="1G1-GM-cGL" firstAttribute="leading" secondItem="UWC-oD-Mtr" secondAttribute="leading" id="d5o-Rt-IIQ"/>
+                            <constraint firstItem="UWC-oD-Mtr" firstAttribute="top" secondItem="VUc-0u-fgT" secondAttribute="bottom" constant="12" id="f26-Lp-qTx"/>
+                            <constraint firstAttribute="trailing" secondItem="UWC-oD-Mtr" secondAttribute="trailing" constant="12" id="jvV-nX-Is9"/>
+                            <constraint firstItem="Pf6-KB-dyT" firstAttribute="top" secondItem="1G1-GM-cGL" secondAttribute="bottom" constant="8" id="sud-MM-b5y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="flowCard" destination="UWC-oD-Mtr" id="YNV-xo-I1D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odc-De-Zii" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1532" y="171.36431784107947"/>
+            <point key="canvasLocation" x="-618.39999999999998" y="-342.27886056971516"/>
         </scene>
     </scenes>
 </document>

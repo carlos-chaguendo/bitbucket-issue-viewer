@@ -12,16 +12,16 @@
         <!--Places-->
         <scene sceneID="4gO-ya-Kdv">
             <objects>
-                <viewController id="VIE-3g-Vf5" customClass="PlacesViewController" customModule="test_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VIE-3g-Vf5" customClass="PlacesViewController" customModule="IssueViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EMB-eA-ZJ8"/>
                         <viewControllerLayoutGuide type="bottom" id="lrZ-hS-e46"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KfT-GS-pGK">
+                    <view key="view" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="KfT-GS-pGK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpw-h3-Q5o" customClass="CardView" customModule="test_ios" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpw-h3-Q5o" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
                                 <rect key="frame" x="12" y="84" width="390" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washington" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-AB-SEV">
@@ -37,7 +37,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-Ko-Q5B">
-                                        <rect key="frame" x="99.333333333333314" y="87.666666666666657" width="34.666666666666686" height="17"/>
+                                        <rect key="frame" x="99.666666666666657" y="87.666666666666657" width="34.999999999999972" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="☔︎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsw-Re-DFh">
-                                        <rect key="frame" x="75" y="78" width="18.333333333333329" height="36"/>
+                                        <rect key="frame" x="75" y="78" width="18.666666666666671" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -99,7 +99,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-aD-Eiy" customClass="CardView" customModule="test_ios" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-aD-Eiy" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
                                 <rect key="frame" x="12" y="232" width="390" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sydney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cp5-fj-8zq">
@@ -121,7 +121,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDr-Zb-PjE">
-                                        <rect key="frame" x="333.33333333333326" y="87.666666666666686" width="33.666666666666686" height="17"/>
+                                        <rect key="frame" x="333.66666666666674" y="87.666666666666686" width="33.333333333333314" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -184,7 +184,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-eF-dvd" customClass="CardView" customModule="test_ios" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-eF-dvd" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
                                 <rect key="frame" x="12" y="380" width="390" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8t-TQ-6iC">
@@ -208,10 +208,14 @@
                         <constraints>
                             <constraint firstItem="iNJ-aD-Eiy" firstAttribute="leading" secondItem="zpw-h3-Q5o" secondAttribute="leading" id="Dds-hI-gs9"/>
                             <constraint firstItem="9rT-eF-dvd" firstAttribute="top" secondItem="iNJ-aD-Eiy" secondAttribute="bottom" constant="20" id="EHa-fQ-EQy"/>
-                            <constraint firstAttribute="trailing" secondItem="zpw-h3-Q5o" secondAttribute="trailing" constant="12" id="O0c-Sb-aZx"/>
+                            <constraint firstAttribute="trailing" secondItem="zpw-h3-Q5o" secondAttribute="trailing" constant="140" id="O0c-Sb-aZx">
+                                <variation key="widthClass=compact" constant="12"/>
+                            </constraint>
                             <constraint firstItem="iNJ-aD-Eiy" firstAttribute="height" secondItem="zpw-h3-Q5o" secondAttribute="height" id="OdC-iQ-JYM"/>
                             <constraint firstItem="zpw-h3-Q5o" firstAttribute="top" secondItem="EMB-eA-ZJ8" secondAttribute="bottom" constant="20" id="P3e-2Q-IRG"/>
-                            <constraint firstItem="zpw-h3-Q5o" firstAttribute="leading" secondItem="KfT-GS-pGK" secondAttribute="leading" constant="12" id="Smm-Mz-zZi"/>
+                            <constraint firstItem="zpw-h3-Q5o" firstAttribute="leading" secondItem="KfT-GS-pGK" secondAttribute="leading" constant="140" id="Smm-Mz-zZi">
+                                <variation key="widthClass=compact" constant="12"/>
+                            </constraint>
                             <constraint firstItem="9rT-eF-dvd" firstAttribute="height" secondItem="iNJ-aD-Eiy" secondAttribute="height" id="XMM-UJ-k93"/>
                             <constraint firstItem="iNJ-aD-Eiy" firstAttribute="top" secondItem="zpw-h3-Q5o" secondAttribute="bottom" constant="20" id="fet-Um-gib"/>
                             <constraint firstItem="iNJ-aD-Eiy" firstAttribute="trailing" secondItem="zpw-h3-Q5o" secondAttribute="trailing" id="h59-Vn-GMf"/>
