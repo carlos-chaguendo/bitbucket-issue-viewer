@@ -13,17 +13,17 @@
         <!--Issues-->
         <scene sceneID="ecX-CU-A8F">
             <objects>
-                <tableViewController storyboardIdentifier="IssuesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9h6-1S-Egn" customClass="IssuesTableViewController" customModule="test_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="IssuesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9h6-1S-Egn" customClass="IssuesTableViewController" customModule="IssueViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" id="0t5-yX-DFg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="issueViewCell" rowHeight="56" id="ykX-63-Mnj" customClass="IssueTableViewCell" customModule="test_ios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="issueViewCell" rowHeight="56" id="ykX-63-Mnj" customClass="IssueTableViewCell" customModule="IssueViewer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ykX-63-Mnj" id="VOX-ik-0CZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="presentan de manera correcta" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtv-jF-C9V">
@@ -156,13 +156,13 @@
         <!--Issue Details Table View Controller-->
         <scene sceneID="6pW-4e-KZG">
             <objects>
-                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="2l3-H5-4NB" customClass="IssueDetailsTableViewController" customModule="test_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="2l3-H5-4NB" customClass="IssueDetailsTableViewController" customModule="IssueViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WXb-QC-DBD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="WRF-Qo-otI">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="452"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1396"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makin request and send the acces" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jN-ak-cPY">
@@ -300,10 +300,10 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="H6w-lR-70C">
-                                <rect key="frame" x="0.0" y="480" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="1424" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H6w-lR-70C" id="O8i-8j-HNh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -313,6 +313,8 @@
                             <outlet property="delegate" destination="2l3-H5-4NB" id="MoI-uY-cjk"/>
                         </connections>
                     </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="2000"/>
                     <connections>
                         <outlet property="assigneeLabel" destination="kiu-GD-BOM" id="0Bi-0J-4Md"/>
                         <outlet property="avatarImage" destination="qG8-ju-dFt" id="fGR-uS-cBg"/>
@@ -328,7 +330,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUf-OX-qcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1517.5999999999999" y="37.331334332833585"/>
+            <point key="canvasLocation" x="1517.5999999999999" y="36.881559220389811"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XPj-bh-6lg">
@@ -355,7 +357,7 @@
         <!--Repository-->
         <scene sceneID="1Tf-Kd-S0o">
             <objects>
-                <tableViewController restorationIdentifier="RepositorySelectViewController" storyboardIdentifier="RepositorySelectViewController" id="dSy-5w-cIf" customClass="RepositorySelectViewController" customModule="test_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="RepositorySelectViewController" storyboardIdentifier="RepositorySelectViewController" id="dSy-5w-cIf" customClass="RepositorySelectViewController" customModule="IssueViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mP5-xi-YG2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,7 +383,7 @@
         <!--Users-->
         <scene sceneID="3Od-Ap-x95">
             <objects>
-                <tableViewController storyboardIdentifier="UserSelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="52C-Ia-uzA" customClass="UserSelectViewController" customModule="test_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UserSelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="52C-Ia-uzA" customClass="UserSelectViewController" customModule="IssueViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MPc-A2-pi3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TYU-0F-6U2">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,14 +18,14 @@
                         <viewControllerLayoutGuide type="bottom" id="QkG-Mc-YTi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QwW-bj-k1c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWC-oD-Mtr" customClass="FlowCard" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="12" y="32" width="351" height="360"/>
+                                <rect key="frame" x="12" y="32" width="390" height="400"/>
                                 <color key="backgroundColor" red="0.12549019607843137" green="0.31372549019607843" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="360" id="tx0-U4-mnq"/>
+                                    <constraint firstAttribute="height" constant="400" id="tx0-U4-mnq"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -37,24 +37,24 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1G1-GM-cGL">
-                                <rect key="frame" x="12" y="412" width="351" height="1"/>
+                                <rect key="frame" x="12" y="452" width="390" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="eJ4-Du-UuB"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf6-KB-dyT">
-                                <rect key="frame" x="12" y="421" width="48.5" height="21"/>
+                                <rect key="frame" x="11.999999999999996" y="461" width="48.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnf-13-NS5">
-                                <rect key="frame" x="12" y="454" width="351" height="328.5"/>
+                                <rect key="frame" x="12" y="494.00000000000006" width="390" height="306.33333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="161" id="RF1-6Z-q5H"/>
                                 </constraints>
-                                <mutableString key="text">La principal utilidad de un wiki es que permite crear y mejorar las páginas de forma inmediata, dando una gran libertad al usuario, y por medio de una interfaz muy simple. Esto hace que más gente participe en su modificación, a diferencia de los sistemas tradicionales, donde resulta más difícil que los usuarios del sitio contribuyan a mejorarlo. En entornos privados, como empresas u organizaciones, permite que los usuarios gestionen contenidos e información de forma procesional, pudiendo hacer uso de todo tipo de extras, como envío de correos entre usuarios y chat en línea, entre muchas otras extensiones disponibles.</mutableString>
+                                <string key="text">La principal utilidad de un wiki es que permite crear y mejorar las páginas de forma inmediata, dando una gran libertad al usuario, y por medio de una interfaz muy simple. Esto hace que más gente participe en su modificación, a diferencia de los sistemas tradicionales, donde resulta más difícil que los usuarios del sitio contribuyan a mejorarlo. En entornos privados, como empresas u organizaciones, permite que los usuarios gestionen contenidos e información de forma procesional, pudiendo hacer uso de todo tipo de extras, como envío de correos entre usuarios y chat en línea, entre muchas otras extensiones disponibles.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -63,15 +63,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hnf-13-NS5" firstAttribute="leading" secondItem="Pf6-KB-dyT" secondAttribute="leading" id="2uu-Bs-QFj"/>
-                            <constraint firstItem="1G1-GM-cGL" firstAttribute="trailing" secondItem="UWC-oD-Mtr" secondAttribute="trailing" id="3yS-ZF-eX6"/>
+                            <constraint firstItem="1G1-GM-cGL" firstAttribute="trailing" secondItem="UWC-oD-Mtr" secondAttribute="trailing" id="3yS-ZF-eX6">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="Pf6-KB-dyT" firstAttribute="leading" secondItem="1G1-GM-cGL" secondAttribute="leading" id="A9F-uC-gun"/>
-                            <constraint firstItem="UWC-oD-Mtr" firstAttribute="leading" secondItem="QwW-bj-k1c" secondAttribute="leading" constant="12" id="Eh6-oB-PU2"/>
+                            <constraint firstItem="UWC-oD-Mtr" firstAttribute="leading" secondItem="QwW-bj-k1c" secondAttribute="leading" constant="100" id="Eh6-oB-PU2">
+                                <variation key="widthClass=compact" constant="12"/>
+                            </constraint>
                             <constraint firstItem="hnf-13-NS5" firstAttribute="top" secondItem="Pf6-KB-dyT" secondAttribute="bottom" constant="12" id="L18-qD-zok"/>
                             <constraint firstItem="1G1-GM-cGL" firstAttribute="top" secondItem="UWC-oD-Mtr" secondAttribute="bottom" constant="20" id="N6n-fr-xJ0"/>
-                            <constraint firstAttribute="trailing" secondItem="hnf-13-NS5" secondAttribute="trailing" constant="12" id="UXw-HP-XVU"/>
                             <constraint firstItem="1G1-GM-cGL" firstAttribute="leading" secondItem="UWC-oD-Mtr" secondAttribute="leading" id="d5o-Rt-IIQ"/>
                             <constraint firstItem="UWC-oD-Mtr" firstAttribute="top" secondItem="VUc-0u-fgT" secondAttribute="bottom" constant="12" id="f26-Lp-qTx"/>
-                            <constraint firstAttribute="trailing" secondItem="UWC-oD-Mtr" secondAttribute="trailing" constant="12" id="jvV-nX-Is9"/>
+                            <constraint firstAttribute="trailing" secondItem="UWC-oD-Mtr" secondAttribute="trailing" constant="100" id="jvV-nX-Is9">
+                                <variation key="widthClass=compact" constant="12"/>
+                            </constraint>
+                            <constraint firstItem="hnf-13-NS5" firstAttribute="trailing" secondItem="1G1-GM-cGL" secondAttribute="trailing" id="qUe-zo-ooH"/>
                             <constraint firstItem="Pf6-KB-dyT" firstAttribute="top" secondItem="1G1-GM-cGL" secondAttribute="bottom" constant="8" id="sud-MM-b5y"/>
                         </constraints>
                     </view>

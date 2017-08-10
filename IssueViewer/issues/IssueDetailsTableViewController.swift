@@ -9,6 +9,7 @@
 import UIKit
 import LTMorphingLabel
 import IoniconsSwift
+import Atributika
 
 class IssueDetailsTableViewController: UITableViewController {
 
@@ -70,7 +71,25 @@ class IssueDetailsTableViewController: UITableViewController {
 
 		reporterLabel.text = issue.reporter?.displayName
 		reporterDetailLabel.text = "Created at \(issue.createdOn?.relativeTime ?? "")"
-		issueDescriptionLabel.text = issue.raw
+        
+        let em = Style("em").font(.boldSystemFont(ofSize: 17)).foregroundColor(Colors.primary)
+        let strong = Style("strong").font(.boldSystemFont(ofSize: 17)).foregroundColor(Colors.primary)
+
+        let p = Style("p").baselineOffset(5)
+        let final = Style("final").baselineOffset(5).font(.boldSystemFont(ofSize: 10)).foregroundColor(Colors.primary.withAlphaComponent(0.6))
+
+        
+        
+        
+        let str = "\((issue.html ?? "Hello <b>World</b>!!!")) <br></br><final>Final del contenido</final> ".style(tags: [em,strong,p,final])
+            //.styleAll(Style.font(.systemFont(ofSize: 20)))
+            .styleAll(Style.font(.systemFont(ofSize: 14)))
+            .attributedString
+        
+        print("HTML \n\n \(issue.html ?? "")")
+         print("HTML \n\n \(issue.raw ?? "")")
+        
+		issueDescriptionLabel.attributedText = str
 
 		updateTableViewHeaderViewHeight()
 

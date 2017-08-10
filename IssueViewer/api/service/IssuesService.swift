@@ -60,12 +60,14 @@ public class IssuesService: Service {
 
 			if whitStatus.count > 0 {
 				var status = whitStatus.map { "\"\($0)\"" }.joined(separator: " OR state=")
-				status = "\(status)"
-				filter["state"] = status
+				status = "\(status))"
+				filter["(state"] = status
 			}
 
 			// se crean todos los filtros de busqueda
-			let q = filter.map({ "\($0)=\($1)" }).joined(separator: " AND ").encodeURIComponent()!
+			let p = filter.map({ "\($0)=\($1)" }).joined(separator: " AND ")
+            print("query = \(p)")
+            let q = p.encodeURIComponent()!
 			route = "\(route)&q=\(q)"
 
 			let origin: Promise<SearchResult<Issue>?> = Http.request(.get, route: route)

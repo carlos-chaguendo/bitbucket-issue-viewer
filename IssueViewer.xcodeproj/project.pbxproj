@@ -10,6 +10,9 @@
 		78040E701EF32C69006D2683 /* FlowCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78040E6F1EF32C69006D2683 /* FlowCard.xib */; };
 		78040E721EF32C86006D2683 /* FlowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E711EF32C86006D2683 /* FlowCard.swift */; };
 		78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E731EF334E3006D2683 /* RepositoriesViewController.swift */; };
+		78040E761EF3425F006D2683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78040E751EF3425F006D2683 /* Assets.xcassets */; };
+		78355A9A1F35199B001AE0AA /* Atributika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78355A991F35199B001AE0AA /* Atributika.framework */; };
+		78355A9B1F35199B001AE0AA /* Atributika.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78355A991F35199B001AE0AA /* Atributika.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		784988BF1ED38CF600A0724E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988BE1ED38CF600A0724E /* AppDelegate.swift */; };
 		784988C11ED38CF600A0724E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988C01ED38CF600A0724E /* ViewController.swift */; };
 		784988C41ED38CF600A0724E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 784988C21ED38CF600A0724E /* Main.storyboard */; };
@@ -132,6 +135,7 @@
 				784989671ED3900600A0724E /* NYTPhotoViewer.framework in Embed Frameworks */,
 				7849895F1ED3900600A0724E /* PINRemoteImage.framework in Embed Frameworks */,
 				784989611ED3900600A0724E /* PINCache.framework in Embed Frameworks */,
+				78355A9B1F35199B001AE0AA /* Atributika.framework in Embed Frameworks */,
 				7849898F1ED3900600A0724E /* LTMorphingLabel.framework in Embed Frameworks */,
 				784989831ED3900600A0724E /* Realm.framework in Embed Frameworks */,
 				78CA779A1ED394FF0089B3C0 /* DropDown.framework in Embed Frameworks */,
@@ -142,6 +146,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		78040E6F1EF32C69006D2683 /* FlowCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowCard.xib; sourceTree = "<group>"; };
+		78040E711EF32C86006D2683 /* FlowCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCard.swift; sourceTree = "<group>"; };
+		78040E731EF334E3006D2683 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		78040E751EF3425F006D2683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78355A991F35199B001AE0AA /* Atributika.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Atributika.framework; path = Carthage/Build/iOS/Atributika.framework; sourceTree = "<group>"; };
 		784988BB1ED38CF600A0724E /* IssueViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		784988BE1ED38CF600A0724E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		784988C01ED38CF600A0724E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +257,7 @@
 				784989661ED3900600A0724E /* NYTPhotoViewer.framework in Frameworks */,
 				7849895E1ED3900600A0724E /* PINRemoteImage.framework in Frameworks */,
 				784989601ED3900600A0724E /* PINCache.framework in Frameworks */,
+				78355A9A1F35199B001AE0AA /* Atributika.framework in Frameworks */,
 				7849898E1ED3900600A0724E /* LTMorphingLabel.framework in Frameworks */,
 				784989821ED3900600A0724E /* Realm.framework in Frameworks */,
 				78CA77991ED394FF0089B3C0 /* DropDown.framework in Frameworks */,
@@ -260,6 +270,7 @@
 		784988B21ED38CF600A0724E = {
 			isa = PBXGroup;
 			children = (
+				78355A991F35199B001AE0AA /* Atributika.framework */,
 				784988BD1ED38CF600A0724E /* IssueViewer */,
 				784988BC1ED38CF600A0724E /* Products */,
 				7849894A1ED3900600A0724E /* AdivantusCore-.framework */,
@@ -313,6 +324,7 @@
 				784988BE1ED38CF600A0724E /* AppDelegate.swift */,
 				784988CA1ED38CF600A0724E /* Info.plist */,
 				784988C71ED38CF600A0724E /* LaunchScreen.storyboard */,
+				78040E751EF3425F006D2683 /* Assets.xcassets */,
 				784988C21ED38CF600A0724E /* Main.storyboard */,
 				784989421ED38FBA00A0724E /* PlacesViewController.swift */,
 				784988C01ED38CF600A0724E /* ViewController.swift */,
@@ -408,6 +420,8 @@
 				784989121ED38EE400A0724E /* LaunchScreenView.swift */,
 				784989111ED38EE400A0724E /* LaunchScreenView.xib */,
 				784989931ED3903C00A0724E /* UIViewFromXIB.swift */,
+				78040E6F1EF32C69006D2683 /* FlowCard.xib */,
+				78040E711EF32C86006D2683 /* FlowCard.swift */,
 			);
 			path = "view-components";
 			sourceTree = "<group>";
@@ -460,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				784989351ED38F6600A0724E /* Repositories.storyboard */,
+				78040E731EF334E3006D2683 /* RepositoriesViewController.swift */,
 			);
 			path = repositories;
 			sourceTree = "<group>";
@@ -531,6 +546,8 @@
 				7849892F1ED38F5600A0724E /* Issues.storyboard in Resources */,
 				784988C41ED38CF600A0724E /* Main.storyboard in Resources */,
 				784989151ED38EE400A0724E /* LaunchScreenView.xib in Resources */,
+				78040E761EF3425F006D2683 /* Assets.xcassets in Resources */,
+				78040E701EF32C69006D2683 /* FlowCard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +561,7 @@
 				7849891A1ED38F1500A0724E /* TableViewCellWithPhoto.swift in Sources */,
 				784988DC1ED38E5C00A0724E /* SequenceType.swift in Sources */,
 				784989031ED38EAA00A0724E /* IssueComment.swift in Sources */,
+				78040E721EF32C86006D2683 /* FlowCard.swift in Sources */,
 				784989201ED38F2800A0724E /* LiveScrollWithSingleSelectionTableViewController.swift in Sources */,
 				784989271ED38F3600A0724E /* RepositorySelectViewController.swift in Sources */,
 				784989091ED38EC200A0724E /* Service.swift in Sources */,
@@ -587,6 +605,7 @@
 				784988ED1ED38E9300A0724E /* HttpStatusCode.swift in Sources */,
 				784989301ED38F5600A0724E /* IssuesTableViewController.swift in Sources */,
 				784988EC1ED38E9300A0724E /* HttpDebugProtocol.swift in Sources */,
+				78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */,
 				7849890C1ED38EC200A0724E /* RepositoryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

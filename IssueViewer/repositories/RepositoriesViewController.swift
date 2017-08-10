@@ -16,7 +16,7 @@ class RepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        flowCard.backgroundColor = UIColor(patternImage: UIImage(named: "kat2")!)
+        flowCard.backgroundColor = UIColor(patternImage: UIImage(named: "katy")!)
         flowCard.userImage.image = UIImage(named: "katy")
 
 

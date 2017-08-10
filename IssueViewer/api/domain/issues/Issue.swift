@@ -54,7 +54,6 @@ public class Issue: BasicEntity {
 
 	override public func mapping(map: Map) {
 		super.mapping(map: map)
-
 		assignee <- map["assignee"]
 		component <- map["component.name"]
 		createdOn <- (map["created_on"], ISO8601ExtendedDateTransform())

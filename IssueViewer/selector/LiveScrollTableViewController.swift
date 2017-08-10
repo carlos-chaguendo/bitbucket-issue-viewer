@@ -158,10 +158,10 @@ public class LiveScrollTableViewController: UITableViewController {
 	}
 
 	func showSearchBar() {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
 		searchController.searchBar.isHidden = false
 		tableView.tableHeaderView = searchController.searchBar
-		//tableView.setContentOffset(CGPoint.zero, animated: false)
-		searchController.searchBar.becomeFirstResponder()
+        searchController.searchBar.becomeFirstResponder()
 	}
 
 	func hideSearchBar() {
