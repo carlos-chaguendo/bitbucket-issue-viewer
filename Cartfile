@@ -1,3 +1,5 @@
-github "ninjaprox/NVActivityIndicatorView"
-github "lexrus/LTMorphingLabel"
-github "tidwall/IoniconsSwift"
+#github "ninjaprox/NVActivityIndicatorView"
+#github "lexrus/LTMorphingLabel"
+#github "tidwall/IoniconsSwift"
+#github "psharanda/Atributika"
+github "cjwirth/RichEditorView"
