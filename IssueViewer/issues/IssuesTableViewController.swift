@@ -10,7 +10,7 @@ import UIKit
 import ToastSwiftFramework
 import NVActivityIndicatorView
 import DropDown
-
+import PromiseKit
 
 
 public class IssuesTableViewController: LiveScrollTableViewController {
@@ -22,6 +22,9 @@ public class IssuesTableViewController: LiveScrollTableViewController {
 	fileprivate var assigne: Assignee?
 	fileprivate var repository: Repository!
 	fileprivate var status = [String]()
+    
+    
+    fileprivate var currentRequest:Promise<SearchResult<Issue>?>?
 
 	override public func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -49,9 +52,8 @@ public class IssuesTableViewController: LiveScrollTableViewController {
      */
 	override public func liveScroll(valuesOf page: Int) {
 
-		IssuesService.issues(of: "mayorgafirm", inRepository: repository, assigneedTo: assigne, whitStatus: status, page: page, refreshFromServer: loadFromServer)
-
-			.then (execute: { (result) -> Void in
+        currentRequest = IssuesService.issues(of: "mayorgafirm", inRepository: repository, assigneedTo: assigne, whitStatus: status, page: page, refreshFromServer: loadFromServer)
+        currentRequest!.then (execute: { (result) -> Void in
 
 				if self.loadFromServer {
 					self.removeAllValues()
@@ -73,6 +75,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
 			}).always (execute: {
 				self.loadInformation = true;
 				self.refreshControl?.endRefreshing()
+                self.currentRequest = nil
 			}).catch (execute: self.presentError)
 	}
 

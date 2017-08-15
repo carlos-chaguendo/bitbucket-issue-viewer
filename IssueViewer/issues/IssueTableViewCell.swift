@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Atributika
 
 public class IssueTableViewCell: UITableViewCell {
 
@@ -22,25 +23,28 @@ public class IssueTableViewCell: UITableViewCell {
 			titleLabel.text = issue?.title
 
 			avatar.setImage(fromURL: issue?.assignee?.avatar)
-
-
-			let description = NSMutableAttributedString()
-
+            
+            let xml = NSMutableString()
+            
+            var stateStyle = Style("state").font(.boldSystemFont(ofSize: 12))
+            
 			// Segun el estado en que se encuentre el issue se fija un color diferente
 			if let state = issue?.state {
-
-				description.append(NSAttributedString(string: state.rawValue, attributes: [
-					NSForegroundColorAttributeName: state.color,
-					NSFontAttributeName: UIFont.boldSystemFont(ofSize: 12)]
-				))
+                xml.append("<state>")
+                xml.append(state.rawValue)
+                xml.append("</state>")
+                stateStyle = stateStyle.foregroundColor(state.color)
 			}
-			// El nombre de la persona aignada
-			description.append(NSAttributedString(string: " • \(issue?.assignee?.displayName ?? "") • "))
+            
+            // El nombre de la persona aignada
+            xml.append(" • ")
+            xml.append(issue?.assignee?.displayName ?? "")
+            xml.append(" • ")
+            
+            // La fecha de ultima modificacion
+            xml.append((issue?.updatedOn ?? issue!.createdOn!).relativeTime)
 
-			// La fecha de ultima modificacion
-			description.append(NSAttributedString(string: (issue?.updatedOn ?? issue!.createdOn!).relativeTime))
-			descriptionLabel.attributedText = description
-
+            descriptionLabel.attributedText = xml.description.style(tags: [stateStyle]).attributedString
 		}
 
 	}
