@@ -22,7 +22,7 @@ public class RepositoryService: Service {
      * __https://api.bitbucket.org/2.0/repositories/
      */
 	public class func repositories(for username: String, page: Int = 1, rowsPerPage: Int = 10) -> Promise<SearchResult<Repository>?> {
-		return Http.request(.get, route: "/repositories/\(username)?page=\(page)&pagelen=\(rowsPerPage)&q=has_issues%3Dtrue")
+		return Http.request(.get, route: "/2.0/repositories/\(username)?page=\(page)&pagelen=\(rowsPerPage)&q=has_issues%3Dtrue")
 	}
 
 }

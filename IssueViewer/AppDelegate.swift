@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ContactsUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITableViewCell.appearance().tintColor = Colors.primary
         
-        
+                
         return true
     }
     

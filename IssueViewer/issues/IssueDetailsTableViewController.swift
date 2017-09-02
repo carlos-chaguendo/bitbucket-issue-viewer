@@ -10,6 +10,7 @@ import UIKit
 import LTMorphingLabel
 import IoniconsSwift
 import Atributika
+import Alamofire
 
 class IssueDetailsTableViewController: UITableViewController {
 
@@ -188,6 +189,7 @@ class IssueDetailsTableViewController: UITableViewController {
 		var position = CGRect.zero
 		position.origin.x = v.bounds.midX
 		position.origin.y = v.bounds.midY + 10
+        selectviewController.delegate = self
 
 
 		let popController = NavigationForPopoverViewController(rootViewController: selectviewController, sourceView: v, sourceRect: position)
@@ -197,4 +199,22 @@ class IssueDetailsTableViewController: UITableViewController {
 
 
 
+}
+
+extension IssueDetailsTableViewController: SingleSelectionTableViewDelegate{
+    func singleSelectionTableView(selectionTable: UITableViewController, dismissWith selected: BasicEntity) {
+        
+        guard let assigne = selected as? Assignee else {return}
+        
+//        
+        IssuesService.assigne(to: assigne, issue: issue!, of: "mayorgafirm", inRepository: issue!.repository!.name!)
+            .then { (edited:IssueEdited?) -> Void in
+            
+                
+                print("Calros \(edited)")
+           
+        }
+//
+    }
+    
 }

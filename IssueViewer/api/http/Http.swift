@@ -14,11 +14,14 @@ import PromiseKit
 public class Http {
 
 	internal static let acceptableStatusCodes: Range<Int> = 200..<300
-	internal static var api: String = "https://carlosChaguendo:casan2.0@api.bitbucket.org/2.0";
+	internal static var api: String = "https://carlosChaguendo:casan2.0@api.bitbucket.org";
 
 	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "Authorization": "Bearer kRyPAsZJNYQLGDYnc1PAgpnbJScpE7y-uQBe3f_PyqJjI7a2ZQk-eJLGhrAFZgqEukGJooP-cNPRWa3CA7w="]
 
-	private static var sharedInstance: SessionManager = {
+    
+
+    
+	public static var sharedInstance: SessionManager = {
 		let configuration: URLSessionConfiguration = URLSessionConfiguration.default;
 
 		var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
@@ -29,28 +32,33 @@ public class Http {
 		configuration.timeoutIntervalForRequest = TimeInterval((2 * 60))
 
 		//Intercept login when error
-		configuration.protocolClasses?.insert(HttpDebugProtocol.self, at: 0)
+		//configuration.protocolClasses?.insert(HttpDebugProtocol.self, at: 0)
 
 		var sessionManager = Alamofire.SessionManager(configuration: configuration)
 		return sessionManager
 	}()
 
 
+    public static func unwrapurl(route:String) -> String{
+        var url = route
+        if !route.characters.starts(with: "http".characters) {
+            url = "\(Http.api)\(route)"
+            
+        }
+        return url
+    }
 
-	public static func request<T: Mappable> (_ rqMethod: HTTPMethod, route: String, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = JSONEncoding.default) -> Promise<T?> {
+    public static func request<T: Mappable> (_ rqMethod: HTTPMethod, route: String, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = JSONEncoding.default,headers:HTTPHeaders? = [:],manager:SessionManager? = Http.sharedInstance) -> Promise<T?> {
 
-
+     
 
 		// verifica rutas externas
-		var url = route
-		if !route.characters.starts(with: "http".characters) {
-			url = "\(Http.api)\(route)"
+		let url = unwrapurl(route: route)
 
-		}
 
 		return Promise<T?> { resolve, reject in
 
-			let localRequest: DataRequest = self.sharedInstance.request(url, method: rqMethod, parameters: parameters, encoding: encoding!)
+            let localRequest: DataRequest = manager!.request(url, method: rqMethod, parameters: parameters, encoding: encoding!,headers:headers)
 
 			localRequest.responseJSON(completionHandler: { (data: DataResponse<Any>) in
 
@@ -80,7 +88,7 @@ public class Http {
 	/**
     * Request as Array
     */
-	public static func request<T : Mappable>(_ rqMethod: HTTPMethod, route: String, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = JSONEncoding.default) -> Promise<[T]?> {
+	public static func request<T : Mappable>(_ rqMethod: HTTPMethod, route: String, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = JSONEncoding.default,headers:HTTPHeaders? = [:]) -> Promise<[T]?> {
 
 		// verifica rutas externas
 		var url = route
@@ -91,7 +99,7 @@ public class Http {
 
 		return Promise<[T]?> { resolve, reject in
 
-			let localRequest: DataRequest = self.sharedInstance.request(url, method: rqMethod, parameters: parameters, encoding: encoding!)
+            let localRequest: DataRequest = self.sharedInstance.request(url, method: rqMethod, parameters: parameters, encoding: encoding!,headers: headers)
 
 			localRequest.responseJSON(completionHandler: { (data: DataResponse<Any>) in
 

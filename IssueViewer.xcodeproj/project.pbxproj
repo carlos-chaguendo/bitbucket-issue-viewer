@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FA101CD1F5A2293009C1F0A /* NSURLRequest+Curl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */; };
+		2FA101CF1F5A2CAC009C1F0A /* IssueEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */; };
 		78040E701EF32C69006D2683 /* FlowCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78040E6F1EF32C69006D2683 /* FlowCard.xib */; };
 		78040E721EF32C86006D2683 /* FlowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E711EF32C86006D2683 /* FlowCard.swift */; };
 		78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E731EF334E3006D2683 /* RepositoriesViewController.swift */; };
@@ -106,6 +108,7 @@
 		784989901ED3900600A0724E /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7849895D1ED3900600A0724E /* NVActivityIndicatorView.framework */; };
 		784989911ED3900600A0724E /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7849895D1ED3900600A0724E /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		784989941ED3903C00A0724E /* UIViewFromXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784989931ED3903C00A0724E /* UIViewFromXIB.swift */; };
+		7864A0131F4E1C74009CBBD1 /* WhatsappViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864A0121F4E1C74009CBBD1 /* WhatsappViewController.swift */; };
 		78CA77991ED394FF0089B3C0 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CA77981ED394FF0089B3C0 /* DropDown.framework */; };
 		78CA779A1ED394FF0089B3C0 /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78CA77981ED394FF0089B3C0 /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -146,6 +149,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
+		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
 		78040E6F1EF32C69006D2683 /* FlowCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowCard.xib; sourceTree = "<group>"; };
 		78040E711EF32C86006D2683 /* FlowCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCard.swift; sourceTree = "<group>"; };
 		78040E731EF334E3006D2683 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +236,7 @@
 		7849895C1ED3900600A0724E /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
 		7849895D1ED3900600A0724E /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		784989931ED3903C00A0724E /* UIViewFromXIB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewFromXIB.swift; sourceTree = "<group>"; };
+		7864A0121F4E1C74009CBBD1 /* WhatsappViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsappViewController.swift; sourceTree = "<group>"; };
 		78CA77981ED394FF0089B3C0 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = Carthage/Build/iOS/DropDown.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -328,6 +334,7 @@
 				784988C21ED38CF600A0724E /* Main.storyboard */,
 				784989421ED38FBA00A0724E /* PlacesViewController.swift */,
 				784988C01ED38CF600A0724E /* ViewController.swift */,
+				7864A0121F4E1C74009CBBD1 /* WhatsappViewController.swift */,
 			);
 			path = IssueViewer;
 			sourceTree = "<group>";
@@ -393,6 +400,7 @@
 		784988E61ED38E8800A0724E /* http */ = {
 			isa = PBXGroup;
 			children = (
+				2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */,
 				784988E71ED38E9300A0724E /* Http.swift */,
 				784988E81ED38E9300A0724E /* HttpDebugProtocol.swift */,
 				784988E91ED38E9300A0724E /* HttpStatusCode.swift */,
@@ -408,6 +416,7 @@
 				784988FF1ED38EAA00A0724E /* IssueComment.swift */,
 				784988FD1ED38EAA00A0724E /* IssueStatus.swift */,
 				784988FC1ED38EAA00A0724E /* IssueUser.swift */,
+				2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */,
 			);
 			path = issues;
 			sourceTree = "<group>";
@@ -558,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FA101CF1F5A2CAC009C1F0A /* IssueEdited.swift in Sources */,
 				7849891A1ED38F1500A0724E /* TableViewCellWithPhoto.swift in Sources */,
 				784988DC1ED38E5C00A0724E /* SequenceType.swift in Sources */,
 				784989031ED38EAA00A0724E /* IssueComment.swift in Sources */,
@@ -586,6 +596,8 @@
 				784989001ED38EAA00A0724E /* IssueUser.swift in Sources */,
 				784989021ED38EAA00A0724E /* Issue.swift in Sources */,
 				784988EB1ED38E9300A0724E /* Http.swift in Sources */,
+				7864A0131F4E1C74009CBBD1 /* WhatsappViewController.swift in Sources */,
+				2FA101CD1F5A2293009C1F0A /* NSURLRequest+Curl.swift in Sources */,
 				784988F81ED38E9B00A0724E /* Assignee.swift in Sources */,
 				7849890B1ED38EC200A0724E /* IssuesService.swift in Sources */,
 				784989431ED38FBA00A0724E /* PlacesViewController.swift in Sources */,

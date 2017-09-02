@@ -23,10 +23,6 @@ public class TeamsService: Service {
 	/**
      * __https://api.bitbucket.org/2.0/repositories/
      */
-//	public class func members(of teamName: String, page: Int = 1, rowsPerPage: Int = 10, refreshFromServer:Bool = false) -> Promise<SearchResult<Assignee>?> {
-//		return Http.request(.get, route: "/teams/\(teamName)/members?page=\(page)&pagelen=\(rowsPerPage)&sort=-display_name")
-//	}
-    
     public class func members(of teamName: String, page: Int = 1, rowsPerPage: Int = 10,refreshFromServer:Bool = false) -> Promise<SearchResult<Assignee>?> {
         
         return Promise<SearchResult<Assignee>?> { (resolve, reject) -> Void in
@@ -39,7 +35,7 @@ public class TeamsService: Service {
                 resolve(result)
             } else {
                 
-                Http.request(.get, route: "/teams/\(teamName)/members?page=\(page)&pagelen=\(rowsPerPage)&sort=-display_name")
+                Http.request(.get, route: "/2.0/teams/\(teamName)/members?page=\(page)&pagelen=\(rowsPerPage)&sort=-display_name")
                     .then(execute: { (teamsFromServer:SearchResult<Assignee>?) -> Void in
                         
                         let result  = SearchResult<Assignee>()
