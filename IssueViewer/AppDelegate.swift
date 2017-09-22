@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().clipsToBounds = false
 
 
-print("Real \(Realm.Configuration.defaultConfiguration)")
+        print("Real \(Realm.Configuration.defaultConfiguration)")
         
 
 

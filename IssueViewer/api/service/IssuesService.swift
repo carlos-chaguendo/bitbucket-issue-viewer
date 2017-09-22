@@ -34,7 +34,7 @@ public class IssuesService: Service {
     /**
      * __https://api.bitbucket.org/2.0/repositories/mayorgafirm/adivantus-iphone/issues__
      */
-    public class func issues(of team: Team, inRepository repository: Repository, assigneedTo assigne: Assignee? = nil, whitStatus: [String] = [], page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<Issue>?> {
+    public class func issues(of team: User, inRepository repository: Repository, assigneedTo assigne: Assignee? = nil, whitStatus: [String] = [], page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<Issue>?> {
         return Promise<SearchResult<Issue>?> { (resolve, reject) -> Void in
 
             // Se actualizan los filtros actuales de busqueda

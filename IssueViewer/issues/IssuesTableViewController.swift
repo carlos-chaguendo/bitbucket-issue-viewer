@@ -25,7 +25,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
     fileprivate var status = [String]()
     fileprivate var currentRequest: Promise<SearchResult<Issue>?>?
 
-    public var team: Team!
+    public var team: User!
 
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -236,6 +236,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
 
             removeAllValues()
             tableView.reloadData()
+
 
             liveScroll(valuesOf: currentPage)
         }

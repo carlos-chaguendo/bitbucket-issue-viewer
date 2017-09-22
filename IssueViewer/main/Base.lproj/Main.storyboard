@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpw-h3-Q5o" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="12" y="84" width="390" height="128"/>
+                                <rect key="frame" x="12" y="104" width="390" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washington" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-AB-SEV">
                                         <rect key="frame" x="16" y="8" width="95" height="21"/>
@@ -108,7 +108,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-aD-Eiy" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="12" y="232" width="390" height="128"/>
+                                <rect key="frame" x="12" y="252" width="390" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sydney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cp5-fj-8zq">
                                         <rect key="frame" x="16" y="8" width="60" height="21"/>
@@ -193,7 +193,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-eF-dvd" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="12" y="380" width="390" height="128"/>
+                                <rect key="frame" x="12" y="400" width="390" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8t-TQ-6iC">
                                         <rect key="frame" x="172" y="49" width="46" height="30"/>
@@ -439,6 +439,7 @@
                                                 <constraint firstItem="je9-pk-Fsy" firstAttribute="top" secondItem="AtQ-mK-EOx" secondAttribute="top" id="MP4-yS-gtO"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yxm-5z-Qsa" secondAttribute="trailing" constant="8" id="PfP-Yu-RPv"/>
                                                 <constraint firstItem="RWL-OG-EB5" firstAttribute="leading" secondItem="yxm-5z-Qsa" secondAttribute="leading" id="SiN-cY-vCh"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="je9-pk-Fsy" secondAttribute="trailing" constant="8" id="gc9-gl-JMN"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RWL-OG-EB5" secondAttribute="trailing" constant="8" id="lWb-1Z-cmx"/>
                                                 <constraint firstItem="je9-pk-Fsy" firstAttribute="leading" secondItem="AtQ-mK-EOx" secondAttribute="trailing" constant="8" id="r3s-dz-hYa"/>
                                                 <constraint firstItem="yxm-5z-Qsa" firstAttribute="top" secondItem="je9-pk-Fsy" secondAttribute="bottom" constant="1" id="ta3-ys-DzP"/>
@@ -475,6 +476,7 @@
                     <tabBarItem key="tabBarItem" title="Teams" id="fdV-zp-ES1" customClass="TeamsTabBarItem" customModule="IssueViewer" customModuleProvider="target"/>
                     <navigationItem key="navigationItem" id="76B-wH-n2d"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="FIi-Tq-aYl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </refreshControl>

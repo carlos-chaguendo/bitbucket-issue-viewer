@@ -14,7 +14,7 @@ import AlamofireObjectMapper
 
 public class TeamMember: BasicEntity {
 
-    public dynamic var team: Team?
+    public dynamic var team: User?
     public dynamic var user: User?
     public dynamic var id: String?
 
@@ -22,18 +22,18 @@ public class TeamMember: BasicEntity {
         return "id"
     }
     
-    public convenience init(user: User, team:Team) {
+    public convenience init(user: User, team:User) {
         self.init()
         self.user = user
         self.team = team
-        id = "\(user.accountId ?? "-1")\(team.uuid ?? "-2")"
+        id = "\(user.accountId ?? "-1")\(team.accountId ?? "-2")"
     }
     
     override public func mapping(map: Map) {
         super.mapping(map: map)
         team <- map["team"]
         user <- map["user"]
-        id = "\(user?.accountId ?? "-1")\(team?.uuid ?? "-2")"
+        id = "\(user?.accountId ?? "-1")\(team?.accountId ?? "-2")"
     }
 
 }

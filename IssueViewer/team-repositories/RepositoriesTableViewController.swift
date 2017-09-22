@@ -10,6 +10,9 @@ import UIKit
 
 class RepositoriesTableViewController: LiveScrollTableViewController {
 
+
+    var user: User!
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
@@ -49,7 +52,7 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
         tableView.rowHeight = 98 //UITableViewAutomaticDimension
@@ -59,19 +62,20 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         refreshControl?.tintColor = UIColor.white
         navigationController?.isToolbarHidden = true
         navigationController?.navigationBar.isHidden = true
-
+        
+        super.viewDidLoad()
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let team = values[safe: indexPath.row] as? Team else {
+
+        guard let team = values[safe: indexPath.row] as? User else {
             self.view.makeToast("Team nor found")
             return
         }
-        
+
         let issues = Storyboard.Issues.viewControllerWithClass(IssuesTableViewController.self)
         issues.team = team
-        
+
         tabBarController?.tabBar.isHidden = true
         navigationController?.pushViewController(issues, animated: true)
     }
@@ -88,31 +92,42 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
     override public func liveScroll(valuesOf page: Int) {
 
 
-        TeamsService.teams(refreshFromServer: loadFromServer)
-            .then(execute: { (result) -> Void in
+        UserService.getUser()
+            .then(execute: { (user) -> Void in
 
-                if self.loadFromServer {
-                    self.removeAllValues()
-                    self.tableView.reloadData()
-                }
+                self.user = user!
 
-                guard let teams = result?.values else {
-                    self.hasMore = false
-                    return
-                }
+                TeamsService.teams(refreshFromServer: self.loadFromServer)
+                    .then(execute: { (result) -> Void in
 
-                if teams.count <= 10 {
-                    self.hasMore = false
-                }
+                        
+                        if self.loadFromServer {
+                            self.removeAllValues()
+                            
+                            self.tableView.reloadData()
+                        }
 
-                self.appendValues(teams)
-                self.loadInformation = true;
-                self.loadFromServer = false
-                self.tableView.reloadData()
+                        guard let teams = result?.values else {
+                            self.hasMore = false
+                            return
+                        }
 
-            }).always (execute: {
-                self.loadInformation = true;
-                self.refreshControl?.endRefreshing()
+                        if teams.count <= 10 {
+                            self.hasMore = false
+                        }
+                        
+          
+                        self.appendValues([self.user])
+                        self.appendValues(teams)
+                        self.loadInformation = true;
+                        self.loadFromServer = false
+                        self.tableView.reloadData()
+
+                    }).always (execute: {
+                        self.loadInformation = true;
+                        self.refreshControl?.endRefreshing()
+                    }).catch (execute: self.presentError)
+
             }).catch (execute: self.presentError)
     }
 
@@ -123,12 +138,14 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
             return UITableViewCell(style: .subtitle, reuseIdentifier: "defaultCell")
         }
 
-        guard let team = values[safe: indexPath.row] as? Team else {
+        cell.selectionStyle = .none
+        cell.backgroundColor = Colors.primary
+
+        guard let team = values[safe: indexPath.row] as? User else {
             return cell
         }
 
-        cell.selectionStyle = .none
-        cell.backgroundColor = Colors.primary
+
         cell.textLabel?.text = team.displayName
         cell.imageView?.setImage(fromURL: team.avatar, animated: true)
         loadExtaInformation(of: team, for: cell)
@@ -138,17 +155,22 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
     /*
      Se encarga de cargar el numero de miembros y de repositorios que tiene cada GRUPO
      */
-    private func loadExtaInformation(of team: Team, for cell: TeamTableViewCell) {
+    private func loadExtaInformation(of team: User, for cell: TeamTableViewCell) {
 
-        if let members = team.numberOfmebers {
-            cell.detailTextLabel?.text = "\(members) Members"
+        // solo los equipos tienen miembros
+        if team.isType(.team) {
+            if let members = team.numberOfmebers {
+                cell.detailTextLabel?.text = "\(members) Members"
+            } else {
+                cell.detailTextLabel?.text = "Members"
+                // Se cargan los Miembros
+                TeamsService.count(membersOf: team)
+                    .then(execute: { (count) -> Void in
+                        cell.detailTextLabel?.text = "\(count) Members"
+                    }).end()
+            }
         } else {
-            cell.detailTextLabel?.text = "Members"
-            // Se cargan los Miembros
-            TeamsService.count(membersOf: team)
-                .then(execute: { (count) -> Void in
-                    cell.detailTextLabel?.text = "\(count) Members"
-                }).end()
+            cell.detailTextLabel?.text = ""
         }
 
         if let repositories = team.numberOfRepositories {

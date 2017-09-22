@@ -13,7 +13,6 @@
 		2F18680A1F72CD3200351C98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1868091F72CD3200351C98 /* SettingsViewController.swift */; };
 		2F18680D1F72CE2600351C98 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */; };
 		2F18680F1F72DAF400351C98 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F18680E1F72DAF400351C98 /* UIImage.swift */; };
-		2F70B17C1F72FF8E0068936F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17B1F72FF8E0068936F /* Team.swift */; };
 		2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */; };
 		2FA101CD1F5A2293009C1F0A /* NSURLRequest+Curl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */; };
 		2FA101CF1F5A2CAC009C1F0A /* IssueEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */; };
@@ -166,7 +165,6 @@
 		2F1868091F72CD3200351C98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		2F18680E1F72DAF400351C98 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		2F70B17B1F72FF8E0068936F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 		2FF06F9A1F74604F005F07DF /* team */ = {
 			isa = PBXGroup;
 			children = (
-				2F70B17B1F72FF8E0068936F /* Team.swift */,
 				2FF06F9B1F746070005F07DF /* TeamMember.swift */,
 				2FF06F9D1F746CB8005F07DF /* TeamRepository.swift */,
 				2FF06FA11F748909005F07DF /* TeamIssuesFilters.swift */,
@@ -663,7 +660,6 @@
 				784988F71ED38E9B00A0724E /* SessionData.swift in Sources */,
 				784989211ED38F2800A0724E /* LiveScrollWithMultipleSelectionTableViewController.swift in Sources */,
 				784989311ED38F5600A0724E /* IssueTableViewCell.swift in Sources */,
-				2F70B17C1F72FF8E0068936F /* Team.swift in Sources */,
 				784988F61ED38E9B00A0724E /* User.swift in Sources */,
 				784989321ED38F5600A0724E /* IssueDetailsTableViewController.swift in Sources */,
 				784989411ED38F9500A0724E /* LiveScrollTableViewController.swift in Sources */,

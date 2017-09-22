@@ -12,7 +12,7 @@ import PromiseKit
 public class RepositorySelectViewController: LiveScrollWithSingleSelectionTableViewController {
 
 	public var repository: Repository?
-    public var team: Team!
+    public var team: User!
 
 
 

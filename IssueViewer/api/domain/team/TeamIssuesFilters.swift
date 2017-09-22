@@ -15,7 +15,7 @@ import AlamofireObjectMapper
 
  public class TeamIssuesFilters: BasicEntity {
     
-    public dynamic var team: Team?
+    public dynamic var team: User?
     public dynamic var repository: Repository!
     public dynamic var assigne: Assignee?
     public dynamic var status: String?
@@ -26,9 +26,9 @@ import AlamofireObjectMapper
         return "id"
     }
     
-    public convenience init(team:Team, repository:Repository) {
+    public convenience init(team:User, repository:Repository) {
         self.init()
-        id = team.uuid
+        id = team.accountId
         self.team = team
         self.repository = repository
     }

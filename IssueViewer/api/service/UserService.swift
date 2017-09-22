@@ -22,13 +22,13 @@ public class UserService: Service {
 
 
 			let sessionData = realm.objects(SessionData.self)
-			if sessionData.count > 0 {
+			if sessionData.count > 0 &&  sessionData[0].user != nil {
 				resolve(User(value: sessionData[0].user!))
 				return
 			}
 
 
-			Http.request(.get, route: "/user").then { (user: User?) -> Void in
+			Http.request(.get, route: "/2.0/user").then { (user: User?) -> Void in
 
 				guard let user = user else {
 					preconditionFailure("No hay session")
