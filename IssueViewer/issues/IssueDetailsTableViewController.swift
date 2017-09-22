@@ -62,7 +62,7 @@ class IssueDetailsTableViewController: UITableViewController {
 			preconditionFailure()
 		}
 
-		navigationItem.title = "#\(issue.id)"
+		self.title = "#\(issue.id)"
 
 		titleLabel.text = issue.title
 //        https://d301sr5gafysq2.cloudfront.net/60b56f726b78/img/default_avatar/user_blue.svg

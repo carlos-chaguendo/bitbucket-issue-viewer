@@ -8,8 +8,9 @@
 
 import UIKit
 import Atributika
+import SwipeCellKit
 
-public class IssueTableViewCell: UITableViewCell {
+public class IssueTableViewCell: SwipeTableViewCell {
 
 	@IBOutlet weak private var idLabel: UILabel!
 	@IBOutlet weak private var titleLabel: UILabel!

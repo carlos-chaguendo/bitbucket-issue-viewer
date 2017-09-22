@@ -30,4 +30,5 @@ public class SearchResult<T:BasicEntity>: Mappable {
 		pagelen <- map["pagelen"]
 	}
 
+
 }

@@ -34,9 +34,11 @@ public class IssuesService: Service {
     /**
      * __https://api.bitbucket.org/2.0/repositories/mayorgafirm/adivantus-iphone/issues__
      */
-    public class func issues(of: String, inRepository repository: Repository, assigneedTo assigne: Assignee? = nil, whitStatus: [String] = [], page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<Issue>?> {
+    public class func issues(of team: Team, inRepository repository: Repository, assigneedTo assigne: Assignee? = nil, whitStatus: [String] = [], page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<Issue>?> {
         return Promise<SearchResult<Issue>?> { (resolve, reject) -> Void in
 
+            // Se actualizan los filtros actuales de busqueda
+            TeamsService.update(filtersOf: team, inReporsitory: repository, assigneTo: assigne, whitStatus: whitStatus)
 
             /**
              Cuando se recarga del servidor se debe eliminar todos los registros para 
@@ -60,7 +62,7 @@ public class IssuesService: Service {
                 return
             }
 
-            var route = "/2.0/repositories/\(of)/\(repository.slug!)/issues?page=\(page)&sort=-updated_on"
+            var route = "/2.0/repositories/\(team.username!)/\(repository.slug!)/issues?page=\(page)&sort=-updated_on"
             var filter: [String: String] = [:]
 
             if assigne != nil {
@@ -80,17 +82,12 @@ public class IssuesService: Service {
             route = "\(route)&q=\(q)"
 
             let origin: Promise<SearchResult<Issue>?> = Http.request(.get, route: route)
-
-
             origin.then(execute: { (result) -> Void in
                 resolve(result)
 
                 if let issues = result?.values {
 
-
                     try! realm.write({
-
-
                         issues
                             .map({ Issue(value: $0) })
                             .forEach({ (issue) in

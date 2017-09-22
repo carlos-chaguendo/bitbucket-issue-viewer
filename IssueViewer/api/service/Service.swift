@@ -83,8 +83,8 @@ public class Service {
 			                                          })
 		}
 
-		let realm = try! Realm(configuration: configuration!)
-
+//        let realm = try! Realm(configuration: configuration!)
+        let realm = try! Realm()
 		return realm
 	}()
 

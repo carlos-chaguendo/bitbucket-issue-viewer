@@ -32,7 +32,7 @@ public class Http {
 		configuration.timeoutIntervalForRequest = TimeInterval((2 * 60))
 
 		//Intercept login when error
-		//configuration.protocolClasses?.insert(HttpDebugProtocol.self, at: 0)
+        configuration.protocolClasses?.insert(HttpDebugProtocol.self, at: 0)
 
 		var sessionManager = Alamofire.SessionManager(configuration: configuration)
 		return sessionManager

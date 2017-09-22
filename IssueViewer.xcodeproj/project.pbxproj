@@ -7,8 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1868041F72BB0D00351C98 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1868031F72BB0D00351C98 /* SwipeCellKit.framework */; };
+		2F1868051F72BB0D00351C98 /* SwipeCellKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1868031F72BB0D00351C98 /* SwipeCellKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F1868071F72C07600351C98 /* PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1868061F72C07600351C98 /* PromiseKit.swift */; };
+		2F18680A1F72CD3200351C98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1868091F72CD3200351C98 /* SettingsViewController.swift */; };
+		2F18680D1F72CE2600351C98 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */; };
+		2F18680F1F72DAF400351C98 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F18680E1F72DAF400351C98 /* UIImage.swift */; };
+		2F70B17C1F72FF8E0068936F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17B1F72FF8E0068936F /* Team.swift */; };
+		2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */; };
 		2FA101CD1F5A2293009C1F0A /* NSURLRequest+Curl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */; };
 		2FA101CF1F5A2CAC009C1F0A /* IssueEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */; };
+		2FF06F971F734366005F07DF /* HairPowder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F961F734366005F07DF /* HairPowder.swift */; };
+		2FF06F991F744ABB005F07DF /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F981F744ABB005F07DF /* TeamTableViewCell.swift */; };
+		2FF06F9C1F746070005F07DF /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F9B1F746070005F07DF /* TeamMember.swift */; };
+		2FF06F9E1F746CB8005F07DF /* TeamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F9D1F746CB8005F07DF /* TeamRepository.swift */; };
+		2FF06FA01F7481B5005F07DF /* LiveScrollError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F9F1F7481B5005F07DF /* LiveScrollError.swift */; };
+		2FF06FA21F748909005F07DF /* TeamIssuesFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06FA11F748909005F07DF /* TeamIssuesFilters.swift */; };
 		78040E701EF32C69006D2683 /* FlowCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78040E6F1EF32C69006D2683 /* FlowCard.xib */; };
 		78040E721EF32C86006D2683 /* FlowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E711EF32C86006D2683 /* FlowCard.swift */; };
 		78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E731EF334E3006D2683 /* RepositoriesViewController.swift */; };
@@ -79,8 +93,6 @@
 		784989671ED3900600A0724E /* NYTPhotoViewer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 784989481ED3900600A0724E /* NYTPhotoViewer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		784989681ED3900600A0724E /* NYTPhotoViewerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784989491ED3900600A0724E /* NYTPhotoViewerCore.framework */; };
 		784989691ED3900600A0724E /* NYTPhotoViewerCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 784989491ED3900600A0724E /* NYTPhotoViewerCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7849896C1ED3900600A0724E /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7849894B1ED3900600A0724E /* BRYXBanner.framework */; };
-		7849896D1ED3900600A0724E /* BRYXBanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7849894B1ED3900600A0724E /* BRYXBanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		784989701ED3900600A0724E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7849894D1ED3900600A0724E /* Alamofire.framework */; };
 		784989711ED3900600A0724E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7849894D1ED3900600A0724E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		784989741ED3900600A0724E /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7849894F1ED3900600A0724E /* Material.framework */; };
@@ -132,7 +144,7 @@
 				7849897D1ED3900600A0724E /* PromiseKit.framework in Embed Frameworks */,
 				784989751ED3900600A0724E /* Material.framework in Embed Frameworks */,
 				784989771ED3900600A0724E /* ObjectMapper.framework in Embed Frameworks */,
-				7849896D1ED3900600A0724E /* BRYXBanner.framework in Embed Frameworks */,
+				2F1868051F72BB0D00351C98 /* SwipeCellKit.framework in Embed Frameworks */,
 				7849897F1ED3900600A0724E /* PMKAlamofire.framework in Embed Frameworks */,
 				784989651ED3900600A0724E /* FLAnimatedImage.framework in Embed Frameworks */,
 				784989671ED3900600A0724E /* NYTPhotoViewer.framework in Embed Frameworks */,
@@ -149,8 +161,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F1868031F72BB0D00351C98 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
+		2F1868061F72C07600351C98 /* PromiseKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKit.swift; sourceTree = "<group>"; };
+		2F1868091F72CD3200351C98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		2F18680E1F72DAF400351C98 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		2F70B17B1F72FF8E0068936F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
+		2FF06F961F734366005F07DF /* HairPowder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairPowder.swift; sourceTree = "<group>"; };
+		2FF06F981F744ABB005F07DF /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
+		2FF06F9B1F746070005F07DF /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		2FF06F9D1F746CB8005F07DF /* TeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
+		2FF06F9F1F7481B5005F07DF /* LiveScrollError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScrollError.swift; sourceTree = "<group>"; };
+		2FF06FA11F748909005F07DF /* TeamIssuesFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamIssuesFilters.swift; sourceTree = "<group>"; };
 		78040E6F1EF32C69006D2683 /* FlowCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowCard.xib; sourceTree = "<group>"; };
 		78040E711EF32C86006D2683 /* FlowCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCard.swift; sourceTree = "<group>"; };
 		78040E731EF334E3006D2683 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
@@ -257,7 +282,7 @@
 				7849897C1ED3900600A0724E /* PromiseKit.framework in Frameworks */,
 				784989741ED3900600A0724E /* Material.framework in Frameworks */,
 				784989761ED3900600A0724E /* ObjectMapper.framework in Frameworks */,
-				7849896C1ED3900600A0724E /* BRYXBanner.framework in Frameworks */,
+				2F1868041F72BB0D00351C98 /* SwipeCellKit.framework in Frameworks */,
 				7849897E1ED3900600A0724E /* PMKAlamofire.framework in Frameworks */,
 				784989641ED3900600A0724E /* FLAnimatedImage.framework in Frameworks */,
 				784989661ED3900600A0724E /* NYTPhotoViewer.framework in Frameworks */,
@@ -273,9 +298,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F1868081F72CD1F00351C98 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				2F1868091F72CD3200351C98 /* SettingsViewController.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		2F18680B1F72CE0A00351C98 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				784988C21ED38CF600A0724E /* Main.storyboard */,
+				2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		2F70B17D1F7302D40068936F /* team-repositories */ = {
+			isa = PBXGroup;
+			children = (
+				2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */,
+				2FF06F981F744ABB005F07DF /* TeamTableViewCell.swift */,
+			);
+			path = "team-repositories";
+			sourceTree = "<group>";
+		};
+		2FF06F9A1F74604F005F07DF /* team */ = {
+			isa = PBXGroup;
+			children = (
+				2F70B17B1F72FF8E0068936F /* Team.swift */,
+				2FF06F9B1F746070005F07DF /* TeamMember.swift */,
+				2FF06F9D1F746CB8005F07DF /* TeamRepository.swift */,
+				2FF06FA11F748909005F07DF /* TeamIssuesFilters.swift */,
+			);
+			path = team;
+			sourceTree = "<group>";
+		};
 		784988B21ED38CF600A0724E = {
 			isa = PBXGroup;
 			children = (
+				2F1868031F72BB0D00351C98 /* SwipeCellKit.framework */,
 				78355A991F35199B001AE0AA /* Atributika.framework */,
 				784988BD1ED38CF600A0724E /* IssueViewer */,
 				784988BC1ED38CF600A0724E /* Products */,
@@ -319,19 +382,21 @@
 		784988BD1ED38CF600A0724E /* IssueViewer */ = {
 			isa = PBXGroup;
 			children = (
+				2F18680B1F72CE0A00351C98 /* main */,
+				2F1868081F72CD1F00351C98 /* settings */,
 				784988E31ED38E7000A0724E /* api */,
 				784989171ED38F0D00A0724E /* cell */,
 				784988D21ED38D2400A0724E /* extensions */,
 				784988D01ED38D0E00A0724E /* ionicons */,
 				7849892A1ED38F4E00A0724E /* issues */,
 				784989331ED38F5D00A0724E /* repositories */,
+				2F70B17D1F7302D40068936F /* team-repositories */,
 				7849891C1ED38F2100A0724E /* selector */,
 				7849890E1ED38ED800A0724E /* view-components */,
 				784988BE1ED38CF600A0724E /* AppDelegate.swift */,
 				784988CA1ED38CF600A0724E /* Info.plist */,
 				784988C71ED38CF600A0724E /* LaunchScreen.storyboard */,
 				78040E751EF3425F006D2683 /* Assets.xcassets */,
-				784988C21ED38CF600A0724E /* Main.storyboard */,
 				784989421ED38FBA00A0724E /* PlacesViewController.swift */,
 				784988C01ED38CF600A0724E /* ViewController.swift */,
 				7864A0121F4E1C74009CBBD1 /* WhatsappViewController.swift */,
@@ -357,6 +422,9 @@
 				784988D71ED38E5C00A0724E /* UIImageView.swift */,
 				784988D91ED38E5C00A0724E /* UITableView.swift */,
 				784988D41ED38E5C00A0724E /* UIViewController+Apparence.swift */,
+				2F1868061F72C07600351C98 /* PromiseKit.swift */,
+				2F18680E1F72DAF400351C98 /* UIImage.swift */,
+				2FF06F961F734366005F07DF /* HairPowder.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -386,6 +454,7 @@
 		784988E51ED38E8200A0724E /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				2FF06F9A1F74604F005F07DF /* team */,
 				784988FB1ED38E9E00A0724E /* issues */,
 				784988F21ED38E9B00A0724E /* Assignee.swift */,
 				784988EF1ED38E9B00A0724E /* BasicEntity.swift */,
@@ -454,6 +523,7 @@
 				7849893E1ED38F8B00A0724E /* NavigationForPopoverViewController.swift */,
 				7849893C1ED38F8400A0724E /* PopoverBackgroundView.swift */,
 				7849891F1ED38F2800A0724E /* SelectableTableView.swift */,
+				2FF06F9F1F7481B5005F07DF /* LiveScrollError.swift */,
 			);
 			path = selector;
 			sourceTree = "<group>";
@@ -471,10 +541,10 @@
 		7849892A1ED38F4E00A0724E /* issues */ = {
 			isa = PBXGroup;
 			children = (
-				7849892E1ED38F5600A0724E /* IssueDetailsTableViewController.swift */,
-				7849892D1ED38F5600A0724E /* IssueTableViewCell.swift */,
-				7849892B1ED38F5600A0724E /* Issues.storyboard */,
 				7849892C1ED38F5600A0724E /* IssuesTableViewController.swift */,
+				7849892D1ED38F5600A0724E /* IssueTableViewCell.swift */,
+				7849892E1ED38F5600A0724E /* IssueDetailsTableViewController.swift */,
+				7849892B1ED38F5600A0724E /* Issues.storyboard */,
 			);
 			path = issues;
 			sourceTree = "<group>";
@@ -571,25 +641,33 @@
 				7849891A1ED38F1500A0724E /* TableViewCellWithPhoto.swift in Sources */,
 				784988DC1ED38E5C00A0724E /* SequenceType.swift in Sources */,
 				784989031ED38EAA00A0724E /* IssueComment.swift in Sources */,
+				2FF06F9C1F746070005F07DF /* TeamMember.swift in Sources */,
 				78040E721EF32C86006D2683 /* FlowCard.swift in Sources */,
+				2FF06F9E1F746CB8005F07DF /* TeamRepository.swift in Sources */,
 				784989201ED38F2800A0724E /* LiveScrollWithSingleSelectionTableViewController.swift in Sources */,
 				784989271ED38F3600A0724E /* RepositorySelectViewController.swift in Sources */,
 				784989091ED38EC200A0724E /* Service.swift in Sources */,
 				784988F51ED38E9B00A0724E /* BasicEntity.swift in Sources */,
+				2FF06FA01F7481B5005F07DF /* LiveScrollError.swift in Sources */,
 				784989131ED38EE400A0724E /* CardView.swift in Sources */,
 				784989141ED38EE400A0724E /* Colors.swift in Sources */,
 				784989941ED3903C00A0724E /* UIViewFromXIB.swift in Sources */,
+				2FF06FA21F748909005F07DF /* TeamIssuesFilters.swift in Sources */,
 				784988DD1ED38E5C00A0724E /* Date.swift in Sources */,
 				784989161ED38EE400A0724E /* LaunchScreenView.swift in Sources */,
 				784988DE1ED38E5C00A0724E /* UIImageView.swift in Sources */,
 				7849890A1ED38EC200A0724E /* UserService.swift in Sources */,
+				2FF06F991F744ABB005F07DF /* TeamTableViewCell.swift in Sources */,
 				7849890D1ED38EC200A0724E /* TeamsService.swift in Sources */,
+				2F1868071F72C07600351C98 /* PromiseKit.swift in Sources */,
 				784988F71ED38E9B00A0724E /* SessionData.swift in Sources */,
 				784989211ED38F2800A0724E /* LiveScrollWithMultipleSelectionTableViewController.swift in Sources */,
 				784989311ED38F5600A0724E /* IssueTableViewCell.swift in Sources */,
+				2F70B17C1F72FF8E0068936F /* Team.swift in Sources */,
 				784988F61ED38E9B00A0724E /* User.swift in Sources */,
 				784989321ED38F5600A0724E /* IssueDetailsTableViewController.swift in Sources */,
 				784989411ED38F9500A0724E /* LiveScrollTableViewController.swift in Sources */,
+				2F18680D1F72CE2600351C98 /* HomeTabBarController.swift in Sources */,
 				784989281ED38F3600A0724E /* UserSelectViewController.swift in Sources */,
 				784988DB1ED38E5C00A0724E /* UIViewController+Apparence.swift in Sources */,
 				7849893D1ED38F8400A0724E /* PopoverBackgroundView.swift in Sources */,
@@ -601,11 +679,14 @@
 				784988F81ED38E9B00A0724E /* Assignee.swift in Sources */,
 				7849890B1ED38EC200A0724E /* IssuesService.swift in Sources */,
 				784989431ED38FBA00A0724E /* PlacesViewController.swift in Sources */,
+				2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */,
 				784988DF1ED38E5C00A0724E /* Storyboard.swift in Sources */,
 				784989221ED38F2800A0724E /* SelectableTableView.swift in Sources */,
 				784988E01ED38E5C00A0724E /* UITableView.swift in Sources */,
 				784988F91ED38E9B00A0724E /* Repository.swift in Sources */,
 				784988C11ED38CF600A0724E /* ViewController.swift in Sources */,
+				2FF06F971F734366005F07DF /* HairPowder.swift in Sources */,
+				2F18680F1F72DAF400351C98 /* UIImage.swift in Sources */,
 				784988EE1ED38E9300A0724E /* SearchResult.swift in Sources */,
 				784989291ED38F3600A0724E /* StatusSelectViewController.swift in Sources */,
 				784988DA1ED38E5C00A0724E /* UIColor.swift in Sources */,
@@ -619,6 +700,7 @@
 				784988EC1ED38E9300A0724E /* HttpDebugProtocol.swift in Sources */,
 				78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */,
 				7849890C1ED38EC200A0724E /* RepositoryService.swift in Sources */,
+				2F18680A1F72CD3200351C98 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

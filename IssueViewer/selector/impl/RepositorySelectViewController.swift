@@ -12,6 +12,7 @@ import PromiseKit
 public class RepositorySelectViewController: LiveScrollWithSingleSelectionTableViewController {
 
 	public var repository: Repository?
+    public var team: Team!
 
 
 
@@ -23,7 +24,7 @@ public class RepositorySelectViewController: LiveScrollWithSingleSelectionTableV
 
 	public override func liveScroll(valuesOf page: Int) {
 
-		RepositoryService.repositories(for: "mayorgafirm", page: page)
+		RepositoryService.repositories(for: team!.username!, page: page)
 			.then(execute: { (result: SearchResult<Repository>?) -> Void in
 				guard let repositories = result?.values else {
 					self.hasMore = false
