@@ -50,8 +50,8 @@ public class IssuesService: Service {
                 })
             }
 
-
-            let localdata = realm.objects(Issue.self).filter("page = %@", page).sorted(byKeyPath: "id", ascending: false)
+            let predicate = NSPredicate(format: " page = %i AND repository.uuid = %@", page, repository.uuid!)
+            let localdata = realm.objects(Issue.self).filter(predicate).sorted(byKeyPath: "id", ascending: false)
 
             //Si existen datos almacenados localmente no se requiere ir hast el servidor
             if(refreshFromServer == false && localdata.count > 0) {

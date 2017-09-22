@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpw-h3-Q5o" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="12" y="104" width="390" height="128"/>
+                                <rect key="frame" x="12" y="84" width="390" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washington" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-AB-SEV">
                                         <rect key="frame" x="16" y="8" width="95" height="21"/>
@@ -108,7 +108,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-aD-Eiy" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="12" y="252" width="390" height="128"/>
+                                <rect key="frame" x="12" y="232" width="390" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sydney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cp5-fj-8zq">
                                         <rect key="frame" x="16" y="8" width="60" height="21"/>
@@ -193,7 +193,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-eF-dvd" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="12" y="400" width="390" height="128"/>
+                                <rect key="frame" x="12" y="380" width="390" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8t-TQ-6iC">
                                         <rect key="frame" x="172" y="49" width="46" height="30"/>
@@ -338,25 +338,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yM3-Od-vz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1299" y="673"/>
-        </scene>
-        <!--Issues-->
-        <scene sceneID="EK8-rd-H6e">
-            <objects>
-                <viewController id="Evm-1w-Jfh" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qrt-3y-1J7"/>
-                        <viewControllerLayoutGuide type="bottom" id="slV-Rg-4ue"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hcm-Bw-ZRF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Issues" id="KsQ-z1-oaK" customClass="IssuesTabBarItem" customModule="IssueViewer" customModuleProvider="target"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JCo-py-eQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="284" y="2656"/>
         </scene>
         <!--Settings-->
         <scene sceneID="KYi-pz-oJV">
@@ -518,7 +499,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Ifw-t8-cki" kind="relationship" relationship="viewControllers" id="P0E-C7-LO4"/>
-                        <segue destination="Evm-1w-Jfh" kind="relationship" relationship="viewControllers" id="oB0-dE-R7k"/>
                         <segue destination="yBy-iP-qQh" kind="relationship" relationship="viewControllers" id="b7f-bO-aFJ"/>
                         <segue destination="KEx-HH-kYj" kind="relationship" relationship="viewControllers" id="FYu-eL-ZtV"/>
                     </connections>
