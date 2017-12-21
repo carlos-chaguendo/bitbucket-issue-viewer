@@ -14,12 +14,11 @@ import PromiseKit
 public class Http {
 
 	internal static let acceptableStatusCodes: Range<Int> = 200..<300
-	internal static var api: String = "https://carlosChaguendo:casan2.0@api.bitbucket.org";
+	internal static var api: String = "https://api.bitbucket.org";
 
-	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "Authorization": "Bearer kRyPAsZJNYQLGDYnc1PAgpnbJScpE7y-uQBe3f_PyqJjI7a2ZQk-eJLGhrAFZgqEukGJooP-cNPRWa3CA7w="]
+	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "Authorization": "Basic Y2FybG9zQ2hhZ3VlbmRvOmNhc2FuMi4w"]
 
     
-
     
 	public static var sharedInstance: SessionManager = {
 		let configuration: URLSessionConfiguration = URLSessionConfiguration.default;
