@@ -9,6 +9,11 @@
 import UIKit
 
 extension UITableView {
+    
+    func registerWithClass(_ cell: UITableViewCell.Type) {
+        let className = String(describing: cell)
+        register(cell, forCellReuseIdentifier: className)
+    }
 
 	func registerNibWithClass(_ cell: UITableViewCell.Type) {
 		let className = String(describing: cell)
@@ -19,5 +24,22 @@ extension UITableView {
 		let className = String(describing: cell)
 		return dequeueReusableCell(withIdentifier: className) as? T
 	}
+    
+    /// Los headers de las tablas no son dinamicos
+    /// se necesita llamar a este metodo en `override func viewDidLayoutSubviews() {` o cuando se necesite
+    func sizeHeaderToFit() {
+        if let headerView = self.tableHeaderView {
+            
+            let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var headerFrame = headerView.frame
+            
+            //Comparison necessary to avoid infinite loop
+            if height != headerFrame.size.height {
+                headerFrame.size.height = height
+                headerView.frame = headerFrame
+                self.tableHeaderView = headerView
+            }
+        }
+    }
 
 }

@@ -39,7 +39,7 @@ public class IssueTableViewCell: SwipeTableViewCell {
             
             // El nombre de la persona aignada
             xml.append(" • ")
-            xml.append(issue?.assignee?.displayName ?? "")
+            xml.append((issue?.assignee?.displayName).orEmpty)
             xml.append(" • ")
             
             // La fecha de ultima modificacion
@@ -49,14 +49,4 @@ public class IssueTableViewCell: SwipeTableViewCell {
 		}
 
 	}
-
-
-	override public func awakeFromNib() {
-		super.awakeFromNib()
-	}
-
-	override public func setSelected(_ selected: Bool, animated: Bool) {
-		super.setSelected(selected, animated: animated)
-	}
-
 }

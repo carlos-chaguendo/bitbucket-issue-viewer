@@ -72,9 +72,9 @@ public class Service {
 	public static var realm: Realm = {
 
 		if configuration == nil {
-			configuration = Realm.Configuration(encryptionKey: Service.getKey(), schemaVersion: 1,
+			configuration = Realm.Configuration(encryptionKey: Service.getKey(), schemaVersion: 2,
 			                                          migrationBlock: { migration, oldSchemaVersion in
-				                                          if (oldSchemaVersion < 1) {
+				                                          if (oldSchemaVersion < 2) {
 					                                          print("old Schema = \(oldSchemaVersion)")
 					                                          // Nothing to do!
 					                                          // Realm will automatically detect new properties and removed properties

@@ -44,7 +44,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
             print("Llenando filtros actuales")
             // filtros actuales
             self.repository = filters.repository
-            self.status = (filters.status ?? "").components(separatedBy: ",")
+            self.status = (filters.status.orEmpty).components(separatedBy: ",")
             self.assigne = filters.assigne
              self.btnRepository.title = self.repository.slug!
         }
@@ -318,8 +318,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
                 assigne.username = "pruebasMayorgafirm"
                 IssuesService.assigne(to: assigne, issue: issue, of: "mayorgafirm", inRepository: issue.repository!.name!)
                     .then { (edited: IssueEdited?) -> Void in
-
-                        self.view.makeToast("Enviado a q \(issue.id)")
+                        UIApplication.shared.keyWindow?.makeToast("Enviado a q \(issue.id)")
                     }.end()
             }
             sendQAAction.backgroundColor = Colors.primary

@@ -34,6 +34,7 @@ public class User: BasicEntity {
     
     public dynamic var numberOfmebers: String?
     public dynamic var numberOfRepositories: String?
+    
 
     public override static func primaryKey() -> String? {
         return "username"

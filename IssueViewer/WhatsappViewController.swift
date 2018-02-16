@@ -37,7 +37,7 @@ class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactVi
         let carrier = networkInfo.subscriberCellularProvider
         
         if let code = carrier?.isoCountryCode?.uppercased() {
-            codeLabel.text = "+\(phoneCodes[code] ?? "")"
+            codeLabel.text = "+\(phoneCodes[code].orEmpty)"
         }else{
             codeLabel.text = "+"
         }
@@ -74,7 +74,7 @@ class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactVi
         
         
         if phoneText.text != nil && phoneText.text?.isEmpty == false {
-            let url = URL(string: "whatsapp://send?phone=\(codeLabel.text ?? "")\(phoneText.text ?? "")")!
+            let url = URL(string: "whatsapp://send?phone=\(codeLabel.text.orEmpty)\(phoneText.text.orEmpty)")!
             
             
             if UIApplication.shared.canOpenURL(url) == false{

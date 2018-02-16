@@ -18,7 +18,6 @@ public class SimpleUser: BasicEntity {
 	public dynamic var displayName: String?
 	public dynamic var uuid: String?
 
-
 	public override static func primaryKey() -> String? {
 		return "uuid"
 	}

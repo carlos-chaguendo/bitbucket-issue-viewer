@@ -16,7 +16,6 @@ class IssueDetailsTableViewController: UITableViewController {
 
 
 	@IBOutlet weak var headerView: UIView!
-//
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var avatarImage: UIImageView!
 	@IBOutlet weak var reporterLabel: UILabel!
@@ -29,6 +28,10 @@ class IssueDetailsTableViewController: UITableViewController {
 
 	var issue: Issue?
 	var comments: [IssueComment] = []
+    let dateFormater = DateFormatter()
+    
+    /// Cuando se hace pull down se evita que se coloque el color de fondo del tableView
+    fileprivate let topTableLayer = CALayer()
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -43,20 +46,20 @@ class IssueDetailsTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+        dateFormater.dateFormat = "dd MMMM YYYY hh:mm"
 
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 250
 
 		tableView.sectionHeaderHeight = UITableViewAutomaticDimension
 		tableView.estimatedSectionHeaderHeight = 30;
-
+        
+        topTableLayer.backgroundColor = UIColor.white.cgColor
+        tableView.layer.insertSublayer(topTableLayer, at: 0)
 
 		navigationController?.hidesBarsOnSwipe = true
-
-
-
+        
 		assigneeLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showUserSelector(_:))))
-
 
 		guard let issue = self.issue else {
 			preconditionFailure()
@@ -65,13 +68,12 @@ class IssueDetailsTableViewController: UITableViewController {
 		self.title = "#\(issue.id)"
 
 		titleLabel.text = issue.title
-//        https://d301sr5gafysq2.cloudfront.net/60b56f726b78/img/default_avatar/user_blue.svg
 		avatarImage.setImage(fromURL: issue.reporter?.avatar)
 
 
 
 		reporterLabel.text = issue.reporter?.displayName
-		reporterDetailLabel.text = "Created at \(issue.createdOn?.relativeTime ?? "")"
+		reporterDetailLabel.text = "Created at \((issue.createdOn?.relativeTime).orEmpty)"
         
         let em = Style("em").font(.boldSystemFont(ofSize: 17)).foregroundColor(Colors.primary)
         let strong = Style("strong").font(.boldSystemFont(ofSize: 17)).foregroundColor(Colors.primary)
@@ -82,17 +84,15 @@ class IssueDetailsTableViewController: UITableViewController {
         
         
         
-        let str = "\((issue.html ?? "Hello <b>World</b>!!!")) <br></br><final>Final del contenido</final> ".style(tags: [em,strong,p,final])
-            //.styleAll(Style.font(.systemFont(ofSize: 20)))
+        let str = "\((issue.html.or(else: "N/A"))) \n\n <final>Final del contenido</final> \n\n\n\n".style(tags: [em,strong,p,final])
             .styleAll(Style.font(.systemFont(ofSize: 14)))
             .attributedString
         
-        print("HTML \n\n \(issue.html ?? "")")
-         print("HTML \n\n \(issue.raw ?? "")")
+        print("HTML \n\n \(issue.html.orEmpty)")
+         print("HTML \n\n \(issue.raw.orEmpty)")
         
 		issueDescriptionLabel.attributedText = str
-
-		updateTableViewHeaderViewHeight()
+        
 
 		responsibleAvatar.setImage(fromURL: issue.assignee?.avatar)
 		assigneeLabel.text = issue.assignee?.displayName
@@ -117,11 +117,12 @@ class IssueDetailsTableViewController: UITableViewController {
 			.then { (result) -> Void in
 
 				guard let values = result?.values else {
+                    self.tableView.reloadData()
 					return
 				}
 
 				values .forEach({ self.comments.append($0) })
-
+                self.comments = self.comments.sorted(by: { $0.createdOn! > $1.createdOn! })
 				self.tableView.reloadData()
 
 			}.always {
@@ -129,22 +130,41 @@ class IssueDetailsTableViewController: UITableViewController {
 			}.catch(execute: presentError)
 
 	}
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.sizeHeaderToFit()
+        
+        topTableLayer.frame = CGRect(x: 0, y: -tableView.contentSize.height, width: tableView.frame.width, height: tableView.contentSize.height)
+        topTableLayer.needsLayout()
+    }
 
-
-
+    override public func numberOfSections(in tableView: UITableView) -> Int {
+        if comments.count <= 0 {
+            return 0
+        }
+        return 1
+    }
+    
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
 		return comments.count
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-		let cell = UITableViewCell()
+		let cell = tableView.dequeueReusableCellWithClass(IssueCommentTableViewCell.self)!
 		if let comment = comments[safe: indexPath.row] {
-			cell.textLabel?.text = comment.raw
-			cell.textLabel?.numberOfLines = 0
+            cell.dateLabel.text = dateFormater.string(from: comment.createdOn.or(else: Date()))
+//            cell.avatar.setImage(fromURL: comment.user?.avatar)
+            cell.autorlabel?.text = comment.user?.displayName
+            cell.descriptionLabel.text = comment.raw.or(else: "Status Change")!
 		}
 
+        cell.selectionStyle = .none
+        cell.backgroundColor = .clear
 		return cell
 	}
 
@@ -159,7 +179,7 @@ class IssueDetailsTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
 
 		let v = view as! UITableViewHeaderFooterView
-		v.backgroundView?.backgroundColor = UIColor.Hex(0xeeeeee)
+		v.backgroundView?.backgroundColor = .clear
 		v.backgroundView?.layer.masksToBounds = false
 		v.backgroundView?.layer.shadowColor = UIColor.clear.cgColor
 		v.backgroundView?.layer.shadowOpacity = 3.0
@@ -213,7 +233,7 @@ extension IssueDetailsTableViewController: SingleSelectionTableViewDelegate{
                 
                 print("Calros \(edited)")
            
-        }
+        }.end()
 //
     }
     
