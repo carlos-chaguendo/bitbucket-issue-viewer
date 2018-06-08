@@ -43,10 +43,10 @@ public class IssuesTableViewController: LiveScrollTableViewController {
         if let filters = TeamsService.currentFilters(of: team) {
             print("Llenando filtros actuales")
             // filtros actuales
-            self.repository = filters.repository
-            self.status = (filters.status.orEmpty).components(separatedBy: ",")
-            self.assigne = filters.assigne
-             self.btnRepository.title = self.repository.slug!
+            repository = filters.repository
+            status = (filters.status.orEmpty).components(separatedBy: ",")
+            assigne = filters.assigne
+            btnRepository.title = repository.slug
         }
 
 

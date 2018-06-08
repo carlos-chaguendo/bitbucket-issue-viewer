@@ -16,13 +16,31 @@ import AlamofireObjectMapper
 
 public class IssuesService: Service {
 
-    public class func comments(of: String, inRepository repository: String, forIssue: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
-        return Http.request(.get, route: "/2.0/repositories/\(of)/\(repository)/issues/\(forIssue)/comments")
+
+    /// Obtiene los comentarios de un issue guardados localmente
+    ///
+    /// - Parameters:
+    ///   - of: Team Equipo
+    ///   - repository: slug
+    ///   - issueId: identificador del Issue
+    ///   - page: pagina cuando se consulta al servidor
+    ///   - refreshFromServer: forza la consulta al servidor
+    /// - Returns: `SearchResult<IssueComment>`
+    public class func comments(of: String, inRepository repository: String, forIssue issueId: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
+        let server = "/2.0/repositories/\(of)/\(repository)/issues/\(issueId)/comments"
+        return select(from: IssueComment.self, where: _q("issueId = %@ ", ["\(issueId)"]), orConnectTo: server)
     }
 
 
-    /**
-     */
+   
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - to: <#to description#>
+    ///   - issue: <#issue description#>
+    ///   - of: <#of description#>
+    ///   - repository: <#repository description#>
+    /// - Returns: <#return value description#>
     public class func assigne(to: Assignee, issue: Issue, of: String, inRepository repository: String) -> Promise<IssueEdited?> {
         let parameters: [String: Any] = ["responsible": to.username!]
         let url = Http.unwrapurl(route: "/1.0/repositories/\(of)/\(repository)/issues/\(issue.id)")

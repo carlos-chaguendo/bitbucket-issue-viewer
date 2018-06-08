@@ -19,8 +19,14 @@ public class Repository: BasicEntity {
 	public dynamic var name: String?
 	public dynamic var type: String?
 	public dynamic var uuid: String?
-	public dynamic var slug: String?
+    public dynamic var ownerUsername: String?
+    
 	public var has_issues: Bool = false
+    fileprivate dynamic var _slug: String?
+    
+    public var slug: String? {
+        return _slug.or(else: name)
+    }
 
 
 	public override static func primaryKey() -> String? {
@@ -33,9 +39,16 @@ public class Repository: BasicEntity {
 		name <- map["name"]
 		type <- map["type"]
 		uuid <- map["uuid"]
-		slug <- map["slug"]
+		_slug <- map["slug"]
 		has_issues <- map["has_issues"]
+        ownerUsername <- map["owner.username"]
 
 	}
 
+}
+
+public class RepositoryInCache: Repository {
+    
+    public dynamic var page:Int = 1
+    
 }

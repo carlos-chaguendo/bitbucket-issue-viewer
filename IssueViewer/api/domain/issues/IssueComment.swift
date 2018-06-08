@@ -22,6 +22,7 @@ public class IssueComment: BasicEntity {
 	public dynamic var html: String?
 	public dynamic var markup: String?
 	public dynamic var raw: String?
+    public dynamic var issueId:String?
 
 	public override static func primaryKey() -> String? {
 		return "id"
@@ -40,5 +41,6 @@ public class IssueComment: BasicEntity {
 		html <- map["content.html"]
 		markup <- map["content.markup"]
 		raw <- map["content.raw"]
+        issueId <- (map["issue.id"], NumberAsStringTransform())
 	}
 }

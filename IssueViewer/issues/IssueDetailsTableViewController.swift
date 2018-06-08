@@ -48,6 +48,12 @@ class IssueDetailsTableViewController: UITableViewController {
 
         dateFormater.dateFormat = "dd MMMM YYYY hh:mm"
 
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = UIRefreshControl()
+            tableView.refreshControl?.addTarget(self, action: #selector(refreshComments), for: .valueChanged)
+        }
+      
+        
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 250
 
@@ -87,9 +93,7 @@ class IssueDetailsTableViewController: UITableViewController {
         let str = "\((issue.html.or(else: "N/A"))) \n\n <final>Final del contenido</final> \n\n\n\n".style(tags: [em,strong,p,final])
             .styleAll(Style.font(.systemFont(ofSize: 14)))
             .attributedString
-        
-        print("HTML \n\n \(issue.html.orEmpty)")
-         print("HTML \n\n \(issue.raw.orEmpty)")
+    
         
 		issueDescriptionLabel.attributedText = str
         
@@ -113,23 +117,36 @@ class IssueDetailsTableViewController: UITableViewController {
 		priority.append(NSAttributedString(string: " \(issue.priority!)"))
 		priorityLabel.attributedText = priority
 
-		IssuesService.comments(of: "mayorgafirm", inRepository: "adivantus-iphone", forIssue: issue.id)
-			.then { (result) -> Void in
-
-				guard let values = result?.values else {
-                    self.tableView.reloadData()
-					return
-				}
-
-				values .forEach({ self.comments.append($0) })
-                self.comments = self.comments.sorted(by: { $0.createdOn! > $1.createdOn! })
-				self.tableView.reloadData()
-
-			}.always {
-
-			}.catch(execute: presentError)
+       loadComments()
 
 	}
+    
+    func refreshComments(){
+        self.comments.removeAll()
+        loadComments(refreshFromServer: true)
+    }
+    
+    func loadComments(refreshFromServer:Bool = false){
+        
+        let repository:String! = issue!.repository?.slug.orEmpty
+        IssuesService.comments(of: "mayorgafirm", inRepository: repository, forIssue: issue!.id , refreshFromServer: refreshFromServer)
+            .then { (result) -> Void in
+                
+                guard let values = result?.values else {
+                    self.tableView.reloadData()
+                    return
+                }
+                
+                values .forEach({ self.comments.append($0) })
+                self.comments = self.comments.sorted(by: { $0.createdOn! > $1.createdOn! })
+                self.tableView.reloadData()
+                
+            }.always {
+                if #available(iOS 10.0, *) {
+                    self.tableView.refreshControl?.endRefreshing()
+                }
+            }.catch(execute: presentError)
+    }
     
     
     override func viewDidLayoutSubviews() {
@@ -179,7 +196,7 @@ class IssueDetailsTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
 
 		let v = view as! UITableViewHeaderFooterView
-		v.backgroundView?.backgroundColor = .clear
+		v.backgroundView?.backgroundColor =  tableView.backgroundColor
 		v.backgroundView?.layer.masksToBounds = false
 		v.backgroundView?.layer.shadowColor = UIColor.clear.cgColor
 		v.backgroundView?.layer.shadowOpacity = 3.0

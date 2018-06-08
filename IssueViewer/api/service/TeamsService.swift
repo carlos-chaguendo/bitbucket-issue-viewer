@@ -160,9 +160,15 @@ public class TeamsService: Service {
     }
 
     public class func update(filtersOf team: User, inReporsitory repository: Repository, assigneTo assigne: Assignee?, whitStatus: [String]) -> Void {
+        
+        guard let repositoryLocal = realm.object(ofType: Repository.self, forPrimaryKey: repository.uuid!) else {
+            return
+        }
+        
         try! realm.write({
             let filters = TeamsService.currentFilters(of: team) ?? TeamIssuesFilters(team: team, repository: repository)
-            filters.repository = realm.object(ofType: Repository.self, forPrimaryKey: repository.uuid!) ?? repository
+
+            filters.repository = repositoryLocal
             filters.status = whitStatus.joined(separator: ",")
             filters.assigne = assigne
             realm.add(filters, update: true)

@@ -16,7 +16,7 @@ public class Http {
 	internal static let acceptableStatusCodes: Range<Int> = 200..<300
 	internal static var api: String = "https://api.bitbucket.org";
 
-	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "Authorization": "Basic Y2FybG9zQ2hhZ3VlbmRvOmNhc2FuMi4w"]
+	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "Authorization": "Basic c2ViYXN0aWFuLW15OmRhbm5hZmVhMjUzNjE0"]
 
     
     
