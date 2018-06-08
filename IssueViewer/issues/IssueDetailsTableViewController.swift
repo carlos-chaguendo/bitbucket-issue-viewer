@@ -110,8 +110,8 @@ class IssueDetailsTableViewController: UITableViewController {
 
 
 		let priority = NSMutableAttributedString(string: String.ionicon(of: .iosArrowUp), attributes: [
-			NSForegroundColorAttributeName: IssueStatus.invalid.color,
-			NSFontAttributeName: UIFont.ionicon(ofSize: 22)
+			NSAttributedStringKey.foregroundColor: IssueStatus.invalid.color,
+			NSAttributedStringKey.font: UIFont.ionicon(ofSize: 22)
 		])
 
 		priority.append(NSAttributedString(string: " \(issue.priority!)"))
@@ -121,7 +121,7 @@ class IssueDetailsTableViewController: UITableViewController {
 
 	}
     
-    func refreshComments(){
+    @objc func refreshComments(){
         self.comments.removeAll()
         loadComments(refreshFromServer: true)
     }

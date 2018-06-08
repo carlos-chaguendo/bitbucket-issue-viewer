@@ -15,7 +15,7 @@ import AlamofireObjectMapper
 public class IssueEdited: BasicEntity {
 
     public var state: IssueStatus?
-    public dynamic var title: String?
+    @objc public dynamic var title: String?
     
     override public func mapping(map: Map) {
         super.mapping(map: map)

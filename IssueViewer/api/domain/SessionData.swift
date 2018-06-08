@@ -16,8 +16,8 @@ import AlamofireObjectMapper
 public class SessionData: BasicEntity {
 
 
-	private dynamic var id: String?
-	public dynamic var user: User? {
+	@objc private dynamic var id: String?
+	@objc public dynamic var user: User? {
 		didSet {
 			id = user?.username
 		}

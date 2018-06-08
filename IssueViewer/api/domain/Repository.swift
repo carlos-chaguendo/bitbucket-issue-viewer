@@ -15,14 +15,14 @@ import AlamofireObjectMapper
 
 public class Repository: BasicEntity {
 
-	public dynamic var fullName: String?
-	public dynamic var name: String?
-	public dynamic var type: String?
-	public dynamic var uuid: String?
-    public dynamic var ownerUsername: String?
+	@objc public dynamic var fullName: String?
+	@objc public dynamic var name: String?
+	@objc public dynamic var type: String?
+	@objc public dynamic var uuid: String?
+    @objc public dynamic var ownerUsername: String?
     
 	public var has_issues: Bool = false
-    fileprivate dynamic var _slug: String?
+    @objc fileprivate dynamic var _slug: String?
     
     public var slug: String? {
         return _slug.or(else: name)
@@ -49,6 +49,6 @@ public class Repository: BasicEntity {
 
 public class RepositoryInCache: Repository {
     
-    public dynamic var page:Int = 1
+    @objc public dynamic var page:Int = 1
     
 }

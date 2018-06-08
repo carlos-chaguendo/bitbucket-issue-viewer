@@ -14,15 +14,15 @@ import AlamofireObjectMapper
 
 public class IssueComment: BasicEntity {
 
-	public dynamic var id: Int = -1
-	public dynamic var user: IssueUser?
-	public dynamic var updatedOn: Date?
-	public dynamic var createdOn: Date?
+	@objc public dynamic var id: Int = -1
+	@objc public dynamic var user: IssueUser?
+	@objc public dynamic var updatedOn: Date?
+	@objc public dynamic var createdOn: Date?
 
-	public dynamic var html: String?
-	public dynamic var markup: String?
-	public dynamic var raw: String?
-    public dynamic var issueId:String?
+	@objc public dynamic var html: String?
+	@objc public dynamic var markup: String?
+	@objc public dynamic var raw: String?
+    @objc public dynamic var issueId:String?
 
 	public override static func primaryKey() -> String? {
 		return "id"

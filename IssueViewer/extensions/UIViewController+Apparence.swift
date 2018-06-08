@@ -111,8 +111,8 @@ extension UINavigationItem {
 
 		let titleString = NSMutableAttributedString(string: title)
 		let subtitleString = NSMutableAttributedString(string: subtitle, attributes: [
-			NSFontAttributeName: UIFont.boldSystemFont(ofSize: 12.5),
-			NSForegroundColorAttributeName: Colors.navbar_title.withAlphaComponent(0.6)
+			NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12.5),
+			NSAttributedStringKey.foregroundColor: Colors.navbar_title.withAlphaComponent(0.6)
 		])
 
 

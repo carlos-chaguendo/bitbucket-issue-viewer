@@ -13,9 +13,9 @@ import AlamofireObjectMapper
 
 public class HttpStatusCode: Object, Mappable {
 
-	dynamic var code: String?
-	dynamic var message: String?
-	dynamic var status: String?
+	@objc dynamic var code: String?
+	@objc dynamic var message: String?
+	@objc dynamic var status: String?
 
 	required convenience public init(map: Map) {
 		self.init()

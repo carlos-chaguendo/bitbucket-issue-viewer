@@ -14,11 +14,11 @@ import AlamofireObjectMapper
 
 public class Assignee: BasicEntity {
 
-	public dynamic var displayName: String?
-	public dynamic var type: String?
-	public dynamic var username: String?
-	public dynamic var uuid: String?
-	public dynamic var avatar: String?
+	@objc public dynamic var displayName: String?
+	@objc public dynamic var type: String?
+	@objc public dynamic var username: String?
+	@objc public dynamic var uuid: String?
+	@objc public dynamic var avatar: String?
 
 	public override static func primaryKey() -> String? {
 		return "uuid"

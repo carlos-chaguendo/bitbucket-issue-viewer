@@ -15,12 +15,12 @@ import AlamofireObjectMapper
 
  public class TeamIssuesFilters: BasicEntity {
     
-    public dynamic var team: User?
-    public dynamic var repository: Repository!
-    public dynamic var assigne: Assignee?
-    public dynamic var status: String?
+    @objc public dynamic var team: User?
+    @objc public dynamic var repository: Repository!
+    @objc public dynamic var assigne: Assignee?
+    @objc public dynamic var status: String?
     
-    public dynamic var id: String?
+    @objc public dynamic var id: String?
     
     public override static func primaryKey() -> String? {
         return "id"

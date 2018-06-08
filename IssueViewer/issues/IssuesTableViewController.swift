@@ -78,13 +78,13 @@ public class IssuesTableViewController: LiveScrollTableViewController {
                         self.repository = searchResult?.values[0]
 
                         self.btnRepository.title = self.repository.slug!
-                        resolve()
+                        resolve(())
 
                     }).end()
                 return
             }
 
-            resolve()
+            resolve(())
             }
         }
 

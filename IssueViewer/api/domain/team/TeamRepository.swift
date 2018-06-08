@@ -14,9 +14,9 @@ import AlamofireObjectMapper
 
 public class TeamRepository: BasicEntity {
     
-    public dynamic var team: User?
-    public dynamic var repository: Repository?
-    public dynamic var id: String?
+    @objc public dynamic var team: User?
+    @objc public dynamic var repository: Repository?
+    @objc public dynamic var id: String?
     
     public override static func primaryKey() -> String? {
         return "id"

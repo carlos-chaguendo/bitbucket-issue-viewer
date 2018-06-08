@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = Colors.navbar_back
         UINavigationBar.appearance().backgroundColor = Colors.navbar_back
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: Colors.navbar_title]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Colors.navbar_title]
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)

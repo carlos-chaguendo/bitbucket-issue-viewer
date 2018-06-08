@@ -14,33 +14,33 @@ import AlamofireObjectMapper
 
 public class Issue: BasicEntity {
 
-	public dynamic var assignee: Assignee?
-	public dynamic var component: String?
-	public dynamic var createdOn: Date?
-	public dynamic var editedOn: Date?
-	public dynamic var id: Int = -1
-	public dynamic var kind: String?
-	public dynamic var milestone: String?
-	public dynamic var priority: String?
-	public dynamic var reporter: Assignee?
-	public dynamic var repository: Repository?
+	@objc public dynamic var assignee: Assignee?
+	@objc public dynamic var component: String?
+	@objc public dynamic var createdOn: Date?
+	@objc public dynamic var editedOn: Date?
+	@objc public dynamic var id: Int = -1
+	@objc public dynamic var kind: String?
+	@objc public dynamic var milestone: String?
+	@objc public dynamic var priority: String?
+	@objc public dynamic var reporter: Assignee?
+	@objc public dynamic var repository: Repository?
 	public var state: IssueStatus?
-	public dynamic var title: String?
-	public dynamic var type: String?
-	public dynamic var updatedOn: Date?
-	public dynamic var version: String?
-	public dynamic var votes: Int = 0
-	public dynamic var watches: Int = 0
+	@objc public dynamic var title: String?
+	@objc public dynamic var type: String?
+	@objc public dynamic var updatedOn: Date?
+	@objc public dynamic var version: String?
+	@objc public dynamic var votes: Int = 0
+	@objc public dynamic var watches: Int = 0
 
 	//Content
-	public dynamic var html: String?
-	public dynamic var markup: String?
-	public dynamic var raw: String?
+	@objc public dynamic var html: String?
+	@objc public dynamic var markup: String?
+	@objc public dynamic var raw: String?
 
 
 	// Logica interna
-	public dynamic var page: Int = 1
-	public dynamic var _state: String? {
+	@objc public dynamic var page: Int = 1
+	@objc public dynamic var _state: String? {
 		didSet {
 			state = IssueStatus(rawValue: _state ?? "s")
 		}

@@ -24,16 +24,16 @@ public class User: BasicEntity {
         }
     }
 
-    public dynamic var username: String?
-    public dynamic var website: String?
-    public dynamic var displayName: String?
-    public dynamic var accountId: String?
-    public dynamic var avatar: String?
-    public dynamic var created: Date?
-    public dynamic var type: String?
+    @objc public dynamic var username: String?
+    @objc public dynamic var website: String?
+    @objc public dynamic var displayName: String?
+    @objc public dynamic var accountId: String?
+    @objc public dynamic var avatar: String?
+    @objc public dynamic var created: Date?
+    @objc public dynamic var type: String?
     
-    public dynamic var numberOfmebers: String?
-    public dynamic var numberOfRepositories: String?
+    @objc public dynamic var numberOfmebers: String?
+    @objc public dynamic var numberOfRepositories: String?
     
 
     public override static func primaryKey() -> String? {
