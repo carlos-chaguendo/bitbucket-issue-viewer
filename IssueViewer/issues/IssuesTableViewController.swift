@@ -12,6 +12,7 @@ import NVActivityIndicatorView
 import DropDown
 import PromiseKit
 import SwipeCellKit
+import Core
 
 public class IssuesTableViewController: LiveScrollTableViewController {
 

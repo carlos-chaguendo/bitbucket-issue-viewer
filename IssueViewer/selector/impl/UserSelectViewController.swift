@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import Core
 
 public class UserSelectViewController: LiveScrollWithSingleSelectionTableViewController {
 

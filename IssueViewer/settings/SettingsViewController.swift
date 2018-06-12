@@ -8,6 +8,7 @@
 
 import UIKit
 import IoniconsSwift
+import Core
 
 class SettingsViewController: UIViewController {
 

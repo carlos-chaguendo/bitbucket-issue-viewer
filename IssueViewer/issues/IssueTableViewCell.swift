@@ -9,6 +9,7 @@
 import UIKit
 import Atributika
 import SwipeCellKit
+import Core
 
 public class IssueTableViewCell: SwipeTableViewCell {
 

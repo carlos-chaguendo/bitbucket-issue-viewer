@@ -8,11 +8,7 @@
 
 import UIKit
 
-import UIKit
-
-extension UIColor {
-
-
+public extension UIColor {
 
 	public static func Hex(_ rgbValue: UInt32) -> UIColor {
 		let red = CGFloat((rgbValue & 0xFF0000) >> 16) / 256.0
@@ -22,7 +18,7 @@ extension UIColor {
 		return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
 	}
 
-	func toHexString() -> String {
+	public func toHexString() -> String {
 		var r: CGFloat = 0
 		var g: CGFloat = 0
 		var b: CGFloat = 0
@@ -37,7 +33,7 @@ extension UIColor {
     
     
   
-    func as1ptImage() -> UIImage {
+    public func as1ptImage() -> UIImage {
         UIGraphicsBeginImageContext(CGSize(width:1, height:1))
         let ctx = UIGraphicsGetCurrentContext()
         self.setFill()

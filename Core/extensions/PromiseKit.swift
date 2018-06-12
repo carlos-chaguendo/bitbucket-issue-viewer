@@ -10,6 +10,6 @@ import UIKit
 import PromiseKit
 
 extension Promise {
-    func end() -> Void { }
+    public func end() -> Void { }
 }
 

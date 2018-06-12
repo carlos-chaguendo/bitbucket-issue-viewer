@@ -11,6 +11,7 @@ import LTMorphingLabel
 import IoniconsSwift
 import Atributika
 import Alamofire
+import Core
 
 class IssueDetailsTableViewController: UITableViewController {
 

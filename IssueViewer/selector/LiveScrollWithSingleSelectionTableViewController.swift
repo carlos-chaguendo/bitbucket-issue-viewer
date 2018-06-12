@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import Core
 
 @objc
 public protocol SingleSelectionTableViewDelegate {
