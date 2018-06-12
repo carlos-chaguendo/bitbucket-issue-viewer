@@ -19,7 +19,7 @@ public enum IssueStatus: String {
     case open = "open"
     case none = ""
 
-    var color: UIColor {
+    public var color: UIColor {
         get {
             switch self {
             case .wontfix: return UIColor.Hex(0xd04437);
@@ -34,7 +34,7 @@ public enum IssueStatus: String {
         }
     }
 
-    var textColor: UIColor {
+    public var textColor: UIColor {
         get {
             switch self {
             case .on_hold: return UIColor.Hex(0x594300)
