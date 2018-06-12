@@ -19,6 +19,8 @@
 		2FBB470620D00D91004D8A73 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBB470420D00D91004D8A73 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; };
 		2FBB470A20D00D91004D8A73 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2FBB471320D00E5C004D8A73 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB471220D00E5C004D8A73 /* Bool.swift */; };
+		2FBB471420D00F95004D8A73 /* Assignee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988F21ED38E9B00A0724E /* Assignee.swift */; };
 		2FCF3EDF203736020024FC17 /* Optional+Chaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCF3EDE203736020024FC17 /* Optional+Chaining.swift */; };
 		2FCF3EE120373C640024FC17 /* IssueCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCF3EE020373C640024FC17 /* IssueCommentTableViewCell.swift */; };
 		2FCF3EE420376FDE0024FC17 /* ISO8601ExtendedDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCF3EE320376FDE0024FC17 /* ISO8601ExtendedDateTransform.swift */; };
@@ -54,7 +56,6 @@
 		784988F51ED38E9B00A0724E /* BasicEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988EF1ED38E9B00A0724E /* BasicEntity.swift */; };
 		784988F61ED38E9B00A0724E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988F01ED38E9B00A0724E /* User.swift */; };
 		784988F71ED38E9B00A0724E /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988F11ED38E9B00A0724E /* SessionData.swift */; };
-		784988F81ED38E9B00A0724E /* Assignee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988F21ED38E9B00A0724E /* Assignee.swift */; };
 		784988F91ED38E9B00A0724E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988F31ED38E9B00A0724E /* Repository.swift */; };
 		784988FA1ED38E9B00A0724E /* SimpleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988F41ED38E9B00A0724E /* SimpleUser.swift */; };
 		784989001ED38EAA00A0724E /* IssueUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784988FC1ED38EAA00A0724E /* IssueUser.swift */; };
@@ -186,6 +187,7 @@
 		2FBB470220D00D91004D8A73 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBB470420D00D91004D8A73 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		2FBB470520D00D91004D8A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FBB471220D00E5C004D8A73 /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		2FCF3EDE203736020024FC17 /* Optional+Chaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Chaining.swift"; sourceTree = "<group>"; };
 		2FCF3EE020373C640024FC17 /* IssueCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCommentTableViewCell.swift; sourceTree = "<group>"; };
 		2FCF3EE320376FDE0024FC17 /* ISO8601ExtendedDateTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601ExtendedDateTransform.swift; sourceTree = "<group>"; };
@@ -354,10 +356,20 @@
 		2FBB470320D00D91004D8A73 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				784988E51ED38E8200A0724E /* domain */,
+				2FBB471120D00E49004D8A73 /* extension */,
 				2FBB470420D00D91004D8A73 /* Core.h */,
 				2FBB470520D00D91004D8A73 /* Info.plist */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		2FBB471120D00E49004D8A73 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				2FBB471220D00E5C004D8A73 /* Bool.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		2FCF3EE220376FCE0024FC17 /* transforms */ = {
@@ -479,7 +491,6 @@
 		784988E31ED38E7000A0724E /* api */ = {
 			isa = PBXGroup;
 			children = (
-				784988E51ED38E8200A0724E /* domain */,
 				784988E61ED38E8800A0724E /* http */,
 				784988E41ED38E7A00A0724E /* service */,
 			);
@@ -511,7 +522,8 @@
 				784988F41ED38E9B00A0724E /* SimpleUser.swift */,
 				784988F01ED38E9B00A0724E /* User.swift */,
 			);
-			path = domain;
+			name = domain;
+			path = ../IssueViewer/api/domain;
 			sourceTree = "<group>";
 		};
 		784988E61ED38E8800A0724E /* http */ = {
@@ -671,6 +683,7 @@
 					2FBB470120D00D91004D8A73 = {
 						CreatedOnToolsVersion = 9.4;
 						DevelopmentTeam = 5NWXU54BBD;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					784988BA1ED38CF600A0724E = {
@@ -730,6 +743,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBB471420D00F95004D8A73 /* Assignee.swift in Sources */,
+				2FBB471320D00E5C004D8A73 /* Bool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,7 +793,6 @@
 				784988EB1ED38E9300A0724E /* Http.swift in Sources */,
 				7864A0131F4E1C74009CBBD1 /* WhatsappViewController.swift in Sources */,
 				2FA101CD1F5A2293009C1F0A /* NSURLRequest+Curl.swift in Sources */,
-				784988F81ED38E9B00A0724E /* Assignee.swift in Sources */,
 				7849890B1ED38EC200A0724E /* IssuesService.swift in Sources */,
 				784989431ED38FBA00A0724E /* PlacesViewController.swift in Sources */,
 				2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */,
@@ -843,6 +857,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -856,11 +871,12 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chasan.vpm.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -872,6 +888,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -885,7 +902,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chasan.vpm.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1011,6 +1028,7 @@
 		784988CE1ED38CF600A0724E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5NWXU54BBD;
@@ -1031,6 +1049,7 @@
 		784988CF1ED38CF600A0724E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5NWXU54BBD;

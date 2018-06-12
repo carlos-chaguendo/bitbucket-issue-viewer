@@ -13,7 +13,6 @@ import DropDown
 import PromiseKit
 import SwipeCellKit
 
-
 public class IssuesTableViewController: LiveScrollTableViewController {
 
     @IBOutlet weak var search: UIBarButtonItem!
