@@ -21,7 +21,7 @@ public class Repository: BasicEntity {
 	@objc public dynamic var uuid: String?
     @objc public dynamic var ownerUsername: String?
     
-	public var has_issues: Bool = false
+	@objc public var has_issues: Bool = false
     @objc fileprivate dynamic var _slug: String?
     
     public var slug: String? {

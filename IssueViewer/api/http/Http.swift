@@ -16,7 +16,7 @@ public class Http {
 	internal static let acceptableStatusCodes: Range<Int> = 200..<300
 	internal static var api: String = "https://api.bitbucket.org";
 
-	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "Authorization": "Basic c2ViYXN0aWFuLW15OmRhbm5hZmVhMjUzNjE0"]
+	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "Authorization": "Basic Y2FybG9zQ2hhZ3VlbmRvOmNhc2FuMi4w"]
 
     
     
@@ -40,7 +40,7 @@ public class Http {
 
     public static func unwrapurl(route:String) -> String{
         var url = route
-        if !route.characters.starts(with: "http".characters) {
+        if !route.starts(with: "http") {
             url = "\(Http.api)\(route)"
             
         }
@@ -91,7 +91,7 @@ public class Http {
 
 		// verifica rutas externas
 		var url = route
-		if !route.characters.starts(with: "http".characters) {
+		if !route.starts(with: "http") {
 			url = "\(Http.api)\(route)"
 
 		}

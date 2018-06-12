@@ -18,9 +18,9 @@ class SettingsViewController: UIViewController {
             print(">>>>>")
             
             for d in result!.values{
-                print("sss \(d.displayName)")
+                print("sss \(d.displayName!)")
             }
-        }
+        }.end()
         // Do any additional setup after loading the view.
     }
 

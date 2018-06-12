@@ -248,7 +248,7 @@ extension IssueDetailsTableViewController: SingleSelectionTableViewDelegate{
             .then { (edited:IssueEdited?) -> Void in
             
                 
-                print("Calros \(edited)")
+                print("Calros \(edited!)")
            
         }.end()
 //

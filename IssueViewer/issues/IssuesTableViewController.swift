@@ -208,7 +208,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
             guard let issue = value as? Issue else { return false }
 
             let inTitle = issue.title?.lowercased().contains(searchText.lowercased()) == true
-            let inId = "#\(issue.id)".characters.starts(with: searchText.lowercased().characters) == true
+            let inId = "#\(issue.id)".starts(with: searchText.lowercased()) == true
             let inContent = issue.raw?.lowercased().contains(searchText.lowercased()) == true
             return inTitle || inId || inContent
 

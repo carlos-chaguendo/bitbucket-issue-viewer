@@ -41,17 +41,21 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
 
         tabBarController?.tabBar.isHidden = false
 
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.navigationController?.setToolbarHidden(true, animated: false)
+
         self.navigationController?.hidesBarsOnSwipe = false
+        
+        self.navigationController?.setToolbarHidden(true, animated: false)
     }
 
-    override func viewDidLoad() {
+    @objc override func viewDidLoad() {
         
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
