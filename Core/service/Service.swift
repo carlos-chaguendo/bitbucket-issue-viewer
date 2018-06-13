@@ -104,15 +104,16 @@ public class Service {
       
     }
     
-    public static func select<T>(from entityType: T.Type, where filter:NSPredicate, decoreBeforeSaving:((T) -> Void)? = nil , orConnectTo route: String) -> Promise<SearchResult<T>?> {
+    public static func select<T>(from entityType: T.Type, where filter:NSPredicate, decoreBeforeSaving:((T) -> Void)? = nil , orConnectTo route: String, refresh: Bool = false) -> Promise<SearchResult<T>?> {
         return Promise<SearchResult<T>?> { (resolve, reject) in
 
             let localData = realm.objects(entityType).filter(filter).detached
 
             // Datos locales desligados
             // si no existen localmente se va al servidor
-            if localData.isEmpty {
-                save(resultOf: Http.request(.get, route: route), beforeSaving: decoreBeforeSaving)
+            if localData.isEmpty || refresh == true {
+                realm.delete(localData)
+                saveToLocal(resultOf: Http.request(.get, route: route), beforeSaving: decoreBeforeSaving)
                     .then(execute: resolve)
                     .catch(execute: reject)
 
@@ -124,7 +125,7 @@ public class Service {
         }
     }
 
-    public static func save<T>(resultOf promise: Promise<SearchResult<T>?>, beforeSaving:((T) -> Void)? = nil  ) -> Promise<SearchResult<T>?> {
+    public static func saveToLocal<T>(resultOf promise: Promise<SearchResult<T>?>, beforeSaving:((T) -> Void)? = nil  ) -> Promise<SearchResult<T>?> {
         return Promise<SearchResult<T>?> { (resolve, reject) in
             promise.then { (result) -> Void in
                 try! realm.write {

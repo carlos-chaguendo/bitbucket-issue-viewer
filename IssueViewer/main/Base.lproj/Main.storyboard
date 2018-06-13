@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -337,7 +338,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yM3-Od-vz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1299" y="673"/>
+            <point key="canvasLocation" x="3348" y="1547"/>
         </scene>
         <!--Settings-->
         <scene sceneID="KYi-pz-oJV">
@@ -362,14 +363,14 @@
         <scene sceneID="rcR-6Q-YSp">
             <objects>
                 <tableViewController storyboardIdentifier="RepositoriesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ifw-t8-cki" customClass="RepositoriesTableViewController" customModule="IssueViewer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x7T-QT-55n">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x7T-QT-55n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellAsCard" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellAsCard" rowHeight="98" id="OAe-vt-M3O" customClass="TeamTableViewCell" customModule="IssueViewer" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellAsCard" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellAsCard" rowHeight="98" id="OAe-vt-M3O" customClass="TeamTableViewCell" customModule="IssueViewer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OAe-vt-M3O" id="Dax-AI-d9j">
@@ -377,7 +378,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dbb-05-r9u" customClass="CardView" customModule="IssueViewer" customModuleProvider="target">
-                                            <rect key="frame" x="12" y="8" width="390" height="81.666666666666671"/>
+                                            <rect key="frame" x="20" y="8" width="374" height="81.666666666666671"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kat2" translatesAutoresizingMaskIntoConstraints="NO" id="AtQ-mK-EOx">
                                                     <rect key="frame" x="8" y="8" width="64" height="64"/>
@@ -434,9 +435,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="Dbb-05-r9u" firstAttribute="leading" secondItem="Dax-AI-d9j" secondAttribute="leading" constant="12" id="Eqw-tw-kM6"/>
-                                        <constraint firstAttribute="trailing" secondItem="Dbb-05-r9u" secondAttribute="trailing" constant="12" id="Fln-Yl-MD9"/>
+                                        <constraint firstItem="Dbb-05-r9u" firstAttribute="leading" secondItem="Dax-AI-d9j" secondAttribute="leadingMargin" id="Eqw-tw-kM6"/>
                                         <constraint firstItem="Dbb-05-r9u" firstAttribute="top" secondItem="Dax-AI-d9j" secondAttribute="top" constant="8" id="Gn2-Nb-dtG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Dbb-05-r9u" secondAttribute="trailing" id="bct-wT-GoR"/>
                                         <constraint firstAttribute="bottom" secondItem="Dbb-05-r9u" secondAttribute="bottom" constant="8" id="h0G-tp-qZf"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -477,13 +478,23 @@
                     <view key="view" contentMode="scaleToFill" id="Vwp-os-Y6d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vn-qG-UqK">
+                                <rect key="frame" x="146" y="196" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="VIE-3g-Vf5" kind="show" id="aQG-RE-Otg"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="ORz-xE-206" customClass="ProfileTabBarItem" customModule="IssueViewer" customModuleProvider="target"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nsq-IW-61O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="2656"/>
+            <point key="canvasLocation" x="3212" y="2446"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="Mwq-va-3Op">
@@ -529,4 +540,7 @@
     <resources>
         <image name="kat2" width="630" height="385"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aQG-RE-Otg"/>
+    </inferredMetricsTieBreakers>
 </document>

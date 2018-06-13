@@ -27,33 +27,17 @@ public class BasicEntity: Object, Mappable {
 	}
 
 	public func mapping(map: Map) {
+        
+        if map.mappingType == ObjectMapper.MappingType.toJSON {
+            if self.realm != nil {
+                let error = "[\(type(of: self))] is Managed by realm, detach before convert to json"
+                print(error)
+                preconditionFailure(error)
+            }
+        }
 
 	}
 
 
 
 }
-
-
-
-
-
-
-public extension BasicEntity {
-    
-    public func detached() -> Self {
-        return type(of: self).init(value:self,schema: RLMSchema.partialShared())
-    }
-    
-}
-
-
-public extension Sequence  where Iterator.Element:BasicEntity  {
-    
-    public var detached:[Element] {
-        return self.map({ $0.detached() })
-    }
-    
-}
-
-

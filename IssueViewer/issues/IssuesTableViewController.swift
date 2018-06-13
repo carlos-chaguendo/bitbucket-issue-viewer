@@ -12,6 +12,7 @@ import NVActivityIndicatorView
 import DropDown
 import PromiseKit
 import SwipeCellKit
+import Material
 import Core
 
 public class IssuesTableViewController: LiveScrollTableViewController {
@@ -54,6 +55,12 @@ public class IssuesTableViewController: LiveScrollTableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 250
+        
+        if Device.userInterfaceIdiom == .pad {
+            let margin = UITableViewController().tableView.layoutMargins.left
+            tableView.layoutMargins.left = margin
+            tableView.layoutMargins.right = margin
+        }
     }
 
     /**

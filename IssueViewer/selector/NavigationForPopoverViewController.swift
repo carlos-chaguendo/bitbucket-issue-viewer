@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Core
+import Material
 
-class NavigationForPopoverViewController: UINavigationController, UIPopoverPresentationControllerDelegate {
+class NavigationForPopoverViewController: UINavigationController, UIPopoverPresentationControllerDelegate, UIViewControllerTransitioningDelegate {
+    
+    public var transition: ADVNavigationCollisionTransition?
+    
+    var mode: Int = 0
 
 	override init(rootViewController: UIViewController) {
 		super.init(rootViewController: rootViewController)
@@ -17,8 +23,29 @@ class NavigationForPopoverViewController: UINavigationController, UIPopoverPrese
 
 		modalPresentationStyle = UIModalPresentationStyle.popover
 		popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
-		popoverPresentationController?.delegate = self
-		popoverPresentationController?.popoverBackgroundViewClass = PopoverBackgroundView.self
+
+//        popoverPresentationController?.popoverBackgroundViewClass = PopoverBackgroundView.self
+        
+        mode = UserDefaults.standard["filter_display_mode"].or(else: 0)
+        switch mode {
+        case 0:
+            popoverPresentationController?.delegate = self
+            
+            DispatchQueue.main.async(execute: {
+                if let window = UIApplication.shared.keyWindow {
+                    window.windowLevel = UIWindowLevelStatusBar + 1
+                }
+            })
+            
+        default:
+            transitioningDelegate =  self
+            transition = ADVNavigationCollisionTransition()
+        }
+
+        if let dimmingView = popoverPresentationController?.dimmingView {
+            dimmingView.backgroundColor = Colors.primary.withAlphaComponent(0.5)
+        }
+    
 	}
 
 
@@ -36,6 +63,19 @@ class NavigationForPopoverViewController: UINavigationController, UIPopoverPrese
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.async(execute: {
+            if let window = UIApplication.shared.keyWindow {
+                window.windowLevel = UIWindowLevelNormal
+            }
+        })
+    }
 
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -47,5 +87,15 @@ class NavigationForPopoverViewController: UINavigationController, UIPopoverPrese
 	public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
 		return UIModalPresentationStyle.none
 	}
+    
+     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition?.isShowing = true
+        return transition
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+          transition?.isShowing = false
+       return transition
+    }
 
 }

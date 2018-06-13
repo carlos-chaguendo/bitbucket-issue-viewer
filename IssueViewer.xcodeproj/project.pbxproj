@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		2F18680A1F72CD3200351C98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1868091F72CD3200351C98 /* SettingsViewController.swift */; };
 		2F18680D1F72CE2600351C98 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */; };
+		2F270B0320D1B2A600ADB777 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0220D1B2A600ADB777 /* Versions.swift */; };
+		2F270B0520D1B68400ADB777 /* Realm+detached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0420D1B68400ADB777 /* Realm+detached.swift */; };
+		2F270B0820D1BD5000ADB777 /* ADVNavigationCollisionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0720D1BD5000ADB777 /* ADVNavigationCollisionTransition.swift */; };
+		2F270B0A20D1BE5700ADB777 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F270B0920D1BE5700ADB777 /* Settings.bundle */; };
+		2F270B0C20D1C19000ADB777 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0B20D1C19000ADB777 /* UserDefaults.swift */; };
+		2F270B0E20D1C70100ADB777 /* UIPopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */; };
+		2F439C9720D15F080094766C /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; };
+		2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */; };
 		2FBB470620D00D91004D8A73 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBB470420D00D91004D8A73 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; };
@@ -167,6 +175,7 @@
 				2FBB477820D01480004D8A73 /* SnapKit.framework in Embed Frameworks */,
 				2FBB476E20D01480004D8A73 /* PINRemoteImage.framework in Embed Frameworks */,
 				2FBB477E20D01480004D8A73 /* PKHUD.framework in Embed Frameworks */,
+				2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */,
 				2FBB478020D01480004D8A73 /* PromiseKit.framework in Embed Frameworks */,
 				2FBB478E20D01511004D8A73 /* PINRemoteImage.framework in Embed Frameworks */,
 				2FBB479720D01556004D8A73 /* ObjectMapper.framework in Embed Frameworks */,
@@ -190,6 +199,13 @@
 		2F1868091F72CD3200351C98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		2F18680E1F72DAF400351C98 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		2F270B0220D1B2A600ADB777 /* Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Versions.swift; sourceTree = "<group>"; };
+		2F270B0420D1B68400ADB777 /* Realm+detached.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+detached.swift"; sourceTree = "<group>"; };
+		2F270B0720D1BD5000ADB777 /* ADVNavigationCollisionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADVNavigationCollisionTransition.swift; sourceTree = "<group>"; };
+		2F270B0920D1BE5700ADB777 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2F270B0B20D1C19000ADB777 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPopoverPresentationController.swift; sourceTree = "<group>"; };
+		2F439C9620D15F080094766C /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = Carthage/Build/iOS/DropDown.framework; sourceTree = "<group>"; };
 		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
@@ -336,6 +352,7 @@
 				2FBB477320D01480004D8A73 /* Atributika.framework in Frameworks */,
 				2FBB477520D01480004D8A73 /* ToastSwiftFramework.framework in Frameworks */,
 				2FBB476320D01480004D8A73 /* SwiftValidator.framework in Frameworks */,
+				2F439C9720D15F080094766C /* DropDown.framework in Frameworks */,
 				2FBB478B20D014F8004D8A73 /* PINCache.framework in Frameworks */,
 				2FBB479320D01539004D8A73 /* AlamofireObjectMapper.framework in Frameworks */,
 				2FBB477B20D01480004D8A73 /* Material.framework in Frameworks */,
@@ -363,6 +380,14 @@
 			path = main;
 			sourceTree = "<group>";
 		};
+		2F270B0620D1BD3E00ADB777 /* transitions */ = {
+			isa = PBXGroup;
+			children = (
+				2F270B0720D1BD5000ADB777 /* ADVNavigationCollisionTransition.swift */,
+			);
+			path = transitions;
+			sourceTree = "<group>";
+		};
 		2F70B17D1F7302D40068936F /* team-repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,7 +401,6 @@
 			isa = PBXGroup;
 			children = (
 				784988E51ED38E8200A0724E /* domain */,
-				2FBB471120D00E49004D8A73 /* extension */,
 				784988D21ED38D2400A0724E /* extensions */,
 				784988E61ED38E8800A0724E /* http */,
 				784988E41ED38E7A00A0724E /* service */,
@@ -384,13 +408,6 @@
 				2FBB470520D00D91004D8A73 /* Info.plist */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		2FBB471120D00E49004D8A73 /* extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = extension;
 			sourceTree = "<group>";
 		};
 		2FBB472420D0101F004D8A73 /* Frameworks */ = {
@@ -413,6 +430,7 @@
 				784988D71ED38E5C00A0724E /* UIImageView.swift */,
 				784988D91ED38E5C00A0724E /* UITableView.swift */,
 				784988D41ED38E5C00A0724E /* UIViewController+Apparence.swift */,
+				2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -439,6 +457,8 @@
 		784988B21ED38CF600A0724E = {
 			isa = PBXGroup;
 			children = (
+				2F270B0920D1BE5700ADB777 /* Settings.bundle */,
+				2F439C9620D15F080094766C /* DropDown.framework */,
 				2FBB478420D014C3004D8A73 /* Alamofire.framework */,
 				2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */,
 				2FBB475C20D01480004D8A73 /* Atributika.framework */,
@@ -480,6 +500,7 @@
 		784988BD1ED38CF600A0724E /* IssueViewer */ = {
 			isa = PBXGroup;
 			children = (
+				2F270B0620D1BD3E00ADB777 /* transitions */,
 				784989171ED38F0D00A0724E /* cell */,
 				2FBB474220D011C9004D8A73 /* extensions */,
 				784988D01ED38D0E00A0724E /* ionicons */,
@@ -521,6 +542,7 @@
 				784988D51ED38E5C00A0724E /* SequenceType.swift */,
 				784988D31ED38E5C00A0724E /* UIColor.swift */,
 				2F18680E1F72DAF400351C98 /* UIImage.swift */,
+				2F270B0B20D1C19000ADB777 /* UserDefaults.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -549,6 +571,8 @@
 				784988F11ED38E9B00A0724E /* SessionData.swift */,
 				784988F41ED38E9B00A0724E /* SimpleUser.swift */,
 				784988F01ED38E9B00A0724E /* User.swift */,
+				2F270B0220D1B2A600ADB777 /* Versions.swift */,
+				2F270B0420D1B68400ADB777 /* Realm+detached.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -759,6 +783,7 @@
 				784988C41ED38CF600A0724E /* Main.storyboard in Resources */,
 				784989151ED38EE400A0724E /* LaunchScreenView.xib in Resources */,
 				78040E761EF3425F006D2683 /* Assets.xcassets in Resources */,
+				2F270B0A20D1BE5700ADB777 /* Settings.bundle in Resources */,
 				78040E701EF32C69006D2683 /* FlowCard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,13 +816,16 @@
 				2FBB471C20D00FDF004D8A73 /* IssueStatus.swift in Sources */,
 				2FBB473D20D0108F004D8A73 /* PromiseKit.swift in Sources */,
 				2FBB472D20D01077004D8A73 /* HttpStatusCode.swift in Sources */,
+				2F270B0C20D1C19000ADB777 /* UserDefaults.swift in Sources */,
 				2FBB472F20D01077004D8A73 /* IssuesService.swift in Sources */,
 				2FBB472120D00FE7004D8A73 /* TeamIssuesFilters.swift in Sources */,
+				2F270B0320D1B2A600ADB777 /* Versions.swift in Sources */,
 				2FBB474720D0122F004D8A73 /* UIColor.swift in Sources */,
 				2FBB472220D00FED004D8A73 /* ISO8601ExtendedDateTransform.swift in Sources */,
 				2FBB471E20D00FDF004D8A73 /* IssueEdited.swift in Sources */,
 				2FBB471920D00FCB004D8A73 /* User.swift in Sources */,
 				2FBB474020D0108F004D8A73 /* Optional+Chaining.swift in Sources */,
+				2F270B0520D1B68400ADB777 /* Realm+detached.swift in Sources */,
 				2FBB473620D0108F004D8A73 /* Date.swift in Sources */,
 				2FBB473520D0108F004D8A73 /* Bool.swift in Sources */,
 				2FBB471A20D00FD6004D8A73 /* Issue.swift in Sources */,
@@ -836,11 +864,13 @@
 				784989221ED38F2800A0724E /* SelectableTableView.swift in Sources */,
 				784988C11ED38CF600A0724E /* ViewController.swift in Sources */,
 				784989291ED38F3600A0724E /* StatusSelectViewController.swift in Sources */,
+				2F270B0E20D1C70100ADB777 /* UIPopoverPresentationController.swift in Sources */,
 				784988E21ED38E6800A0724E /* UIlabel+Ionicons.swift in Sources */,
 				7849893F1ED38F8B00A0724E /* NavigationForPopoverViewController.swift in Sources */,
 				784988BF1ED38CF600A0724E /* AppDelegate.swift in Sources */,
 				2FBB474420D011FC004D8A73 /* UITableView.swift in Sources */,
 				2FBB474620D01202004D8A73 /* UIViewController+Apparence.swift in Sources */,
+				2F270B0820D1BD5000ADB777 /* ADVNavigationCollisionTransition.swift in Sources */,
 				784989301ED38F5600A0724E /* IssuesTableViewController.swift in Sources */,
 				78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */,
 				2FBB474520D01200004D8A73 /* UIImageView.swift in Sources */,

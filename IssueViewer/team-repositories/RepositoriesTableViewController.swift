@@ -8,6 +8,7 @@
 
 import UIKit
 import Core
+import Material
 
 class RepositoriesTableViewController: LiveScrollTableViewController {
 
@@ -67,6 +68,13 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         refreshControl?.tintColor = UIColor.white
         navigationController?.isToolbarHidden = true
         navigationController?.navigationBar.isHidden = true
+        
+        
+        if Device.userInterfaceIdiom == .pad {
+            let margin = UITableViewController().tableView.layoutMargins.left
+            tableView.layoutMargins.left = margin
+            tableView.layoutMargins.right = margin
+        }
         
         super.viewDidLoad()
     }

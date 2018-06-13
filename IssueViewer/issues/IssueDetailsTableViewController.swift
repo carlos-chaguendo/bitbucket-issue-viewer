@@ -117,6 +117,8 @@ class IssueDetailsTableViewController: UITableViewController {
 
 		priority.append(NSAttributedString(string: " \(issue.priority!)"))
 		priorityLabel.attributedText = priority
+        
+      
 
        loadComments()
 
@@ -129,7 +131,18 @@ class IssueDetailsTableViewController: UITableViewController {
     
     func loadComments(refreshFromServer:Bool = false){
         
+        
         let repository:String! = issue!.repository?.slug.orEmpty
+ 
+        
+        RepositoryService.versions(of: "mayorgafirm", inRepository: repository)
+            .then { (result) -> Void in
+                result?.values.forEach({print($0)})
+    
+            }.always {
+                self.view.hideToastActivity()
+            }.catch(execute: presentError)
+        
         IssuesService.comments(of: "mayorgafirm", inRepository: repository, forIssue: issue!.id , refreshFromServer: refreshFromServer)
             .then { (result) -> Void in
                 
