@@ -136,15 +136,14 @@ class IssueDetailsTableViewController: UITableViewController {
  
         
         RepositoryService.versions(of: "mayorgafirm", inRepository: repository)
-            .then { (result) -> Void in
+            .done { (result) -> Void in
                 result?.values.forEach({print($0)})
-    
-            }.always {
+            }.ensure {
                 self.view.hideToastActivity()
             }.catch(execute: presentError)
         
         IssuesService.comments(of: "mayorgafirm", inRepository: repository, forIssue: issue!.id , refreshFromServer: refreshFromServer)
-            .then { (result) -> Void in
+            .done { (result) -> Void in
                 
                 guard let values = result?.values else {
                     self.tableView.reloadData()
@@ -155,7 +154,7 @@ class IssueDetailsTableViewController: UITableViewController {
                 self.comments = self.comments.sorted(by: { $0.createdOn! > $1.createdOn! })
                 self.tableView.reloadData()
                 
-            }.always {
+            }.ensure {
                 if #available(iOS 10.0, *) {
                     self.tableView.refreshControl?.endRefreshing()
                 }
@@ -257,15 +256,11 @@ extension IssueDetailsTableViewController: SingleSelectionTableViewDelegate{
         
         guard let assigne = selected as? Assignee else {return}
         
-//        
         IssuesService.assigne(to: assigne, issue: issue!, of: "mayorgafirm", inRepository: issue!.repository!.name!)
-            .then { (edited:IssueEdited?) -> Void in
-            
-                
+            .done { (edited:IssueEdited?) -> Void in
                 print("Calros \(edited!)")
-           
-        }.end()
-//
+            }.end()
+
     }
     
 }

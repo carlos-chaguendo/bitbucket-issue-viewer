@@ -84,8 +84,8 @@ public class Service {
                                                 })
         }
 
-//        let realm = try! Realm(configuration: configuration!)
-        let realm = try! Realm()
+        let realm = try! Realm(configuration: configuration!)
+        //let realm = try! Realm()
         return realm
     }()
 
@@ -114,7 +114,7 @@ public class Service {
             if localData.isEmpty || refresh == true {
                 realm.delete(localData)
                 saveToLocal(resultOf: Http.request(.get, route: route), beforeSaving: decoreBeforeSaving)
-                    .then(execute: resolve)
+                    .done( resolve)
                     .catch(execute: reject)
 
                 return
@@ -127,7 +127,7 @@ public class Service {
 
     public static func saveToLocal<T>(resultOf promise: Promise<SearchResult<T>?>, beforeSaving:((T) -> Void)? = nil  ) -> Promise<SearchResult<T>?> {
         return Promise<SearchResult<T>?> { (resolve, reject) in
-            promise.then { (result) -> Void in
+            promise.done { (result) -> Void in
                 try! realm.write {
                     for item in (result?.values).orEmpty {
                         beforeSaving?(item)

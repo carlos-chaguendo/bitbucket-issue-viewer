@@ -22,9 +22,9 @@ public extension Promise {
         })
     }
     
-    public func always(execute body: @escaping () -> Void) -> Promise {
-        return self.ensure(body)
-    }
+//    public func always(execute body: @escaping () -> Void) -> Promise {
+//        return self.ensure(body)
+//    }
     
     
 }
@@ -33,9 +33,9 @@ public extension Promise {
 extension Thenable {
 
     /// support promiseKit 4
-    public func then( execute executer : @escaping(T) throws -> Void) -> Promise<Void> {
-        return self.done(executer)
-    }
+//    public func then( execute executer : @escaping(T) throws -> Void) -> Promise<Void> {
+//        return self.done(executer)
+//    }
 }
 
 

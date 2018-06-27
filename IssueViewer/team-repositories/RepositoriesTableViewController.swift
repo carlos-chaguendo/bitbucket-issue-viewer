@@ -43,9 +43,9 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
 
         tabBarController?.tabBar.isHidden = false
 
-        
+
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        
+
 
     }
 
@@ -53,12 +53,12 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         super.viewWillAppear(animated)
 
         self.navigationController?.hidesBarsOnSwipe = false
-        
+
         self.navigationController?.setToolbarHidden(true, animated: false)
     }
 
     @objc override func viewDidLoad() {
-        
+
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
         tableView.rowHeight = 98 //UITableViewAutomaticDimension
@@ -68,14 +68,14 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         refreshControl?.tintColor = UIColor.white
         navigationController?.isToolbarHidden = true
         navigationController?.navigationBar.isHidden = true
-        
-        
+
+
         if Device.userInterfaceIdiom == .pad {
             let margin = UITableViewController().tableView.layoutMargins.left
             tableView.layoutMargins.left = margin
             tableView.layoutMargins.right = margin
         }
-        
+
         super.viewDidLoad()
     }
 
@@ -106,17 +106,17 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
 
 
         UserService.getUser()
-            .then(execute: { (user) -> Void in
+            .done { (user) -> Void in
 
                 self.user = user!
 
                 TeamsService.teams(refreshFromServer: self.loadFromServer)
-                    .then(execute: { (result) -> Void in
+                    .done { (result) -> Void in
 
-                        
+
                         if self.loadFromServer {
                             self.removeAllValues()
-                            
+
                             self.tableView.reloadData()
                         }
 
@@ -128,20 +128,20 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
                         if teams.count <= 10 {
                             self.hasMore = false
                         }
-                        
-          
+
+
                         self.appendValues([self.user])
                         self.appendValues(teams)
                         self.loadInformation = true;
                         self.loadFromServer = false
                         self.tableView.reloadData()
 
-                    }).always (execute: {
+                    }.ensure {
                         self.loadInformation = true;
                         self.refreshControl?.endRefreshing()
-                    }).catch (execute: self.presentError)
+                    }.catch (execute: self.presentError)
 
-            }).catch (execute: self.presentError)
+            }.catch(execute: self.presentError)
     }
 
 
@@ -178,9 +178,9 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
                 cell.detailTextLabel?.text = "Members"
                 // Se cargan los Miembros
                 TeamsService.count(membersOf: team)
-                    .then(execute: { (count) -> Void in
+                    .done { (count) -> Void in
                         cell.detailTextLabel?.text = "\(count) Members"
-                    }).end()
+                    }.end()
             }
         } else {
             cell.detailTextLabel?.text = ""
@@ -191,9 +191,9 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         } else {
             cell.teamSubtitle?.text = "Repositories"
             TeamsService.count(repositoriesOf: team)
-                .then(execute: { (count) -> Void in
+                .done { (count) -> Void in
                     cell.teamSubtitle?.text = "\(count) Repositories"
-                }).end()
+                }.end()
         }
     }
 

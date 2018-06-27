@@ -31,17 +31,12 @@ public class TeamsService: Service {
             } else {
         
                 Http.request(.get, route: "/2.0/teams/?role=member")
-                    .then(execute: { (teamsFromServer: SearchResult<User>?) -> Void in
+                    .done { (teamsFromServer: SearchResult<User>?) -> Void in
 
-                        
-               
-                        
                         let result = SearchResult<User>()
                         result.values = teamsFromServer!.values.map({ User(value: $0) })
                         
-           
                         resolve(result)
-
 
                         //Save local
                         try! realm.write {
@@ -54,7 +49,7 @@ public class TeamsService: Service {
                             }
                         }
 
-                    }).catch(execute: reject)
+                    }.catch(execute: reject)
             }
         }
 
@@ -71,7 +66,7 @@ public class TeamsService: Service {
             } else {
 
                 Http.request(.get, route: "/2.0/teams/\(team.username!)/members?page=\(page)&pagelen=\(rowsPerPage)")
-                    .then(execute: { (searchResult: SearchResult<User>?) -> Void in
+                    .done { (searchResult: SearchResult<User>?) -> Void in
 
                         resolve(searchResult?.size ?? 0)
                         //Save local
@@ -80,7 +75,7 @@ public class TeamsService: Service {
                             realm.add(team, update: true);
                         }
 
-                    }).catch(execute: reject)
+                    }.catch(execute: reject)
             }
         }
     }
@@ -97,7 +92,7 @@ public class TeamsService: Service {
             } else {
 
                 Http.request(.get, route: "/2.0/repositories/\(team.username!)?page=\(page)&pagelen=\(rowsPerPage)&q=has_issues%3Dtrue")
-                    .then(execute: { (searchResult: SearchResult<Repository>?) -> Void in
+                    .done { (searchResult: SearchResult<Repository>?) -> Void in
 
                         resolve(searchResult?.size ?? 0)
                         //Save local
@@ -106,7 +101,7 @@ public class TeamsService: Service {
                             realm.add(team, update: true);
                         }
 
-                    }).catch(execute: reject)
+                    }.catch(execute: reject)
             }
         }
     }
@@ -128,7 +123,7 @@ public class TeamsService: Service {
             } else {
 
                 Http.request(.get, route: "/2.0/teams/\(teamName)/members?page=\(page)&pagelen=\(rowsPerPage)&sort=-display_name")
-                    .then(execute: { (teamsFromServer: SearchResult<Assignee>?) -> Void in
+                    .done { (teamsFromServer: SearchResult<Assignee>?) -> Void in
 
                         let result = SearchResult<Assignee>()
                         result.values = teamsFromServer!.values.map({ Assignee(value: $0) })
@@ -142,7 +137,7 @@ public class TeamsService: Service {
                             }
                         }
 
-                    }).catch(execute: reject)
+                    }.catch(execute: reject)
 
             }
         }

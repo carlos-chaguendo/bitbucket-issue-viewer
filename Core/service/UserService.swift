@@ -28,7 +28,8 @@ public class UserService: Service {
 			}
 
 
-			Http.request(.get, route: "/2.0/user").then { (user: User?) -> Void in
+			Http.request(.get, route: "/2.0/user")
+                .done { (user: User?) -> Void in
 
 				guard let user = user else {
 					preconditionFailure("No hay session")

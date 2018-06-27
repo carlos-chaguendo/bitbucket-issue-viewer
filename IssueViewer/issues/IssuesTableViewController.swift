@@ -74,7 +74,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
 
                 print("Cargando repositorios de la nuve ")
                 RepositoryService.repositories(for: team.username!)
-                    .then (execute: { (searchResult) -> Void in
+                    .done { (searchResult) -> Void in
 
                         if searchResult?.size ?? 0 <= 0 {
                               seal.reject(LiveScrollError.cantNotLoadInformation("Not repositories whit issues"))
@@ -87,7 +87,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
                         self.btnRepository.title = self.repository.slug!
                        seal.fulfill(())
 
-                    }).end()
+                    }.end()
                 return
             }
 
@@ -102,10 +102,10 @@ public class IssuesTableViewController: LiveScrollTableViewController {
         override public func liveScroll(valuesOf page: Int) {
 
             resolveCurrentFilters()
-                .then(execute: { () -> Void in
+                .done { () -> Void in
 
                     self.currentRequest = IssuesService.issues(of: self.team, inRepository: self.repository, assigneedTo: self.assigne, whitStatus: self.status, page: page, refreshFromServer: self.loadFromServer)
-                    self.currentRequest!.then (execute: { (result) -> Void in
+                    self.currentRequest!.done { (result) -> Void in
 
                         if self.loadFromServer {
                             self.removeAllValues()
@@ -125,14 +125,14 @@ public class IssuesTableViewController: LiveScrollTableViewController {
                         self.loadInformation = true;
                         self.loadFromServer = false
                         self.tableView.reloadData()
-                    }).always (execute: {
+                    }.ensure {
                         self.loadInformation = true;
                         self.refreshControl?.endRefreshing()
                         self.currentRequest = nil
 
-                    }).catch (execute: self.presentError)
+                    }.catch (execute: self.presentError)
 
-                }).catch(execute: markAsEmptyTable)
+                }.catch(execute: markAsEmptyTable)
         }
 
         @IBAction func showRepositorySelector(_ sender: UIBarButtonItem) {
@@ -324,7 +324,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
                 let assigne = Assignee();
                 assigne.username = "pruebasMayorgafirm"
                 IssuesService.assigne(to: assigne, issue: issue, of: "mayorgafirm", inRepository: issue.repository!.name!)
-                    .then { (edited: IssueEdited?) -> Void in
+                    .done { (edited: IssueEdited?) -> Void in
                         UIApplication.shared.keyWindow?.makeToast("Enviado a q \(issue.id)")
                     }.end()
             }

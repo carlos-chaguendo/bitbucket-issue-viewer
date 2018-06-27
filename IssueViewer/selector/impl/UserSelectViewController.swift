@@ -25,7 +25,7 @@ public class UserSelectViewController: LiveScrollWithSingleSelectionTableViewCon
 
 	public override func liveScroll(valuesOf page: Int) {
 		TeamsService.members(of: "mayorgafirm", page: currentPage)
-			.then(execute: { (result: SearchResult<Assignee>?) -> Void in
+			.done { (result: SearchResult<Assignee>?) -> Void in
 				guard let members = result?.values else {
 					self.hasMore = false
 					return
@@ -39,9 +39,9 @@ public class UserSelectViewController: LiveScrollWithSingleSelectionTableViewCon
 				self.loadInformation = true;
 				self.tableView.reloadData()
 
-			}).always (execute: {
+			}.ensure {
 				self.loadInformation = true;
-			}).catch (execute: self.presentError)
+			}.catch (execute: self.presentError)
         
         
         

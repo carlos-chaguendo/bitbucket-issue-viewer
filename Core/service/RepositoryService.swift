@@ -36,9 +36,9 @@ public class RepositoryService: Service {
                    where: query,
                    decoreBeforeSaving: { $0.page = page },
                    orConnectTo: server)
-                .then (execute: {
+                .done {
                     resolve(SearchResult<Repository>(values: $0!.values))
-                }).catch(execute: reject)
+                }.catch(execute: reject)
 
         }
     }
@@ -63,9 +63,9 @@ public class RepositoryService: Service {
                    decoreBeforeSaving: { $0.repository = repository },
                    orConnectTo: server,
                    refresh: refresh)
-                .then (execute: {
+                .done {
                     resolve(SearchResult<Version>(values: $0!.values))
-                }).catch(execute: reject)
+                }.catch(execute: reject)
         }
     }
 

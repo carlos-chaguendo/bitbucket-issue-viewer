@@ -26,7 +26,7 @@ public class RepositorySelectViewController: LiveScrollWithSingleSelectionTableV
 	public override func liveScroll(valuesOf page: Int) {
 
 		RepositoryService.repositories(for: team!.username!, page: page)
-			.then(execute: { (result: SearchResult<Repository>?) -> Void in
+			.done { (result: SearchResult<Repository>?) -> Void in
 				guard let repositories = result?.values else {
 					self.hasMore = false
 					return
@@ -41,9 +41,9 @@ public class RepositorySelectViewController: LiveScrollWithSingleSelectionTableV
 
 				self.loadInformation = true;
 				self.tableView.reloadData()
-			}).always (execute: {
+			}.ensure {
 				self.loadInformation = true;
-			}).catch (execute: self.presentError)
+			}.catch(execute: self.presentError)
 
 	}
 

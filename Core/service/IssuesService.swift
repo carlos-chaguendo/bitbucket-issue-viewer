@@ -100,24 +100,23 @@ public class IssuesService: Service {
             route = "\(route)&q=\(q)"
 
             let origin: Promise<SearchResult<Issue>?> = Http.request(.get, route: route)
-            origin.then(execute: { (result) -> Void in
-                resolve(result)
+            origin
+                .done { (result) -> Void in
+                
+                    resolve(result)
+                    if let issues = result?.values {
+                        try! realm.write({
+                            issues
+                                .map({ Issue(value: $0) })
+                                .forEach({ (issue) in
+                                    issue.page = page
+                                    realm.add(issue, update: true)
+                                })
 
-                if let issues = result?.values {
+                        })
+                    }
 
-                    try! realm.write({
-                        issues
-                            .map({ Issue(value: $0) })
-                            .forEach({ (issue) in
-                                issue.page = page
-                                realm.add(issue, update: true)
-                            })
-
-                    })
-
-                }
-
-            }).catch(execute: reject)
+            }.catch(execute: reject)
 
         }
 

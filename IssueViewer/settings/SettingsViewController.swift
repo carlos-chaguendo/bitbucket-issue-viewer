@@ -15,7 +15,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TeamsService.teams(refreshFromServer: false).then { (result) -> Void in
+        TeamsService.teams(refreshFromServer: false)
+        .done { (result) -> Void in
             print(">>>>>")
             
             for d in result!.values{
