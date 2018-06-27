@@ -17,6 +17,11 @@
 		2F270B0E20D1C70100ADB777 /* UIPopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */; };
 		2F439C9720D15F080094766C /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; };
 		2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */; };
+		2F5F1A8720E404CD00DDCB71 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F1A8620E404CC00DDCB71 /* PINRemoteImage.framework */; };
+		2F5F1A8820E404CD00DDCB71 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F1A8620E404CC00DDCB71 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F5F1A8A20E404F200DDCB71 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F1A8920E404F100DDCB71 /* PINCache.framework */; };
+		2F5F1A8B20E404F200DDCB71 /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F1A8920E404F100DDCB71 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */; };
 		2FBB470620D00D91004D8A73 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBB470420D00D91004D8A73 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; };
@@ -75,8 +80,6 @@
 		2FBB476A20D01480004D8A73 /* PMKAlamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475720D01480004D8A73 /* PMKAlamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB476B20D01480004D8A73 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */; };
 		2FBB476C20D01480004D8A73 /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2FBB476D20D01480004D8A73 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475920D01480004D8A73 /* PINRemoteImage.framework */; };
-		2FBB476E20D01480004D8A73 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475920D01480004D8A73 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB476F20D01480004D8A73 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */; };
 		2FBB477020D01480004D8A73 /* FLAnimatedImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB477120D01480004D8A73 /* IoniconsSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475B20D01480004D8A73 /* IoniconsSwift.framework */; };
@@ -101,11 +104,8 @@
 		2FBB478620D014C3004D8A73 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478420D014C3004D8A73 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB478820D014DA004D8A73 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478720D014DA004D8A73 /* Realm.framework */; };
 		2FBB478920D014DA004D8A73 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478720D014DA004D8A73 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2FBB478B20D014F8004D8A73 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478A20D014F8004D8A73 /* PINCache.framework */; };
 		2FBB478D20D01511004D8A73 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */; };
 		2FBB478E20D01511004D8A73 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2FBB479020D01525004D8A73 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478F20D01525004D8A73 /* PINCache.framework */; };
-		2FBB479120D01525004D8A73 /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478F20D01525004D8A73 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB479320D01539004D8A73 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */; };
 		2FBB479420D01539004D8A73 /* AlamofireObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB479620D01556004D8A73 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479520D01556004D8A73 /* ObjectMapper.framework */; };
@@ -170,10 +170,8 @@
 				2FBB476A20D01480004D8A73 /* PMKAlamofire.framework in Embed Frameworks */,
 				2FBB478320D014AF004D8A73 /* RealmSwift.framework in Embed Frameworks */,
 				2FBB476C20D01480004D8A73 /* NVActivityIndicatorView.framework in Embed Frameworks */,
-				2FBB479120D01525004D8A73 /* PINCache.framework in Embed Frameworks */,
 				2FBB477A20D01480004D8A73 /* LTMorphingLabel.framework in Embed Frameworks */,
 				2FBB477820D01480004D8A73 /* SnapKit.framework in Embed Frameworks */,
-				2FBB476E20D01480004D8A73 /* PINRemoteImage.framework in Embed Frameworks */,
 				2FBB477E20D01480004D8A73 /* PKHUD.framework in Embed Frameworks */,
 				2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */,
 				2FBB478020D01480004D8A73 /* PromiseKit.framework in Embed Frameworks */,
@@ -183,8 +181,10 @@
 				2FBB477020D01480004D8A73 /* FLAnimatedImage.framework in Embed Frameworks */,
 				2FBB476820D01480004D8A73 /* SwipeCellKit.framework in Embed Frameworks */,
 				2FBB477220D01480004D8A73 /* IoniconsSwift.framework in Embed Frameworks */,
+				2F5F1A8B20E404F200DDCB71 /* PINCache.framework in Embed Frameworks */,
 				2FBB477420D01480004D8A73 /* Atributika.framework in Embed Frameworks */,
 				2FBB477620D01480004D8A73 /* ToastSwiftFramework.framework in Embed Frameworks */,
+				2F5F1A8820E404CD00DDCB71 /* PINRemoteImage.framework in Embed Frameworks */,
 				2FBB476420D01480004D8A73 /* SwiftValidator.framework in Embed Frameworks */,
 				2FBB477C20D01480004D8A73 /* Material.framework in Embed Frameworks */,
 				2FBB478920D014DA004D8A73 /* Realm.framework in Embed Frameworks */,
@@ -206,6 +206,9 @@
 		2F270B0B20D1C19000ADB777 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPopoverPresentationController.swift; sourceTree = "<group>"; };
 		2F439C9620D15F080094766C /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = Carthage/Build/iOS/DropDown.framework; sourceTree = "<group>"; };
+		2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromiseKit+Support4.swift"; sourceTree = "<group>"; };
+		2F5F1A8620E404CC00DDCB71 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
+		2F5F1A8920E404F100DDCB71 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
@@ -224,7 +227,6 @@
 		2FBB475620D01480004D8A73 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
 		2FBB475720D01480004D8A73 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
 		2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
-		2FBB475920D01480004D8A73 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAnimatedImage.framework; path = Carthage/Build/iOS/FLAnimatedImage.framework; sourceTree = "<group>"; };
 		2FBB475B20D01480004D8A73 /* IoniconsSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IoniconsSwift.framework; path = Carthage/Build/iOS/IoniconsSwift.framework; sourceTree = "<group>"; };
 		2FBB475C20D01480004D8A73 /* Atributika.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Atributika.framework; path = Carthage/Build/iOS/Atributika.framework; sourceTree = "<group>"; };
@@ -237,9 +239,7 @@
 		2FBB478120D014AF004D8A73 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2FBB478420D014C3004D8A73 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		2FBB478720D014DA004D8A73 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		2FBB478A20D014F8004D8A73 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
-		2FBB478F20D01525004D8A73 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		2FBB479520D01556004D8A73 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		2FCF3EDE203736020024FC17 /* Optional+Chaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Chaining.swift"; sourceTree = "<group>"; };
@@ -341,19 +341,18 @@
 				2FBB479620D01556004D8A73 /* ObjectMapper.framework in Frameworks */,
 				2FBB477920D01480004D8A73 /* LTMorphingLabel.framework in Frameworks */,
 				2FBB477720D01480004D8A73 /* SnapKit.framework in Frameworks */,
-				2FBB476D20D01480004D8A73 /* PINRemoteImage.framework in Frameworks */,
 				2FBB477D20D01480004D8A73 /* PKHUD.framework in Frameworks */,
 				2FBB477F20D01480004D8A73 /* PromiseKit.framework in Frameworks */,
-				2FBB479020D01525004D8A73 /* PINCache.framework in Frameworks */,
 				2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */,
 				2FBB476F20D01480004D8A73 /* FLAnimatedImage.framework in Frameworks */,
 				2FBB476720D01480004D8A73 /* SwipeCellKit.framework in Frameworks */,
 				2FBB477120D01480004D8A73 /* IoniconsSwift.framework in Frameworks */,
 				2FBB477320D01480004D8A73 /* Atributika.framework in Frameworks */,
 				2FBB477520D01480004D8A73 /* ToastSwiftFramework.framework in Frameworks */,
+				2F5F1A8A20E404F200DDCB71 /* PINCache.framework in Frameworks */,
 				2FBB476320D01480004D8A73 /* SwiftValidator.framework in Frameworks */,
 				2F439C9720D15F080094766C /* DropDown.framework in Frameworks */,
-				2FBB478B20D014F8004D8A73 /* PINCache.framework in Frameworks */,
+				2F5F1A8720E404CD00DDCB71 /* PINRemoteImage.framework in Frameworks */,
 				2FBB479320D01539004D8A73 /* AlamofireObjectMapper.framework in Frameworks */,
 				2FBB477B20D01480004D8A73 /* Material.framework in Frameworks */,
 				2FBB478820D014DA004D8A73 /* Realm.framework in Frameworks */,
@@ -413,7 +412,6 @@
 		2FBB472420D0101F004D8A73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2FBB478A20D014F8004D8A73 /* PINCache.framework */,
 				2FBB474820D01445004D8A73 /* Alamofire.framework */,
 				2FBB474C20D01445004D8A73 /* AlamofireObjectMapper.framework */,
 				2FBB474D20D01445004D8A73 /* ObjectMapper.framework */,
@@ -457,6 +455,8 @@
 		784988B21ED38CF600A0724E = {
 			isa = PBXGroup;
 			children = (
+				2F5F1A8920E404F100DDCB71 /* PINCache.framework */,
+				2F5F1A8620E404CC00DDCB71 /* PINRemoteImage.framework */,
 				2F270B0920D1BE5700ADB777 /* Settings.bundle */,
 				2F439C9620D15F080094766C /* DropDown.framework */,
 				2FBB478420D014C3004D8A73 /* Alamofire.framework */,
@@ -469,7 +469,6 @@
 				2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */,
 				2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */,
 				2FBB479520D01556004D8A73 /* ObjectMapper.framework */,
-				2FBB478F20D01525004D8A73 /* PINCache.framework */,
 				2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */,
 				2FBB476120D01480004D8A73 /* PKHUD.framework */,
 				2FBB475720D01480004D8A73 /* PMKAlamofire.framework */,
@@ -484,7 +483,6 @@
 				2FBB472420D0101F004D8A73 /* Frameworks */,
 				784988BD1ED38CF600A0724E /* IssueViewer */,
 				784988BC1ED38CF600A0724E /* Products */,
-				2FBB475920D01480004D8A73 /* PINRemoteImage.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -543,6 +541,7 @@
 				784988D31ED38E5C00A0724E /* UIColor.swift */,
 				2F18680E1F72DAF400351C98 /* UIImage.swift */,
 				2F270B0B20D1C19000ADB777 /* UserDefaults.swift */,
+				2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -814,6 +813,7 @@
 				2FBB472320D00FED004D8A73 /* NumberAsStringTransform.swift in Sources */,
 				2FBB473720D0108F004D8A73 /* SequenceType.swift in Sources */,
 				2FBB471C20D00FDF004D8A73 /* IssueStatus.swift in Sources */,
+				2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */,
 				2FBB473D20D0108F004D8A73 /* PromiseKit.swift in Sources */,
 				2FBB472D20D01077004D8A73 /* HttpStatusCode.swift in Sources */,
 				2F270B0C20D1C19000ADB777 /* UserDefaults.swift in Sources */,
@@ -1104,7 +1104,7 @@
 				INFOPLIST_FILE = IssueViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chasan.vpm;
+				PRODUCT_BUNDLE_IDENTIFIER = net.whatsapp.WhatsApp.vpm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -1125,7 +1125,7 @@
 				INFOPLIST_FILE = IssueViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chasan.vpm;
+				PRODUCT_BUNDLE_IDENTIFIER = net.whatsapp.WhatsApp.vpm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

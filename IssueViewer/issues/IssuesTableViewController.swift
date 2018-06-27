@@ -68,7 +68,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
      * Si no existe ninguno carga el primero del grupo
      */
     private func resolveCurrentFilters() -> Promise<Void> {
-        return Promise<Void> { (resolve, reject) -> Void in
+        return Promise<Void> { seal in
 
             if self.repository == nil {
 
@@ -77,7 +77,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
                     .then (execute: { (searchResult) -> Void in
 
                         if searchResult?.size ?? 0 <= 0 {
-                            reject(LiveScrollError.cantNotLoadInformation("Not repositories whit issues"))
+                              seal.reject(LiveScrollError.cantNotLoadInformation("Not repositories whit issues"))
                             return
                         }
 
@@ -85,13 +85,13 @@ public class IssuesTableViewController: LiveScrollTableViewController {
                         self.repository = searchResult?.values[0]
 
                         self.btnRepository.title = self.repository.slug!
-                        resolve(())
+                       seal.fulfill(())
 
                     }).end()
                 return
             }
 
-            resolve(())
+              seal.fulfill(())
             }
         }
 
