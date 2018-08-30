@@ -32,11 +32,11 @@ class HtmlParser {
         .underlineStyle(.styleSingle)
     
     /// Emboltorio de un bloque de codigo
-    public static let div = Style("div")//.paragraphStyle(parag)
+    public static let div = Style("div").backgroundColor(#colorLiteral(red: 0.9137254902, green: 0.9215686275, blue: 0.937254902, alpha: 1))
     
     /// Bloque de codigo
     public static let pre = Style("pre")
-        .backgroundColor(#colorLiteral(red: 0.9137254902, green: 0.9215686275, blue: 0.937254902, alpha: 1))
+        //.backgroundColor(#colorLiteral(red: 0.9137254902, green: 0.9215686275, blue: 0.937254902, alpha: 1))
         .paragraphStyle(NSMutableParagraphStyle().then {
             $0.headIndent = 5
             $0.firstLineHeadIndent = 5
@@ -52,12 +52,28 @@ class HtmlParser {
         .baselineOffset(5)
         .font(.boldSystemFont(ofSize: 10))
         .foregroundColor(Colors.primary.withAlphaComponent(0.6))
+    
+    /// texto tachado
+    public static let del = Style("del").strikethroughStyle(.styleSingle)
+    
+    /// Comentario o referencia >
+    public static let blockquote = Style("blockquote").backgroundColor(#colorLiteral(red: 0.9764705896, green: 0.8783940377, blue: 0.4929561395, alpha: 0.4355948044))
+    
+    
+    public static let tr = Style("tr")
+        .underlineStyle(.styleSingle)
+    
+    /// codigo en una sola linea
+    public static let code = Style("code")
+        .backgroundColor(#colorLiteral(red: 0.9137254902, green: 0.9215686275, blue: 0.937254902, alpha: 1))
 
     public class func parse(html input: String, addFooter: Bool = false) -> NSAttributedString {
 
         var html = input
         var descriptionText: NSAttributedString!
         var attachments: [String: String] = [:]
+        var tables: [String: NSAttributedString] = [:]
+        
 
         // Se reemplazan las etiquetas de imagenes
         while let img = html.substring(between: "<img", and: "/>") {
@@ -69,14 +85,33 @@ class HtmlParser {
             html = html.replacingOccurrences(of: img, with: "\n\(key)\n")
         }
 
-        let find = addFooter ? "\n<final>Final del contenido</final> \n\n\n\n" : ""
 
-        descriptionText = "\(html)\(find)".style(tags: [em, strong, p, final, aimg, h3, pre])
+//        var loadedObjects: NSDictionary = Style.font(.systemFont(ofSize: 14)).attributes as NSDictionary
+//        let loadedObjectsPointer = AutoreleasingUnsafeMutablePointer<NSDictionary?>(&loadedObjects)
+        
+        
+        
+         while let table = html.substring(between: "<table>", and: "/table>"),
+            let data = table.data(using: .utf8),
+            let tableHtmlAtributed = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            
+            let key = "Table-\(tables.count + 1)"
+            tables[key] = tableHtmlAtributed
+            html = html.replacingOccurrences(of: table, with: "\n\(key)\n")
+        }
+        
+
+        let find = addFooter ? "\n<final>Final del contenido</final> \n\n\n\n" : ""
+        
+        descriptionText = "\(html)\(find)".style(tags: [em, strong, p, final, aimg, h3, div, pre, del, blockquote, tr, code])
             .styleAll(Style.font(.systemFont(ofSize: 14)))
             .attributedString
 
         let mutable = NSMutableAttributedString(attributedString: descriptionText)
+      
+
         let finalString = descriptionText.string
+        
 
         /// add links
         for attach in attachments {
@@ -84,6 +119,15 @@ class HtmlParser {
             let nsRange = NSRange.init(range!, in: finalString)
             mutable.addAttribute(.link, value: attach.value, range: nsRange)
         }
+        
+        /// add tables
+        for attach in tables {
+//            let range = finalString.range(of: attach.key)
+//            let nsRange = NSRange.init(range!, in: finalString)
+//              mutable.replaceCharacters(in: nsRange, with: attach.value)
+            mutable.append(attach.value)
+        }
+        
         return mutable
     }
 

@@ -88,7 +88,8 @@ class IssueDetailsTableViewController: UITableViewController {
 		reporterLabel.text = issue.reporter?.displayName
 		reporterDetailLabel.text = "Created at \((issue.createdOn?.relativeTime).orEmpty)"
         
-        descriptionText = HtmlParser.parse(html: issue.html.orEmpty)
+        //descriptionText =  MarkdownParser().parse(issue.raw.orEmpty)
+        descriptionText =  HtmlParser.parse(html: issue.html.orEmpty)
 
 		responsibleAvatar.setImage(fromURL: issue.assignee?.avatar)
 		assigneeLabel.text = issue.assignee?.displayName
