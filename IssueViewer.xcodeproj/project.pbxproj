@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F06944121383CE60052F61A /* Haring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F06944021383CE50052F61A /* Haring.framework */; };
+		2F06944221383CE60052F61A /* Haring.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F06944021383CE50052F61A /* Haring.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F06944721383EE70052F61A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944621383EE70052F61A /* String.swift */; };
+		2F06944921383FE50052F61A /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944821383FE50052F61A /* Then.swift */; };
+		2F06944A2138406F0052F61A /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944421383E510052F61A /* HtmlParser.swift */; };
 		2F18680A1F72CD3200351C98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1868091F72CD3200351C98 /* SettingsViewController.swift */; };
 		2F18680D1F72CE2600351C98 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */; };
 		2F270B0320D1B2A600ADB777 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0220D1B2A600ADB777 /* Versions.swift */; };
@@ -186,6 +191,7 @@
 				2FBB477220D01480004D8A73 /* IoniconsSwift.framework in Embed Frameworks */,
 				2FC2848120ED30850014DE4D /* PINCache.framework in Embed Frameworks */,
 				2FBB477420D01480004D8A73 /* Atributika.framework in Embed Frameworks */,
+				2F06944221383CE60052F61A /* Haring.framework in Embed Frameworks */,
 				2FBB477620D01480004D8A73 /* ToastSwiftFramework.framework in Embed Frameworks */,
 				2FC2847E20ED302C0014DE4D /* PINRemoteImage.framework in Embed Frameworks */,
 				2FBB476420D01480004D8A73 /* SwiftValidator.framework in Embed Frameworks */,
@@ -198,6 +204,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F06944021383CE50052F61A /* Haring.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haring.framework; path = Carthage/Build/iOS/Haring.framework; sourceTree = "<group>"; };
+		2F06944421383E510052F61A /* HtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
+		2F06944621383EE70052F61A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2F06944821383FE50052F61A /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		2F1868061F72C07600351C98 /* PromiseKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKit.swift; sourceTree = "<group>"; };
 		2F1868091F72CD3200351C98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
@@ -357,6 +367,7 @@
 				2FBB477520D01480004D8A73 /* ToastSwiftFramework.framework in Frameworks */,
 				2FC2848020ED30850014DE4D /* PINCache.framework in Frameworks */,
 				2FBB476320D01480004D8A73 /* SwiftValidator.framework in Frameworks */,
+				2F06944121383CE60052F61A /* Haring.framework in Frameworks */,
 				2F439C9720D15F080094766C /* DropDown.framework in Frameworks */,
 				2FC2847D20ED302C0014DE4D /* PINRemoteImage.framework in Frameworks */,
 				2FBB479320D01539004D8A73 /* AlamofireObjectMapper.framework in Frameworks */,
@@ -368,6 +379,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F06944321383E3D0052F61A /* markdown */ = {
+			isa = PBXGroup;
+			children = (
+				2F06944421383E510052F61A /* HtmlParser.swift */,
+			);
+			path = markdown;
+			sourceTree = "<group>";
+		};
 		2F1868081F72CD1F00351C98 /* settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +480,7 @@
 		784988B21ED38CF600A0724E = {
 			isa = PBXGroup;
 			children = (
+				2F06944021383CE50052F61A /* Haring.framework */,
 				2FC2847F20ED30850014DE4D /* PINCache.framework */,
 				2FC2847C20ED302C0014DE4D /* PINRemoteImage.framework */,
 				2F270B0920D1BE5700ADB777 /* Settings.bundle */,
@@ -504,6 +524,7 @@
 		784988BD1ED38CF600A0724E /* IssueViewer */ = {
 			isa = PBXGroup;
 			children = (
+				2F06944321383E3D0052F61A /* markdown */,
 				2F270B0620D1BD3E00ADB777 /* transitions */,
 				784989171ED38F0D00A0724E /* cell */,
 				2FBB474220D011C9004D8A73 /* extensions */,
@@ -548,6 +569,8 @@
 				2F18680E1F72DAF400351C98 /* UIImage.swift */,
 				2F270B0B20D1C19000ADB777 /* UserDefaults.swift */,
 				2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */,
+				2F06944621383EE70052F61A /* String.swift */,
+				2F06944821383FE50052F61A /* Then.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -824,10 +847,12 @@
 				2FBB471C20D00FDF004D8A73 /* IssueStatus.swift in Sources */,
 				2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */,
 				2FBB473D20D0108F004D8A73 /* PromiseKit.swift in Sources */,
+				2F06944721383EE70052F61A /* String.swift in Sources */,
 				2FBB472D20D01077004D8A73 /* HttpStatusCode.swift in Sources */,
 				2F270B0C20D1C19000ADB777 /* UserDefaults.swift in Sources */,
 				2FBB472F20D01077004D8A73 /* IssuesService.swift in Sources */,
 				2FBB472120D00FE7004D8A73 /* TeamIssuesFilters.swift in Sources */,
+				2F06944921383FE50052F61A /* Then.swift in Sources */,
 				2F270B0320D1B2A600ADB777 /* Versions.swift in Sources */,
 				2FBB474720D0122F004D8A73 /* UIColor.swift in Sources */,
 				2FBB472220D00FED004D8A73 /* ISO8601ExtendedDateTransform.swift in Sources */,
@@ -861,6 +886,7 @@
 				784989161ED38EE400A0724E /* LaunchScreenView.swift in Sources */,
 				2FF06F991F744ABB005F07DF /* TeamTableViewCell.swift in Sources */,
 				784989211ED38F2800A0724E /* LiveScrollWithMultipleSelectionTableViewController.swift in Sources */,
+				2F06944A2138406F0052F61A /* HtmlParser.swift in Sources */,
 				784989311ED38F5600A0724E /* IssueTableViewCell.swift in Sources */,
 				2FBB474120D01153004D8A73 /* Storyboard.swift in Sources */,
 				784989321ED38F5600A0724E /* IssueDetailsTableViewController.swift in Sources */,

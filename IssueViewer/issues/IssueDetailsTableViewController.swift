@@ -14,6 +14,7 @@ import Alamofire
 import Core
 import NYTPhotoViewer
 import PINRemoteImage
+import Haring
 
 class IssueDetailsTableViewController: UITableViewController {
 
@@ -87,55 +88,7 @@ class IssueDetailsTableViewController: UITableViewController {
 		reporterLabel.text = issue.reporter?.displayName
 		reporterDetailLabel.text = "Created at \((issue.createdOn?.relativeTime).orEmpty)"
         
-        let h3 = Style("h3").font(.boldSystemFont(ofSize: 15)).foregroundColor(Colors.primary)
-        let em = Style("em").font(.boldSystemFont(ofSize: 17)).foregroundColor(Colors.primary)
-        let strong = Style("strong").font(.boldSystemFont(ofSize: 17)).foregroundColor(Colors.primary)
-        let aimg = Style("aimg").font(.boldSystemFont(ofSize: 12)).foregroundColor(Colors.primary).underlineStyle(.styleSingle)
-        
-        let parag = NSMutableParagraphStyle()
-        parag.headIndent = 5
-        parag.firstLineHeadIndent = 5
-        parag.tailIndent = -5
-        
-        let div = Style("div").backgroundColor(#colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.968627451, alpha: 1)).paragraphStyle(parag)
-
-        let p = Style("p").baselineOffset(5)
-        let final = Style("final").baselineOffset(5).font(.boldSystemFont(ofSize: 10)).foregroundColor(Colors.primary.withAlphaComponent(0.6))
-
-        
-
-        var html = issue.html.orEmpty
-        // Se reemplazan las etiquetas de imagenes
-        while let img = html.substring(between: "<img", and: "/>")  {
-            let alt = img.substring(between: "alt=\"", and: "\" ", includeBrackets: false).or(else: "Attached")!
-            let src = img.substring(between: "src=\"", and: "\" ", includeBrackets: false).orEmpty
-            let key = "<aimg>IMG-\(alt)</aimg>"
-            
-            attachments["IMG-\(alt)"] = "\(src)?IMG"
-            
-
-            
-            html = html.replacingOccurrences(of: img, with: "\n\(key)\n")
-        }
-        
-        descriptionText = "\(html)\n<final>Final del contenido</final> \n\n\n\n".style(tags: [em,strong,p,final, aimg, h3, div])
-            .styleAll(Style.font(.systemFont(ofSize: 14)))
-            .attributedString
-        
-        
-        let mutable = NSMutableAttributedString(attributedString: descriptionText)
-        let finalString = descriptionText.string
-        
-        
-        /// add links
-        for attach in attachments {
-            let range = finalString.range(of: attach.key)
-            let nsRange = NSRange.init(range!, in: finalString)
-            mutable.addAttribute(.link, value: attach.value, range: nsRange )
-        }
-        
-        descriptionText = mutable
- 
+        descriptionText = HtmlParser.parse(html: issue.html.orEmpty)
 
 		responsibleAvatar.setImage(fromURL: issue.assignee?.avatar)
 		assigneeLabel.text = issue.assignee?.displayName
@@ -238,7 +191,13 @@ class IssueDetailsTableViewController: UITableViewController {
             cell.dateLabel.text = dateFormater.string(from: comment.createdOn.or(else: Date()))
 //            cell.avatar.setImage(fromURL: comment.user?.avatar)
             cell.autorlabel?.text = comment.user?.displayName
-            cell.descriptionLabel.text = comment.raw.or(else: "Status Change")!
+            
+            if let html = comment.html, html.isEmpty == false {
+                cell.descriptionLabel.attributedText = HtmlParser.parse(html: html)
+            } else {
+                cell.descriptionLabel.text = "Status Change"
+            }
+    
 		}
 
         cell.selectionStyle = .none
@@ -340,26 +299,6 @@ extension IssueDetailsTableViewController: UITextViewDelegate {
     }
 }
 
-extension String {
-    
-    
-    func substring(between start: String, and end: String, includeBrackets:Bool = true) -> String? {
-        
-        guard let range = self.range(of: start) else {
-            return nil
-        }
-  
-        let a: String.Index = includeBrackets ? range.lowerBound : range.upperBound
-        let html = String(self[a...])
-        guard let endRange = html.range(of: end) else {
-            return nil
-        }
-        
-        let b: String.Index = includeBrackets ? endRange.upperBound : endRange.lowerBound
-        return String(html[..<b])
-    }
-    
-}
 
 
 

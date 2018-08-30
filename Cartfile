@@ -15,3 +15,4 @@ github "Hearst-DD/ObjectMapper" == 3.3.0
 github "mxcl/PromiseKit" == 6.3.3
 github "tristanhimmelman/AlamofireObjectMapper" == 5.0.0
 github "PromiseKit/Alamofire-" == 3.2.1
+github "DavidLari/Haring" == 2.0.8
