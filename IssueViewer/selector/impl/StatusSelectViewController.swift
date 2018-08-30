@@ -24,7 +24,7 @@ public class StatusSelectViewController: LiveScrollWithMultipleSelectionTableVie
 	public override func liveScroll(valuesOf page: Int) {
 		self.loadInformation = true;
 		self.hasMore = false
-		let status = ["wontfix", "invalid", "new", "closed", "resolved", "on hold" , "duplicate"].map({ NSString(string: $0) })
+		let status = ["wontfix", "invalid", "new", "closed", "resolved", "on hold" , "duplicate", "open"].map({ NSString(string: $0) })
 		self.appendValues(status)
 		self.tableView.reloadData()
 	}

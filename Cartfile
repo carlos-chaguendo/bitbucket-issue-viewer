@@ -1,7 +1,7 @@
 #github "ninjaprox/NVActivityIndicatorView"
 #github "lexrus/LTMorphingLabel"
 #github "tidwall/IoniconsSwift"
-#github "psharanda/Atributika"
+github "psharanda/Atributika"
 #github "cjwirth/RichEditorView”
 #github "bryx-inc/BRYXBanner"
 #github "realm/realm-cocoa" ~>  3.1.2

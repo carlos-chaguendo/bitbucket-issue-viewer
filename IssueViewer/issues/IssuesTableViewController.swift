@@ -231,6 +231,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
 
             if let controller = segue.destination as? IssueDetailsTableViewController {
                 controller.issue = cell.issue
+                controller.team = team
             }
 
         }

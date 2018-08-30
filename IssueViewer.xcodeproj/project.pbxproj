@@ -18,10 +18,6 @@
 		2F439C9720D15F080094766C /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; };
 		2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */; };
-		2F5F1A8720E404CD00DDCB71 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F1A8620E404CC00DDCB71 /* PINRemoteImage.framework */; };
-		2F5F1A8820E404CD00DDCB71 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F1A8620E404CC00DDCB71 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2F5F1A8A20E404F200DDCB71 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F1A8920E404F100DDCB71 /* PINCache.framework */; };
-		2F5F1A8B20E404F200DDCB71 /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F1A8920E404F100DDCB71 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */; };
 		2FBB470620D00D91004D8A73 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBB470420D00D91004D8A73 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; };
@@ -110,9 +106,16 @@
 		2FBB479420D01539004D8A73 /* AlamofireObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB479620D01556004D8A73 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479520D01556004D8A73 /* ObjectMapper.framework */; };
 		2FBB479720D01556004D8A73 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479520D01556004D8A73 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2FC2847D20ED302C0014DE4D /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2847C20ED302C0014DE4D /* PINRemoteImage.framework */; };
+		2FC2847E20ED302C0014DE4D /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2847C20ED302C0014DE4D /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2FC2848020ED30850014DE4D /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2847F20ED30850014DE4D /* PINCache.framework */; };
+		2FC2848120ED30850014DE4D /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2847F20ED30850014DE4D /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FCF3EE120373C640024FC17 /* IssueCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCF3EE020373C640024FC17 /* IssueCommentTableViewCell.swift */; };
 		2FF06F991F744ABB005F07DF /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F981F744ABB005F07DF /* TeamTableViewCell.swift */; };
 		2FF06FA01F7481B5005F07DF /* LiveScrollError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F9F1F7481B5005F07DF /* LiveScrollError.swift */; };
+		2FFDF0AE2130969E00ABAD19 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDF0AD2130969E00ABAD19 /* FieldTableViewCell.swift */; };
+		2FFDF0B02130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDF0AF2130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift */; };
+		2FFDF0B22130BAA300ABAD19 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDF0B12130BAA300ABAD19 /* PhotosViewController.swift */; };
 		78040E701EF32C69006D2683 /* FlowCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78040E6F1EF32C69006D2683 /* FlowCard.xib */; };
 		78040E721EF32C86006D2683 /* FlowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E711EF32C86006D2683 /* FlowCard.swift */; };
 		78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040E731EF334E3006D2683 /* RepositoriesViewController.swift */; };
@@ -181,10 +184,10 @@
 				2FBB477020D01480004D8A73 /* FLAnimatedImage.framework in Embed Frameworks */,
 				2FBB476820D01480004D8A73 /* SwipeCellKit.framework in Embed Frameworks */,
 				2FBB477220D01480004D8A73 /* IoniconsSwift.framework in Embed Frameworks */,
-				2F5F1A8B20E404F200DDCB71 /* PINCache.framework in Embed Frameworks */,
+				2FC2848120ED30850014DE4D /* PINCache.framework in Embed Frameworks */,
 				2FBB477420D01480004D8A73 /* Atributika.framework in Embed Frameworks */,
 				2FBB477620D01480004D8A73 /* ToastSwiftFramework.framework in Embed Frameworks */,
-				2F5F1A8820E404CD00DDCB71 /* PINRemoteImage.framework in Embed Frameworks */,
+				2FC2847E20ED302C0014DE4D /* PINRemoteImage.framework in Embed Frameworks */,
 				2FBB476420D01480004D8A73 /* SwiftValidator.framework in Embed Frameworks */,
 				2FBB477C20D01480004D8A73 /* Material.framework in Embed Frameworks */,
 				2FBB478920D014DA004D8A73 /* Realm.framework in Embed Frameworks */,
@@ -207,8 +210,6 @@
 		2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPopoverPresentationController.swift; sourceTree = "<group>"; };
 		2F439C9620D15F080094766C /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = Carthage/Build/iOS/DropDown.framework; sourceTree = "<group>"; };
 		2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromiseKit+Support4.swift"; sourceTree = "<group>"; };
-		2F5F1A8620E404CC00DDCB71 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
-		2F5F1A8920E404F100DDCB71 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
@@ -242,6 +243,8 @@
 		2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		2FBB479520D01556004D8A73 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		2FC2847C20ED302C0014DE4D /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
+		2FC2847F20ED30850014DE4D /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		2FCF3EDE203736020024FC17 /* Optional+Chaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Chaining.swift"; sourceTree = "<group>"; };
 		2FCF3EE020373C640024FC17 /* IssueCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCommentTableViewCell.swift; sourceTree = "<group>"; };
 		2FCF3EE320376FDE0024FC17 /* ISO8601ExtendedDateTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601ExtendedDateTransform.swift; sourceTree = "<group>"; };
@@ -252,6 +255,9 @@
 		2FF06F9D1F746CB8005F07DF /* TeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
 		2FF06F9F1F7481B5005F07DF /* LiveScrollError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScrollError.swift; sourceTree = "<group>"; };
 		2FF06FA11F748909005F07DF /* TeamIssuesFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamIssuesFilters.swift; sourceTree = "<group>"; };
+		2FFDF0AD2130969E00ABAD19 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
+		2FFDF0AF2130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldAttributedTableViewCell.swift; sourceTree = "<group>"; };
+		2FFDF0B12130BAA300ABAD19 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		78040E6F1EF32C69006D2683 /* FlowCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowCard.xib; sourceTree = "<group>"; };
 		78040E711EF32C86006D2683 /* FlowCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCard.swift; sourceTree = "<group>"; };
 		78040E731EF334E3006D2683 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
@@ -349,10 +355,10 @@
 				2FBB477120D01480004D8A73 /* IoniconsSwift.framework in Frameworks */,
 				2FBB477320D01480004D8A73 /* Atributika.framework in Frameworks */,
 				2FBB477520D01480004D8A73 /* ToastSwiftFramework.framework in Frameworks */,
-				2F5F1A8A20E404F200DDCB71 /* PINCache.framework in Frameworks */,
+				2FC2848020ED30850014DE4D /* PINCache.framework in Frameworks */,
 				2FBB476320D01480004D8A73 /* SwiftValidator.framework in Frameworks */,
 				2F439C9720D15F080094766C /* DropDown.framework in Frameworks */,
-				2F5F1A8720E404CD00DDCB71 /* PINRemoteImage.framework in Frameworks */,
+				2FC2847D20ED302C0014DE4D /* PINRemoteImage.framework in Frameworks */,
 				2FBB479320D01539004D8A73 /* AlamofireObjectMapper.framework in Frameworks */,
 				2FBB477B20D01480004D8A73 /* Material.framework in Frameworks */,
 				2FBB478820D014DA004D8A73 /* Realm.framework in Frameworks */,
@@ -455,8 +461,8 @@
 		784988B21ED38CF600A0724E = {
 			isa = PBXGroup;
 			children = (
-				2F5F1A8920E404F100DDCB71 /* PINCache.framework */,
-				2F5F1A8620E404CC00DDCB71 /* PINRemoteImage.framework */,
+				2FC2847F20ED30850014DE4D /* PINCache.framework */,
+				2FC2847C20ED302C0014DE4D /* PINRemoteImage.framework */,
 				2F270B0920D1BE5700ADB777 /* Settings.bundle */,
 				2F439C9620D15F080094766C /* DropDown.framework */,
 				2FBB478420D014C3004D8A73 /* Alamofire.framework */,
@@ -610,6 +616,7 @@
 				784989121ED38EE400A0724E /* LaunchScreenView.swift */,
 				784989111ED38EE400A0724E /* LaunchScreenView.xib */,
 				784989931ED3903C00A0724E /* UIViewFromXIB.swift */,
+				2FFDF0B12130BAA300ABAD19 /* PhotosViewController.swift */,
 			);
 			path = "view-components";
 			sourceTree = "<group>";
@@ -656,6 +663,8 @@
 				7849892D1ED38F5600A0724E /* IssueTableViewCell.swift */,
 				7849892B1ED38F5600A0724E /* Issues.storyboard */,
 				7849892C1ED38F5600A0724E /* IssuesTableViewController.swift */,
+				2FFDF0AD2130969E00ABAD19 /* FieldTableViewCell.swift */,
+				2FFDF0AF2130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift */,
 			);
 			path = issues;
 			sourceTree = "<group>";
@@ -847,6 +856,7 @@
 				2FF06FA01F7481B5005F07DF /* LiveScrollError.swift in Sources */,
 				784989131ED38EE400A0724E /* CardView.swift in Sources */,
 				784989141ED38EE400A0724E /* Colors.swift in Sources */,
+				2FFDF0B02130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift in Sources */,
 				784989941ED3903C00A0724E /* UIViewFromXIB.swift in Sources */,
 				784989161ED38EE400A0724E /* LaunchScreenView.swift in Sources */,
 				2FF06F991F744ABB005F07DF /* TeamTableViewCell.swift in Sources */,
@@ -865,6 +875,7 @@
 				784988C11ED38CF600A0724E /* ViewController.swift in Sources */,
 				784989291ED38F3600A0724E /* StatusSelectViewController.swift in Sources */,
 				2F270B0E20D1C70100ADB777 /* UIPopoverPresentationController.swift in Sources */,
+				2FFDF0B22130BAA300ABAD19 /* PhotosViewController.swift in Sources */,
 				784988E21ED38E6800A0724E /* UIlabel+Ionicons.swift in Sources */,
 				7849893F1ED38F8B00A0724E /* NavigationForPopoverViewController.swift in Sources */,
 				784988BF1ED38CF600A0724E /* AppDelegate.swift in Sources */,
@@ -872,6 +883,7 @@
 				2FBB474620D01202004D8A73 /* UIViewController+Apparence.swift in Sources */,
 				2F270B0820D1BD5000ADB777 /* ADVNavigationCollisionTransition.swift in Sources */,
 				784989301ED38F5600A0724E /* IssuesTableViewController.swift in Sources */,
+				2FFDF0AE2130969E00ABAD19 /* FieldTableViewCell.swift in Sources */,
 				78040E741EF334E3006D2683 /* RepositoriesViewController.swift in Sources */,
 				2FBB474520D01200004D8A73 /* UIImageView.swift in Sources */,
 				2F18680A1F72CD3200351C98 /* SettingsViewController.swift in Sources */,

@@ -12,6 +12,8 @@ import IoniconsSwift
 import Atributika
 import Alamofire
 import Core
+import NYTPhotoViewer
+import PINRemoteImage
 
 class IssueDetailsTableViewController: UITableViewController {
 
@@ -21,15 +23,18 @@ class IssueDetailsTableViewController: UITableViewController {
 	@IBOutlet weak var avatarImage: UIImageView!
 	@IBOutlet weak var reporterLabel: UILabel!
 	@IBOutlet weak var reporterDetailLabel: LTMorphingLabel!
-	@IBOutlet weak var issueDescriptionLabel: UILabel!
 	@IBOutlet weak var responsibleAvatar: UIImageView!
 	@IBOutlet weak var assigneeLabel: UILabel!
 	@IBOutlet weak var statusLabel: UILabel!
 	@IBOutlet weak var priorityLabel: UILabel!
 
 	var issue: Issue?
+    var team: User?
 	var comments: [IssueComment] = []
     let dateFormater = DateFormatter()
+    
+    fileprivate var descriptionText: NSAttributedString!
+    fileprivate var attachments: [String: String] = [:]
     
     /// Cuando se hace pull down se evita que se coloque el color de fondo del tableView
     fileprivate let topTableLayer = CALayer()
@@ -82,22 +87,55 @@ class IssueDetailsTableViewController: UITableViewController {
 		reporterLabel.text = issue.reporter?.displayName
 		reporterDetailLabel.text = "Created at \((issue.createdOn?.relativeTime).orEmpty)"
         
+        let h3 = Style("h3").font(.boldSystemFont(ofSize: 15)).foregroundColor(Colors.primary)
         let em = Style("em").font(.boldSystemFont(ofSize: 17)).foregroundColor(Colors.primary)
         let strong = Style("strong").font(.boldSystemFont(ofSize: 17)).foregroundColor(Colors.primary)
+        let aimg = Style("aimg").font(.boldSystemFont(ofSize: 12)).foregroundColor(Colors.primary).underlineStyle(.styleSingle)
+        
+        let parag = NSMutableParagraphStyle()
+        parag.headIndent = 5
+        parag.firstLineHeadIndent = 5
+        parag.tailIndent = -5
+        
+        let div = Style("div").backgroundColor(#colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.968627451, alpha: 1)).paragraphStyle(parag)
 
         let p = Style("p").baselineOffset(5)
         let final = Style("final").baselineOffset(5).font(.boldSystemFont(ofSize: 10)).foregroundColor(Colors.primary.withAlphaComponent(0.6))
 
         
+
+        var html = issue.html.orEmpty
+        // Se reemplazan las etiquetas de imagenes
+        while let img = html.substring(between: "<img", and: "/>")  {
+            let alt = img.substring(between: "alt=\"", and: "\" ", includeBrackets: false).or(else: "Attached")!
+            let src = img.substring(between: "src=\"", and: "\" ", includeBrackets: false).orEmpty
+            let key = "<aimg>IMG-\(alt)</aimg>"
+            
+            attachments["IMG-\(alt)"] = "\(src)?IMG"
+            
+
+            
+            html = html.replacingOccurrences(of: img, with: "\n\(key)\n")
+        }
         
-        
-        let str = "\((issue.html.or(else: "N/A"))) \n\n <final>Final del contenido</final> \n\n\n\n".style(tags: [em,strong,p,final])
+        descriptionText = "\(html)\n<final>Final del contenido</final> \n\n\n\n".style(tags: [em,strong,p,final, aimg, h3, div])
             .styleAll(Style.font(.systemFont(ofSize: 14)))
             .attributedString
-    
         
-		issueDescriptionLabel.attributedText = str
         
+        let mutable = NSMutableAttributedString(attributedString: descriptionText)
+        let finalString = descriptionText.string
+        
+        
+        /// add links
+        for attach in attachments {
+            let range = finalString.range(of: attach.key)
+            let nsRange = NSRange.init(range!, in: finalString)
+            mutable.addAttribute(.link, value: attach.value, range: nsRange )
+        }
+        
+        descriptionText = mutable
+ 
 
 		responsibleAvatar.setImage(fromURL: issue.assignee?.avatar)
 		assigneeLabel.text = issue.assignee?.displayName
@@ -135,14 +173,14 @@ class IssueDetailsTableViewController: UITableViewController {
         let repository:String! = issue!.repository?.slug.orEmpty
  
         
-        RepositoryService.versions(of: "mayorgafirm", inRepository: repository)
+        RepositoryService.versions(of: team!.username!, inRepository: repository)
             .done { (result) -> Void in
                 result?.values.forEach({print($0)})
             }.ensure {
                 self.view.hideToastActivity()
             }.catch(execute: presentError)
         
-        IssuesService.comments(of: "mayorgafirm", inRepository: repository, forIssue: issue!.id , refreshFromServer: refreshFromServer)
+        IssuesService.comments(of: team!.username!, inRepository: repository, forIssue: issue!.id , refreshFromServer: refreshFromServer)
             .done { (result) -> Void in
                 
                 guard let values = result?.values else {
@@ -172,18 +210,28 @@ class IssueDetailsTableViewController: UITableViewController {
 
     override public func numberOfSections(in tableView: UITableView) -> Int {
         if comments.count <= 0 {
-            return 0
+            return 1
         }
-        return 1
+        return 2
     }
     
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        if section == 0 {
+            return 1
+        }
 		return comments.count
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 0  {
+            let cell = tableView.dequeueReusableCellWithClass(FieldAttributedTableViewCell.self)!
+            cell.valueLabel.attributedText = descriptionText
+            cell.valueLabel.delegate = self
+            cell.selectionStyle = .none
+            return cell
+        }
 
 		let cell = tableView.dequeueReusableCellWithClass(IssueCommentTableViewCell.self)!
 		if let comment = comments[safe: indexPath.row] {
@@ -199,10 +247,16 @@ class IssueDetailsTableViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
 		return 40
 	}
 
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "nil"
+        }
 		return "Comments"
 	}
 
@@ -264,3 +318,48 @@ extension IssueDetailsTableViewController: SingleSelectionTableViewDelegate{
     }
     
 }
+extension IssueDetailsTableViewController: UITextViewDelegate {
+
+    //interactua con los links dentro del textview txtViewErrors para ejecutar los segue
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+
+        
+        if UIApplication.shared.canOpenURL(URL) == false {
+            return false
+        }
+        
+    
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL, options: [:], completionHandler: nil)
+            return true
+        } else {
+            UIApplication.shared.openURL(URL)
+            return true;
+        }
+     
+    }
+}
+
+extension String {
+    
+    
+    func substring(between start: String, and end: String, includeBrackets:Bool = true) -> String? {
+        
+        guard let range = self.range(of: start) else {
+            return nil
+        }
+  
+        let a: String.Index = includeBrackets ? range.lowerBound : range.upperBound
+        let html = String(self[a...])
+        guard let endRange = html.range(of: end) else {
+            return nil
+        }
+        
+        let b: String.Index = includeBrackets ? endRange.upperBound : endRange.lowerBound
+        return String(html[..<b])
+    }
+    
+}
+
+
+

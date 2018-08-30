@@ -23,13 +23,11 @@ public class Service {
     
     static let null = NSNull()
 
-    private static var configuration: Realm.Configuration?
-
     private static func getKey() -> Data? {
         // Identifier for our keychain entry - should be unique for your application
         let keychainIdentifier = "com.mayorgafirm.test.EncryptionKey"
         let keychainIdentifierData = keychainIdentifier.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-
+        
         // First check in the keychain for an existing key
         var query: [String: Any] = [
             kSecClass as String: kSecClassKey,
@@ -37,7 +35,7 @@ public class Service {
             kSecAttrKeySizeInBits as String: 512,
             kSecReturnData as String: true
         ]
-
+        
         // To avoid Swift optimization bug, should use withUnsafeMutablePointer() function to retrieve the keychain item
         // See also: http://stackoverflow.com/questions/24145838/querying-ios-keychain-using-swift/27721328#27721328
         var dataTypeRef: AnyObject?
@@ -45,16 +43,16 @@ public class Service {
         if status == errSecSuccess {
             return dataTypeRef as? Data
         }
-
+        
         // No pre-existing key from this application, so generate a new one
         var keyData = Data(count: 64)
-
+        
         let result = keyData.withUnsafeMutableBytes {
             SecRandomCopyBytes(kSecRandomDefault, keyData.count, $0)
         }
         //        print(keyData.base64EncodedString())
         assert(result == errSecSuccess, "Failed to get random bytes")
-
+        
         // Store the key in the keychain
         query = [
             kSecClass as String: kSecClassKey,
@@ -62,30 +60,41 @@ public class Service {
             kSecAttrKeySizeInBits as String: 512,
             kSecValueData as String: keyData
         ]
-
+        
         status = SecItemAdd(query as CFDictionary, nil)
         assert(status == errSecSuccess, "Failed to insert the new key in the keychain")
-
+        
+        
+        
+        
         return keyData
     }
-
-
+    
+    
+    
+    private static var configuration: Realm.Configuration = {
+        var config = Realm.Configuration()
+        let url = config.fileURL!.deletingLastPathComponent().appendingPathComponent("adivantus-swift-v3.0.7-k.realm")
+        
+        print("Creando configuracion:")
+        print("Database url \n \(url)")
+        
+    let key = "8YGS5WNJS8VDE7QWP485VFDYSDZRFEV2Z9QZDEXTASC2ZCUOQ44L2P6LLFDGZI07".data(using: String.Encoding.utf8)
+        
+        return Realm.Configuration(fileURL: url, schemaVersion: 17, migrationBlock: { migration, oldSchemaVersion in
+            if (oldSchemaVersion < 17) {
+                print("old Schema = \(oldSchemaVersion)")
+                // Nothing to do!
+                // Realm will automatically detect new properties and removed properties
+                // And will update the schema on disk automatically
+            }
+        })
+        
+        
+    }()
+    
     public static var realm: Realm = {
-
-        if configuration == nil {
-            configuration = Realm.Configuration(encryptionKey: Service.getKey(), schemaVersion: 2,
-                                                migrationBlock: { migration, oldSchemaVersion in
-                                                    if (oldSchemaVersion < 2) {
-                                                        print("old Schema = \(oldSchemaVersion)")
-                                                        // Nothing to do!
-                                                        // Realm will automatically detect new properties and removed properties
-                                                        // And will update the schema on disk automatically
-                                                    }
-                                                })
-        }
-
-        let realm = try! Realm(configuration: configuration!)
-        //let realm = try! Realm()
+        let realm = try! Realm(configuration: configuration)
         return realm
     }()
 
