@@ -17,11 +17,13 @@ public class SessionData: BasicEntity {
 
 
 	@objc private dynamic var id: String?
-	@objc public dynamic var user: User? {
+	@objc public internal(set) dynamic var user: User? {
 		didSet {
 			id = user?.username
 		}
 	}
+    
+    @objc public dynamic var token: String?
 
 
 	public override static func primaryKey() -> String? {

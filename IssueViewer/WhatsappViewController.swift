@@ -13,6 +13,8 @@ import CoreTelephony
 import Contacts
 import ContactsUI
 
+
+
 class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactViewControllerDelegate {
     
     
@@ -105,5 +107,14 @@ class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactVi
             self.navigationController?.setToolbarHidden(true, animated: true)
             self.navigationController?.pushViewController(contactVC, animated: true)
         }
+    }
+    
+    @IBAction func grantAcces(_ sender: Any) {
+    
+
+        
+        
+
+        
     }
 }

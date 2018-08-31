@@ -9,6 +9,7 @@
 import UIKit
 import ContactsUI
 import RealmSwift
+import Core
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,9 +48,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         print("Real \(Realm.Configuration.defaultConfiguration)")
         
+        
+        if SessionService.islogged == false {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let login = Storyboard.OauthLogin.viewControllerWithClass(LoginSplashViewController.self)
+            
+            window!.rootViewController = login
+            window!.makeKeyAndVisible()
+        }
 
-
+        
+        
         return true
+    }
+    
+    func changeRoot(){
+        
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let components = URLComponents(string:url.absoluteString.replacingOccurrences(of: "issueviewer:bit%23", with: "http://mysite3994.com?"))?.queryItems?.groupBy({ $0.name }),
+            let token = components["access_token"]?.first?.value, let type =  components["token_type"]?.first?.value {
+
+            Http.updateAut(token: token, tokenType: type)
+            return true
+        }
+  
+        
+        return false
+        
     }
 
 

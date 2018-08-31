@@ -283,6 +283,14 @@
                                     <action selector="sendMessageAction:" destination="X4r-C9-YLB" eventType="touchUpInside" id="D9Q-S6-Z4V"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfG-Sa-va4">
+                                <rect key="frame" x="162" y="273" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="grantAcces:" destination="X4r-C9-YLB" eventType="touchUpInside" id="0HQ-AQ-DzO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -487,6 +495,11 @@
                                     <segue destination="VIE-3g-Vf5" kind="show" id="aQG-RE-Otg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32Y-Br-BDB">
+                                <rect key="frame" x="146" y="328" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -521,7 +534,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2JX-4n-JwU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZUn-bp-Mpc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeTabBarControllerNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZUn-bp-Mpc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lgr-Z8-Pii">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -534,7 +547,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OD-YM-IwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1488" y="1665"/>
+            <point key="canvasLocation" x="233" y="1688"/>
         </scene>
     </scenes>
     <resources>

@@ -15,13 +15,19 @@ public class Http {
 
 	internal static let acceptableStatusCodes: Range<Int> = 200..<300
 	internal static var api: String = "https://api.bitbucket.org";
+    internal static let refresh = "https://bitbucket.org/site/oauth2/access_token"
+    
+    public static let client:(key: String, secret: String) = ("JNK8PLLYakByrYPudb", "fXqLAgn7SHwtgjTXuPw4pjyrnJBRfVyB")
 
-	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "Authorization": "Basic Y2FybG9zQ2hhZ3VlbmRvOmNhc2FuMi4w"]
+	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "x-tok": "Basic Y2FybG9zQ2hhZ3VlbmRvOmNhc2FuMi4w"]
 
     
     
 	public static var sharedInstance: SessionManager = {
 		let configuration: URLSessionConfiguration = URLSessionConfiguration.default;
+        
+      
+        
 
 		var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
 		//setea las cabeceras que no cambian para todas las URLSessionTask, recomendacion https://github.com/Alamofire/Alamofire#response-handling
@@ -34,8 +40,37 @@ public class Http {
         configuration.protocolClasses?.insert(HttpDebugProtocol.self, at: 0)
 
 		var sessionManager = Alamofire.SessionManager(configuration: configuration)
+        
+        if let token: String = UserDefaults.standard.value(forKey: .token),
+            let type: String = UserDefaults.standard.value(forKey: .tokenType) {
+            //Http.headers["Authorization"] = "\(type.capitalized) \(token)"
+            
+            
+            let tokenHandler = RefreshTokenHandler(accessToken: token, tokenType: type)
+            sessionManager.retrier = tokenHandler //reintenta las peticiones que fallen por refresh token
+            sessionManager.adapter = tokenHandler //setea el header de auth
+        }
+        
+
+   
 		return sessionManager
 	}()
+    
+    ///
+    /// Update auth token value
+    ///
+   public static func updateAut(token: String, tokenType: String) {
+        
+        UserDefaults.standard.do {
+            $0.set(token, forKey: .token)
+            $0.set(token, forKey: .tokenType)
+            $0.synchronize()
+        }
+        
+        let tokenHandler = RefreshTokenHandler(accessToken: token, tokenType: tokenType)
+        sharedInstance.retrier = tokenHandler //reintenta las peticiones que fallen por refresh token
+        sharedInstance.adapter = tokenHandler //setea el header de auth
+    }
 
 
     public static func unwrapurl(route:String) -> String{

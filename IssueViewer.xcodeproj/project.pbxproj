@@ -12,6 +12,11 @@
 		2F06944721383EE70052F61A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944621383EE70052F61A /* String.swift */; };
 		2F06944921383FE50052F61A /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944821383FE50052F61A /* Then.swift */; };
 		2F06944A2138406F0052F61A /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944421383E510052F61A /* HtmlParser.swift */; };
+		2F06944C2138A0A80052F61A /* RefreshTokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944B2138A0A80052F61A /* RefreshTokenHandler.swift */; };
+		2F06944E2138A6490052F61A /* GrantAccesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944D2138A6490052F61A /* GrantAccesViewController.swift */; };
+		2F069457213987CF0052F61A /* OauthLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F069454213987CE0052F61A /* OauthLogin.storyboard */; };
+		2F069459213987CF0052F61A /* LoginSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F069456213987CF0052F61A /* LoginSplashViewController.swift */; };
+		2F06945B213989D80052F61A /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06945A213989D80052F61A /* SessionService.swift */; };
 		2F18680A1F72CD3200351C98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1868091F72CD3200351C98 /* SettingsViewController.swift */; };
 		2F18680D1F72CE2600351C98 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */; };
 		2F270B0320D1B2A600ADB777 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0220D1B2A600ADB777 /* Versions.swift */; };
@@ -208,6 +213,11 @@
 		2F06944421383E510052F61A /* HtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
 		2F06944621383EE70052F61A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2F06944821383FE50052F61A /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		2F06944B2138A0A80052F61A /* RefreshTokenHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenHandler.swift; sourceTree = "<group>"; };
+		2F06944D2138A6490052F61A /* GrantAccesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrantAccesViewController.swift; sourceTree = "<group>"; };
+		2F069454213987CE0052F61A /* OauthLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OauthLogin.storyboard; sourceTree = "<group>"; };
+		2F069456213987CF0052F61A /* LoginSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSplashViewController.swift; sourceTree = "<group>"; };
+		2F06945A213989D80052F61A /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		2F1868061F72C07600351C98 /* PromiseKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKit.swift; sourceTree = "<group>"; };
 		2F1868091F72CD3200351C98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
@@ -387,6 +397,16 @@
 			path = markdown;
 			sourceTree = "<group>";
 		};
+		2F069453213987C30052F61A /* login */ = {
+			isa = PBXGroup;
+			children = (
+				2F06944D2138A6490052F61A /* GrantAccesViewController.swift */,
+				2F069456213987CF0052F61A /* LoginSplashViewController.swift */,
+				2F069454213987CE0052F61A /* OauthLogin.storyboard */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
 		2F1868081F72CD1F00351C98 /* settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +544,7 @@
 		784988BD1ED38CF600A0724E /* IssueViewer */ = {
 			isa = PBXGroup;
 			children = (
+				2F069453213987C30052F61A /* login */,
 				2F06944321383E3D0052F61A /* markdown */,
 				2F270B0620D1BD3E00ADB777 /* transitions */,
 				784989171ED38F0D00A0724E /* cell */,
@@ -583,6 +604,7 @@
 				784989041ED38EC200A0724E /* Service.swift */,
 				784989081ED38EC200A0724E /* TeamsService.swift */,
 				784989051ED38EC200A0724E /* UserService.swift */,
+				2F06945A213989D80052F61A /* SessionService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -613,6 +635,7 @@
 				784988E91ED38E9300A0724E /* HttpStatusCode.swift */,
 				2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */,
 				784988EA1ED38E9300A0724E /* SearchResult.swift */,
+				2F06944B2138A0A80052F61A /* RefreshTokenHandler.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -813,6 +836,7 @@
 				7849892F1ED38F5600A0724E /* Issues.storyboard in Resources */,
 				784988C41ED38CF600A0724E /* Main.storyboard in Resources */,
 				784989151ED38EE400A0724E /* LaunchScreenView.xib in Resources */,
+				2F069457213987CF0052F61A /* OauthLogin.storyboard in Resources */,
 				78040E761EF3425F006D2683 /* Assets.xcassets in Resources */,
 				2F270B0A20D1BE5700ADB777 /* Settings.bundle in Resources */,
 				78040E701EF32C69006D2683 /* FlowCard.xib in Resources */,
@@ -846,6 +870,7 @@
 				2FBB473720D0108F004D8A73 /* SequenceType.swift in Sources */,
 				2FBB471C20D00FDF004D8A73 /* IssueStatus.swift in Sources */,
 				2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */,
+				2F06944C2138A0A80052F61A /* RefreshTokenHandler.swift in Sources */,
 				2FBB473D20D0108F004D8A73 /* PromiseKit.swift in Sources */,
 				2F06944721383EE70052F61A /* String.swift in Sources */,
 				2FBB472D20D01077004D8A73 /* HttpStatusCode.swift in Sources */,
@@ -855,6 +880,7 @@
 				2F06944921383FE50052F61A /* Then.swift in Sources */,
 				2F270B0320D1B2A600ADB777 /* Versions.swift in Sources */,
 				2FBB474720D0122F004D8A73 /* UIColor.swift in Sources */,
+				2F06945B213989D80052F61A /* SessionService.swift in Sources */,
 				2FBB472220D00FED004D8A73 /* ISO8601ExtendedDateTransform.swift in Sources */,
 				2FBB471E20D00FDF004D8A73 /* IssueEdited.swift in Sources */,
 				2FBB471920D00FCB004D8A73 /* User.swift in Sources */,
@@ -877,6 +903,7 @@
 				2FCF3EE120373C640024FC17 /* IssueCommentTableViewCell.swift in Sources */,
 				78040E721EF32C86006D2683 /* FlowCard.swift in Sources */,
 				784989201ED38F2800A0724E /* LiveScrollWithSingleSelectionTableViewController.swift in Sources */,
+				2F06944E2138A6490052F61A /* GrantAccesViewController.swift in Sources */,
 				784989271ED38F3600A0724E /* RepositorySelectViewController.swift in Sources */,
 				2FF06FA01F7481B5005F07DF /* LiveScrollError.swift in Sources */,
 				784989131ED38EE400A0724E /* CardView.swift in Sources */,
@@ -902,6 +929,7 @@
 				784989291ED38F3600A0724E /* StatusSelectViewController.swift in Sources */,
 				2F270B0E20D1C70100ADB777 /* UIPopoverPresentationController.swift in Sources */,
 				2FFDF0B22130BAA300ABAD19 /* PhotosViewController.swift in Sources */,
+				2F069459213987CF0052F61A /* LoginSplashViewController.swift in Sources */,
 				784988E21ED38E6800A0724E /* UIlabel+Ionicons.swift in Sources */,
 				7849893F1ED38F8B00A0724E /* NavigationForPopoverViewController.swift in Sources */,
 				784988BF1ED38CF600A0724E /* AppDelegate.swift in Sources */,
