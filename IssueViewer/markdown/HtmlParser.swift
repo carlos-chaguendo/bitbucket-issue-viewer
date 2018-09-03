@@ -31,6 +31,11 @@ class HtmlParser {
         .foregroundColor(Colors.primary)
         .underlineStyle(.styleSingle)
     
+    public static let aissue = Style("aissue")
+        .font(.boldSystemFont(ofSize: 12))
+        .foregroundColor(Colors.primary)
+        .underlineStyle(.styleSingle)
+    
     /// Emboltorio de un bloque de codigo
     public static let div = Style("div").backgroundColor(#colorLiteral(red: 0.9137254902, green: 0.9215686275, blue: 0.937254902, alpha: 1))
     
@@ -67,7 +72,7 @@ class HtmlParser {
     public static let code = Style("code")
         .backgroundColor(#colorLiteral(red: 0.9137254902, green: 0.9215686275, blue: 0.937254902, alpha: 1))
 
-    public class func parse(html input: String, addFooter: Bool = false) -> NSAttributedString {
+    public class func parse(html input: String, addFooter: Bool = false, includeAttach: Bool = true) -> NSAttributedString {
 
         var html = input
         var descriptionText: NSAttributedString!
@@ -89,13 +94,15 @@ class HtmlParser {
         while let img = html.substring(between: "<a ", and: "</a>") {
             var href = img.substring(between: "href=\"", and: "\" ", includeBrackets: false).or(else: "Attached")!
             var title = img.substring(between: "title=\"", and: "\"", includeBrackets: false).orEmpty
-           
+            var key = title
+            
             /// los links hacia los issues
             if let issueKey = img.substring(between: "<s>", and: "</s>",  includeBrackets: false) {
-                title = "\(issueKey)-\(title)"
+                title = "\(issueKey)-\(title) →"
                 href = "\(href)?issue-id"
+                key = "<aissue>\(title)</<aissue>"
             }
-            let key = title
+           
             
             attachments[title] = href
             html = html.replacingOccurrences(of: img, with: key)
@@ -114,7 +121,14 @@ class HtmlParser {
 
         let find = addFooter ? "\n<final>Final del contenido</final> \n\n\n\n" : ""
         
-        descriptionText = "\(html)\(find)".style(tags: [em, strong, p, final, aimg, h3, div, pre, del, blockquote, tr, code])
+        var tags = [em, strong, p, final, h3, div, pre, del, blockquote, tr, code]
+        
+        if includeAttach {
+            tags.append(aimg)
+            tags.append(aissue)
+        }
+        
+        descriptionText = "\(html)\(find)".style(tags: tags)
             .styleAll(Style.font(.systemFont(ofSize: 14)))
             .attributedString
 
@@ -125,11 +139,14 @@ class HtmlParser {
         
 
         /// add links
-        for attach in attachments where !attach.key.isEmpty {
-            let range = finalString.range(of: attach.key)
-            let nsRange = NSRange.init(range!, in: finalString)
-            mutable.addAttribute(.link, value: attach.value, range: nsRange)
+        if includeAttach {
+            for attach in attachments where !attach.key.isEmpty {
+                let range = finalString.range(of: attach.key)
+                let nsRange = NSRange.init(range!, in: finalString)
+                mutable.addAttribute(.link, value: attach.value, range: nsRange)
+            }
         }
+
         
         /// add tables
         for attach in tables {

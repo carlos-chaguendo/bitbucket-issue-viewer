@@ -213,7 +213,7 @@ class IssueDetailsTableViewController: UITableViewController {
             cell.autorlabel?.text = comment.user?.displayName
 
             if let html = comment.html, html.isEmpty == false {
-                cell.descriptionLabel.attributedText = HtmlParser.parse(html: html)
+                cell.descriptionLabel.attributedText = HtmlParser.parse(html: html, includeAttach: true)
             } else {
                 cell.descriptionLabel.text = "Status Change"
             }
