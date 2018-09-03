@@ -10,8 +10,8 @@ import UIKit
 
 public struct Colors {
 
-    //public static let primary: UIColor = #colorLiteral(red: 0.1254901961, green: 0.3137254902, blue: 0.5058823529, alpha: 1)
-    public static let primary: UIColor = #colorLiteral(red: 0.02745098039, green: 0.2784313725, blue: 0.6509803922, alpha: 1)
+    public static let primary: UIColor = #colorLiteral(red: 0.1254901961, green: 0.3137254902, blue: 0.5058823529, alpha: 1)
+    //public static let primary: UIColor = #colorLiteral(red: 0.02745098039, green: 0.2784313725, blue: 0.6509803922, alpha: 1)
 
     public static let navbar_back: UIColor = #colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.968627451, alpha: 1)
     public static let navbar_button: UIColor = primary
