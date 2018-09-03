@@ -42,11 +42,12 @@ public class Http {
 		var sessionManager = Alamofire.SessionManager(configuration: configuration)
         
         if let token: String = UserDefaults.standard.value(forKey: .token),
-            let type: String = UserDefaults.standard.value(forKey: .tokenType) {
+            let type: String = UserDefaults.standard.value(forKey: .tokenType),
+            let refresh: String = UserDefaults.standard.value(forKey: .tokenRefresh) {
             //Http.headers["Authorization"] = "\(type.capitalized) \(token)"
             
             
-            let tokenHandler = RefreshTokenHandler(accessToken: token, tokenType: type)
+            let tokenHandler = RefreshTokenHandler(accessToken: token, tokenType: type, refreshToken: refresh)
             sessionManager.retrier = tokenHandler //reintenta las peticiones que fallen por refresh token
             sessionManager.adapter = tokenHandler //setea el header de auth
         }
@@ -59,15 +60,16 @@ public class Http {
     ///
     /// Update auth token value
     ///
-   public static func updateAut(token: String, tokenType: String) {
+    public static func updateAut(token: String, tokenType: String, refresh: String = "larara") {
         
         UserDefaults.standard.do {
             $0.set(token, forKey: .token)
-            $0.set(token, forKey: .tokenType)
+            $0.set(tokenType, forKey: .tokenType)
+            $0.set(refresh, forKey: .tokenRefresh)
             $0.synchronize()
         }
         
-        let tokenHandler = RefreshTokenHandler(accessToken: token, tokenType: tokenType)
+        let tokenHandler = RefreshTokenHandler(accessToken: token, tokenType: tokenType, refreshToken: refresh)
         sharedInstance.retrier = tokenHandler //reintenta las peticiones que fallen por refresh token
         sharedInstance.adapter = tokenHandler //setea el header de auth
     }
@@ -94,7 +96,7 @@ public class Http {
 
             let localRequest: DataRequest = manager!.request(url, method: rqMethod, parameters: parameters, encoding: encoding!,headers:headers)
 
-			localRequest.responseJSON(completionHandler: { (data: DataResponse<Any>) in
+			localRequest.validate().responseJSON(completionHandler: { (data: DataResponse<Any>) in
 
 				if data.result.isFailure {
 					reject(data.result.error!)
@@ -135,7 +137,7 @@ public class Http {
 
             let localRequest: DataRequest = self.sharedInstance.request(url, method: rqMethod, parameters: parameters, encoding: encoding!,headers: headers)
 
-			localRequest.responseJSON(completionHandler: { (data: DataResponse<Any>) in
+			localRequest.validate().responseJSON(completionHandler: { (data: DataResponse<Any>) in
 
 				if data.result.isFailure {
 					reject(data.result.error!)

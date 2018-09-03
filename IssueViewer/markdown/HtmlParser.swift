@@ -84,11 +84,21 @@ class HtmlParser {
             attachments["IMG-\(alt)"] = "\(src)?IMG"
             html = html.replacingOccurrences(of: img, with: "\n\(key)\n")
         }
-
-
-//        var loadedObjects: NSDictionary = Style.font(.systemFont(ofSize: 14)).attributes as NSDictionary
-//        let loadedObjectsPointer = AutoreleasingUnsafeMutablePointer<NSDictionary?>(&loadedObjects)
         
+        
+        while let img = html.substring(between: "<a ", and: "</a>") {
+            let href = img.substring(between: "href=\"", and: "\" ", includeBrackets: false).or(else: "Attached")!
+            var title = img.substring(between: "title=\"", and: "\"", includeBrackets: false).orEmpty
+           
+            /// los links hacia los issues
+            if let issueKey = img.substring(between: "<s>", and: "</s>",  includeBrackets: false) {
+                title = "\(issueKey)-\(title)"
+            }
+            let key = title
+            
+            attachments[title] = href
+            html = html.replacingOccurrences(of: img, with: key)
+        }
         
         
          while let table = html.substring(between: "<table>", and: "/table>"),
@@ -114,7 +124,7 @@ class HtmlParser {
         
 
         /// add links
-        for attach in attachments {
+        for attach in attachments where !attach.key.isEmpty {
             let range = finalString.range(of: attach.key)
             let nsRange = NSRange.init(range!, in: finalString)
             mutable.addAttribute(.link, value: attach.value, range: nsRange)

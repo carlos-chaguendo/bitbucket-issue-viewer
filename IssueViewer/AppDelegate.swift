@@ -50,12 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         if SessionService.islogged == false {
-            window = UIWindow(frame: UIScreen.main.bounds)
-            
-            let login = Storyboard.OauthLogin.viewControllerWithClass(LoginSplashViewController.self)
-            
-            window!.rootViewController = login
-            window!.makeKeyAndVisible()
+            showLoginView()
         }
 
         
@@ -63,22 +58,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func changeRoot(){
+    func showLoginView() {
+        guard let window = window else {
+            preconditionFailure()
+        }
         
+        let login = Storyboard.OauthLogin.viewControllerWithClass(LoginSplashViewController.self)
+        if let root = window.rootViewController {
+            login.view.frame = root.view.frame
+            login.view.layoutIfNeeded()
+        }
+        
+        UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = login
+        }, completion: { completed in
+            // maybe do something here
+        })
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        if let components = URLComponents(string:url.absoluteString.replacingOccurrences(of: "issueviewer:bit%23", with: "http://mysite3994.com?"))?.queryItems?.groupBy({ $0.name }),
-            let token = components["access_token"]?.first?.value, let type =  components["token_type"]?.first?.value {
-
-            Http.updateAut(token: token, tokenType: type)
-            return true
-        }
-  
-        
-        return false
-        
-    }
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+//        if let components = URLComponents(string:url.absoluteString.replacingOccurrences(of: "issueviewer:bit%23", with: "http://mysite3994.com?"))?.queryItems?.groupBy({ $0.name }),
+//            let token = components["access_token"]?.first?.value, let type =  components["token_type"]?.first?.value {
+//
+//            Http.updateAut(token: token, tokenType: type)
+//            return true
+//        }
+//  
+//        
+//        return false
+//        
+//    }
 
 
 

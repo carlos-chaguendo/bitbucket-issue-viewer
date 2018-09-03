@@ -288,14 +288,24 @@ extension IssueDetailsTableViewController: UITextViewDelegate {
             return false
         }
         
+      
+       let g = GrantAccesViewController()
+         let nav = UINavigationController(rootViewController: g)
+        
     
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL, options: [:], completionHandler: nil)
-            return true
-        } else {
-            UIApplication.shared.openURL(URL)
-            return true;
+        present(nav, animated: true) {
+             g.webView.load(URLRequest(url: URL))
         }
+    
+//        if #available(iOS 10.0, *) {
+//            UIApplication.shared.open(URL, options: [:], completionHandler: nil)
+//            return true
+//        } else {
+//            UIApplication.shared.openURL(URL)
+//            return true;
+//        }
+        
+        return false
      
     }
 }

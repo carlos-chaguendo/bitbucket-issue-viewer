@@ -25,6 +25,10 @@ extension UIImagePickerController {
  *
  */
 extension UIViewController {
+    
+    var viewForToast: UIView {
+        return (self.tabBarController?.view ?? self.navigationController?.view ?? self.view)!
+    }
 
 	func presentError(_ error: Error) -> Void {
 
@@ -33,7 +37,7 @@ extension UIViewController {
 				var style = ToastStyle()
 				// style.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
 				style.verticalPadding = 5.0
-				self.view.makeToast("\(description)", duration: 5.0, position: .bottom, style: style)
+				self.viewForToast.makeToast("\(description)", duration: 5.0, position: .bottom, style: style)
 			}
 		}
 

@@ -17,6 +17,8 @@
 		2F069457213987CF0052F61A /* OauthLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F069454213987CE0052F61A /* OauthLogin.storyboard */; };
 		2F069459213987CF0052F61A /* LoginSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F069456213987CF0052F61A /* LoginSplashViewController.swift */; };
 		2F06945B213989D80052F61A /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06945A213989D80052F61A /* SessionService.swift */; };
+		2F06945D213998330052F61A /* TableViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06945C213998330052F61A /* TableViewCellBackgroundView.swift */; };
+		2F06945F21399A850052F61A /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06945E21399A850052F61A /* UIAlertController.swift */; };
 		2F18680A1F72CD3200351C98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1868091F72CD3200351C98 /* SettingsViewController.swift */; };
 		2F18680D1F72CE2600351C98 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */; };
 		2F270B0320D1B2A600ADB777 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0220D1B2A600ADB777 /* Versions.swift */; };
@@ -218,6 +220,8 @@
 		2F069454213987CE0052F61A /* OauthLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OauthLogin.storyboard; sourceTree = "<group>"; };
 		2F069456213987CF0052F61A /* LoginSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSplashViewController.swift; sourceTree = "<group>"; };
 		2F06945A213989D80052F61A /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		2F06945C213998330052F61A /* TableViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellBackgroundView.swift; sourceTree = "<group>"; };
+		2F06945E21399A850052F61A /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		2F1868061F72C07600351C98 /* PromiseKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKit.swift; sourceTree = "<group>"; };
 		2F1868091F72CD3200351C98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2F18680C1F72CE2600351C98 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
@@ -592,6 +596,7 @@
 				2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */,
 				2F06944621383EE70052F61A /* String.swift */,
 				2F06944821383FE50052F61A /* Then.swift */,
+				2F06945E21399A850052F61A /* UIAlertController.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -672,6 +677,7 @@
 			children = (
 				784989181ED38F1500A0724E /* TableViewCellWithPhoto.swift */,
 				784989191ED38F1500A0724E /* TableViewCellWithPhoto.xib */,
+				2F06945C213998330052F61A /* TableViewCellBackgroundView.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -704,11 +710,11 @@
 		7849892A1ED38F4E00A0724E /* issues */ = {
 			isa = PBXGroup;
 			children = (
+				7849892C1ED38F5600A0724E /* IssuesTableViewController.swift */,
 				2FCF3EE020373C640024FC17 /* IssueCommentTableViewCell.swift */,
 				7849892E1ED38F5600A0724E /* IssueDetailsTableViewController.swift */,
 				7849892D1ED38F5600A0724E /* IssueTableViewCell.swift */,
 				7849892B1ED38F5600A0724E /* Issues.storyboard */,
-				7849892C1ED38F5600A0724E /* IssuesTableViewController.swift */,
 				2FFDF0AD2130969E00ABAD19 /* FieldTableViewCell.swift */,
 				2FFDF0AF2130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift */,
 			);
@@ -880,6 +886,7 @@
 				2F06944921383FE50052F61A /* Then.swift in Sources */,
 				2F270B0320D1B2A600ADB777 /* Versions.swift in Sources */,
 				2FBB474720D0122F004D8A73 /* UIColor.swift in Sources */,
+				2F06945F21399A850052F61A /* UIAlertController.swift in Sources */,
 				2F06945B213989D80052F61A /* SessionService.swift in Sources */,
 				2FBB472220D00FED004D8A73 /* ISO8601ExtendedDateTransform.swift in Sources */,
 				2FBB471E20D00FDF004D8A73 /* IssueEdited.swift in Sources */,
@@ -919,6 +926,7 @@
 				784989321ED38F5600A0724E /* IssueDetailsTableViewController.swift in Sources */,
 				784989411ED38F9500A0724E /* LiveScrollTableViewController.swift in Sources */,
 				2F18680D1F72CE2600351C98 /* HomeTabBarController.swift in Sources */,
+				2F06945D213998330052F61A /* TableViewCellBackgroundView.swift in Sources */,
 				784989281ED38F3600A0724E /* UserSelectViewController.swift in Sources */,
 				7849893D1ED38F8400A0724E /* PopoverBackgroundView.swift in Sources */,
 				7864A0131F4E1C74009CBBD1 /* WhatsappViewController.swift in Sources */,

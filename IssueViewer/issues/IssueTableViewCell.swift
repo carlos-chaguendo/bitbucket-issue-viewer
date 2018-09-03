@@ -50,4 +50,32 @@ public class IssueTableViewCell: SwipeTableViewCell {
 		}
 
 	}
+    
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        self.selectionStyle = .none
+    }
+    
+    override public func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: true)
+
+        
+        if highlighted {
+            backgroundColor = Colors.Cell.selected
+        }else{
+            backgroundColor = .white
+        }
+        
+    }
+    
+    override public func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        if selected{
+            backgroundColor = Colors.Cell.selected
+        }else{
+            backgroundColor = .white
+        }
+        
+    }
 }

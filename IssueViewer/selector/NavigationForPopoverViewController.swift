@@ -15,6 +15,8 @@ class NavigationForPopoverViewController: UINavigationController, UIPopoverPrese
     public var transition: ADVNavigationCollisionTransition?
     
     var mode: Int = 0
+    
+    public var statusBarViewColor: UIColor? = nil
 
 	override init(rootViewController: UIViewController) {
 		super.init(rootViewController: rootViewController)
@@ -32,8 +34,9 @@ class NavigationForPopoverViewController: UINavigationController, UIPopoverPrese
             popoverPresentationController?.delegate = self
             
             DispatchQueue.main.async(execute: {
-                if let window = UIApplication.shared.keyWindow {
-                    window.windowLevel = UIWindowLevelStatusBar + 1
+                if let window = UIApplication.shared.statusBarView {
+                    self.statusBarViewColor =  window.backgroundColor
+                    window.backgroundColor = Colors.primary.withAlphaComponent(0.25)
                 }
             })
             
@@ -71,8 +74,8 @@ class NavigationForPopoverViewController: UINavigationController, UIPopoverPrese
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
         DispatchQueue.main.async(execute: {
-            if let window = UIApplication.shared.keyWindow {
-                window.windowLevel = UIWindowLevelNormal
+            if let window = UIApplication.shared.statusBarView {
+                window.backgroundColor = self.statusBarViewColor
             }
         })
     }

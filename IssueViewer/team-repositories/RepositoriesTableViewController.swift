@@ -9,6 +9,7 @@
 import UIKit
 import Core
 import Material
+import Alamofire
 
 class RepositoriesTableViewController: LiveScrollTableViewController {
 
@@ -25,7 +26,7 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
 
 
-        (tabBarController as! HomeTabBarController).tabBarTopBorder.backgroundColor = Colors.TapBar.topBorder.cgColor
+//        (tabBarController as! HomeTabBarController).tabBarTopBorder.backgroundColor = Colors.TapBar.topBorder.cgColor
         self.navigationController?.hidesBarsOnSwipe = true
     }
 
@@ -38,7 +39,7 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         UIApplication.shared.statusBarView?.backgroundColor = Colors.primary
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 
-        (tabBarController as! HomeTabBarController).tabBarTopBorder.backgroundColor = UIColor.Hex(0x42526e).cgColor
+//        (tabBarController as! HomeTabBarController).tabBarTopBorder.backgroundColor = UIColor.Hex(0x42526e).cgColor
 
 
         tabBarController?.tabBar.isHidden = false
@@ -58,14 +59,14 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
     }
 
     @objc override func viewDidLoad() {
-
+  
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
         tableView.rowHeight = 98 //UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 250
         tableView.separatorColor = UIColor.clear
 
-        refreshControl?.tintColor = UIColor.white
+    
         navigationController?.isToolbarHidden = true
         navigationController?.navigationBar.isHidden = true
 
@@ -77,6 +78,9 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         }
 
         super.viewDidLoad()
+        
+        
+        refreshControl?.tintColor = UIColor.white
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

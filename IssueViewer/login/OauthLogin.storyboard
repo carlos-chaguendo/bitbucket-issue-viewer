@@ -49,7 +49,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An open source app for open source projects." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6P-rW-9YX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An application for review issues" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6P-rW-9YX">
                                 <rect key="frame" x="32" y="340" width="256" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Aeq-jM-Nwc"/>
@@ -89,6 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="aQ2-N2-0DI" id="aEQ-Lx-iG0"/>
+                        <outlet property="imageView" destination="ai9-fN-d9O" id="PTg-EL-Ba2"/>
                         <outlet property="signInButton" destination="joJ-g2-qXR" id="l3F-no-8AX"/>
                     </connections>
                 </viewController>

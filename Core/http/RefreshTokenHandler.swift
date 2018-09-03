@@ -40,7 +40,7 @@ class RefreshTokenHandler: RequestAdapter, RequestRetrier {
     private let excludedInternalCodes = [1]
     
     //MARK: - Initialization
-    public init(accessToken: String, tokenType: String, refreshToken: String = "") {
+    public init(accessToken: String, tokenType: String, refreshToken: String) {
         self.accessToken = accessToken
         self.refreshToken = refreshToken
         self.tokenType = tokenType
@@ -88,7 +88,7 @@ class RefreshTokenHandler: RequestAdapter, RequestRetrier {
                         if let accessToken = accessToken, let refreshToken = refreshToken {
                             strongSelf.accessToken = accessToken
                             strongSelf.refreshToken = refreshToken
-                            Http.updateAut(token: accessToken, tokenType: refreshToken)
+                            Http.updateAut(token: accessToken, tokenType: strongSelf.tokenType)
                         }
                         
                         strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }
@@ -117,24 +117,31 @@ class RefreshTokenHandler: RequestAdapter, RequestRetrier {
         
         
         let parameters: [String: Any] = [
-            "token": refreshToken
+            "client_id"     : Http.client.key,
+            "client_secret" : Http.client.secret,
+            "refresh_token": refreshToken,
+            "grant_type": "refresh_token"
         ]
         
-        var headers = SessionManager.defaultHTTPHeaders
-        headers["X-AUTH-TOKEN"] = accessToken
+        
+        //curl -X POST -u "JNK8PLLYakByrYPudb:fXqLAgn7SHwtgjTXuPw4pjyrnJBRfVyB" https://bitbucket.org/site/oauth2/access_token -d grant_type=refresh_token -d refresh_token=EQ8V8g8LKGC7E9wNFw
+        
         
         print(" ♻️ Refrescando \n refreshToken:\(refreshToken)\n accessToken:\(accessToken)")
-        sessionManager.request(Http.refresh, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        sessionManager.request("https://\(Http.client.key):\(Http.client.secret)@bitbucket.org/site/oauth2/access_token", method: .post, parameters: parameters)
             .responseJSON { [weak self] response in
                 guard let strongSelf = self else { return }
                 
-                if let accessToken = response.response?.allHeaderFields["X-AUTH-TOKEN"] as? String,
-                    let refreshToken = response.response?.allHeaderFields["X-AUTH-REFRESH-TOKEN"] as? String {
+                
+                
+                if let json = response.result.value as? [String: Any],
+                    let access_token = json["access_token"] as? String,
+                    let refresh_token = json["refresh_token"] as? String {
                     
                     strongSelf.oneTimeRefreshCallback?(response)
                     strongSelf.oneTimeRefreshCallback = nil
                     
-                    completion(true, accessToken, refreshToken, nil)
+                    completion(true, access_token, refresh_token, nil)
                 } else {
                     
                     if response.response?.statusCode != 200 {

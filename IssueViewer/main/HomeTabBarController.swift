@@ -69,6 +69,7 @@ class HomeTabBarController: UITabBarController {
 
         tabBarTopBorder.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 0.5)
         tabBarTopBorder.backgroundColor = Colors.TapBar.topBorder.cgColor
+        tabBarTopBorder.isHidden = true
         tabBar.layer.addSublayer(tabBarTopBorder)
 
         
@@ -126,9 +127,21 @@ class HomeTabBarController: UITabBarController {
 }
 
 extension HomeTabBarController: UITabBarControllerDelegate {
+    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        if viewController is  RepositoriesTableViewController {
+            tabBarTopBorder.isHidden = true
+        }else {
+            tabBarTopBorder.isHidden = false
+        }
+        
         print("Should select viewController: \(viewController.title.or(else: "xxx")!) ?")
         return true;
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("didSelect" )
     }
 
 

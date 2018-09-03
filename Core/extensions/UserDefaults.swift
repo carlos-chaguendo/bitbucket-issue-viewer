@@ -48,11 +48,27 @@ public extension UserDefaults {
     }
     
     public func set<T>(_ value: T?, forKey key: Key) {
+        
+        if key == .tokenType {
+            
+            if let str = value as? String {
+                if str != "bearer" {
+                    preconditionFailure()
+                }
+            }
+            
+            
+        }
+        
         set(value, forKey: key.rawValue)
     }
     
     public func value<T>(forKey key: Key) -> T? {
         return value(forKey: key.rawValue) as? T
+    }
+    
+    public func remove(forKey key: Key) {
+        removeObject(forKey: key.rawValue)
     }
     
     public subscript<T>(key: Key) -> T? {
@@ -66,9 +82,11 @@ public extension UserDefaults {
 public extension UserDefaults.Key {
     
     /// La url que el usario puede configurar manualmente la del usuario tiene prioridad
-    public static let token: UserDefaults.Key = "token"
+    public static let token: UserDefaults.Key = "access_token"
     
-    public static let tokenType: UserDefaults.Key = "token-type"
+    public static let tokenType: UserDefaults.Key = "token_type"
+    
+    public static let tokenRefresh: UserDefaults.Key = "refresh_token"
     
 }
 

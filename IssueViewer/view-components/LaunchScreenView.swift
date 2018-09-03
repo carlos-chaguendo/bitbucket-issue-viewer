@@ -11,12 +11,7 @@ import LTMorphingLabel
 
 class LaunchScreenView: UIViewFromXIB {
 
-	@IBOutlet weak var titleLabel: LTMorphingLabel! {
-		didSet {
-			titleLabel.morphingEffect = .fall
-			titleLabel.morphingDuration = 1
-		}
-	}
+	
 
 
 	override func awakeFromNib() {

@@ -19,7 +19,14 @@ public class StatusSelectViewController: LiveScrollWithMultipleSelectionTableVie
 		let done = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dissmisViewController(_:)))
 		navigationItem.setRightBarButton(done, animated: false)
 		title = "Status"
+        
+        let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(closeThisViewController))
+        navigationItem.setLeftBarButton(cancel, animated: false)
 	}
+    
+    @objc public func closeThisViewController() {
+        self.dismiss(animated: true, completion: nil)
+    }
 
 	public override func liveScroll(valuesOf page: Int) {
 		self.loadInformation = true;
@@ -53,7 +60,7 @@ public class StatusSelectViewController: LiveScrollWithMultipleSelectionTableVie
 
 		}
 		get {
-			return CGSize(width: 250, height: 300)
+			return CGSize(width: 250, height: 400)
 
 		}
 	}
