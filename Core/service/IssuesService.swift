@@ -47,6 +47,10 @@ public class IssuesService: Service {
         return Http.request(.put, route: url, parameters: parameters, encoding: URLEncoding(), headers: [:], manager: Http.sharedInstance)
     }
 
+    
+    public class func issue(_ id: String, of team: String, inRepository repository: String) -> Promise<Issue?> {
+        return Http.request(.get, route: "/2.0/repositories/\(team)/\(repository)/issues/\(id)")
+    }
 
 
     /**

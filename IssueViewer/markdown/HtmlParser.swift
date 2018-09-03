@@ -81,18 +81,19 @@ class HtmlParser {
             let src = img.substring(between: "src=\"", and: "\" ", includeBrackets: false).orEmpty
             let key = "<aimg>IMG-\(alt)</aimg>"
 
-            attachments["IMG-\(alt)"] = "\(src)?IMG"
+            attachments["IMG-\(alt)"] = "\(src)?img"
             html = html.replacingOccurrences(of: img, with: "\n\(key)\n")
         }
         
         
         while let img = html.substring(between: "<a ", and: "</a>") {
-            let href = img.substring(between: "href=\"", and: "\" ", includeBrackets: false).or(else: "Attached")!
+            var href = img.substring(between: "href=\"", and: "\" ", includeBrackets: false).or(else: "Attached")!
             var title = img.substring(between: "title=\"", and: "\"", includeBrackets: false).orEmpty
            
             /// los links hacia los issues
             if let issueKey = img.substring(between: "<s>", and: "</s>",  includeBrackets: false) {
                 title = "\(issueKey)-\(title)"
+                href = "\(href)?issue-id"
             }
             let key = title
             
