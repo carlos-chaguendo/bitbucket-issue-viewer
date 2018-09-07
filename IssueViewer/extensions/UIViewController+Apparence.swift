@@ -66,7 +66,7 @@ extension UITableViewController {
 
 	override open func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = Colors.controller_background
+		view.backgroundColor = Colors.Controller.background
 	}
 
 
@@ -107,7 +107,7 @@ extension UINavigationItem {
 		label.numberOfLines = 2
 		label.text = "\(title)\n\(subtitle)"
 
-		label.textColor = Colors.navbar_title
+		label.textColor = Colors.NavBar.title
 		label.sizeToFit()
 		label.textAlignment = NSTextAlignment.center
 
@@ -116,7 +116,7 @@ extension UINavigationItem {
 		let titleString = NSMutableAttributedString(string: title)
 		let subtitleString = NSMutableAttributedString(string: subtitle, attributes: [
 			NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12.5),
-			NSAttributedStringKey.foregroundColor: Colors.navbar_title.withAlphaComponent(0.6)
+			NSAttributedStringKey.foregroundColor: Colors.NavBar.title.withAlphaComponent(0.6)
 		])
 
 

@@ -140,7 +140,7 @@ public class LiveScrollTableViewController: UITableViewController {
             label.textColor = Colors.primary
 
             tableView.backgroundView = label
-            tableView.backgroundColor = Colors.controller_background
+            tableView.backgroundColor = Colors.Controller.background
             return 0
         }
 
@@ -176,7 +176,7 @@ public class LiveScrollTableViewController: UITableViewController {
     func setupSearchController() {
 
         searchController.searchBar.backgroundImage = UIImage()
-        searchController.searchBar.backgroundColor = Colors.navbar_back
+        searchController.searchBar.backgroundColor = Colors.NavBar.background
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self

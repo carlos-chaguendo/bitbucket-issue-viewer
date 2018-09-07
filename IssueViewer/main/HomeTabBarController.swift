@@ -136,6 +136,8 @@ extension HomeTabBarController: UITabBarControllerDelegate {
             tabBarTopBorder.isHidden = false
         }
         
+
+        
         print("Should select viewController: \(viewController.title.or(else: "xxx")!) ?")
         return true;
     }

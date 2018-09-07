@@ -88,7 +88,7 @@ class RefreshTokenHandler: RequestAdapter, RequestRetrier {
                         if let accessToken = accessToken, let refreshToken = refreshToken {
                             strongSelf.accessToken = accessToken
                             strongSelf.refreshToken = refreshToken
-                            Http.updateAut(token: accessToken, tokenType: strongSelf.tokenType)
+                            Http.updateAut(token: accessToken, tokenType: strongSelf.tokenType, refresh: refreshToken)
                         }
                         
                         strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }

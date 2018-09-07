@@ -36,7 +36,7 @@ class PopoverBackgroundView: UIPopoverBackgroundView, UIPopoverPresentationContr
 		let backgroundFrame = self.frame;
 
 		if _arrowDirection == .up {
-			_arrowImageView.backgroundColor = Colors.navbar_back
+			_arrowImageView.backgroundColor = Colors.NavBar.background
 
 			arrowCenter = CGPoint(x: backgroundFrame.size.width * 0.5 + self.arrowOffset, y: _arrowHeight);
 		}

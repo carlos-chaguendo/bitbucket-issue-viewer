@@ -123,7 +123,7 @@ extension GrantAccesViewController: WKNavigationDelegate {
         case .token:
             
             if let token = components["access_token"]?.first?.value, let type =  components["token_type"]?.first?.value {
-                Http.updateAut(token: token, tokenType: type)
+                Http.updateAut(token: token, tokenType: type, refresh: "nil")
                 decisionHandler(WKNavigationActionPolicy.cancel)
                 self.webView.stopLoading()
                 self.dismiss(animated: true) {

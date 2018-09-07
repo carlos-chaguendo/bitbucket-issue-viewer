@@ -33,12 +33,12 @@ class NavigationForPopoverViewController: UINavigationController, UIPopoverPrese
         case 0:
             popoverPresentationController?.delegate = self
             
-            DispatchQueue.main.async(execute: {
-                if let window = UIApplication.shared.statusBarView {
-                    self.statusBarViewColor =  window.backgroundColor
-                    window.backgroundColor = Colors.primary.withAlphaComponent(0.25)
-                }
-            })
+//            DispatchQueue.main.async(execute: {
+//                if let window = UIApplication.shared.statusBarView {
+//                    self.statusBarViewColor =  window.backgroundColor
+//                    window.backgroundColor = Colors.primary.withAlphaComponent(0.25)
+//                }
+//            })
             
         default:
             transitioningDelegate =  self

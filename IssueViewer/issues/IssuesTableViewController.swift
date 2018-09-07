@@ -27,18 +27,21 @@ public class IssuesTableViewController: LiveScrollTableViewController {
     fileprivate var currentRequest: Promise<SearchResult<Issue>?>?
 
     public var team: User!
+    
+    
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.setToolbarHidden(false, animated: true)
+          navigationController?.setToolbarHidden(false, animated: true)
         navigationController?.hidesBarsOnSwipe = false
     }
 
     override public func viewDidLoad() {
-
-
 
 
         if let filters = TeamsService.currentFilters(of: team) {

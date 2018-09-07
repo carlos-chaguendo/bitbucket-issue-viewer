@@ -22,19 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-        UINavigationBar.appearance().tintColor = Colors.navbar_button//UIColor.Hex(0xffffff) // Color de los botones
-        UINavigationBar.appearance().barTintColor = Colors.navbar_back
-        UINavigationBar.appearance().backgroundColor = Colors.navbar_back
+        UINavigationBar.appearance().tintColor = Colors.NavBar.buttons//UIColor.Hex(0xffffff) // Color de los botones
+        UINavigationBar.appearance().barTintColor = Colors.NavBar.background
+        UINavigationBar.appearance().backgroundColor = Colors.NavBar.background
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Colors.navbar_title]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Colors.NavBar.title]
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 
-        UITableView.appearance().separatorColor = Colors.controller_background
+        UITableView.appearance().separatorColor = Colors.Controller.background
         UITableViewCell.appearance().tintColor = Colors.primary
 
-        UIApplication.shared.statusBarView?.backgroundColor = Colors.status_bar
+//        UIApplication.shared.statusBarView?.backgroundColor = Colors.status_bar
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
 
         UIToolbar.appearance().tintColor = Colors.primary
@@ -44,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         UITabBar.appearance().clipsToBounds = false
+        UITabBar.appearance().tintColor = Colors.TapBar.tint
+        UITabBar.appearance().barTintColor = Colors.TapBar.background
+        UITabBar.appearance().unselectedItemTintColor = Colors.TapBar.unselectedTint
 
 
         print("Real \(Realm.Configuration.defaultConfiguration)")

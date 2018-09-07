@@ -60,7 +60,7 @@ public class Http {
     ///
     /// Update auth token value
     ///
-    public static func updateAut(token: String, tokenType: String, refresh: String = "larara") {
+    public static func updateAut(token: String, tokenType: String, refresh: String ) {
         
         UserDefaults.standard.do {
             $0.set(token, forKey: .token)

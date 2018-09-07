@@ -30,7 +30,42 @@
 				<string>Popover</string>
 				<string>Full</string>
 			</array>
+            
+            
+            
 		</dict>
+        
+        <dict>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+            <key>Title</key>
+            <string>Version</string>
+            <key>Key</key>
+            <string>version</string>
+            <key>DefaultValue</key>
+            <string>VersionValue</string>
+        </dict>
+        <dict>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+            <key>Title</key>
+            <string>Date</string>
+            <key>Key</key>
+            <string>date</string>
+            <key>DefaultValue</key>
+            <string>DateValue</string>
+        </dict>
+        
+        <dict>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+            <key>Title</key>
+            <string>Commit</string>
+            <key>Key</key>
+            <string>commit</string>
+            <key>DefaultValue</key>
+            <string>DateValue</string>
+        </dict>
 	</array>
 </dict>
 </plist>

@@ -4,9 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -459,7 +459,7 @@
                                         <constraint firstAttribute="bottom" secondItem="Dbb-05-r9u" secondAttribute="bottom" constant="8" id="h0G-tp-qZf"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="primary"/>
                                 <connections>
                                     <outlet property="avatarImage" destination="AtQ-mK-EOx" id="f2Y-jw-e8Y"/>
                                     <outlet property="teamDetail" destination="RWL-OG-EB5" id="Y8s-dm-rKw"/>
@@ -562,6 +562,9 @@
     </scenes>
     <resources>
         <image name="kat2" width="630" height="385"/>
+        <namedColor name="primary">
+            <color red="0.125" green="0.31400001049041748" blue="0.50599998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aQG-RE-Otg"/>

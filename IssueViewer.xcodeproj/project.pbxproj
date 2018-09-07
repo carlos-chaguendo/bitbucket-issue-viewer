@@ -112,8 +112,6 @@
 		2FBB478620D014C3004D8A73 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478420D014C3004D8A73 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB478820D014DA004D8A73 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478720D014DA004D8A73 /* Realm.framework */; };
 		2FBB478920D014DA004D8A73 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478720D014DA004D8A73 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2FBB478D20D01511004D8A73 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */; };
-		2FBB478E20D01511004D8A73 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB479320D01539004D8A73 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */; };
 		2FBB479420D01539004D8A73 /* AlamofireObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB479620D01556004D8A73 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB479520D01556004D8A73 /* ObjectMapper.framework */; };
@@ -190,7 +188,6 @@
 				2FBB477E20D01480004D8A73 /* PKHUD.framework in Embed Frameworks */,
 				2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */,
 				2FBB478020D01480004D8A73 /* PromiseKit.framework in Embed Frameworks */,
-				2FBB478E20D01511004D8A73 /* PINRemoteImage.framework in Embed Frameworks */,
 				2FBB479720D01556004D8A73 /* ObjectMapper.framework in Embed Frameworks */,
 				2FBB470A20D00D91004D8A73 /* Core.framework in Embed Frameworks */,
 				2FBB477020D01480004D8A73 /* FLAnimatedImage.framework in Embed Frameworks */,
@@ -235,6 +232,7 @@
 		2F439C9620D15F080094766C /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = Carthage/Build/iOS/DropDown.framework; sourceTree = "<group>"; };
 		2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromiseKit+Support4.swift"; sourceTree = "<group>"; };
 		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		2F76606A2141E7A200169BC2 /* IssueViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueViewer.entitlements; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
 		2FBB470220D00D91004D8A73 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,7 +262,6 @@
 		2FBB478120D014AF004D8A73 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2FBB478420D014C3004D8A73 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		2FBB478720D014DA004D8A73 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		2FBB479520D01556004D8A73 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		2FC2847C20ED302C0014DE4D /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
@@ -365,7 +362,6 @@
 				2FBB476520D01480004D8A73 /* NYTPhotoViewer.framework in Frameworks */,
 				2FBB478520D014C3004D8A73 /* Alamofire.framework in Frameworks */,
 				2FBB476920D01480004D8A73 /* PMKAlamofire.framework in Frameworks */,
-				2FBB478D20D01511004D8A73 /* PINRemoteImage.framework in Frameworks */,
 				2FBB478220D014AF004D8A73 /* RealmSwift.framework in Frameworks */,
 				2FBB476B20D01480004D8A73 /* NVActivityIndicatorView.framework in Frameworks */,
 				2FBB479620D01556004D8A73 /* ObjectMapper.framework in Frameworks */,
@@ -519,7 +515,6 @@
 				2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */,
 				2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */,
 				2FBB479520D01556004D8A73 /* ObjectMapper.framework */,
-				2FBB478C20D01511004D8A73 /* PINRemoteImage.framework */,
 				2FBB476120D01480004D8A73 /* PKHUD.framework */,
 				2FBB475720D01480004D8A73 /* PMKAlamofire.framework */,
 				2FBB476220D01480004D8A73 /* PromiseKit.framework */,
@@ -548,6 +543,7 @@
 		784988BD1ED38CF600A0724E /* IssueViewer */ = {
 			isa = PBXGroup;
 			children = (
+				2F76606A2141E7A200169BC2 /* IssueViewer.entitlements */,
 				2F069453213987C30052F61A /* login */,
 				2F06944321383E3D0052F61A /* markdown */,
 				2F270B0620D1BD3E00ADB777 /* transitions */,
@@ -770,6 +766,7 @@
 				784988B81ED38CF600A0724E /* Frameworks */,
 				784988B91ED38CF600A0724E /* Resources */,
 				784989921ED3900700A0724E /* Embed Frameworks */,
+				2FB6FB24213DE59D00DA6739 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -802,6 +799,11 @@
 						DevelopmentTeam = 5NWXU54BBD;
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -850,6 +852,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FB6FB24213DE59D00DA6739 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "version=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$PROJECT_DIR/$INFOPLIST_FILE\")\nbuild=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$PROJECT_DIR/$INFOPLIST_FILE\")\ncommit=$(git log -1 --pretty=%h)\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:1:DefaultValue $version ($build)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:2:DefaultValue $date $(date)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:3:DefaultValue $commit $(commit)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2FBB46FD20D00D91004D8A73 /* Sources */ = {
@@ -1176,7 +1194,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = IssueViewer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.whatsapp.WhatsApp.vpm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1197,7 +1215,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = IssueViewer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.whatsapp.WhatsApp.vpm;
 				PRODUCT_NAME = "$(TARGET_NAME)";

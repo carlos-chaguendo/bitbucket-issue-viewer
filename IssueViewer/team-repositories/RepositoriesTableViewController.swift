@@ -13,63 +13,67 @@ import Alamofire
 
 class RepositoriesTableViewController: LiveScrollTableViewController {
 
-
     var user: User!
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
 
-        tabBarController?.tabBar.tintColor = Colors.TapBar.tint
-        tabBarController?.tabBar.barTintColor = Colors.TapBar.background
-
-        UIApplication.shared.statusBarView?.backgroundColor = Colors.status_bar
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
-
-
-//        (tabBarController as! HomeTabBarController).tabBarTopBorder.backgroundColor = Colors.TapBar.topBorder.cgColor
-        self.navigationController?.hidesBarsOnSwipe = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.do {
+            $0.hidesBarsOnSwipe = false
+            $0.setNavigationBarHidden(true, animated: animated)
+            $0.setToolbarHidden(true, animated: false)
+        }
     }
+
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        tabBarController?.tabBar.tintColor = UIColor.white
-        tabBarController?.tabBar.barTintColor = Colors.primary
+        tabBarController?.tabBar.do {
+            $0.isHidden = false
+            $0.tintColor = UIColor.white
+            $0.barTintColor = Colors.primary
+            $0.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.4)
+        }
 
-        UIApplication.shared.statusBarView?.backgroundColor = Colors.primary
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-
-//        (tabBarController as! HomeTabBarController).tabBarTopBorder.backgroundColor = UIColor.Hex(0x42526e).cgColor
-
-
-        tabBarController?.tabBar.isHidden = false
-
-
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-
-
+        UIApplication.shared.do {
+            $0.statusBarView?.backgroundColor = Colors.primary
+            $0.statusBarStyle = .lightContent
+        }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
-        self.navigationController?.hidesBarsOnSwipe = false
 
-        self.navigationController?.setToolbarHidden(true, animated: false)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        tabBarController?.tabBar.do {
+            $0.tintColor = Colors.TapBar.tint
+            $0.barTintColor = Colors.TapBar.background
+            $0.unselectedItemTintColor = Colors.TapBar.unselectedTint
+        }
+
+        UIApplication.shared.do {
+            $0.statusBarView?.backgroundColor = nil
+            $0.statusBarStyle = .default
+        }
+    }
+
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     @objc override func viewDidLoad() {
-  
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
-        tableView.rowHeight = 98 //UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 250
-        tableView.separatorColor = UIColor.clear
-
-    
-        navigationController?.isToolbarHidden = true
-        navigationController?.navigationBar.isHidden = true
-
+        // setup tabale view
+        tableView.do {
+            $0.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
+            $0.rowHeight = 98
+            $0.estimatedRowHeight = 250
+            $0.separatorColor = UIColor.clear
+        }
 
         if Device.userInterfaceIdiom == .pad {
             let margin = UITableViewController().tableView.layoutMargins.left
@@ -78,8 +82,6 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         }
 
         super.viewDidLoad()
-        
-        
         refreshControl?.tintColor = UIColor.white
     }
 
