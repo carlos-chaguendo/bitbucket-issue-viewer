@@ -42,4 +42,9 @@ public extension UIAlertController {
         addAction(UIAlertAction(title: destructiveLabel, style: .destructive, handler: buttonsHandler))
     }
     
+    
+    public func add(_ action: UIAlertAction) {
+        self.addAction(action)
+    }
+    
 }

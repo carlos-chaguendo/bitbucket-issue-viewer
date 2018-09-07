@@ -26,14 +26,25 @@ public class SettingsViewController: UITableViewController {
 
     private var sections: [Section] = []
 
-
+    //MARK: - live
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-
+        navigationController?.hidesBarsOnSwipe = false
         tableView.registerWithClass(UITableViewCell.self)
         sections.append(.gesture([.gestureLeft, .gestureRight]))
         sections.append(.logout([.logout]))
+    }
+    
+    
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.hidesBarsOnSwipe = false
     }
 
     //MARK: - Table View Datasource
@@ -75,15 +86,23 @@ public class SettingsViewController: UITableViewController {
                 cell.textLabel?.text = "Sing Out"
                 cell.selectionStyle = .none
                 cell.accessoryType = .none
+                cell.selectedBackgroundView = .tableViewCellSelected
                 return cell
 
             case .gestureLeft:
                 let cell = tableView.dequeueReusableCellWithClass(UITableViewCell.self)!
+                cell.textLabel?.textColor = #colorLiteral(red: 0.1411764706, green: 0.2156862745, blue: 0.3490196078, alpha: 1)
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.regular)
+                cell.textLabel?.text = "Left Action"
                 cell.accessoryType = .disclosureIndicator
+                      cell.selectedBackgroundView = .tableViewCellSelected
                 return cell
             case .gestureRight:
                 let cell = tableView.dequeueReusableCellWithClass(UITableViewCell.self)!
-                 cell.accessoryType = .disclosureIndicator
+                 cell.textLabel?.textColor = #colorLiteral(red: 0.1411764706, green: 0.2156862745, blue: 0.3490196078, alpha: 1)
+                cell.textLabel?.text = "Right Action"
+                cell.accessoryType = .disclosureIndicator
+                      cell.selectedBackgroundView = .tableViewCellSelected
                 return cell
             }
         }
@@ -94,22 +113,25 @@ public class SettingsViewController: UITableViewController {
         case .logout(let rows), .gesture(let rows):
             switch rows[indexPath.row] {
             case .logout:
-                
-                guard let appDelegate =  UIApplication.shared.delegate as? AppDelegate else {
+
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                     print("Not found app.delegate")
                     return
                 }
-                
-                let alert = UIAlertController(title:"Are you sure?", message: "All of your accounts will be signed out. Do you want to continue?", cancelLabel: "Cancel", destructiveLabel: "Sing Out", handler: {
-                    SessionService.logout().done {
 
-                        appDelegate.showLoginView()
 
-                    }.end()
-                })
-                
+                let alert = UIAlertController(title: "Are you sure?", message: "All of your accounts will be signed out. Do you want to continue?", preferredStyle: .alert).then {
+                    $0.add(UIAlertAction(title: "Cancel", style: .cancel))
+                    $0.add(UIAlertAction(title: "Sing Out", style: .destructive) { _ in
+                        SessionService.logout().done {
+                            appDelegate.showLoginView()
+                        }.end()
+                    })
+                }
+
+
                 self.present(alert, animated: true)
-                
+
                 print("Logiout")
             case .gestureLeft:
                 print("Nada")

@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
 
-
-
         UINavigationBar.appearance().tintColor = Colors.NavBar.buttons//UIColor.Hex(0xffffff) // Color de los botones
         UINavigationBar.appearance().barTintColor = Colors.NavBar.background
         UINavigationBar.appearance().backgroundColor = Colors.NavBar.background

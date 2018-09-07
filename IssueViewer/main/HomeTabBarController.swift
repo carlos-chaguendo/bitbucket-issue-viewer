@@ -71,6 +71,8 @@ class HomeTabBarController: UITabBarController {
         tabBarTopBorder.backgroundColor = Colors.TapBar.topBorder.cgColor
         tabBarTopBorder.isHidden = true
         tabBar.layer.addSublayer(tabBarTopBorder)
+        
+      
 
         
 //

@@ -14,6 +14,28 @@ import Alamofire
 class RepositoriesTableViewController: LiveScrollTableViewController {
 
     var user: User!
+    
+    
+    
+    @objc override func viewDidLoad() {
+        
+        // setup tabale view
+        tableView.do {
+            $0.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
+            $0.rowHeight = 98
+            $0.estimatedRowHeight = 250
+            $0.separatorColor = UIColor.clear
+        }
+        
+        if Device.userInterfaceIdiom == .pad {
+            let margin = UITableViewController().tableView.layoutMargins.left
+            tableView.layoutMargins.left = margin
+            tableView.layoutMargins.right = margin
+        }
+        
+        super.viewDidLoad()
+        refreshControl?.tintColor = UIColor.white
+    }
 
 
     override func viewWillAppear(_ animated: Bool) {
@@ -23,6 +45,8 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
             $0.setNavigationBarHidden(true, animated: animated)
             $0.setToolbarHidden(true, animated: false)
         }
+        
+        tabBarController?.view.backgroundColor = Colors.primary
     }
 
 
@@ -65,25 +89,6 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
         navigationController?.hidesBarsOnSwipe = true
     }
 
-    @objc override func viewDidLoad() {
-
-        // setup tabale view
-        tableView.do {
-            $0.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
-            $0.rowHeight = 98
-            $0.estimatedRowHeight = 250
-            $0.separatorColor = UIColor.clear
-        }
-
-        if Device.userInterfaceIdiom == .pad {
-            let margin = UITableViewController().tableView.layoutMargins.left
-            tableView.layoutMargins.left = margin
-            tableView.layoutMargins.right = margin
-        }
-
-        super.viewDidLoad()
-        refreshControl?.tintColor = UIColor.white
-    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
