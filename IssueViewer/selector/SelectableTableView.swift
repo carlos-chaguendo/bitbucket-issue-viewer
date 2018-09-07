@@ -29,7 +29,7 @@ public extension SelectableTableView where Self: LiveScrollTableViewController {
 		cell.backgroundColor = Colors.primary.withAlphaComponent(0.1)
 		cell.textLabel?.backgroundColor = UIColor.clear
 		cell.accessoryType = .checkmark
-    
+
 	}
 
 	public func stylesForUnselected(cell: UITableViewCell) {

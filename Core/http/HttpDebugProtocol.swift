@@ -35,7 +35,7 @@ public class HttpDebugProtocol: URLProtocol, URLSessionDataDelegate, URLSessionT
 
 		let isSecure: Bool = request.allHTTPHeaderFields?["Authorization"] != nil
 		print("Request \(isSecure ? "🔒" : "🔓") >>>>\(request.httpMethod!) \(request.url!.absoluteString)")
-        
+
 	}
 
 

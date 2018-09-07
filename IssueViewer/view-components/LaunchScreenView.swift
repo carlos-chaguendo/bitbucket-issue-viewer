@@ -11,7 +11,7 @@ import LTMorphingLabel
 
 class LaunchScreenView: UIViewFromXIB {
 
-	
+
 
 
 	override func awakeFromNib() {

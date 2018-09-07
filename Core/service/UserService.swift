@@ -22,28 +22,28 @@ public class UserService: Service {
 
 
 			let sessionData = realm.objects(SessionData.self)
-			if sessionData.count > 0 &&  sessionData[0].user != nil {
+			if sessionData.count > 0 && sessionData[0].user != nil {
 				resolve(User(value: sessionData[0].user!))
 				return
 			}
 
 
 			Http.request(.get, route: "/2.0/user")
-                .done { (user: User?) -> Void in
+				.done { (user: User?) -> Void in
 
-				guard let user = user else {
-					preconditionFailure("No hay session")
-				}
+					guard let user = user else {
+						preconditionFailure("No hay session")
+					}
 
 
-				try! realm.write {
-					let session = SessionData()
-					session.user = user
-					realm.add(session, update: true)
-				}
-				resolve(user)
+					try! realm.write {
+						let session = SessionData()
+						session.user = user
+						realm.add(session, update: true)
+					}
+					resolve(user)
 
-			}.catch(execute: reject)
+				}.catch(execute: reject)
 
 		}
 	}

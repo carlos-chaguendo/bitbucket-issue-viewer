@@ -25,10 +25,10 @@ extension UIImagePickerController {
  *
  */
 extension UIViewController {
-    
-    var viewForToast: UIView {
-        return (self.tabBarController?.view ?? self.navigationController?.view ?? self.view)!
-    }
+
+	var viewForToast: UIView {
+		return (self.tabBarController?.view ?? self.navigationController?.view ?? self.view)!
+	}
 
 	func presentError(_ error: Error) -> Void {
 
@@ -71,7 +71,7 @@ extension UITableViewController {
 
 
 	func updateTableViewHeaderViewHeight() {
-        tableView.sizeHeaderToFit()
+		tableView.sizeHeaderToFit()
 	}
 }
 

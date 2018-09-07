@@ -10,19 +10,19 @@ import UIKit
 
 class FieldTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-   
-    }
+	@IBOutlet weak var label: UILabel!
+	@IBOutlet weak var valueLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		// Initialization code
 
-        // Configure the view for the selected state
-    }
+	}
+
+	override func setSelected(_ selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+
+		// Configure the view for the selected state
+	}
 
 }

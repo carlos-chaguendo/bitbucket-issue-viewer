@@ -22,11 +22,11 @@ public class SearchResult<T:BasicEntity>: Mappable {
 	public required convenience init(map: Map) {
 		self.init()
 	}
-    
-    public init(values:[T] = []) {
-        self.values = values
-        self.size = values.count
-    }
+
+	public init(values: [T] = []) {
+		self.values = values
+		self.size = values.count
+	}
 
 
 	public func mapping(map: Map) {
@@ -34,22 +34,22 @@ public class SearchResult<T:BasicEntity>: Mappable {
 		size <- map["size"]
 		page <- map["page"]
 		pagelen <- map["pagelen"]
-        
+
 	}
 
-    public init<S>(other: SearchResult<S>) {
-        other.values.forEach { (s) in
-            self.values.append(s as! T)
-        }
-        size = other.size
-        page = other.page
-        pagelen = other.pagelen
-    }
-    
-    public func addAll(values:[T]){
-        self.values.append(contentsOf: values)
-    }
-    
+	public init<S>(other: SearchResult<S>) {
+		other.values.forEach { (s) in
+			self.values.append(s as! T)
+		}
+		size = other.size
+		page = other.page
+		pagelen = other.pagelen
+	}
+
+	public func addAll(values: [T]) {
+		self.values.append(contentsOf: values)
+	}
+
 
 
 }

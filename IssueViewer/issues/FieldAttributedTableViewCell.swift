@@ -10,56 +10,56 @@ import UIKit
 
 
 class FieldAttributedTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var valueLabel: AutoUpdateTextView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	@IBOutlet weak var label: UILabel!
+	@IBOutlet weak var valueLabel: AutoUpdateTextView!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		// Initialization code
+	}
 
-        // Configure the view for the selected state
-    }
+	override func setSelected(_ selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+
+		// Configure the view for the selected state
+	}
 
 }
 
 
 class AutoUpdateTextView: UITextView {
-    
-    /// constraint de altura del textView
-    var heightConstraint:NSLayoutConstraint?
-    
-    override var attributedText: NSAttributedString! {
-        didSet{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.invalidateIntrinsicContentSize()
-            }
-        }
-    }
+
+	/// constraint de altura del textView
+	var heightConstraint: NSLayoutConstraint?
+
+	override var attributedText: NSAttributedString! {
+		didSet {
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+				self.invalidateIntrinsicContentSize()
+			}
+		}
+	}
 
 
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: textContainer)
-        setup()
-    }
+	override init(frame: CGRect, textContainer: NSTextContainer?) {
+		super.init(frame: frame, textContainer: textContainer)
+		setup()
+	}
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup(){
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		setup()
+	}
+
+	private func setup() {
 //        isScrollEnabled = false
-        isEditable = false
-        dataDetectorTypes = .link
-    }
+		isEditable = false
+		dataDetectorTypes = .link
+	}
 
-    override var intrinsicContentSize: CGSize {
-        return contentSize
-    }
- 
+	override var intrinsicContentSize: CGSize {
+		return contentSize
+	}
+
 }

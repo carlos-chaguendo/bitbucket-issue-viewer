@@ -10,26 +10,26 @@ import UIKit
 
 class RepositoriesViewController: UIViewController {
 
-    @IBOutlet weak var flowCard: FlowCard!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        flowCard.backgroundColor = UIColor(patternImage: UIImage(named: "katy")!)
-        flowCard.userImage.image = UIImage(named: "katy")
+	@IBOutlet weak var flowCard: FlowCard!
 
 
-        // Do any additional setup after loading the view.
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+		flowCard.backgroundColor = UIColor(patternImage: UIImage(named: "katy")!)
+		flowCard.userImage.image = UIImage(named: "katy")
 
-    /*
+
+		// Do any additional setup after loading the view.
+	}
+
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
+
+
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

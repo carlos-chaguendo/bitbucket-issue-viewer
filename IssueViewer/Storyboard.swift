@@ -12,24 +12,24 @@ enum Storyboard: String {
 	case Main
 	case Issues
 	case Repositories
-    case OauthLogin
+	case OauthLogin
 
 	func storyboard() -> UIStoryboard {
 		return UIStoryboard(name: self.rawValue, bundle: nil)
 	}
-    
-    
-    
-    func navigationControllerWithClass<T>(_ className: T.Type) -> UINavigationController {
-        let identifier = String(describing: className)
-        
-        guard let ctrl = storyboard().instantiateViewController(withIdentifier: "\(identifier)Nav") as? UINavigationController else{
-            preconditionFailure("\(self.rawValue) not contains controller with identifier \(identifier)Nav")
-        }
-        
-        return ctrl
-    }
-    
+
+
+
+	func navigationControllerWithClass<T>(_ className: T.Type) -> UINavigationController {
+		let identifier = String(describing: className)
+
+		guard let ctrl = storyboard().instantiateViewController(withIdentifier: "\(identifier)Nav") as? UINavigationController else {
+			preconditionFailure("\(self.rawValue) not contains controller with identifier \(identifier)Nav")
+		}
+
+		return ctrl
+	}
+
 
 	func viewControllerWithClass<T>(_ className: T.Type) -> T {
 		let identifier = String(describing: className)

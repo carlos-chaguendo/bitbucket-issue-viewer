@@ -9,6 +9,6 @@
 import UIKit
 
 
-public enum LiveScrollError:Error{
-    case cantNotLoadInformation(String)
+public enum LiveScrollError: Error {
+	case cantNotLoadInformation(String)
 }

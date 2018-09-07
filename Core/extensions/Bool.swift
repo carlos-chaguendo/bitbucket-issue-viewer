@@ -9,15 +9,15 @@
 import UIKit
 
 public extension Bool {
-    
-    /// Intercambia el valor existende
-    public mutating func toogle() {
-        self = !self
-    }
-    
-    /// Retorna el valor existente intercambiado
-    public var toggled: Bool {
-        return !self
-    }
-    
+
+	/// Intercambia el valor existende
+	public mutating func toogle() {
+		self = !self
+	}
+
+	/// Retorna el valor existente intercambiado
+	public var toggled: Bool {
+		return !self
+	}
+
 }

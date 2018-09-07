@@ -20,14 +20,14 @@ class PlacesViewController: UIViewController {
 		super.viewWillAppear(animated)
 		UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
 		self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationController?.setToolbarHidden(true, animated: true)
+		self.navigationController?.setToolbarHidden(true, animated: true)
 
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		self.navigationController?.setNavigationBarHidden(false, animated: animated)
-         self.navigationController?.setToolbarHidden(false, animated: true)
+		self.navigationController?.setToolbarHidden(false, animated: true)
 		UIView.animate(withDuration: 0.7) {
 			UIApplication.shared.statusBarView?.backgroundColor = Colors.status_bar
 		}

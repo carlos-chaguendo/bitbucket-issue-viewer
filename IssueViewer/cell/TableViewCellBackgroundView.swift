@@ -25,18 +25,18 @@ import UIKit
  *  ```
  */
 class TableViewCellBackgroundView: UIView {
-    
-    convenience init() {
-        self.init(frame: CGRect.zero)
-        self.backgroundColor = Colors.Cell.selected
-    }
-    
-    override private init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
+	convenience init() {
+		self.init(frame: CGRect.zero)
+		self.backgroundColor = Colors.Cell.selected
+	}
+
+	override private init(frame: CGRect) {
+		super.init(frame: frame)
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
 }

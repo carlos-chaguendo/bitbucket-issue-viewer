@@ -22,8 +22,8 @@ public class SessionData: BasicEntity {
 			id = user?.username
 		}
 	}
-    
-    @objc public dynamic var token: String?
+
+	@objc public dynamic var token: String?
 
 
 	public override static func primaryKey() -> String? {

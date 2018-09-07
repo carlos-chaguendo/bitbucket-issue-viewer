@@ -25,57 +25,57 @@ public class IssueTableViewCell: SwipeTableViewCell {
 			titleLabel.text = issue?.title
 
 			avatar.setImage(fromURL: issue?.assignee?.avatar)
-            
-            let xml = NSMutableString()
-            
-            var stateStyle = Style("state").font(.boldSystemFont(ofSize: 12))
-            
+
+			let xml = NSMutableString()
+
+			var stateStyle = Style("state").font(.boldSystemFont(ofSize: 12))
+
 			// Segun el estado en que se encuentre el issue se fija un color diferente
 			if let state = issue?.state {
-                xml.append("<state>")
-                xml.append(state.rawValue)
-                xml.append("</state>")
-                stateStyle = stateStyle.foregroundColor(state.color)
+				xml.append("<state>")
+				xml.append(state.rawValue)
+				xml.append("</state>")
+				stateStyle = stateStyle.foregroundColor(state.color)
 			}
-            
-            // El nombre de la persona aignada
-            xml.append(" • ")
-            xml.append((issue?.assignee?.displayName).orEmpty)
-            xml.append(" • ")
-            
-            // La fecha de ultima modificacion
-            xml.append((issue?.updatedOn ?? issue!.createdOn!).relativeTime)
 
-            descriptionLabel.attributedText = xml.description.style(tags: [stateStyle]).attributedString
+			// El nombre de la persona aignada
+			xml.append(" • ")
+			xml.append((issue?.assignee?.displayName).orEmpty)
+			xml.append(" • ")
+
+			// La fecha de ultima modificacion
+			xml.append((issue?.updatedOn ?? issue!.createdOn!).relativeTime)
+
+			descriptionLabel.attributedText = xml.description.style(tags: [stateStyle]).attributedString
 		}
 
 	}
-    
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        self.selectionStyle = .none
-    }
-    
-    override public func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: true)
 
-        
-        if highlighted {
-            backgroundColor = Colors.Cell.selected
-        }else{
-            backgroundColor = .white
-        }
-        
-    }
-    
-    override public func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        if selected{
-            backgroundColor = Colors.Cell.selected
-        }else{
-            backgroundColor = .white
-        }
-        
-    }
+	override public func awakeFromNib() {
+		super.awakeFromNib()
+		self.selectionStyle = .none
+	}
+
+	override public func setHighlighted(_ highlighted: Bool, animated: Bool) {
+		super.setHighlighted(highlighted, animated: true)
+
+
+		if highlighted {
+			backgroundColor = Colors.Cell.selected
+		} else {
+			backgroundColor = .white
+		}
+
+	}
+
+	override public func setSelected(_ selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+
+		if selected {
+			backgroundColor = Colors.Cell.selected
+		} else {
+			backgroundColor = .white
+		}
+
+	}
 }
