@@ -53,6 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if SessionService.islogged == false {
 			showLoginView()
 		}
+        
+        
+        
 
 
 

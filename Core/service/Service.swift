@@ -74,7 +74,7 @@ public class Service {
 
 	private static var configuration: Realm.Configuration = {
 		var config = Realm.Configuration()
-		let url = config.fileURL!.deletingLastPathComponent().appendingPathComponent("adivantus-swift-v3.0.7-k.realm")
+		let url = config.fileURL!.deletingLastPathComponent().appendingPathComponent("issues-cha2.realm")
 
 		print("Creando configuracion:")
 		print("Database url \n \(url)")
@@ -88,7 +88,7 @@ public class Service {
 				// Realm will automatically detect new properties and removed properties
 				// And will update the schema on disk automatically
 			}
-		})
+        }, deleteRealmIfMigrationNeeded: true)
 
 
 	}()

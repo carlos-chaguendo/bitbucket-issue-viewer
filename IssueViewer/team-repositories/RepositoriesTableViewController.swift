@@ -59,6 +59,8 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
 			$0.barTintColor = Colors.primary
 			$0.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.4)
 		}
+        
+        // HairPowder.instance.spread()
 
 		UIApplication.shared.do {
 			$0.statusBarView?.backgroundColor = Colors.primary

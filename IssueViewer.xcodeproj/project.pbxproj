@@ -29,6 +29,7 @@
 		2F270B0E20D1C70100ADB777 /* UIPopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */; };
 		2F439C9720D15F080094766C /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; };
 		2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F5930032143105F003BE44C /* IssueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5930022143105F003BE44C /* IssueChangeType.swift */; };
 		2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */; };
 		2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */; };
 		2FBB470620D00D91004D8A73 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBB470420D00D91004D8A73 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -230,6 +231,7 @@
 		2F270B0B20D1C19000ADB777 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPopoverPresentationController.swift; sourceTree = "<group>"; };
 		2F439C9620D15F080094766C /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = Carthage/Build/iOS/DropDown.framework; sourceTree = "<group>"; };
+		2F5930022143105F003BE44C /* IssueChangeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueChangeType.swift; sourceTree = "<group>"; };
 		2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromiseKit+Support4.swift"; sourceTree = "<group>"; };
 		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		2F76606A2141E7A200169BC2 /* IssueViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueViewer.entitlements; sourceTree = "<group>"; };
@@ -649,6 +651,7 @@
 				2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */,
 				784988FD1ED38EAA00A0724E /* IssueStatus.swift */,
 				784988FC1ED38EAA00A0724E /* IssueUser.swift */,
+				2F5930022143105F003BE44C /* IssueChangeType.swift */,
 			);
 			path = issues;
 			sourceTree = "<group>";
@@ -899,6 +902,7 @@
 				2F06944721383EE70052F61A /* String.swift in Sources */,
 				2FBB472D20D01077004D8A73 /* HttpStatusCode.swift in Sources */,
 				2F270B0C20D1C19000ADB777 /* UserDefaults.swift in Sources */,
+				2F5930032143105F003BE44C /* IssueChangeType.swift in Sources */,
 				2FBB472F20D01077004D8A73 /* IssuesService.swift in Sources */,
 				2FBB472120D00FE7004D8A73 /* TeamIssuesFilters.swift in Sources */,
 				2F06944921383FE50052F61A /* Then.swift in Sources */,

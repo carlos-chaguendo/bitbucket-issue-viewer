@@ -14,7 +14,7 @@ import AlamofireObjectMapper
 
 public class IssueComment: BasicEntity {
 
-	@objc public dynamic var id: Int = -1
+	@objc public dynamic var id: String = "-1-"
 	@objc public dynamic var user: IssueUser?
 	@objc public dynamic var updatedOn: Date?
 	@objc public dynamic var createdOn: Date?
@@ -23,6 +23,11 @@ public class IssueComment: BasicEntity {
 	@objc public dynamic var markup: String?
 	@objc public dynamic var raw: String?
     @objc public dynamic var issueId:String?
+    
+    @objc public dynamic var changes: IssueChanges?
+    
+    @objc public dynamic var type:String = "issue_change"
+    
 
 	public override static func primaryKey() -> String? {
 		return "id"
@@ -32,15 +37,28 @@ public class IssueComment: BasicEntity {
 	override public func mapping(map: Map) {
 		super.mapping(map: map)
 
-		id <- map["id"]
+		id <- (map["id"], NumberAsStringTransform())
 		user <- map["user"]
 		createdOn <- (map["created_on"], ISO8601ExtendedDateTransform())
 		updatedOn <- (map["updated_on"], ISO8601ExtendedDateTransform())
 
-		// content
-		html <- map["content.html"]
-		markup <- map["content.markup"]
-		raw <- map["content.raw"]
+        type <- map["type"]
         issueId <- (map["issue.id"], NumberAsStringTransform())
+        
+        if type == "issue_comment" {
+            // content
+            html <- map["content.html"]
+            markup <- map["content.markup"]
+            raw <- map["content.raw"]
+          
+        } else {
+            html <- map["message.html"]
+            markup <- map["message.markup"]
+            raw <- map["message.raw"]
+            changes <- map["changes"]
+           
+        }
+         changes?.id = id
+        
 	}
 }
