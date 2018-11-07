@@ -55,8 +55,8 @@ extension UIViewController {
 			}
 		}
 
-		let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-		alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: buttonsHandler))
+		let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+		alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: buttonsHandler))
 		self.present(alert, animated: true, completion: nil)
 
 	}
@@ -115,8 +115,8 @@ extension UINavigationItem {
 
 		let titleString = NSMutableAttributedString(string: title)
 		let subtitleString = NSMutableAttributedString(string: subtitle, attributes: [
-			NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12.5),
-			NSAttributedStringKey.foregroundColor: Colors.NavBar.title.withAlphaComponent(0.6)
+			NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12.5),
+			NSAttributedString.Key.foregroundColor: Colors.NavBar.title.withAlphaComponent(0.6)
 		])
 
 

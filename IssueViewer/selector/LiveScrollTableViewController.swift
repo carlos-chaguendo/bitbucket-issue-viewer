@@ -59,7 +59,7 @@ public class LiveScrollTableViewController: UITableViewController {
 //			refresh.addSubview(activity)
 			refresh.tintColor = Colors.primary
 			activity.startAnimating()
-			refresh.addTarget(self, action: #selector(self.loadValuesFromServer), for: UIControlEvents.valueChanged)
+			refresh.addTarget(self, action: #selector(self.loadValuesFromServer), for: UIControl.Event.valueChanged)
 
 			refreshActivitiIndicator = activity
 		}
@@ -145,7 +145,7 @@ public class LiveScrollTableViewController: UITableViewController {
 		}
 
 		view.backgroundColor = UIColor.white
-		tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+		tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
 		tableView.backgroundView = nil
 		return 1
 	}

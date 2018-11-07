@@ -47,7 +47,8 @@ public class Service {
 		// No pre-existing key from this application, so generate a new one
 		var keyData = Data(count: 64)
 
-		let result = keyData.withUnsafeMutableBytes {
+        var a = keyData
+		let result = a.withUnsafeMutableBytes {
 			SecRandomCopyBytes(kSecRandomDefault, keyData.count, $0)
 		}
 		//        print(keyData.base64EncodedString())

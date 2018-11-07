@@ -29,12 +29,12 @@ class HtmlParser {
 	public static let aimg = Style("aimg")
 		.font(.boldSystemFont(ofSize: 12))
 		.foregroundColor(Colors.primary)
-		.underlineStyle(.styleSingle)
+		.underlineStyle(NSUnderlineStyle.single)
 
 	public static let aissue = Style("aissue")
 		.font(.boldSystemFont(ofSize: 12))
 		.foregroundColor(Colors.primary)
-		.underlineStyle(.styleSingle)
+		.underlineStyle(NSUnderlineStyle.single)
 
 	/// Emboltorio de un bloque de codigo
 	public static let div = Style("div").backgroundColor(#colorLiteral(red: 0.9137254902, green: 0.9215686275, blue: 0.937254902, alpha: 1))
@@ -59,14 +59,14 @@ class HtmlParser {
 		.foregroundColor(Colors.primary.withAlphaComponent(0.6))
 
 	/// texto tachado
-	public static let del = Style("del").strikethroughStyle(.styleSingle)
+	public static let del = Style("del").strikethroughStyle(NSUnderlineStyle.single)
 
 	/// Comentario o referencia >
 	public static let blockquote = Style("blockquote").backgroundColor(#colorLiteral(red: 0.9764705896, green: 0.8783940377, blue: 0.4929561395, alpha: 0.4355948044))
 
 
 	public static let tr = Style("tr")
-		.underlineStyle(.styleSingle)
+		.underlineStyle(NSUnderlineStyle.single)
 
 	/// codigo en una sola linea
 	public static let code = Style("code")

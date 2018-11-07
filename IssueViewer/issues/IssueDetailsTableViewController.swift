@@ -63,10 +63,10 @@ class IssueDetailsTableViewController: UITableViewController {
         }
 
 
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 250
 
-        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 30;
 
         topTableLayer.backgroundColor = UIColor.white.cgColor
@@ -143,8 +143,8 @@ class IssueDetailsTableViewController: UITableViewController {
 
 
         let priority = NSMutableAttributedString(string: String.ionicon(of: .iosArrowUp), attributes: [
-            NSAttributedStringKey.foregroundColor: IssueStatus.invalid.color,
-            NSAttributedStringKey.font: UIFont.ionicon(ofSize: 22)
+            NSAttributedString.Key.foregroundColor: IssueStatus.invalid.color,
+            NSAttributedString.Key.font: UIFont.ionicon(ofSize: 22)
         ])
 
         priority.append(NSAttributedString(string: " \(issue.priority!)"))

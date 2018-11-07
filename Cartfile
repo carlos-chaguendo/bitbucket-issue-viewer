@@ -1,11 +1,11 @@
-#github "ninjaprox/NVActivityIndicatorView"
-#github "lexrus/LTMorphingLabel"
-#github "tidwall/IoniconsSwift"
+github "ninjaprox/NVActivityIndicatorView"
+github "lexrus/LTMorphingLabel"
+github "tidwall/IoniconsSwift"
 github "psharanda/Atributika"
 #github "cjwirth/RichEditorView”
-#github "bryx-inc/BRYXBanner"
+github "bryx-inc/BRYXBanner"
 #github "realm/realm-cocoa" ~>  3.1.2
-github "NYTimes/NYTPhotoViewer"
+#github "NYTimes/NYTPhotoViewer"
 
 
 # Dependencias actualizadas
@@ -16,3 +16,5 @@ github "mxcl/PromiseKit" == 6.3.3
 github "tristanhimmelman/AlamofireObjectMapper" == 5.0.0
 github "PromiseKit/Alamofire-" == 3.2.1
 github "DavidLari/Haring" == 2.0.8
+github "jerkoch/SwipeCellKit" == 2.2.0
+github "CosmicMind/Material" == 2.4.19

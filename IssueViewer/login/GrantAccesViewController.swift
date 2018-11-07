@@ -61,7 +61,7 @@ class GrantAccesViewController: UIViewController, WKUIDelegate {
 
 
 
-		let close = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(closeAction))
+		let close = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(closeAction))
 		navigationItem.setLeftBarButton(close, animated: false)
 	}
 

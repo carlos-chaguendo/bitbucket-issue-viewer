@@ -30,7 +30,7 @@ extension UITableView {
 	func sizeHeaderToFit() {
 		if let headerView = self.tableHeaderView {
 
-			let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+			let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
 			var headerFrame = headerView.frame
 
 			//Comparison necessary to avoid infinite loop

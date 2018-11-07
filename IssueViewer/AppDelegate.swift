@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 
 
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UINavigationBar.appearance().barTintColor = Colors.NavBar.background
 		UINavigationBar.appearance().backgroundColor = Colors.NavBar.background
 		UINavigationBar.appearance().shadowImage = UIImage()
-		UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Colors.NavBar.title]
+		UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.NavBar.title]
 		UINavigationBar.appearance().barStyle = .black
 		UINavigationBar.appearance().isTranslucent = false
 		UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)

@@ -56,7 +56,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
 
 		super.viewDidLoad()
 		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 250
 
 		if Device.userInterfaceIdiom == .pad {

@@ -87,7 +87,7 @@ class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactVi
 			}
 
 			if #available(iOS 10.0, *) {
-				UIApplication.shared.open(url, options: [:], completionHandler: nil)
+				UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 			} else {
 				UIApplication.shared.openURL(url)
 			}
@@ -117,4 +117,9 @@ class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactVi
 
 
 	}
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
