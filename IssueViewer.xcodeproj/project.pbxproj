@@ -85,8 +85,6 @@
 		2FBB476620D01480004D8A73 /* NYTPhotoViewer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB476720D01480004D8A73 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475620D01480004D8A73 /* SwipeCellKit.framework */; };
 		2FBB476820D01480004D8A73 /* SwipeCellKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475620D01480004D8A73 /* SwipeCellKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2FBB476920D01480004D8A73 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475720D01480004D8A73 /* PMKAlamofire.framework */; };
-		2FBB476A20D01480004D8A73 /* PMKAlamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475720D01480004D8A73 /* PMKAlamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB476B20D01480004D8A73 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */; };
 		2FBB476C20D01480004D8A73 /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB476F20D01480004D8A73 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */; };
@@ -181,7 +179,6 @@
 				2FBB476620D01480004D8A73 /* NYTPhotoViewer.framework in Embed Frameworks */,
 				2FBB479420D01539004D8A73 /* AlamofireObjectMapper.framework in Embed Frameworks */,
 				2FBB478620D014C3004D8A73 /* Alamofire.framework in Embed Frameworks */,
-				2FBB476A20D01480004D8A73 /* PMKAlamofire.framework in Embed Frameworks */,
 				2FBB478320D014AF004D8A73 /* RealmSwift.framework in Embed Frameworks */,
 				2FBB476C20D01480004D8A73 /* NVActivityIndicatorView.framework in Embed Frameworks */,
 				2FBB477A20D01480004D8A73 /* LTMorphingLabel.framework in Embed Frameworks */,
@@ -250,7 +247,6 @@
 		2FBB475420D01480004D8A73 /* SwiftValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftValidator.framework; path = Carthage/Build/iOS/SwiftValidator.framework; sourceTree = "<group>"; };
 		2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NYTPhotoViewer.framework; path = Carthage/Build/iOS/NYTPhotoViewer.framework; sourceTree = "<group>"; };
 		2FBB475620D01480004D8A73 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
-		2FBB475720D01480004D8A73 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
 		2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAnimatedImage.framework; path = Carthage/Build/iOS/FLAnimatedImage.framework; sourceTree = "<group>"; };
 		2FBB475B20D01480004D8A73 /* IoniconsSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IoniconsSwift.framework; path = Carthage/Build/iOS/IoniconsSwift.framework; sourceTree = "<group>"; };
@@ -363,7 +359,6 @@
 			files = (
 				2FBB476520D01480004D8A73 /* NYTPhotoViewer.framework in Frameworks */,
 				2FBB478520D014C3004D8A73 /* Alamofire.framework in Frameworks */,
-				2FBB476920D01480004D8A73 /* PMKAlamofire.framework in Frameworks */,
 				2FBB478220D014AF004D8A73 /* RealmSwift.framework in Frameworks */,
 				2FBB476B20D01480004D8A73 /* NVActivityIndicatorView.framework in Frameworks */,
 				2FBB479620D01556004D8A73 /* ObjectMapper.framework in Frameworks */,
@@ -518,7 +513,6 @@
 				2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */,
 				2FBB479520D01556004D8A73 /* ObjectMapper.framework */,
 				2FBB476120D01480004D8A73 /* PKHUD.framework */,
-				2FBB475720D01480004D8A73 /* PMKAlamofire.framework */,
 				2FBB476220D01480004D8A73 /* PromiseKit.framework */,
 				2FBB478720D014DA004D8A73 /* Realm.framework */,
 				2FBB478120D014AF004D8A73 /* RealmSwift.framework */,
