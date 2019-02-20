@@ -140,7 +140,7 @@ public class IssuesService: Service {
 
             // se crean todos los filtros de busqueda
             let p = filter.map({ "\($0)=\($1)" }).joined(separator: " AND ")
-            print("query = \(p)")
+            Logger.info("query = \(p)")
             let q = p.encodeURIComponent()!
             route = "\(route)&q=\(q)"
 

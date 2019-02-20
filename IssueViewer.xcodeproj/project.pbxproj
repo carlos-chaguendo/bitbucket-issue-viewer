@@ -32,6 +32,9 @@
 		2F5930032143105F003BE44C /* IssueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5930022143105F003BE44C /* IssueChangeType.swift */; };
 		2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */; };
 		2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */; };
+		2F7E542B221D9A1400A4102F /* FiltrableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E542A221D9A1400A4102F /* FiltrableArray.swift */; };
+		2F7E542D221D9A3900A4102F /* TableSecction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E542C221D9A3900A4102F /* TableSecction.swift */; };
+		2F7E542F221D9A5F00A4102F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E542E221D9A5F00A4102F /* Logger.swift */; };
 		2FBB470620D00D91004D8A73 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBB470420D00D91004D8A73 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; };
 		2FBB470A20D00D91004D8A73 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -232,6 +235,9 @@
 		2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromiseKit+Support4.swift"; sourceTree = "<group>"; };
 		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		2F76606A2141E7A200169BC2 /* IssueViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueViewer.entitlements; sourceTree = "<group>"; };
+		2F7E542A221D9A1400A4102F /* FiltrableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrableArray.swift; sourceTree = "<group>"; };
+		2F7E542C221D9A3900A4102F /* TableSecction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSecction.swift; sourceTree = "<group>"; };
+		2F7E542E221D9A5F00A4102F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
 		2FBB470220D00D91004D8A73 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -438,9 +444,20 @@
 			path = "team-repositories";
 			sourceTree = "<group>";
 		};
+		2F7E5429221D9A0000A4102F /* util */ = {
+			isa = PBXGroup;
+			children = (
+				2F7E542A221D9A1400A4102F /* FiltrableArray.swift */,
+				2F7E542C221D9A3900A4102F /* TableSecction.swift */,
+				2F7E542E221D9A5F00A4102F /* Logger.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		2FBB470320D00D91004D8A73 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2F7E5429221D9A0000A4102F /* util */,
 				784988E51ED38E8200A0724E /* domain */,
 				784988D21ED38D2400A0724E /* extensions */,
 				784988E61ED38E8800A0724E /* http */,
@@ -764,6 +781,7 @@
 				784988B91ED38CF600A0724E /* Resources */,
 				784989921ED3900700A0724E /* Embed Frameworks */,
 				2FB6FB24213DE59D00DA6739 /* ShellScript */,
+				2F7E5430221DA87A00A4102F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -851,6 +869,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2F7E5430221DA87A00A4102F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nsh bin/swiftlint\n";
+		};
 		2FB6FB24213DE59D00DA6739 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -862,7 +897,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "version=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$PROJECT_DIR/$INFOPLIST_FILE\")\nbuild=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$PROJECT_DIR/$INFOPLIST_FILE\")\ncommit=$(git log -1 --pretty=%h)\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:1:DefaultValue $version ($build)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:2:DefaultValue $date $(date)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:3:DefaultValue $commit $(commit)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"";
+			shellScript = "version=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$PROJECT_DIR/$INFOPLIST_FILE\")\nbuild=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$PROJECT_DIR/$INFOPLIST_FILE\")\ncommit=$(git log -1 --pretty=%h)\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:1:DefaultValue $version ($build)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:2:DefaultValue $date $(date)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:3:DefaultValue $commit $(commit)\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -875,6 +910,7 @@
 				2FBB471420D00F95004D8A73 /* Assignee.swift in Sources */,
 				2FBB473320D01077004D8A73 /* UserService.swift in Sources */,
 				2FBB473120D01077004D8A73 /* Service.swift in Sources */,
+				2F7E542F221D9A5F00A4102F /* Logger.swift in Sources */,
 				2FBB471720D00FC5004D8A73 /* SessionData.swift in Sources */,
 				2FBB473220D01077004D8A73 /* TeamsService.swift in Sources */,
 				2FBB473020D01077004D8A73 /* RepositoryService.swift in Sources */,
@@ -891,6 +927,7 @@
 				2FBB473720D0108F004D8A73 /* SequenceType.swift in Sources */,
 				2FBB471C20D00FDF004D8A73 /* IssueStatus.swift in Sources */,
 				2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */,
+				2F7E542D221D9A3900A4102F /* TableSecction.swift in Sources */,
 				2F06944C2138A0A80052F61A /* RefreshTokenHandler.swift in Sources */,
 				2FBB473D20D0108F004D8A73 /* PromiseKit.swift in Sources */,
 				2F06944721383EE70052F61A /* String.swift in Sources */,
@@ -907,6 +944,7 @@
 				2FBB472220D00FED004D8A73 /* ISO8601ExtendedDateTransform.swift in Sources */,
 				2FBB471E20D00FDF004D8A73 /* IssueEdited.swift in Sources */,
 				2FBB471920D00FCB004D8A73 /* User.swift in Sources */,
+				2F7E542B221D9A1400A4102F /* FiltrableArray.swift in Sources */,
 				2FBB474020D0108F004D8A73 /* Optional+Chaining.swift in Sources */,
 				2F270B0520D1B68400ADB777 /* Realm+detached.swift in Sources */,
 				2FBB473620D0108F004D8A73 /* Date.swift in Sources */,

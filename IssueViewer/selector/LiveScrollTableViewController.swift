@@ -10,6 +10,7 @@ import UIKit
 import PromiseKit
 import NVActivityIndicatorView
 import IoniconsSwift
+import struct Core.Logger
 
 public class LiveScrollTableViewController: UITableViewController {
 
@@ -88,7 +89,7 @@ public class LiveScrollTableViewController: UITableViewController {
 
 
 	public func markAsEmptyTable(cause error: Error) {
-		print("Error resolve de reisnte")
+		Logger.info("Error resolve de reisnte")
 
 		loadInformation = true;
 		removeAllValues()

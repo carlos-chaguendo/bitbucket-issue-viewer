@@ -34,7 +34,7 @@ public class HttpDebugProtocol: URLProtocol, URLSessionDataDelegate, URLSessionT
 		requestData = request;
 
 		let isSecure: Bool = request.allHTTPHeaderFields?["Authorization"] != nil
-		print("Request \(isSecure ? "🔒" : "🔓") >>>>\(request.httpMethod!) \(request.url!.absoluteString)")
+		Logger.info("Request \(isSecure ? "🔒" : "🔓") >>>>\(request.httpMethod!) \(request.url!.absoluteString)")
 
 	}
 
@@ -62,7 +62,7 @@ public class HttpDebugProtocol: URLProtocol, URLSessionDataDelegate, URLSessionT
 			self.response = response
 
 			let isSecure: Bool = requestData.allHTTPHeaderFields?["Authorization"] != nil
-			print("Response\(isSecure ? "🔒" : "🔓") <<<<\(self.requestData.httpMethod!) \(response.url!.absoluteString) \(response.statusCode)")
+			Logger.info("Response\(isSecure ? "🔒" : "🔓") <<<<\(self.requestData.httpMethod!) \(response.url!.absoluteString) \(response.statusCode)")
 		}
 		client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: URLCache.StoragePolicy.allowed)
 		completionHandler(.allow)

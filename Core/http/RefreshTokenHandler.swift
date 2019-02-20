@@ -127,7 +127,7 @@ class RefreshTokenHandler: RequestAdapter, RequestRetrier {
 		//curl -X POST -u "JNK8PLLYakByrYPudb:fXqLAgn7SHwtgjTXuPw4pjyrnJBRfVyB" https://bitbucket.org/site/oauth2/access_token -d grant_type=refresh_token -d refresh_token=EQ8V8g8LKGC7E9wNFw
 
 
-		print(" ♻️ Refrescando \n refreshToken:\(refreshToken)\n accessToken:\(accessToken)")
+		Logger.info(" ♻️ Refrescando \n refreshToken:\(refreshToken)\n accessToken:\(accessToken)")
 		sessionManager.request("https://\(Http.client.key):\(Http.client.secret)@bitbucket.org/site/oauth2/access_token", method: .post, parameters: parameters)
 			.responseJSON { [weak self] response in
 				guard let strongSelf = self else { return }

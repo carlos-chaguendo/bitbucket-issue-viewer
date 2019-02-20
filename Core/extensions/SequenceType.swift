@@ -38,11 +38,17 @@ public extension Sequence {
 
 }
 
-public extension Array {
+public extension Collection where Index == Int {
+    
+    public subscript (safe index: Index) -> Element? {
+        return index >= 0 && index < count ? self[index] : nil
+    }
+    
+}
 
-	public subscript (safe index: Int) -> Element? {
-		return index >= 0 && index < count ? self[index] : nil
-	}
+
+
+public extension Array {
 
 	/// Removes all elements from an array that the callback returns true.
 	///

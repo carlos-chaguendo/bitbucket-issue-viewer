@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+
+
+PREFIX=$(pwd)
+
+# Solo se procesan los archivos actualmente modificados
+FILES=$(git diff --name-only | grep .swift)
+if [ -z "$FILES" ]; then
+    exit 0
+fi
+
+
+# Se agrega a cada uno de los archivos el path completo de
+# su ubicacion ya que git solo obtiene la ruta relativa
+OUTPUT=""
+for f in $FILES
+do
+OUTPUT="$PREFIX/$f"
+done
+
+echo "Archivos modificados \n$FILES"
+
+# Etiqueta que se no deberia estar presente
+ERRORTAG="print\("
+
+RESULT=$(egrep --with-filename --line-number --only-matching "^( )+$ERRORTAG.*\$" $OUTPUT | perl -p -e "s/($ERRORTAG)/ error: Evite el uso de \$1\...)    utilize   Logger.info(\$2/")
+
+# Emite los errores -> Xcode
+echo "$RESULT"
+
+# Indica a que el proceso termino correcta | incorrectamente
+# esto detiene la compilacion de xcode
+if [ -z "$RESULT" ]; then
+    exit 0
+else
+    exit 1
+fi

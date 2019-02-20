@@ -82,7 +82,7 @@ class HomeTabBarController: UITabBarController {
 //
 //        if let window = UIApplication.shared.keyWindow {
 //            if #available(iOS 11.0, *) {
-//                print(" window  \(window.safeAreaInsets)")
+//                Logger.info(" window  \(window.safeAreaInsets)")
 //                if window.safeAreaInsets.top > 0 {
 //
 //                    let x = CALayer()
@@ -140,12 +140,12 @@ extension HomeTabBarController: UITabBarControllerDelegate {
 
 
 
-		print("Should select viewController: \(viewController.title.or(else: "xxx")!) ?")
+		Logger.info("Should select viewController: \(viewController.title.or(else: "xxx")!) ?")
 		return true;
 	}
 
 	func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-		print("didSelect")
+		Logger.info("didSelect")
 	}
 
 

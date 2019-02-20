@@ -9,6 +9,13 @@
 import UIKit
 
 public extension String {
+    
+    /// Referencia  unica a una cadena vacia
+    public static let empty = ""
+    
+    public static let space = " "
+    
+    public static let newLine = "\n"
 
 
 	public func substring(between start: String, and end: String, includeBrackets: Bool = true) -> String? {
@@ -49,7 +56,7 @@ extension String {
 				}
 			}
 			catch let error as NSError {
-				print("An error occurred: \(error)")
+				Logger.error("An error occurred: \(error)")
 				return nil
 			}
 		} else {

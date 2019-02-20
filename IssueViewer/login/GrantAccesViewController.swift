@@ -81,7 +81,7 @@ class GrantAccesViewController: UIViewController, WKUIDelegate {
 	}
 
 	func webViewDidClose(_ webView: WKWebView) {
-		print("Closee")
+		Logger.info("Closee")
 
 	}
 
@@ -92,13 +92,13 @@ extension GrantAccesViewController: WKNavigationDelegate {
 
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 
-		print(" didFinish \(webView.url?.scheme)")
+		Logger.info(" didFinish \(webView.url?.scheme)")
 		activityIndicator.stopAnimating()
 	}
 
 
 	func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-		print("didStartProvisionalNavigation \(webView.url!.scheme)")
+		Logger.info("didStartProvisionalNavigation \(webView.url!.scheme)")
 		activityIndicator.startAnimating()
 		if "file" != webView.url?.scheme {
 //            showLoadingIndicator()
@@ -113,7 +113,7 @@ extension GrantAccesViewController: WKNavigationDelegate {
 
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
-		print("navigationAction")
+		Logger.info("navigationAction")
 		guard let URL = navigationAction.request.url, "issueviewer" == URL.scheme, let components = URLComponents(string: URL.absoluteString.replacingOccurrences(of: "issueviewer:bit%23", with: "http://mysite3994.com?"))?.queryItems?.groupBy({ $0.name }) else {
 			decisionHandler(WKNavigationActionPolicy.allow)
 			return
@@ -147,7 +147,7 @@ extension GrantAccesViewController: WKNavigationDelegate {
 					.responseJSON { (response) in
 
 						if response.result.isFailure {
-							print("❌ Error I consultando ")
+							Logger.error("❌ Error I consultando ")
 							return
 						}
 
@@ -155,11 +155,11 @@ extension GrantAccesViewController: WKNavigationDelegate {
 							let access_token = json["access_token"] as? String,
 							let refresh_token = json["refresh_token"] as? String,
 							let token_type = json["token_type"] as? String else {
-								print("❌ Error II consultando url de servicos ")
+								Logger.error("❌ Error II consultando url de servicos ")
 								return
 						}
 
-						print("♻️ Resultado consultando url de servicos json=\(json)\n Actualizando Http ")
+						Logger.info("♻️ Resultado consultando url de servicos json=\(json)\n Actualizando Http ")
 
 						Http.updateAut(token: access_token, tokenType: token_type, refresh: refresh_token)
 						self.webView.stopLoading()

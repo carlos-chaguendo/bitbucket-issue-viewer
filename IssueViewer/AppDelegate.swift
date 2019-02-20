@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UITabBar.appearance().unselectedItemTintColor = Colors.TapBar.unselectedTint
 
 
-		print("Real \(Realm.Configuration.defaultConfiguration)")
+		Logger.info("Real \(Realm.Configuration.defaultConfiguration)")
 
 
 		if SessionService.islogged == false {

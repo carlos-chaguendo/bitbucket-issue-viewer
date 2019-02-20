@@ -145,7 +145,7 @@ public class TeamsService: Service {
 
 
 	public class func currentFilters(of team: User) -> TeamIssuesFilters? {
-		print("Buscando filtros de \( team.accountId!)")
+		Logger.info("Buscando filtros de \( team.accountId!)")
 		let localdata = realm.objects(TeamIssuesFilters.self).filter("team.accountId = %@", team.accountId!)
 		guard let filter = localdata.first else {
 			return nil

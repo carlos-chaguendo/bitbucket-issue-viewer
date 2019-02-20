@@ -115,7 +115,7 @@ public class SettingsViewController: UITableViewController {
 			case .logout:
 
 				guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-					print("Not found app.delegate")
+					Logger.info("Not found app.delegate")
 					return
 				}
 
@@ -132,11 +132,11 @@ public class SettingsViewController: UITableViewController {
 
 				self.present(alert, animated: true)
 
-				print("Logiout")
+				Logger.info("Logiout")
 			case .gestureLeft:
-				print("Nada")
+				Logger.info("Nada")
 			case .gestureRight:
-				print("Nada")
+				Logger.info("Nada")
 			}
 		}
 	}

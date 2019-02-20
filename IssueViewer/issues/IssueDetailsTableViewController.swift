@@ -165,9 +165,9 @@ class IssueDetailsTableViewController: UITableViewController {
                 values .forEach({ self.comments.append($0) })
                 self.comments = self.comments.sorted(by: { $0.createdOn! < $1.createdOn! })
                 self.tableView.reloadData()
-                   print("poroor\n\n\n")
+                   Logger.info("poroor\n\n\n")
                 print(self.comments)
-                print("poroor\n\n\n")
+                Logger.info("poroor\n\n\n")
 
             }.ensure {
                 if #available(iOS 10.0, *) {
@@ -266,7 +266,8 @@ class IssueDetailsTableViewController: UITableViewController {
     }
 
     @IBAction func showUserSelector(_ sender: Any) {
-        print("sender \(sender)")
+        Logger.info("sender \(sender)")
+        
         guard let gesture = sender as? UITapGestureRecognizer, let v = gesture.view else {
             return
         }
@@ -293,7 +294,7 @@ extension IssueDetailsTableViewController: SingleSelectionTableViewDelegate {
 
         IssuesService.assigne(to: assigne, issue: issue!, of: "mayorgafirm", inRepository: issue!.repository!.name!)
             .done { (edited: IssueEdited?) -> Void in
-                print("Calros \(edited!)")
+                Logger.info("Calros \(edited!)")
             }.end()
 
     }

@@ -77,14 +77,14 @@ public class Service {
 		var config = Realm.Configuration()
 		let url = config.fileURL!.deletingLastPathComponent().appendingPathComponent("issues-cha2.realm")
 
-		print("Creando configuracion:")
-		print("Database url \n \(url)")
+		Logger.info("Creando configuracion:")
+		Logger.info("Database url \n \(url)")
 
 		let key = "8YGS5WNJS8VDE7QWP485VFDYSDZRFEV2Z9QZDEXTASC2ZCUOQ44L2P6LLFDGZI07".data(using: String.Encoding.utf8)
 
 		return Realm.Configuration(fileURL: url, schemaVersion: 17, migrationBlock: { migration, oldSchemaVersion in
 			if (oldSchemaVersion < 17) {
-				print("old Schema = \(oldSchemaVersion)")
+				Logger.info("old Schema = \(oldSchemaVersion)")
 				// Nothing to do!
 				// Realm will automatically detect new properties and removed properties
 				// And will update the schema on disk automatically
@@ -101,7 +101,7 @@ public class Service {
 
 
 	public static func printLog(_ log: String) {
-		print("[\(type(of: self))]  \(log)")
+		Logger.info("[\(type(of: self))]  \(log)")
 	}
 
 	public static func postNotificationName(aName: String, object anObject: AnyObject?) {

@@ -45,7 +45,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
 
 
 		if let filters = TeamsService.currentFilters(of: team) {
-			print("Llenando filtros actuales")
+			Logger.info("Llenando filtros actuales")
 			// filtros actuales
 			repository = filters.repository
 			status = (filters.status.orEmpty).components(separatedBy: ",")
@@ -75,7 +75,7 @@ public class IssuesTableViewController: LiveScrollTableViewController {
 
 			if self.repository == nil {
 
-				print("Cargando repositorios de la nuve ")
+				Logger.info("Cargando repositorios de la nuve ")
 				RepositoryService.repositories(for: team.username!)
 					.done { (searchResult) -> Void in
 
