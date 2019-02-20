@@ -15,10 +15,19 @@ import Core
 import NYTPhotoViewer
 import PINRemoteImage
 import Haring
+import Down
+
+import Foundation
+import libcmark
 
 class IssueDetailsTableViewController: UITableViewController {
 
-
+    enum Row {
+        case description
+        case attachments([UIImage])
+        case comment(IssueComment)
+    }
+    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
@@ -31,7 +40,8 @@ class IssueDetailsTableViewController: UITableViewController {
 
     var issue: Issue?
     var team: User?
-    var comments: [IssueComment] = []
+
+    var sections: [TableSecction<String,Row>] = []
 
     let dateFormater = DateFormatter().then {
         $0.dateFormat = "dd MMMM YYYY hh:mm"
@@ -113,13 +123,44 @@ class IssueDetailsTableViewController: UITableViewController {
     }
 
     @objc func refreshComments() {
-        self.comments.removeAll()
         loadComments(refreshFromServer: true)
+    }
+    
+    func extractImageLinksIn(html input: String) -> [String] {
+        var html = input
+        var images:[String] = []
+        while let img = html.substring(between: "<img", and: "/>") {
+            images.append(img)
+            html = html.replacingOccurrences(of: img, with: String.empty)
+        }
+        return images
+    }
+    
+    func loadImages(in images: [String]) -> [UIImage] {
+       
+        var imagenes:[UIImage] = []
+        if let imagesAtt = try? NSAttributedString(htmlString: images.joined(separator: " ") ) {
+            
+            imagesAtt.enumerateAttribute(NSAttributedString.Key.attachment, in: NSRange(location: 0, length: imagesAtt.length), options: .reverse) { (object, range, stop) in
+                if let attachment = object as? NSTextAttachment {
+    
+                    if let image = attachment.image {
+                        imagenes.append(image)
+                    }else if let image = attachment.image(forBounds: attachment.bounds, textContainer: nil, characterIndex: range.location) {
+                        imagenes.append(image)
+                    }
+                    
+                }
+            }
+        }
+        
+        return imagenes
     }
 
     func loadInformation(for issue: Issue) {
         self.title = "#\(issue.id)"
 
+        
         titleLabel.text = issue.title
         avatarImage.setImage(fromURL: issue.reporter?.avatar)
 
@@ -127,10 +168,8 @@ class IssueDetailsTableViewController: UITableViewController {
 
         reporterLabel.text = issue.reporter?.displayName
         reporterDetailLabel.text = "Created at \((issue.createdOn?.relativeTime).orEmpty)"
-
-        //descriptionText =  MarkdownParser().parse(issue.raw.orEmpty)
         descriptionText = HtmlParser.parse(html: issue.html.orEmpty)
-
+        
         responsibleAvatar.setImage(fromURL: issue.assignee?.avatar)
         assigneeLabel.text = issue.assignee?.displayName
         statusLabel.text = " \(issue.state?.rawValue ?? "JUM") "
@@ -149,10 +188,38 @@ class IssueDetailsTableViewController: UITableViewController {
 
         priority.append(NSAttributedString(string: " \(issue.priority!)"))
         priorityLabel.attributedText = priority
+        
+        sections.removeAll()
+       
+        
+        let imagesLinks = self.extractImageLinksIn(html: self.issue!.html.orEmpty)
+        if imagesLinks.isEmpty {
+             sections.append(TableSecction(key: .empty, items: [.description]))
+        } else {
+            sections.append(TableSecction(key: .empty, items: [Row.description, Row.attachments([] )]))
+        }
+        
+        DispatchQueue.global(qos: .background).async {
+            
+            let images = self.loadImages(in: imagesLinks)
+            let sec = self.sections.first!
+
+            sec.items.removeAll()
+            sec.items.append([.description, .attachments(images)])
+        
+            DispatchQueue.main.async {
+                self.tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+            }
+        }
     }
 
     func loadComments(refreshFromServer: Bool = false) {
         let repository: String! = issue!.repository?.slug.orEmpty
+        
+        if sections.count > 1 {
+            sections.removeLast()
+        }
+        
 
         IssuesService.comments(of: team!.username!, inRepository: repository, forIssue: issue!.id, refreshFromServer: refreshFromServer)
             .done { (result) -> Void in
@@ -162,9 +229,17 @@ class IssueDetailsTableViewController: UITableViewController {
                     return
                 }
 
-                values .forEach({ self.comments.append($0) })
-                self.comments = self.comments.sorted(by: { $0.createdOn! < $1.createdOn! })
-                self.tableView.reloadData()
+                let comments = values
+                    .sorted { $0.createdOn! < $1.createdOn! }
+                    .map(Row.comment)
+                
+                self.sections.append(TableSecction(key: "Comments", items: comments))
+                
+                if refreshFromServer {
+                    self.tableView.reloadData()
+                } else {
+                    self.tableView.insertSections(IndexSet.init(integer: 1), with: .automatic)
+                }
 
             }.ensure {
                 if #available(iOS 10.0, *) {
@@ -184,35 +259,40 @@ class IssueDetailsTableViewController: UITableViewController {
 
     //MARK: - Table View
     override public func numberOfSections(in tableView: UITableView) -> Int {
-        if comments.count <= 0 {
-            return 1
-        }
-        return 2
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        }
-        return comments.count
+        return sections[section].items.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        if indexPath.section == 0 {
+        guard let row = sections[safe: indexPath.section]?.items[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        let result: UITableViewCell
+        
+        switch row {
+        case .description:
             let cell = tableView.dequeueReusableCellWithClass(FieldAttributedTableViewCell.self)!
             cell.valueLabel.attributedText = descriptionText
             cell.valueLabel.delegate = self
-            cell.selectionStyle = .none
-            return cell
-        }
-
-        let cell = tableView.dequeueReusableCellWithClass(IssueCommentTableViewCell.self)!
-        if let comment = comments[safe: indexPath.row] {
+            cell.backgroundColor = .white
+            result = cell
+            
+        case .attachments(let images):
+            let cell = tableView.dequeueReusableCellWithClass(IssueAttachmentTableViewCell.self)!
+            cell.images = images
+            cell.backgroundColor = .white
+            result = cell
+            
+        case .comment(let comment):
+            let cell = tableView.dequeueReusableCellWithClass(IssueCommentTableViewCell.self)!
             cell.dateLabel.text = dateFormater.string(from: comment.createdOn.or(else: Date()))
             cell.autorlabel?.text = comment.user?.displayName
             cell.avatar.setImage(fromURL: comment.user?.avatar, animated: false)
-
+            
             if let html = comment.html, html.isEmpty == false {
                 if let changes = comment.changes?.html {
                     let e = "\(changes)\n\(html)"
@@ -225,12 +305,12 @@ class IssueDetailsTableViewController: UITableViewController {
             } else {
                 cell.descriptionLabel.text = "N?A"
             }
-
+            cell.backgroundColor = .clear
+            result = cell
         }
-
-        cell.selectionStyle = .none
-        cell.backgroundColor = .clear
-        return cell
+        
+        result.selectionStyle = .none
+        return result
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -328,4 +408,28 @@ extension IssueDetailsTableViewController: UITextViewDelegate {
 
 
 
+extension NSAttributedString {
+    
+    /**
+     Instantiates an attributed string with the given HTML string
+     
+     - parameter htmlString: An HTML string
+     
+     - throws: `HTMLDataConversionError` or an instantiation error
+     
+     - returns: An attributed string
+     */
+    convenience init(htmlString: String) throws {
+        guard let data = htmlString.data(using: String.Encoding.utf8) else {
+           preconditionFailure()
+        }
+        
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+        ]
+        try self.init(data: data, options: options, documentAttributes: nil)
+    }
+    
+}
 

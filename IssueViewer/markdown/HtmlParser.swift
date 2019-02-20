@@ -89,7 +89,35 @@ class HtmlParser {
 			attachments["IMG-\(alt)"] = "\(src)?img"
 			html = html.replacingOccurrences(of: img, with: "\n\(key)\n")
 		}
-
+        
+        while let ol = html.substring(between: "<ol>", and: "</ol>") {
+            var current = ol
+            let list = NSMutableString(string: String.newLine)
+            var counter = 1
+            while let li = current.substring(between: "<li>", and: "</li>") {
+                let out = li.replacingOccurrences(of: "<li>", with: "\(counter).\t").replacingOccurrences(of: "</li>", with: String.empty)
+                current = current.replacingOccurrences(of: li, with: out)
+                list.append(out)
+                list.append(String.newLine)
+                counter += 1
+            }
+            list.append(String.newLine)
+            html = html.replacingOccurrences(of: ol, with: list.description)
+        }
+        
+        
+        while let ol = html.substring(between: "<ul>", and: "</ul>") {
+            var current = ol
+            let list = NSMutableString(string: String.newLine)
+            while let li = current.substring(between: "<li>", and: "</li>") {
+                let out = li.replacingOccurrences(of: "<li>", with: "∙\t").replacingOccurrences(of: "</li>", with: String.empty)
+                current = current.replacingOccurrences(of: li, with: out)
+                list.append(out)
+                list.append(String.newLine)
+            }
+            list.append(String.newLine)
+            html = html.replacingOccurrences(of: ol, with: list.description)
+        }
 
 		while let img = html.substring(between: "<a ", and: "</a>") {
 			var href = img.substring(between: "href=\"", and: "\" ", includeBrackets: false).or(else: "Attached")!

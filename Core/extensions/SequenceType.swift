@@ -44,6 +44,25 @@ public extension Collection where Index == Int {
         return index >= 0 && index < count ? self[index] : nil
     }
     
+    /// Si el array no esta vacio se asegura de obtener un elemento del array
+    /// si el indice esta por encima del tamanio del array obtiene el ultimo elemento
+    /// si el indice esta por debajo 0 obtiene el primer elemento
+    ///
+    ///     let nums = [0,1,2,3,4,5]
+    ///     nums[clamp: 6] ///  return 5
+    ///     nums[clamp: 3] ///  return 3
+    ///     nums[clamp: -5] ///  return 0
+    ///
+    /// - Returns: Nil si el araray esta vacio
+    public subscript(clamp index: Index) -> Element? {
+        if self.isEmpty {
+            return nil
+        }
+        
+        let i = clamp(index, between: 0, and: self.count - 1)
+        return self[i]
+    }
+    
 }
 
 
