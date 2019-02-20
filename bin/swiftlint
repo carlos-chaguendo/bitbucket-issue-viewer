@@ -15,7 +15,7 @@ fi
 OUTPUT=""
 for f in $FILES
 do
-OUTPUT="$PREFIX/$f"
+OUTPUT="$OUTPUT $PREFIX/$f"
 done
 
 echo "Archivos modificados \n$FILES"

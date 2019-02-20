@@ -51,7 +51,7 @@ public class Service {
 		let result = a.withUnsafeMutableBytes {
 			SecRandomCopyBytes(kSecRandomDefault, keyData.count, $0)
 		}
-		//        print(keyData.base64EncodedString())
+
 		assert(result == errSecSuccess, "Failed to get random bytes")
 
 		// Store the key in the keychain

@@ -31,7 +31,7 @@ public class BasicEntity: Object, Mappable {
 		if map.mappingType == ObjectMapper.MappingType.toJSON {
 			if self.realm != nil {
 				let error = "[\(type(of: self))] is Managed by realm, detach before convert to json"
-				print(error)
+				Logger.error(error)
 				preconditionFailure(error)
 			}
 		}

@@ -165,9 +165,6 @@ class IssueDetailsTableViewController: UITableViewController {
                 values .forEach({ self.comments.append($0) })
                 self.comments = self.comments.sorted(by: { $0.createdOn! < $1.createdOn! })
                 self.tableView.reloadData()
-                   Logger.info("poroor\n\n\n")
-                print(self.comments)
-                Logger.info("poroor\n\n\n")
 
             }.ensure {
                 if #available(iOS 10.0, *) {

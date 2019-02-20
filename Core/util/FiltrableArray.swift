@@ -46,7 +46,6 @@ public struct FiltrableArray<Element> {
     public init(from array: Array<Element>) {
         original = array
         filtered = []
-        print("s")
     }
     
     
