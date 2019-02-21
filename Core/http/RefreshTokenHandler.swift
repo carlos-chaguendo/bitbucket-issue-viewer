@@ -23,7 +23,9 @@ class RefreshTokenHandler: RequestAdapter, RequestRetrier {
 	private let sessionManager: SessionManager = {
 		let configuration = URLSessionConfiguration.default
 		configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-		configuration.protocolClasses?.insert(HttpDebugProtocol.self, at: 0)
+        #if DEBUG
+            configuration.protocolClasses?.insert(HttpDebugProtocol.self, at: 0)
+        #endif
 		return SessionManager(configuration: configuration)
 	}()
 
