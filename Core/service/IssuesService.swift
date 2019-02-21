@@ -54,6 +54,9 @@ public class IssuesService: Service {
     public class func comments(of: String, inRepository repository: String, forIssue issueId: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
 
         return Promise<SearchResult<IssueComment>?> { (resolve, reject) -> Void in
+            
+            
+            
 
             loadChanges(of: of, inRepository: repository, forIssue: issueId, refreshFromServer: refreshFromServer)
                 .done({ (_) in
@@ -63,8 +66,10 @@ public class IssuesService: Service {
     
                             let allValues: [IssueComment] = realm.objects(IssueComment.self).filter(_q("issueId = %@", ["\(issueId)"])).detached
                             let result = SearchResult<IssueComment>(values: allValues)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
+                               resolve(result)
+                            }
                             
-                            resolve(result)
                         }).catch(execute: reject)
 
                 }).catch(execute: reject)

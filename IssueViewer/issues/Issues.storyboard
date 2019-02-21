@@ -360,11 +360,11 @@
                                     <outlet property="valueLabel" destination="FGv-v6-Y3r" id="fbX-hs-qWv"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueAttachmentTableViewCell" id="ih4-Dp-cwD" customClass="IssueAttachmentTableViewCell" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="507" width="375" height="115"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueAttachmentTableViewCell" rowHeight="90" id="ih4-Dp-cwD" customClass="IssueAttachmentTableViewCell" customModule="IssueViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="507" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ih4-Dp-cwD" id="5Ax-mI-Dkb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="114.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5H6-LJ-U2N">
@@ -394,7 +394,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="IssueCommentTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueCommentTableViewCell" rowHeight="115" id="H6w-lR-70C" customClass="IssueCommentTableViewCell" customModule="IssueViewer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="622" width="375" height="115"/>
+                                <rect key="frame" x="0.0" y="597" width="375" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H6w-lR-70C" id="O8i-8j-HNh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="114.5"/>

@@ -43,6 +43,7 @@
 		2F7E5453221E11B000A4102F /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E5452221E11B000A4102F /* Math.swift */; };
 		2F7E5458221E13CF00A4102F /* CircleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E5456221E13CF00A4102F /* CircleImageCollectionViewCell.swift */; };
 		2F7E5459221E13CF00A4102F /* CircleImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7E5457221E13CF00A4102F /* CircleImageCollectionViewCell.xib */; };
+		2F7E545B221EFE5700A4102F /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E545A221EFE5700A4102F /* Weak.swift */; };
 		2FBB470620D00D91004D8A73 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBB470420D00D91004D8A73 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; };
 		2FBB470A20D00D91004D8A73 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -254,6 +255,7 @@
 		2F7E5452221E11B000A4102F /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		2F7E5456221E13CF00A4102F /* CircleImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F7E5457221E13CF00A4102F /* CircleImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		2F7E545A221EFE5700A4102F /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
 		2FBB470220D00D91004D8A73 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -467,6 +469,7 @@
 				2F7E542A221D9A1400A4102F /* FiltrableArray.swift */,
 				2F7E542C221D9A3900A4102F /* TableSecction.swift */,
 				2F7E542E221D9A5F00A4102F /* Logger.swift */,
+				2F7E545A221EFE5700A4102F /* Weak.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -938,6 +941,7 @@
 				2F7E542F221D9A5F00A4102F /* Logger.swift in Sources */,
 				2F7E544F221E10D700A4102F /* SequenceType+HashableEntity.swift in Sources */,
 				2FBB471720D00FC5004D8A73 /* SessionData.swift in Sources */,
+				2F7E545B221EFE5700A4102F /* Weak.swift in Sources */,
 				2FBB473220D01077004D8A73 /* TeamsService.swift in Sources */,
 				2FBB473020D01077004D8A73 /* RepositoryService.swift in Sources */,
 				2FBB471520D00FB2004D8A73 /* BasicEntity.swift in Sources */,

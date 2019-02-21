@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import struct Core.Logger
 
 extension UITableView {
 
@@ -41,5 +42,40 @@ extension UITableView {
 			}
 		}
 	}
+    
+    
+    
+    /**
+     * Metodo de utilidad para mostrar el registro de indices a actualizar, con el fin de evaluar cuandor se precenta
+     * la excepcion `NSInternalInconsistency...`
+     *
+     * __No usar en produccion__
+     */
+    func _DEBUG_BatchUpdate() {
+        
+        let printMutable: (NSMutableArray) -> Void = {
+            $0.forEach { (e) in
+                if let index = (e as! NSObject).value(forKey: "indexPath") as? IndexPath {
+                    Logger.info("  Section \(index.section) - \(index.row)")
+                }
+            }
+        }
+        
+        if let reloadItems = value(forKey: "_insertItems") as? NSMutableArray {
+            Logger.info("_insertItems")
+            printMutable(reloadItems)
+        }
+        
+        if let reloadItems = value(forKey: "_deleteItems") as? NSMutableArray {
+            Logger.info("_deleteItems")
+            printMutable(reloadItems)
+        }
+        
+        if let reloadItems = value(forKey: "_reloadItems") as? NSMutableArray {
+            Logger.info("_reloadItems")
+            printMutable(reloadItems)
+        }
+        
+    }
 
 }
