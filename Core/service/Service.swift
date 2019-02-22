@@ -19,6 +19,8 @@ extension String {
 }
 
 public class Service {
+    
+    private init() {}
 
 
 	static let null = NSNull()

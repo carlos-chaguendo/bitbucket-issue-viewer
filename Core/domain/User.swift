@@ -49,7 +49,7 @@ public class User: BasicEntity {
 		website <- map["website"]
 		accountId <- map["uuid"]
 		displayName <- map["display_name"]
-		created <- (map["created_on"], ISO8601ExtendedDateTransform())
+		created <- (map["created_on"], ISO8601ExtendedDateTransform.shared)
 
 		avatar = avatar?.replacingOccurrences(of: "/32/", with: "/120/")
 	}

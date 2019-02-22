@@ -56,8 +56,8 @@ public class Issue: BasicEntity {
 		super.mapping(map: map)
 		assignee <- map["assignee"]
 		component <- map["component.name"]
-		createdOn <- (map["created_on"], ISO8601ExtendedDateTransform())
-		editedOn <- (map["edited_on"], ISO8601ExtendedDateTransform())
+		createdOn <- (map["created_on"], ISO8601ExtendedDateTransform.shared)
+		editedOn <- (map["edited_on"], ISO8601ExtendedDateTransform.shared)
 		id <- map["id"]
 		kind <- map["kind"]
 		milestone <- map["milestone"]
@@ -67,7 +67,7 @@ public class Issue: BasicEntity {
 		state <- (map["state"], EnumTransform())
 		title <- map["title"]
 		type <- map["type"]
-		updatedOn <- ( map["updated_on"], ISO8601ExtendedDateTransform())
+		updatedOn <- ( map["updated_on"], ISO8601ExtendedDateTransform.shared)
 		version <- map["version.name"]
 		votes <- map["votes"]
 		watches <- map["watches"]

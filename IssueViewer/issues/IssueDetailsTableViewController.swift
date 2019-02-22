@@ -201,17 +201,17 @@ class IssueDetailsTableViewController: UITableViewController {
             sections.append(TableSecction(key: .empty, items: [.description]))
         } else {
             sections.append(TableSecction(key: .empty, items: [Row.description, Row.attachments([])]))
-            DispatchQueue.global(qos: .background).async(execute: Strong.weak(self) { this in
+            DispatchQueue.global(qos: .userInteractive).async(execute: Strong.weak(self) { this in
       
 
 
-                let images = self.loadImages(in: imagesLinks)
-                let sec = self.sections.first!
+                let images = this.loadImages(in: imagesLinks)
+                let sec = this.sections.first!
 
                 DispatchQueue.main.async {
                     sec.items.removeAll()
                     sec.items.append([.description, .attachments(images)])
-                    self.tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+                    this.tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
                 }
             })
 

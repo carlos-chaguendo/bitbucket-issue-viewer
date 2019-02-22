@@ -66,9 +66,9 @@ public class IssuesService: Service {
     
                             let allValues: [IssueComment] = realm.objects(IssueComment.self).filter(_q("issueId = %@", ["\(issueId)"])).detached
                             let result = SearchResult<IssueComment>(values: allValues)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
+                            //DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
                                resolve(result)
-                            }
+                            //}
                             
                         }).catch(execute: reject)
 

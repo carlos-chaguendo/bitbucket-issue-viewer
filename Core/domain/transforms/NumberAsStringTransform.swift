@@ -13,7 +13,9 @@ public class NumberAsStringTransform: TransformType {
 	public typealias Object = String
 	public typealias JSON = NSNumber
 
-	public init() { }
+    public static let shared = NumberAsStringTransform()
+    
+	private init() { }
 
 	public func transformFromJSON(_ value: Any?) -> String? {
 		guard let value = value else {

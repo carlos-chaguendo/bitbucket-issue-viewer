@@ -37,13 +37,13 @@ public class IssueComment: BasicEntity {
 	override public func mapping(map: Map) {
 		super.mapping(map: map)
 
-		id <- (map["id"], NumberAsStringTransform())
+		id <- (map["id"], NumberAsStringTransform.shared)
 		user <- map["user"]
-		createdOn <- (map["created_on"], ISO8601ExtendedDateTransform())
-		updatedOn <- (map["updated_on"], ISO8601ExtendedDateTransform())
+		createdOn <- (map["created_on"], ISO8601ExtendedDateTransform.shared)
+		updatedOn <- (map["updated_on"], ISO8601ExtendedDateTransform.shared)
 
         type <- map["type"]
-        issueId <- (map["issue.id"], NumberAsStringTransform())
+        issueId <- (map["issue.id"], NumberAsStringTransform.shared)
         
         if type == "issue_comment" {
             // content
