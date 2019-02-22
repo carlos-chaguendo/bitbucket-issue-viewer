@@ -10,6 +10,7 @@ import UIKit
 import ContactsUI
 import RealmSwift
 import Core
+import MessengerKit
 
 
 @UIApplicationMain
@@ -62,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let message = SendMessageAttachment<Receipt>()
         message.attachment = attachment
 
-        FacebookService.send(message: message, to: "1674813829258653")
+        MessengerService.send(message: message, to: "1674813829258653")
             .done { (response) in
 
                 guard let response = response else {

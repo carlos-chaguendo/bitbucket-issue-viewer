@@ -44,15 +44,6 @@
 		2F7E5458221E13CF00A4102F /* CircleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E5456221E13CF00A4102F /* CircleImageCollectionViewCell.swift */; };
 		2F7E5459221E13CF00A4102F /* CircleImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7E5457221E13CF00A4102F /* CircleImageCollectionViewCell.xib */; };
 		2F7E545B221EFE5700A4102F /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7E545A221EFE5700A4102F /* Weak.swift */; };
-		2FA410BC22204BD00049FBCA /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410BB22204BD00049FBCA /* FacebookService.swift */; };
-		2FA410BF22204E8D0049FBCA /* SendMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410BE22204E8D0049FBCA /* SendMessageResponse.swift */; };
-		2FA410C1222052A50049FBCA /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410C0222052A50049FBCA /* Receipt.swift */; };
-		2FA410C3222053D80049FBCA /* RecipientAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410C2222053D80049FBCA /* RecipientAddress.swift */; };
-		2FA410C52220546D0049FBCA /* RecipientSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410C42220546D0049FBCA /* RecipientSummary.swift */; };
-		2FA410C7222055380049FBCA /* RecipientElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410C6222055380049FBCA /* RecipientElement.swift */; };
-		2FA410C9222058A90049FBCA /* SendMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410C8222058A90049FBCA /* SendMessageRequest.swift */; };
-		2FA410CB222059020049FBCA /* SendMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410CA222059020049FBCA /* SendMessage.swift */; };
-		2FA410CD22205A420049FBCA /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410CC22205A420049FBCA /* Attachment.swift */; };
 		2FA410CF22205FAE0049FBCA /* ArrayTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA410CE22205FAE0049FBCA /* ArrayTransform.swift */; };
 		2FA4110A222084450049FBCA /* MessengerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA41109222084450049FBCA /* MessengerKit.framework */; };
 		2FA4110B222084450049FBCA /* MessengerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA41109222084450049FBCA /* MessengerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -271,15 +262,6 @@
 		2F7E545A221EFE5700A4102F /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
-		2FA410BB22204BD00049FBCA /* FacebookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
-		2FA410BE22204E8D0049FBCA /* SendMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageResponse.swift; sourceTree = "<group>"; };
-		2FA410C0222052A50049FBCA /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
-		2FA410C2222053D80049FBCA /* RecipientAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientAddress.swift; sourceTree = "<group>"; };
-		2FA410C42220546D0049FBCA /* RecipientSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientSummary.swift; sourceTree = "<group>"; };
-		2FA410C6222055380049FBCA /* RecipientElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientElement.swift; sourceTree = "<group>"; };
-		2FA410C8222058A90049FBCA /* SendMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageRequest.swift; sourceTree = "<group>"; };
-		2FA410CA222059020049FBCA /* SendMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessage.swift; sourceTree = "<group>"; };
-		2FA410CC22205A420049FBCA /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		2FA410CE22205FAE0049FBCA /* ArrayTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTransform.swift; sourceTree = "<group>"; };
 		2FA41109222084450049FBCA /* MessengerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MessengerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBB470220D00D91004D8A73 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -499,21 +481,6 @@
 			path = util;
 			sourceTree = "<group>";
 		};
-		2FA410BD22204E710049FBCA /* facebook */ = {
-			isa = PBXGroup;
-			children = (
-				2FA410C8222058A90049FBCA /* SendMessageRequest.swift */,
-				2FA410BE22204E8D0049FBCA /* SendMessageResponse.swift */,
-				2FA410C0222052A50049FBCA /* Receipt.swift */,
-				2FA410C2222053D80049FBCA /* RecipientAddress.swift */,
-				2FA410C42220546D0049FBCA /* RecipientSummary.swift */,
-				2FA410C6222055380049FBCA /* RecipientElement.swift */,
-				2FA410CA222059020049FBCA /* SendMessage.swift */,
-				2FA410CC22205A420049FBCA /* Attachment.swift */,
-			);
-			path = facebook;
-			sourceTree = "<group>";
-		};
 		2FBB470320D00D91004D8A73 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,7 +652,6 @@
 				784989081ED38EC200A0724E /* TeamsService.swift */,
 				784989051ED38EC200A0724E /* UserService.swift */,
 				2F06945A213989D80052F61A /* SessionService.swift */,
-				2FA410BB22204BD00049FBCA /* FacebookService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -693,7 +659,6 @@
 		784988E51ED38E8200A0724E /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				2FA410BD22204E710049FBCA /* facebook */,
 				784988FB1ED38E9E00A0724E /* issues */,
 				2FF06F9A1F74604F005F07DF /* team */,
 				2FCF3EE220376FCE0024FC17 /* transforms */,
@@ -980,9 +945,6 @@
 			files = (
 				2FBB472E20D01077004D8A73 /* SearchResult.swift in Sources */,
 				2FBB471420D00F95004D8A73 /* Assignee.swift in Sources */,
-				2FA410BF22204E8D0049FBCA /* SendMessageResponse.swift in Sources */,
-				2FA410C52220546D0049FBCA /* RecipientSummary.swift in Sources */,
-				2FA410C1222052A50049FBCA /* Receipt.swift in Sources */,
 				2FBB473320D01077004D8A73 /* UserService.swift in Sources */,
 				2FBB473120D01077004D8A73 /* Service.swift in Sources */,
 				2F7E542F221D9A5F00A4102F /* Logger.swift in Sources */,
@@ -991,10 +953,8 @@
 				2F7E545B221EFE5700A4102F /* Weak.swift in Sources */,
 				2FBB473220D01077004D8A73 /* TeamsService.swift in Sources */,
 				2FBB473020D01077004D8A73 /* RepositoryService.swift in Sources */,
-				2FA410C3222053D80049FBCA /* RecipientAddress.swift in Sources */,
 				2FBB471520D00FB2004D8A73 /* BasicEntity.swift in Sources */,
 				2FBB473F20D0108F004D8A73 /* HairPowder.swift in Sources */,
-				2FA410C9222058A90049FBCA /* SendMessageRequest.swift in Sources */,
 				2FBB472B20D01077004D8A73 /* Http.swift in Sources */,
 				2FBB471F20D00FE7004D8A73 /* TeamMember.swift in Sources */,
 				2FBB471B20D00FDA004D8A73 /* IssueComment.swift in Sources */,
@@ -1005,7 +965,6 @@
 				2FBB472A20D01077004D8A73 /* NSURLRequest+Curl.swift in Sources */,
 				2FBB472320D00FED004D8A73 /* NumberAsStringTransform.swift in Sources */,
 				2FBB473720D0108F004D8A73 /* SequenceType.swift in Sources */,
-				2FA410BC22204BD00049FBCA /* FacebookService.swift in Sources */,
 				2FBB471C20D00FDF004D8A73 /* IssueStatus.swift in Sources */,
 				2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */,
 				2F7E542D221D9A3900A4102F /* TableSecction.swift in Sources */,
@@ -1024,19 +983,16 @@
 				2F06945F21399A850052F61A /* UIAlertController.swift in Sources */,
 				2F06945B213989D80052F61A /* SessionService.swift in Sources */,
 				2FBB472220D00FED004D8A73 /* ISO8601ExtendedDateTransform.swift in Sources */,
-				2FA410CD22205A420049FBCA /* Attachment.swift in Sources */,
 				2FBB471E20D00FDF004D8A73 /* IssueEdited.swift in Sources */,
 				2FBB471920D00FCB004D8A73 /* User.swift in Sources */,
 				2F7E542B221D9A1400A4102F /* FiltrableArray.swift in Sources */,
 				2FBB474020D0108F004D8A73 /* Optional+Chaining.swift in Sources */,
-				2FA410CB222059020049FBCA /* SendMessage.swift in Sources */,
 				2F270B0520D1B68400ADB777 /* Realm+detached.swift in Sources */,
 				2FBB473620D0108F004D8A73 /* Date.swift in Sources */,
 				2FBB473520D0108F004D8A73 /* Bool.swift in Sources */,
 				2FBB471A20D00FD6004D8A73 /* Issue.swift in Sources */,
 				2FBB473E20D0108F004D8A73 /* UIImage.swift in Sources */,
 				2FBB472020D00FE7004D8A73 /* TeamRepository.swift in Sources */,
-				2FA410C7222055380049FBCA /* RecipientElement.swift in Sources */,
 				2FBB471D20D00FDF004D8A73 /* IssueUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
