@@ -1,0 +1,10 @@
+excluded:
+  - Pods
+  - Carthage
+  - IssueViewer
+disabled_rules:
+  - line_length
+
+identifier_name:
+  excluded:
+    - id

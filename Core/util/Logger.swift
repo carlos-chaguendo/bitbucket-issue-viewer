@@ -14,19 +14,19 @@ public struct Logger {
         case info = "INFO"
         case error = "ERROR"
     }
-    
-    public static func info(_ items: Any , _ other: Any = String.empty, file: String = #file, line: Int = #line) {
+
+    public static func info(_ items: Any, _ other: Any = String.empty, file: String = #file, line: Int = #line) {
         Logger.log(.info, items, other, file: file, line: line)
     }
-    
+
     public static func error(_ items: Any, _ other: Any = String.empty, file: String = #file, line: Int = #line) {
         Logger.log(.error, items, other, file: file, line: line)
     }
-    
+
     public static func log(_ level: Level, _ items: Any, _ other: Any = String.empty, file: String = #file, line: Int = #line) {
-        let name = file.components(separatedBy:"/").last.or(else: file)
-        let mas =  "[\(level.rawValue)] [\(name) - line \(line)] "
-        Swift.print(mas, items, other , separator: "\t\t\t", terminator: "\n")
+        let name = file.components(separatedBy: "/").last.or(else: file)
+        let mas = "[\(level.rawValue)] [\(name) - line \(line)] "
+        Swift.print(mas, items, other, separator: "\t\t\t", terminator: "\n")
     }
-    
+
 }

@@ -22,14 +22,14 @@ public enum IssueStatus: String {
     public var color: UIColor {
         get {
             switch self {
-            case .wontfix: return UIColor.Hex(0xd04437);
-            case .invalid: return UIColor.Hex(0xd04437);
-            case .new: return UIColor.Hex(0x205081)
-            case .closed: return UIColor.Hex(0x14892c)
-            case .resolved: return UIColor.Hex(0x14892c)
-            case .on_hold: return UIColor.Hex(0xf6c342)
-            case .open: return UIColor.Hex(0x333333)
-            case .none: return UIColor.Hex(0xCCCFFF)
+            case .wontfix: return UIColor.hex(0xd04437);
+            case .invalid: return UIColor.hex(0xd04437);
+            case .new: return UIColor.hex(0x205081)
+            case .closed: return UIColor.hex(0x14892c)
+            case .resolved: return UIColor.hex(0x14892c)
+            case .on_hold: return UIColor.hex(0xf6c342)
+            case .open: return UIColor.hex(0x333333)
+            case .none: return UIColor.hex(0xCCCFFF)
             }
         }
     }
@@ -37,9 +37,9 @@ public enum IssueStatus: String {
     public var textColor: UIColor {
         get {
             switch self {
-            case .on_hold: return UIColor.Hex(0x594300)
-            case .open: return UIColor.Hex(0xCCCCCC)
-            default: return UIColor.Hex(0xffffff)
+            case .on_hold: return UIColor.hex(0x594300)
+            case .open: return UIColor.hex(0xCCCCCC)
+            default: return UIColor.hex(0xffffff)
             }
         }
     }

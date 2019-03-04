@@ -29,8 +29,8 @@ class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactVi
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		phoneText.delegate = self
-		phoneText.dividerActiveColor = UIColor.Hex(0x5fba7d)
-		phoneText.placeholderActiveColor = UIColor.Hex(0x5fba7d)
+		phoneText.dividerActiveColor = UIColor.hex(0x5fba7d)
+		phoneText.placeholderActiveColor = UIColor.hex(0x5fba7d)
 		phoneText.keyboardAppearance = UIKeyboardAppearance.alert
 
 		title = "Whatsapp"
@@ -55,7 +55,7 @@ class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactVi
 		super.viewDidAppear(animated)
 
 		previusColor = navigationController!.navigationBar.tintColor
-		navigationController?.navigationBar.tintColor = UIColor.Hex(0x5fba7d)
+		navigationController?.navigationBar.tintColor = UIColor.hex(0x5fba7d)
 
 		let _ = phoneText.becomeFirstResponder()
 	}

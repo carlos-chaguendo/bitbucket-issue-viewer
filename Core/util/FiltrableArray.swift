@@ -24,65 +24,57 @@ import UIKit
  *  ```
  */
 public struct FiltrableArray<Element> {
-    
+
     fileprivate var original: [Element] = []
     fileprivate var filtered: [Element] = []
-    public private(set) var filter: ((Element) -> Bool)? = nil
-    
+    public private(set) var filter: ((Element) -> Bool)?
+
     /// verifica si se esta filtrando o no
     fileprivate var source: [Element] {
-        get {
-            if filter == nil {
-                return original
-            }
-            return filtered
+        if filter == nil {
+            return original
         }
+        return filtered
     }
-    
+
     public init() {
-        
+
     }
-    
+
     public init(from array: Array<Element>) {
         original = array
         filtered = []
     }
-    
-    
+
     public mutating func append(_ newElement: Element) {
         original.append(newElement)
     }
-    
+
     public mutating func append(_ newElements: [Element]) {
         original.append(contentsOf: newElements)
     }
-    
+
     /// Elimina  todos los elementos incluyendo el filtro
     public mutating func removeAll(keepingCapacity keepCapacity: Bool = false) {
         filter = nil
         original.removeAll(keepingCapacity: keepCapacity)
         filtered.removeAll(keepingCapacity: keepCapacity)
     }
-    
-    
+
     /// filtra los datos conservendo anteriores y filtrados
     public mutating func filter(_ isIncluded: @escaping (Element) -> Bool) {
         filter = isIncluded
         filtered = original.filter(isIncluded)
     }
-    
+
     public mutating func removeFilter() {
         filter = nil
     }
-    
-    
-    
 }
 
 extension FiltrableArray: Sequence {
-    
+
     public typealias Iterator = IndexingIterator<[Element]>
-    
     public func makeIterator() -> Iterator {
         return source.makeIterator()
     }
@@ -90,51 +82,44 @@ extension FiltrableArray: Sequence {
 
 /// para que pueda crearse  [1,2,3,4]
 extension FiltrableArray: ExpressibleByArrayLiteral {
-    
+
     public init(arrayLiteral elements: Element...) {
         self.init(from: elements)
     }
-    
 }
 
 extension FiltrableArray: Collection {
-    
+
     public subscript(index: Index) -> Element {
         get { return source[index] }
     }
-    
+
     public typealias Index = Int
-    
     public var startIndex: Index { return source.startIndex }
     public var endIndex: Index { return source.endIndex }
     public var count: Int { return source.count }
-    
-    
-    
-    public func index(after i: Index) -> Index {
-        return source.index(after: i)
+
+    public func index(after index: Index) -> Index {
+        return source.index(after: index)
     }
 }
 
 extension FiltrableArray where Element: Hashable {
-    
-    public mutating func remove(at i: Int) {
-        
+
+    public mutating func remove(at index: Int) {
         if filter == nil {
-            Logger.info("[FiltrableArray] Eliminando del original \(i)")
-            original.remove(at: i)
+            Logger.info("[FiltrableArray] Eliminando del original \(index)")
+            original.remove(at: index)
         } else {
             // hay que eliminarlo del listado filtrado y del original
-            Logger.info("[FiltrableArray]  Eliminando del filtrado \(i)")
-            let e = filtered.remove(at: i)
-            let oi = original.index(of: e)!
-            Logger.info("[FiltrableArray]  Eliminando del original \(oi)")
-            original.remove(at: oi)
+            Logger.info("[FiltrableArray]  Eliminando del filtrado \(index)")
+            let filteredElement = filtered.remove(at: index)
+            let originalELement = original.index(of: filteredElement)!
+            Logger.info("[FiltrableArray]  Eliminando del original \(originalELement)")
+            original.remove(at: originalELement)
         }
-        
     }
-    
-    
+
     public subscript (safe index: Int) -> Element? {
         return index >= 0 && index < count ? self[index] : nil
     }
@@ -156,9 +141,8 @@ extension FiltrableArray where Element: Hashable {
 }
 
 public extension FiltrableArray {
-    public mutating func sort(by: (_ a:Element, _ b: Element) -> Bool) {
+    public mutating func sort(by: (_ left: Element, _ right: Element) -> Bool) {
         original.sort(by: by)
         filtered.sort(by: by)
     }
 }
-

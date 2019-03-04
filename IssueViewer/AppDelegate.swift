@@ -11,6 +11,7 @@ import ContactsUI
 import RealmSwift
 import Core
 import MessengerKit
+import Bagel
 
 
 @UIApplicationMain
@@ -20,34 +21,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Bagel.start()
 
-
-        let receipt = Receipt()
+        let receipt = ReceiptPayload()
         receipt.name = "Carlos Chaguendo"
         receipt.number = "#CA-123456"
         receipt.paymentMethod = "Contra Entrega"
 
-        receipt.address = RecipientAddress()
+        receipt.address = ReceiptAddress()
         receipt.address?.street = "Edificio edgar negret"
         receipt.address?.city = "Popayan"
         receipt.address?.postalCode = "57"
         receipt.address?.state = "CAU"
         receipt.address?.country = "CO"
 
-        receipt.summary = RecipientSummary()
+        receipt.summary = ReceiptSummary()
         receipt.summary?.subtotal = 75000
         receipt.summary?.shipping = 2000
         receipt.summary?.total = 0
         receipt.summary?.cost = 77000
 
-        let element = RecipientElement()
+        let element = ReceiptElement()
         element.title = "Arroz"
         element.subtitle = "Grano"
         element.price = 1800
         element.quantity = 6
         element.image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRapBqeP9JD66rY5ednAOelrflGOBawcx4FcbhpJxq3eK4NPN8k"
         
-        let element1 = RecipientElement()
+        let element1 = ReceiptElement()
         element1.title = "Azucar"
         element1.subtitle = "Granos"
         element1.price = 1200
@@ -57,22 +58,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         receipt.elements.append(element)
         receipt.elements.append(element1)
 
-        let attachment = Attachment<Receipt>()
-        attachment.payload = receipt
+ 
+        
+        let buttonMessage = ButtonPayload()
+        buttonMessage.text = "Hola Giles"
+        
+        let btn = MessageButton()
+        
+        btn.title = "Open Issue"
+        btn.url = "http://gl.com"
+        
+        buttonMessage.buttons.append(btn)
 
-        let message = SendMessageAttachment<Receipt>()
-        message.attachment = attachment
-
-        MessengerService.send(message: message, to: "1674813829258653")
-            .done { (response) in
-
-                guard let response = response else {
-                    return
-                }
-
-                Logger.info("Capina  \(response)")
-
-            }.end()
+      
+        let message0 = SendMessage()
+        message0.text = "Elver gomes  🚩"
+        
+    
+        
+        let message = SendMessageAttachment(content: receipt )
+        
+        // 1071504686219191
+        // 1674813829258653
+        // 2177295419019984  Magangue
+        // 2030419673694526
+//        MessengerService.send(message: message, to: "1674813829258653")
+//            .done { (response) in
+//
+//                guard let response = response else {
+//                    return
+//                }
+//
+//                Logger.info("Capina  \(response)")
+//
+//            }.catch { (error) in
+//                Logger.error("Error", error)
+//        }
+        
 
         UINavigationBar.appearance().tintColor = Colors.NavBar.buttons//UIColor.Hex(0xffffff) // Color de los botones
         UINavigationBar.appearance().barTintColor = Colors.NavBar.background

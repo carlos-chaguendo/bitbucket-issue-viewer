@@ -6,7 +6,6 @@
 //  Copyright © 2018 Chasan. All rights reserved.
 //
 
-
 import Foundation
 import CoreGraphics
 #if os(iOS) || os(tvOS)

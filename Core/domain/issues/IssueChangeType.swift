@@ -50,14 +50,12 @@ public class StringChange: BasicEntity {
 
 
 
-
 public class IssueChanges: BasicEntity {
     
     @objc public dynamic var id: String = "-1-" {
-        willSet{
-            setIdToChangesItems(id: newValue)
-        }
+        willSet { setIdToChangesItems(id: newValue) }
     }
+    
     @objc public dynamic var state: StringChange?
     @objc public dynamic var assignee: StringChange?
     @objc public dynamic var responsible: StringChange?
@@ -69,9 +67,9 @@ public class IssueChanges: BasicEntity {
     @objc public dynamic var attachment: StringChange?
     @objc public dynamic var title: StringChange?
     @objc public dynamic var milestone: StringChange?
-    
+
     @objc private dynamic var _html: String?
-    
+
 
     public override static func primaryKey() -> String? {
         return "id"
@@ -91,7 +89,7 @@ public class IssueChanges: BasicEntity {
         title <- map["title"]
         milestone <- map["milestone"]
     }
-    
+
     public func setIdToChangesItems(id: String) {
         state?.id = "\(id)-state"
         assignee?.id = "\(id)-assignee"
@@ -105,59 +103,59 @@ public class IssueChanges: BasicEntity {
         title?.id = "\(id)-title"
         milestone?.id = "\(id)-milestone"
     }
-    
+
     public var html: String {
-        
-        if let _html = self._html, _html.isEmpty == false {
-            return _html
+
+        if let html = self._html, html.isEmpty == false {
+            return html
         }
-        
+
         let html = NSMutableString()
-        
+
         if let state = self.state {
             html.append("<li>∙ Status changed to \(state.value.orEmpty)</li>\n")
         }
-        
+
         if let assignee = self.assignee {
             html.append("<li>∙ Incidence assigned to @\(assignee.value.orEmpty)</li>\n")
         }
-        
+
         if let responsible = self.responsible {
             html.append("<li>∙ Responsible assigned to @\(responsible.value.orEmpty)</li>\n")
         }
-        
-        if let _ = self.content {
+
+        if self.content != nil {
             html.append("<li>∙ Edited description</li>\n")
         }
-        
+
         if let attachment = self.attachment {
             html.append("<li>∙ Attachment \(attachment.value.orEmpty)</li>\n")
         }
-        
+
         if let title = self.title {
             html.append("<li>∙ Title changed to \(title.value.orEmpty)</li>\n")
         }
-        
+
         if let priority = self.priority {
             html.append("<li>∙ Marked as  \(priority.value.orEmpty)</li>\n")
         }
-        
+
         if let kind = self.kind {
             html.append("<li>∙ Marked as  \(kind.value.orEmpty)</li>\n")
         }
-        
+
         if let version = self.version {
             html.append("<li>∙ Version changed to \(version.value.orEmpty)</li>\n")
         }
-        
+
         if let component = self.component {
             html.append("<li>∙ Component changed to \(component.value.orEmpty)</li>\n")
         }
-        
+
         if let milestone = self.milestone {
             html.append("<li>∙ Milestone changed to \(milestone.value.orEmpty)</li>\n")
         }
-        
+
         self._html = html.description
         return self._html!
     }

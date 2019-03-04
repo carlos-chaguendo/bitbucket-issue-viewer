@@ -286,6 +286,7 @@ class IssueDetailsTableViewController: UITableViewController {
         case .description:
             let cell = tableView.dequeueReusableCellWithClass(FieldAttributedTableViewCell.self)!
             cell.valueLabel.attributedText = descriptionText
+            cell.valueLabel.layoutIfNeeded()
             cell.valueLabel.delegate = self
             cell.backgroundColor = .white
             result = cell
@@ -345,7 +346,7 @@ class IssueDetailsTableViewController: UITableViewController {
         v.backgroundView?.layer.shadowOpacity = 3.0
         v.backgroundView?.layer.shadowRadius = 3
 
-        v.textLabel?.textColor = UIColor.Hex(0x205081)
+        v.textLabel?.textColor = UIColor.hex(0x205081)
         v.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         v.backgroundView?.layer.shadowOffset = CGSize(width: 0, height: 0)
 

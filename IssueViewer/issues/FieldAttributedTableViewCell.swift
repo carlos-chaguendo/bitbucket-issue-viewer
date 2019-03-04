@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreGraphics
 
 class FieldAttributedTableViewCell: UITableViewCell {
 
@@ -27,7 +27,7 @@ class FieldAttributedTableViewCell: UITableViewCell {
 
 }
 
-
+// https://medium.freecodecamp.org/how-to-make-height-collection-views-dynamic-in-your-ios-apps-7d6ca94d2212
 class AutoUpdateTextView: UITextView {
 
 	/// constraint de altura del textView
@@ -35,9 +35,10 @@ class AutoUpdateTextView: UITextView {
 
 	override var attributedText: NSAttributedString! {
 		didSet {
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-				self.invalidateIntrinsicContentSize()
-			}
+            //self.layoutIfNeeded()
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                self.invalidateIntrinsicContentSize()
+//            }
 		}
 	}
 
@@ -51,6 +52,17 @@ class AutoUpdateTextView: UITextView {
 		super.init(coder: aDecoder)
 		setup()
 	}
+    
+    func CGSizeEqualToSize(_ size1:CGSize , _ size2:CGSize ) -> Bool {
+        return size1.width == size2.width && size1.height == size2.height;
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if !CGSizeEqualToSize(bounds.size,self.intrinsicContentSize) {
+            self.invalidateIntrinsicContentSize()
+        }
+    }
 
 	private func setup() {
 //        isScrollEnabled = false
