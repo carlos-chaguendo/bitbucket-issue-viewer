@@ -78,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let message = SendMessageAttachment(content: receipt )
         
+        
         // 1071504686219191
         // 1674813829258653
         // 2177295419019984  Magangue
