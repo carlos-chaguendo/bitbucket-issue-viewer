@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         element.quantity = 6
         element.image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRapBqeP9JD66rY5ednAOelrflGOBawcx4FcbhpJxq3eK4NPN8k"
         
+        
         let element1 = ReceiptElement()
         element1.title = "Azucar"
         element1.subtitle = "Granos"
