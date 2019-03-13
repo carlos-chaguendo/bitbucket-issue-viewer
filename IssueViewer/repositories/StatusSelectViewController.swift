@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class StatusSelectViewController: LiveScrollWithMultipleSelectionTableViewController {
+public class StatusSelectViewController: LiveScrollWithMultipleSelectionTableViewController<String> {
 
 	public var status = [String]()
 
@@ -31,7 +31,7 @@ public class StatusSelectViewController: LiveScrollWithMultipleSelectionTableVie
 	public override func liveScroll(valuesOf page: Int) {
 		self.loadInformation = true;
 		self.hasMore = false
-		let status = ["wontfix", "invalid", "new", "closed", "resolved", "on hold" , "duplicate", "open"].map({ NSString(string: $0) })
+		let status = ["wontfix", "invalid", "new", "closed", "resolved", "on hold" , "duplicate", "open"]
 		self.appendValues(status)
 		self.tableView.reloadData()
 	}
@@ -40,7 +40,7 @@ public class StatusSelectViewController: LiveScrollWithMultipleSelectionTableVie
 
 		let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "defaultCell")
 
-		guard let status = values[safe: indexPath.row] as? String else {
+		guard let status = values[safe: indexPath.row] else {
 			return cell
 		}
 

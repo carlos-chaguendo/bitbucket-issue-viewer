@@ -14,21 +14,20 @@ import PromiseKit
 public class Http {
 
 	internal static let acceptableStatusCodes: Range<Int> = 200..<300
-	internal static var api: String = "https://api.bitbucket.org";
+	internal static var api: String = "https://api.bitbucket.org"
 	internal static let refresh = "https://bitbucket.org/site/oauth2/access_token"
 
 	public static let client: (key: String, secret: String) = ("JNK8PLLYakByrYPudb", "fXqLAgn7SHwtgjTXuPw4pjyrnJBRfVyB")
 
-	public static var headers: Dictionary<String, String> = ["X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "Content-Type": "application/json;charset=UTF-8", "x-tok": "Basic Y2FybG9zQ2hhZ3VlbmRvOmNhc2FuMi4w"]
-
-
+    public static var headers: [String: String] = [
+        "X-Requested-With": "XMLHttpRequest",
+        "Accept": "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
+        "x-tok": "Basic Y2FybG9zQ2hhZ3VlbmRvOmNhc2FuMi4w"
+    ]
 
 	public static var sharedInstance: SessionManager = {
-		let configuration: URLSessionConfiguration = URLSessionConfiguration.default;
-
-
-
-
+		let configuration: URLSessionConfiguration = URLSessionConfiguration.default
 		var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
 		//setea las cabeceras que no cambian para todas las URLSessionTask, recomendacion https://github.com/Alamofire/Alamofire#response-handling
 		Http.headers.forEach({ defaultHeaders[$0] = $1 })
@@ -48,14 +47,10 @@ public class Http {
 			let refresh: String = UserDefaults.standard.value(forKey: .tokenRefresh) {
 			//Http.headers["Authorization"] = "\(type.capitalized) \(token)"
 
-
 			let tokenHandler = RefreshTokenHandler(accessToken: token, tokenType: type, refreshToken: refresh)
 			sessionManager.retrier = tokenHandler //reintenta las peticiones que fallen por refresh token
 			sessionManager.adapter = tokenHandler //setea el header de auth
 		}
-
-
-
 		return sessionManager
 	}()
 
@@ -76,7 +71,6 @@ public class Http {
 		sharedInstance.adapter = tokenHandler //setea el header de auth
 	}
 
-
 	public static func unwrapurl(route: String) -> String {
 		var url = route
 		if !route.starts(with: "http") {
@@ -88,12 +82,8 @@ public class Http {
 
 	public static func request<T: Mappable> (_ rqMethod: HTTPMethod, route: String, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = JSONEncoding.default, headers: HTTPHeaders? = [:], manager: SessionManager? = Http.sharedInstance) -> Promise<T?> {
 
-
-
 		// verifica rutas externas
 		let url = unwrapurl(route: route)
-
-
 		return Promise<T?> { resolve, reject in
 
 			let localRequest: DataRequest = manager!.request(url, method: rqMethod, parameters: parameters, encoding: encoding!, headers: headers)
@@ -104,7 +94,7 @@ public class Http {
 					reject(data.result.error!)
 					return
 				} else if let errorInvalidCode = validateAcceptableStatusCode(data) {
-					reject(errorInvalidCode);
+					reject(errorInvalidCode)
 					return
 				}
 
@@ -117,16 +107,13 @@ public class Http {
 				})
 			})
 
-
-
 		}
 	}
-
 
 	/**
     * Request as Array
     */
-	public static func request<T : Mappable>(_ rqMethod: HTTPMethod, route: String, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = JSONEncoding.default, headers: HTTPHeaders? = [:]) -> Promise<[T]?> {
+	public static func request<T: Mappable>(_ rqMethod: HTTPMethod, route: String, parameters: [String: Any]? = nil, encoding: ParameterEncoding? = JSONEncoding.default, headers: HTTPHeaders? = [:]) -> Promise<[T]?> {
 
 		// verifica rutas externas
 		var url = route
@@ -145,7 +132,7 @@ public class Http {
 					reject(data.result.error!)
 					return
 				} else if let errorInvalidCode = validateAcceptableStatusCode(data) {
-					reject(errorInvalidCode);
+					reject(errorInvalidCode)
 					return
 				}
 
@@ -161,7 +148,6 @@ public class Http {
 		}
 
 	}
-
 
 	public static func validateAcceptableStatusCode(_ response: DataResponse<Any>) -> NSError? {
 
@@ -191,6 +177,4 @@ public class Http {
 		}
 
 	}
-
-
 }

@@ -20,15 +20,12 @@ import UIKit
  - upper: El limite supperior
  - Returns: Devuelve el valor bloqueado.
  */
-public func clamp<T>(_ value: T, between lower: T, and upper: T) -> T where T : Comparable {
+public func clamp<T>(_ value: T, between lower: T, and upper: T) -> T where T: Comparable {
     return max(min(value, upper), lower)
 }
 
+public extension Comparable {
 
-
-
-public extension Comparable  {
-    
     /**
      (Restringir, Bloquear) limita un valor dentro de 2 valores.
      ```
@@ -39,9 +36,7 @@ public extension Comparable  {
      ```
      
      */
-    public mutating func toggle( between a: Self, or b: Self) -> Void  {
-        self = self == a ? b : a
+    public mutating func toggle( between left: Self, or right: Self) {
+        self = self == left ? right : left
     }
-    
 }
-

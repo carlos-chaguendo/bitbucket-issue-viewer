@@ -140,7 +140,6 @@
 		2FC2848120ED30850014DE4D /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2847F20ED30850014DE4D /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FCF3EE120373C640024FC17 /* IssueCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCF3EE020373C640024FC17 /* IssueCommentTableViewCell.swift */; };
 		2FF06F991F744ABB005F07DF /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F981F744ABB005F07DF /* TeamTableViewCell.swift */; };
-		2FF06FA01F7481B5005F07DF /* LiveScrollError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF06F9F1F7481B5005F07DF /* LiveScrollError.swift */; };
 		2FFDF0AE2130969E00ABAD19 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDF0AD2130969E00ABAD19 /* FieldTableViewCell.swift */; };
 		2FFDF0B02130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDF0AF2130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift */; };
 		2FFDF0B22130BAA300ABAD19 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDF0B12130BAA300ABAD19 /* PhotosViewController.swift */; };
@@ -310,7 +309,6 @@
 		2FF06F981F744ABB005F07DF /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		2FF06F9B1F746070005F07DF /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		2FF06F9D1F746CB8005F07DF /* TeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
-		2FF06F9F1F7481B5005F07DF /* LiveScrollError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScrollError.swift; sourceTree = "<group>"; };
 		2FF06FA11F748909005F07DF /* TeamIssuesFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamIssuesFilters.swift; sourceTree = "<group>"; };
 		2FFDF0AD2130969E00ABAD19 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
 		2FFDF0AF2130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldAttributedTableViewCell.swift; sourceTree = "<group>"; };
@@ -491,6 +489,17 @@
 			path = util;
 			sourceTree = "<group>";
 		};
+		2F8584772239B6E00053E30E /* commons */ = {
+			isa = PBXGroup;
+			children = (
+				7849891C1ED38F2100A0724E /* selector */,
+				7849893E1ED38F8B00A0724E /* NavigationForPopoverViewController.swift */,
+				7849893C1ED38F8400A0724E /* PopoverBackgroundView.swift */,
+				2FFDF0B12130BAA300ABAD19 /* PhotosViewController.swift */,
+			);
+			path = commons;
+			sourceTree = "<group>";
+		};
 		2FBB470320D00D91004D8A73 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +507,7 @@
 				784988E51ED38E8200A0724E /* domain */,
 				784988D21ED38D2400A0724E /* extensions */,
 				784988E61ED38E8800A0724E /* http */,
+				2F06944321383E3D0052F61A /* markdown */,
 				784988E41ED38E7A00A0724E /* service */,
 				2FBB470420D00D91004D8A73 /* Core.h */,
 				2FBB470520D00D91004D8A73 /* Info.plist */,
@@ -599,9 +609,8 @@
 		784988BD1ED38CF600A0724E /* IssueViewer */ = {
 			isa = PBXGroup;
 			children = (
-				2F76606A2141E7A200169BC2 /* IssueViewer.entitlements */,
+				2F8584772239B6E00053E30E /* commons */,
 				2F069453213987C30052F61A /* login */,
-				2F06944321383E3D0052F61A /* markdown */,
 				2F270B0620D1BD3E00ADB777 /* transitions */,
 				784989171ED38F0D00A0724E /* cell */,
 				2FBB474220D011C9004D8A73 /* extensions */,
@@ -609,7 +618,6 @@
 				7849892A1ED38F4E00A0724E /* issues */,
 				2F18680B1F72CE0A00351C98 /* main */,
 				784989331ED38F5D00A0724E /* repositories */,
-				7849891C1ED38F2100A0724E /* selector */,
 				2F1868081F72CD1F00351C98 /* settings */,
 				2F70B17D1F7302D40068936F /* team-repositories */,
 				7849890E1ED38ED800A0724E /* view-components */,
@@ -621,6 +629,7 @@
 				784988D81ED38E5C00A0724E /* Storyboard.swift */,
 				784988C01ED38CF600A0724E /* ViewController.swift */,
 				7864A0121F4E1C74009CBBD1 /* WhatsappViewController.swift */,
+				2F76606A2141E7A200169BC2 /* IssueViewer.entitlements */,
 			);
 			path = IssueViewer;
 			sourceTree = "<group>";
@@ -722,7 +731,6 @@
 				784989121ED38EE400A0724E /* LaunchScreenView.swift */,
 				784989111ED38EE400A0724E /* LaunchScreenView.xib */,
 				784989931ED3903C00A0724E /* UIViewFromXIB.swift */,
-				2FFDF0B12130BAA300ABAD19 /* PhotosViewController.swift */,
 			);
 			path = "view-components";
 			sourceTree = "<group>";
@@ -742,35 +750,21 @@
 		7849891C1ED38F2100A0724E /* selector */ = {
 			isa = PBXGroup;
 			children = (
-				784989231ED38F2D00A0724E /* impl */,
-				2FF06F9F1F7481B5005F07DF /* LiveScrollError.swift */,
+				7849891F1ED38F2800A0724E /* SelectableTableView.swift */,
 				784989401ED38F9500A0724E /* LiveScrollTableViewController.swift */,
 				7849891E1ED38F2800A0724E /* LiveScrollWithMultipleSelectionTableViewController.swift */,
 				7849891D1ED38F2800A0724E /* LiveScrollWithSingleSelectionTableViewController.swift */,
-				7849893E1ED38F8B00A0724E /* NavigationForPopoverViewController.swift */,
-				7849893C1ED38F8400A0724E /* PopoverBackgroundView.swift */,
-				7849891F1ED38F2800A0724E /* SelectableTableView.swift */,
 			);
 			path = selector;
-			sourceTree = "<group>";
-		};
-		784989231ED38F2D00A0724E /* impl */ = {
-			isa = PBXGroup;
-			children = (
-				784989241ED38F3600A0724E /* RepositorySelectViewController.swift */,
-				784989261ED38F3600A0724E /* StatusSelectViewController.swift */,
-				784989251ED38F3600A0724E /* UserSelectViewController.swift */,
-			);
-			path = impl;
 			sourceTree = "<group>";
 		};
 		7849892A1ED38F4E00A0724E /* issues */ = {
 			isa = PBXGroup;
 			children = (
 				7849892C1ED38F5600A0724E /* IssuesTableViewController.swift */,
+				7849892D1ED38F5600A0724E /* IssueTableViewCell.swift */,
 				2FCF3EE020373C640024FC17 /* IssueCommentTableViewCell.swift */,
 				7849892E1ED38F5600A0724E /* IssueDetailsTableViewController.swift */,
-				7849892D1ED38F5600A0724E /* IssueTableViewCell.swift */,
 				7849892B1ED38F5600A0724E /* Issues.storyboard */,
 				2FFDF0AD2130969E00ABAD19 /* FieldTableViewCell.swift */,
 				2FFDF0AF2130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift */,
@@ -784,6 +778,9 @@
 			children = (
 				784989351ED38F6600A0724E /* Repositories.storyboard */,
 				78040E731EF334E3006D2683 /* RepositoriesViewController.swift */,
+				784989241ED38F3600A0724E /* RepositorySelectViewController.swift */,
+				784989261ED38F3600A0724E /* StatusSelectViewController.swift */,
+				784989251ED38F3600A0724E /* UserSelectViewController.swift */,
 			);
 			path = repositories;
 			sourceTree = "<group>";
@@ -810,6 +807,8 @@
 				2FBB46FE20D00D91004D8A73 /* Frameworks */,
 				2FBB46FF20D00D91004D8A73 /* Headers */,
 				2FBB470020D00D91004D8A73 /* Resources */,
+				2F8584782239B8060053E30E /* ShellScript */,
+				2F8584792239C3810053E30E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -917,6 +916,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2F8584782239B8060053E30E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"error: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nexit 1\nfi\n";
+		};
+		2F8584792239C3810053E30E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swimat >/dev/null; then\nexit 0\nelse\nexit 0\nfi\n\n\nFILES=$(git diff --name-only | grep .swift)\nif [ -z \"$FILES\" ]; then\nexit 0\nfi\n\nOUTPUT=\"\"\n\nfor f in $FILES\ndo\nOUTPUT=\"$OUTPUT $SRCROOT/$f\"\ndone\n\nswimat $OUTPUT\n\n\n";
+		};
 		2FB6FB24213DE59D00DA6739 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1002,7 +1035,6 @@
 				2F06944E2138A6490052F61A /* GrantAccesViewController.swift in Sources */,
 				784989271ED38F3600A0724E /* RepositorySelectViewController.swift in Sources */,
 				2F7E5447221DF27A00A4102F /* IssueAttachmentTableViewCell.swift in Sources */,
-				2FF06FA01F7481B5005F07DF /* LiveScrollError.swift in Sources */,
 				784989131ED38EE400A0724E /* CardView.swift in Sources */,
 				784989141ED38EE400A0724E /* Colors.swift in Sources */,
 				2FFDF0B02130A6FB00ABAD19 /* FieldAttributedTableViewCell.swift in Sources */,

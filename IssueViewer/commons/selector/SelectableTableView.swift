@@ -23,7 +23,7 @@ public protocol SelectableTableView {
 }
 
 
-public extension SelectableTableView where Self: LiveScrollTableViewController {
+public extension SelectableTableView where Self: UITableViewController {
 
 	public func stylesForSelected(cell: UITableViewCell) {
 		cell.backgroundColor = Colors.primary.withAlphaComponent(0.1)

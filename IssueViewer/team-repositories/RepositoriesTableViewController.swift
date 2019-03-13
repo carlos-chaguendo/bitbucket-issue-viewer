@@ -11,11 +11,9 @@ import Core
 import Material
 import Alamofire
 
-class RepositoriesTableViewController: LiveScrollTableViewController {
+class RepositoriesTableViewController: LiveScrollTableViewController<User> {
 
 	var user: User!
-
-
 
 	@objc override func viewDidLoad() {
 
@@ -94,7 +92,7 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-		guard let team = values[safe: indexPath.row] as? User else {
+		guard let team = values[safe: indexPath.row] else {
 			self.view.makeToast("Team nor found")
 			return
 		}
@@ -167,7 +165,7 @@ class RepositoriesTableViewController: LiveScrollTableViewController {
 		cell.selectionStyle = .none
 		cell.backgroundColor = Colors.primary
 
-		guard let team = values[safe: indexPath.row] as? User else {
+		guard let team = values[safe: indexPath.row] else {
 			return cell
 		}
 

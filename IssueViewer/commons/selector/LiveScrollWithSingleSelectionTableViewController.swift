@@ -9,40 +9,24 @@
 import UIKit
 import Foundation
 import Core
+import PromiseKit
 
-@objc
-public protocol SingleSelectionTableViewDelegate {
+public class LiveScrollWithSingleSelectionTableViewController<Element>: LiveScrollTableViewController<Element>, SelectableTableView {
 
-	@objc optional func singleSelectionTableView(selectionTable: UITableViewController, dismissWith selected: BasicEntity)
-	@objc optional func singleSelectionTableView(dismissWithClearFilter selectionTable: UITableViewController)
-}
-
-
-public class LiveScrollWithSingleSelectionTableViewController: LiveScrollTableViewController, SelectableTableView {
-
-
-	public weak var delegate: SingleSelectionTableViewDelegate?
+    public let (promise, resolve) = Promise<Element?>.pending()
 	public var _selectedIndex: IndexPath?
 	public var dissmisWhenSelect = true
 
+    deinit {
+        resolve.reject(NSError(domain: "ls-ml-seld", code: 1, userInfo: [NSLocalizedDescriptionKey:" Closed witout dissmisViewController"]))
+    }
 
 	@IBAction public func dissmisViewController(_ sender: Any) {
-
-		if _selectedIndex == nil {
-			delegate?.singleSelectionTableView?(dismissWithClearFilter: self)
-			dismiss(animated: true, completion: nil)
-			return
-		}
-
-
-		if let index = _selectedIndex,
-			let delegate = delegate,
-			let value = self.values[safe: index.row] as? BasicEntity {
-			delegate.singleSelectionTableView?(selectionTable: self, dismissWith: value)
-
-
-		}
-
+		if let index = _selectedIndex {
+            resolve.fulfill(self.values[safe: index.row])
+        } else {
+             resolve.fulfill(nil)
+        }
 		dismiss(animated: true, completion: nil)
 	}
 

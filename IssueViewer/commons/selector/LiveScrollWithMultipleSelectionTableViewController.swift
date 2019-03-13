@@ -7,27 +7,23 @@
 //
 
 import UIKit
+import Core
+import PromiseKit
 
+public class LiveScrollWithMultipleSelectionTableViewController<Element>: LiveScrollTableViewController<Element>, SelectableTableView {
 
-@objc
-public protocol MultipleSelectionTableViewDelegate: NSObjectProtocol {
-
-	@objc optional func multipleSelectionTableView(selectionTable: UITableViewController, dismissWith selected: [Any])
-
-}
-
-public class LiveScrollWithMultipleSelectionTableViewController: LiveScrollTableViewController, SelectableTableView {
-
-	public weak var delegate: MultipleSelectionTableViewDelegate?
 	public var _selectedIndexs = [IndexPath]()
+    
+    public let (promise, resolve) = Promise<[Element]>.pending()
+    
+    deinit {
+        resolve.reject(NSError(domain: "ls-ml-seld", code: 1, userInfo: [NSLocalizedDescriptionKey:" Closed witout dissmisViewController"]))
+    }
+
 
 	@IBAction public func dissmisViewController(_ sender: Any) {
-
-		if let delegate = delegate, let multipleSelectionTableView = delegate.multipleSelectionTableView {
-			let values = self._selectedIndexs.map({ self.values[$0.row] })
-			multipleSelectionTableView(self, values)
-		}
-
+        let values = self._selectedIndexs.map({ self.values[$0.row] })
+        resolve.fulfill(values)
 		dismiss(animated: true, completion: nil)
 	}
 
@@ -51,6 +47,3 @@ public class LiveScrollWithMultipleSelectionTableViewController: LiveScrollTable
 
 
 }
-
-
-

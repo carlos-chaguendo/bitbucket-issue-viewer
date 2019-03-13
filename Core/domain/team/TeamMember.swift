@@ -21,14 +21,14 @@ public class TeamMember: BasicEntity {
     public override static func primaryKey() -> String? {
         return "id"
     }
-    
-    public convenience init(user: User, team:User) {
+
+    public convenience init(user: User, team: User) {
         self.init()
         self.user = user
         self.team = team
         id = "\(user.accountId ?? "-1")\(team.accountId ?? "-2")"
     }
-    
+
     override public func mapping(map: Map) {
         super.mapping(map: map)
         team <- map["team"]
@@ -37,6 +37,3 @@ public class TeamMember: BasicEntity {
     }
 
 }
-
-
-

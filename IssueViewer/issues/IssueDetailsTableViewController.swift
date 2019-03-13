@@ -202,7 +202,7 @@ class IssueDetailsTableViewController: UITableViewController {
         } else {
             sections.append(TableSecction(key: .empty, items: [Row.description, Row.attachments([])]))
             DispatchQueue.global(qos: .userInteractive).async(execute: Strong.weak(self) { this in
-      
+
 
 
                 let images = this.loadImages(in: imagesLinks)
@@ -361,12 +361,20 @@ class IssueDetailsTableViewController: UITableViewController {
 
         // get a reference to the view controller for the popover
         let selectviewController = Storyboard.Issues.viewControllerWithClass(UserSelectViewController.self)
+        selectviewController.promise.done { (result) in
+            guard let assigne = result else { return }
+
+            IssuesService.assigne(to: assigne, issue: self.issue!, of: "mayorgafirm", inRepository: self.issue!.repository!.name!)
+                .done { (edited: IssueEdited?) -> Void in
+                    Logger.info("Calros \(edited!)")
+                }.end()
+
+        }.end()
 
         // present the popover
         var position = CGRect.zero
         position.origin.x = v.bounds.midX
         position.origin.y = v.bounds.midY + 10
-        selectviewController.delegate = self
 
         let popController = NavigationForPopoverViewController(rootViewController: selectviewController, sourceView: v, sourceRect: position)
         self.present(popController, animated: true, completion: nil)
@@ -374,19 +382,6 @@ class IssueDetailsTableViewController: UITableViewController {
 
 }
 
-extension IssueDetailsTableViewController: SingleSelectionTableViewDelegate {
-    func singleSelectionTableView(selectionTable: UITableViewController, dismissWith selected: BasicEntity) {
-
-        guard let assigne = selected as? Assignee else { return }
-
-        IssuesService.assigne(to: assigne, issue: issue!, of: "mayorgafirm", inRepository: issue!.repository!.name!)
-            .done { (edited: IssueEdited?) -> Void in
-                Logger.info("Calros \(edited!)")
-            }.end()
-
-    }
-
-}
 extension IssueDetailsTableViewController: UITextViewDelegate {
 
     //interactua con los links dentro del textview txtViewErrors para ejecutar los segue

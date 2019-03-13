@@ -19,29 +19,31 @@ extension Optional {
 }
 
 /// Referencia  unica a una cadena vacia
-fileprivate let StringEmpty: String = ""
+private let stringEmpty: String = ""
 
 extension Optional where Wrapped == String {
 
 	public var orEmpty: String {
-		return self.or(else: StringEmpty)
+		return self.or(else: stringEmpty)
 	}
 
 }
 
 /// Referencia  unica a un array vacio
-fileprivate let ArrayEmpty: Array<Any> = []
+private let arrayEmpty: [Any] = []
 
 extension Optional where Wrapped: Sequence {
 
 	public var orEmpty: Wrapped {
 		if self == nil {
 			// Evita estar creando arrays vacios en memoria
-			return ArrayEmpty as! Wrapped
+            if let empty =  arrayEmpty as? Wrapped {
+                return empty
+            } else {
+                preconditionFailure()
+            }
 		}
 		return self!
 	}
 
-
 }
-

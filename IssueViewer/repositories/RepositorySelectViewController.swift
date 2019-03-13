@@ -10,7 +10,8 @@ import UIKit
 import PromiseKit
 import Core
 
-public class RepositorySelectViewController: LiveScrollWithSingleSelectionTableViewController {
+
+public class RepositorySelectViewController: LiveScrollWithSingleSelectionTableViewController<Repository> {
 
 	public var repository: Repository?
     public var team: User!
@@ -51,7 +52,7 @@ public class RepositorySelectViewController: LiveScrollWithSingleSelectionTableV
 	override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "defaultCell")
-		guard let repository = values[safe: indexPath.row] as? Repository else {
+		guard let repository = values[safe: indexPath.row] else {
 			return cell
 		}
 

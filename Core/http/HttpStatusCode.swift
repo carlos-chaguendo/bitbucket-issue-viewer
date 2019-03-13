@@ -30,6 +30,4 @@ public class HttpStatusCode: Object, Mappable {
 	override public static func primaryKey() -> String? {
 		return "code"
 	}
-
-
 }

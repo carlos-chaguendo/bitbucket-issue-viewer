@@ -21,23 +21,7 @@ public extension Promise {
 			}
 		})
 	}
-
-//    public func always(execute body: @escaping () -> Void) -> Promise {
-//        return self.ensure(body)
-//    }
-
-
 }
-
-
-extension Thenable {
-
-	/// support promiseKit 4
-//    public func then( execute executer : @escaping(T) throws -> Void) -> Promise<Void> {
-//        return self.done(executer)
-//    }
-}
-
 
 extension CatchMixin {
 
@@ -46,6 +30,4 @@ extension CatchMixin {
 	public func `catch`(execute: @escaping (Error) -> Void) -> PMKFinalizer {
 		return self.catch(execute)
 	}
-
-
 }

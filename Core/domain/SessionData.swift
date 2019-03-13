@@ -15,7 +15,6 @@ import AlamofireObjectMapper
 
 public class SessionData: BasicEntity {
 
-
 	@objc private dynamic var id: String?
 	@objc public internal(set) dynamic var user: User? {
 		didSet {
@@ -25,11 +24,9 @@ public class SessionData: BasicEntity {
 
 	@objc public dynamic var token: String?
 
-
 	public override static func primaryKey() -> String? {
 		return "id"
 	}
-
 
 	public required convenience init(_ map: Map) {
 		self.init()

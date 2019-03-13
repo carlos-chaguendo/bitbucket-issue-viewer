@@ -6,7 +6,6 @@
 //  Copyright © 2017 Mayorgafirm. All rights reserved.
 //
 
-
 import UIKit
 import Alamofire
 import RealmSwift
@@ -14,11 +13,9 @@ import PromiseKit
 import ObjectMapper
 import AlamofireObjectMapper
 
-
 public class RepositoryService: Service {
 
-
-	/// <#Description#>
+	///
 	///
 	/// - Parameters:
 	///   - username: Username
@@ -28,7 +25,7 @@ public class RepositoryService: Service {
 	public class func repositories(for username: String, page: Int = 1, rowsPerPage: Int = 10) -> Promise<SearchResult<Repository>?> {
 		let server = "/2.0/repositories/\(username)?page=\(page)&pagelen=\(rowsPerPage)&q=has_issues%3Dtrue"
 		// Reposiorios con issues que pertenescan a usuario
-		let query = _q(" has_issues = true AND ownerUsername = %@  AND page = %i ", [ username, page])
+		let query = `where`(" hasIssues = true AND ownerUsername = %@  AND page = %i ", [ username, page])
 
 		return Promise<SearchResult<Repository>?> { (resolve, reject) in
 
@@ -52,10 +49,10 @@ public class RepositoryService: Service {
 	///    - Returns: `SearchResult<IssueCommen
 	public class func versions(of username: String, inRepository repository: String, refresh: Bool = false) -> Promise<SearchResult<Version>?> {
 		let server = "/2.0/repositories/\(username)/\(repository)/versions"
-		let query = _q(" repository.name = %@  ", [repository])
+		let query = `where`(" repository.name = %@  ", [repository])
 
 		// Reporsitorio local
-		let repository = realm.objects(Repository.self).filter(_q("name = %@", [repository])).first!
+		let repository = realm.objects(Repository.self).filter(`where`("name = %@", [repository])).first!
 
 		return Promise<SearchResult<Version>?> { (resolve, reject) in
 			select(from: Version.self,
@@ -68,11 +65,5 @@ public class RepositoryService: Service {
 				}.catch(execute: reject)
 		}
 	}
-
-
-
-
-
-
 
 }

@@ -10,25 +10,27 @@ import ObjectMapper
 
 public class NumberAsStringTransform: TransformType {
 
-	public typealias Object = String
-	public typealias JSON = NSNumber
+    public typealias Object = String
+    public typealias JSON = NSNumber
 
     public static let shared = NumberAsStringTransform()
-    
-	private init() { }
 
-	public func transformFromJSON(_ value: Any?) -> String? {
-		guard let value = value else {
-			return nil
-		}
+    private init() {
 
-		return String(describing: value)
-	}
+    }
 
-	public func transformToJSON(_ value: String?) -> NSNumber? {
-		if let value = value {
-			return NSNumber(value: Int64(value)!)
-		}
-		return nil
-	}
+    public func transformFromJSON(_ value: Any?) -> String? {
+        guard let value = value else {
+            return nil
+        }
+
+        return String(describing: value)
+    }
+
+    public func transformToJSON(_ value: String?) -> NSNumber? {
+        if let value = value {
+            return NSNumber(value: Int64(value)!)
+        }
+        return nil
+    }
 }

@@ -10,11 +10,8 @@ import UIKit
 
 public extension UIAlertController {
 
-
 	public convenience init(title: String, message: String, okLabel: String, cancelLabel: String, handler: @escaping (() -> Void), cancel: (() -> Void)? = nil) {
 		self.init(title: title, message: message, preferredStyle: .alert)
-
-
 		let buttonsHandler: (UIAlertAction) -> Void = { action in
 			switch action.style {
 			case .default: handler()
@@ -29,8 +26,6 @@ public extension UIAlertController {
 
 	public convenience init(title: String, message: String, cancelLabel: String, destructiveLabel: String, handler: @escaping (() -> Void), destructive: (() -> Void)? = nil) {
 		self.init(title: title, message: message, preferredStyle: .alert)
-
-
 		let buttonsHandler: (UIAlertAction) -> Void = { action in
 			switch action.style {
 			case .cancel: destructive?()
@@ -41,7 +36,6 @@ public extension UIAlertController {
 		addAction(UIAlertAction(title: cancelLabel, style: .cancel, handler: buttonsHandler))
 		addAction(UIAlertAction(title: destructiveLabel, style: .destructive, handler: buttonsHandler))
 	}
-
 
 	public func add(_ action: UIAlertAction) {
 		self.addAction(action)

@@ -37,20 +37,17 @@ public class Issue: BasicEntity {
 	@objc public dynamic var markup: String?
 	@objc public dynamic var raw: String?
 
-
 	// Logica interna
 	@objc public dynamic var page: Int = 1
-	@objc public dynamic var _state: String? {
+	@objc public dynamic var storeState: String? {
 		didSet {
-			state = IssueStatus(rawValue: _state ?? "s")
+			state = IssueStatus(rawValue: storeState ?? "s")
 		}
 	}
-
 
 	public override static func primaryKey() -> String? {
 		return "id"
 	}
-
 
 	override public func mapping(map: Map) {
 		super.mapping(map: map)
@@ -78,7 +75,7 @@ public class Issue: BasicEntity {
 		raw <- map["content.raw"]
 
 		if map.mappingType == .fromJSON {
-			_state = state?.rawValue
+			storeState = state?.rawValue
 		}
 	}
 

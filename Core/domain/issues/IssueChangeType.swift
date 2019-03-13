@@ -12,7 +12,6 @@ import RealmSwift
 import ObjectMapper
 import AlamofireObjectMapper
 
-
 public class UserChange: BasicEntity {
 
     @objc public dynamic var id: String = "-1-"
@@ -29,7 +28,6 @@ public class UserChange: BasicEntity {
         previus <- map["old"]
     }
 }
-
 
 public class StringChange: BasicEntity {
 
@@ -48,14 +46,12 @@ public class StringChange: BasicEntity {
     }
 }
 
-
-
 public class IssueChanges: BasicEntity {
-    
+
     @objc public dynamic var id: String = "-1-" {
         willSet { setIdToChangesItems(id: newValue) }
     }
-    
+
     @objc public dynamic var state: StringChange?
     @objc public dynamic var assignee: StringChange?
     @objc public dynamic var responsible: StringChange?
@@ -69,7 +65,6 @@ public class IssueChanges: BasicEntity {
     @objc public dynamic var milestone: StringChange?
 
     @objc private dynamic var _html: String?
-
 
     public override static func primaryKey() -> String? {
         return "id"

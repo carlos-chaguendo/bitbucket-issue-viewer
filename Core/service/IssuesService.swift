@@ -16,88 +16,67 @@ import AlamofireObjectMapper
 
 public class IssuesService: Service {
 
-
     /// Obtiene los comentarios de un issue guardados localmente que tengan un mensaje
     ///
     /// - Parameters:
-    ///   - of: Team Equipo
+    ///   - team: Team Equipo
     ///   - repository: slug
     ///   - issueId: identificador del Issue
     ///   - page: pagina cuando se consulta al servidor
     ///   - refreshFromServer: forza la consulta al servidor
     /// - Returns: `SearchResult<IssueComment>`
-    private class func loadComments(of: String, inRepository repository: String, forIssue issueId: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
-        let server = "/2.0/repositories/\(of)/\(repository)/issues/\(issueId)/comments?qr=content.raw!%3Dnull"
-        return select(from: IssueComment.self, where: _q("issueId = %@ and type = %@", ["\(issueId)", "issue_comment"]), decoreBeforeSaving: {
+    private class func loadComments(of team: String, inRepository repository: String, forIssue issueId: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
+        let server = "/2.0/repositories/\(team)/\(repository)/issues/\(issueId)/comments?qr=content.raw!%3Dnull"
+        return select(from: IssueComment.self, where: `where`("issueId = %@ and type = %@", ["\(issueId)", "issue_comment"]), decoreBeforeSaving: {
             $0.type = "issue_change"
         }, orConnectTo: server)
     }
-
 
     /// Obtiene los cambios de un issue guardados localmente que tengan un mensaje
     ///
     /// - Parameters:
-    ///   - of: Team Equipo
+    ///   - team: Team Equipo
     ///   - repository: slug
     ///   - issueId: identificador del Issue
     ///   - page: pagina cuando se consulta al servidor
     ///   - refreshFromServer: forza la consulta al servidor
     /// - Returns: `SearchResult<IssueComment>`
-    private class func loadChanges(of: String, inRepository repository: String, forIssue issueId: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
-        let server = "/2.0/repositories/\(of)/\(repository)/issues/\(issueId)/changes?qr=message.raw!%3Dnull"
-        return select(from: IssueComment.self, where: _q("issueId = %@", ["\(issueId)"]), decoreBeforeSaving: {
+    private class func loadChanges(of team: String, inRepository repository: String, forIssue issueId: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
+        let server = "/2.0/repositories/\(team)/\(repository)/issues/\(issueId)/changes?qr=message.raw!%3Dnull"
+        return select(from: IssueComment.self, where: `where`("issueId = %@", ["\(issueId)"]), decoreBeforeSaving: {
             $0.type = "issue_change"
-            let _ = $0.changes?.html /// genera la descripcion de los cambios
+            _ = $0.changes?.html /// genera la descripcion de los cambios
         }, orConnectTo: server)
     }
 
-    public class func comments(of: String, inRepository repository: String, forIssue issueId: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
-
-        return Promise<SearchResult<IssueComment>?> { (resolve, reject) -> Void in
-            
-            
-            
-
-            loadChanges(of: of, inRepository: repository, forIssue: issueId, refreshFromServer: refreshFromServer)
-                .done({ (_) in
-
-                    loadComments(of: of, inRepository: repository, forIssue: issueId, refreshFromServer: refreshFromServer)
-                        .done({ (_) in
-    
-                            let allValues: [IssueComment] = realm.objects(IssueComment.self).filter(_q("issueId = %@", ["\(issueId)"])).detached
-                            let result = SearchResult<IssueComment>(values: allValues)
-                            //DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
-                               resolve(result)
-                            //}
-                            
-                        }).catch(execute: reject)
-
-                }).catch(execute: reject)
+    public class func comments(of team: String, inRepository repository: String, forIssue issueId: Int, page: Int = 1, refreshFromServer: Bool? = false) -> Promise<SearchResult<IssueComment>?> {
+        return loadChanges(of: team, inRepository: repository, forIssue: issueId, refreshFromServer: refreshFromServer)
+            .then { _ -> Promise<SearchResult<IssueComment>?> in
+                return loadComments(of: team, inRepository: repository, forIssue: issueId, refreshFromServer: refreshFromServer)
+            }.then { _ -> Promise<SearchResult<IssueComment>?> in
+                let allValues: [IssueComment] = realm.objects(IssueComment.self).filter(`where`("issueId = %@", ["\(issueId)"])).detached
+                let result = SearchResult<IssueComment>(values: allValues)
+                return Promise.value(result)
         }
     }
 
-
-
-
-    /// <#Description#>
+    /// Reasigna un issue
     ///
     /// - Parameters:
-    ///   - to: <#to description#>
-    ///   - issue: <#issue description#>
-    ///   - of: <#of description#>
-    ///   - repository: <#repository description#>
-    /// - Returns: <#return value description#>
-    public class func assigne(to: Assignee, issue: Issue, of: String, inRepository repository: String) -> Promise<IssueEdited?> {
-        let parameters: [String: Any] = ["responsible": to.username!]
-        let url = Http.unwrapurl(route: "/1.0/repositories/\(of)/\(repository)/issues/\(issue.id)")
+    ///   - assigne: Destinatario del issue
+    ///   - issue: issue
+    ///   - team: equipo al que pertenece el repositorio del issue
+    ///   - repository: repositorio
+    /// - Returns: Issue Editado
+    public class func assigne(to assigne: Assignee, issue: Issue, of team: String, inRepository repository: String) -> Promise<IssueEdited?> {
+        let parameters: [String: Any] = ["responsible": assigne.username!]
+        let url = Http.unwrapurl(route: "/1.0/repositories/\(team)/\(repository)/issues/\(issue.id)")
         return Http.request(.put, route: url, parameters: parameters, encoding: URLEncoding(), headers: [:], manager: Http.sharedInstance)
     }
-
 
     public class func issue(_ id: String, of team: String, inRepository repository: String) -> Promise<Issue?> {
         return Http.request(.get, route: "/2.0/repositories/\(team)/\(repository)/issues/\(id)")
     }
-
 
     /**
      * __https://api.bitbucket.org/2.0/repositories/mayorgafirm/adivantus-iphone/issues__
@@ -113,16 +92,16 @@ public class IssuesService: Service {
              que se cargen las sigientes paginas cuando se hace loive scroll
              */
             if refreshFromServer == true {
-                try! realm.write({
+                try realm.write {
                     realm.delete(realm.objects(Issue.self))
-                })
+                }
             }
 
             let predicate = NSPredicate(format: " page = %i AND repository.uuid = %@", page, repository.uuid!)
             let localdata = realm.objects(Issue.self).filter(predicate).sorted(byKeyPath: "id", ascending: false)
 
             //Si existen datos almacenados localmente no se requiere ir hast el servidor
-            if(refreshFromServer == false && localdata.count > 0) {
+            if refreshFromServer == false && localdata.count > 0 {
                 let issues = localdata.map({ Issue(value: $0) })
                 let result = SearchResult<Issue>()
                 result.values.append(contentsOf: issues)
@@ -144,10 +123,10 @@ public class IssuesService: Service {
             }
 
             // se crean todos los filtros de busqueda
-            let p = filter.map({ "\($0)=\($1)" }).joined(separator: " AND ")
-            Logger.info("query = \(p)")
-            let q = p.encodeURIComponent()!
-            route = "\(route)&q=\(q)"
+            let queryString = filter.map({ "\($0)=\($1)" }).joined(separator: " AND ")
+            Logger.info("query = \(queryString)")
+            let quey = queryString.encodeURIComponent()!
+            route = "\(route)&q=\(quey)"
 
             let origin: Promise<SearchResult<Issue>?> = Http.request(.get, route: route)
             origin
@@ -155,7 +134,7 @@ public class IssuesService: Service {
 
                     resolve(result)
                     if let issues = result?.values {
-                        try! realm.write({
+                        try realm.write {
                             issues
                                 .map({ Issue(value: $0) })
                                 .forEach({ (issue) in
@@ -163,13 +142,12 @@ public class IssuesService: Service {
                                     realm.add(issue, update: true)
                                 })
 
-                        })
+                        }
                     }
 
                 }.catch(execute: reject)
 
         }
-
 
     }
 

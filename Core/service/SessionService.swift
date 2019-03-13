@@ -16,7 +16,6 @@ public class SessionService: Service {
 		return token != nil
 	}
 
-
 	public class func logout() -> Promise<Void> {
 		return Promise<Void> { (resolve, _) -> Void in
 			UserDefaults.standard.do {
@@ -25,13 +24,11 @@ public class SessionService: Service {
 				$0.synchronize()
 			}
 
-			try! realm.write {
+			try realm.write {
 				realm.deleteAll()
 			}
 
 			resolve(())
 		}
 	}
-
-
 }

@@ -12,50 +12,43 @@ import RealmSwift
 import ObjectMapper
 import AlamofireObjectMapper
 
-
 public class User: BasicEntity {
 
-	public enum Origin: String {
-		case user = "user"
-		case team = "team"
+    public enum Origin: String {
+        case user
+        case team
+        public func eq(_ string: String) -> Bool {
+            return self.rawValue == string
+        }
+    }
 
-		public func eq(_ string: String) -> Bool {
-			return self.rawValue == string
-		}
-	}
+    @objc public dynamic var username: String?
+    @objc public dynamic var website: String?
+    @objc public dynamic var displayName: String?
+    @objc public dynamic var accountId: String?
+    @objc public dynamic var avatar: String?
+    @objc public dynamic var created: Date?
+    @objc public dynamic var type: String?
+    @objc public dynamic var numberOfmebers: String?
+    @objc public dynamic var numberOfRepositories: String?
 
-	@objc public dynamic var username: String?
-	@objc public dynamic var website: String?
-	@objc public dynamic var displayName: String?
-	@objc public dynamic var accountId: String?
-	@objc public dynamic var avatar: String?
-	@objc public dynamic var created: Date?
-	@objc public dynamic var type: String?
+    public override static func primaryKey() -> String? {
+        return "username"
+    }
 
-	@objc public dynamic var numberOfmebers: String?
-	@objc public dynamic var numberOfRepositories: String?
+    override public func mapping(map: Map) {
+        super.mapping(map: map)
+        type <- map["type"]
+        avatar <- map["links.avatar.href", nested: true]
+        username <- map["username"]
+        website <- map["website"]
+        accountId <- map["uuid"]
+        displayName <- map["display_name"]
+        created <- (map["created_on"], ISO8601ExtendedDateTransform.shared)
+        avatar = avatar?.replacingOccurrences(of: "/32/", with: "/120/")
+    }
 
-
-	public override static func primaryKey() -> String? {
-		return "username"
-	}
-
-	override public func mapping(map: Map) {
-		super.mapping(map: map)
-
-		type <- map["type"]
-		avatar <- map["links.avatar.href", nested: true]
-		username <- map["username"]
-		website <- map["website"]
-		accountId <- map["uuid"]
-		displayName <- map["display_name"]
-		created <- (map["created_on"], ISO8601ExtendedDateTransform.shared)
-
-		avatar = avatar?.replacingOccurrences(of: "/32/", with: "/120/")
-	}
-
-
-	public func isType(_ type: Origin) -> Bool {
-		return type.eq(self.type ?? "+")
-	}
+    public func isType(_ type: Origin) -> Bool {
+        return type.eq(self.type ?? "+")
+    }
 }

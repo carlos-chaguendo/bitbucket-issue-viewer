@@ -12,39 +12,36 @@ import ObjectMapper
 public class ISO8601ExtendedDateTransform: TransformType {
     public typealias Object = Date
     public typealias JSON = String
-    
+
     public let dateFormatter: DateFormatter
-    
+
     static let shared = ISO8601ExtendedDateTransform()
-    
+
     private convenience init() {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSZZZZZ"
         self.init(formatter)
     }
-    
-    
+
     public init(_ dateFormatter: DateFormatter) {
         self.dateFormatter = dateFormatter
     }
-    
+
     public func transformFromJSON(_ value: Any?) -> Date? {
         if let dateString = value as? String {
-            let d = dateFormatter.date(from: dateString)
-            return d as Date?;
+            let dft = dateFormatter.date(from: dateString)
+            return dft
         }
         return nil
     }
-    
+
     public func transformToJSON(_ value: Date?) -> String? {
         if value != nil {
-            let i = value!.timeIntervalSince1970;
-            let d: Date = Date(timeIntervalSince1970: i)
-            
-            return dateFormatter.string(from: d)
+            let interval = value!.timeIntervalSince1970
+            let dft = Date(timeIntervalSince1970: interval)
+            return dateFormatter.string(from: dft)
         }
         return nil
     }
 }
-

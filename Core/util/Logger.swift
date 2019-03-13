@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Logger {
-    
+
     public enum Level: String {
         case info = "INFO"
         case error = "ERROR"

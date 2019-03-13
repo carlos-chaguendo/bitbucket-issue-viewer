@@ -16,7 +16,7 @@ public class IssueEdited: BasicEntity {
 
     public var state: IssueStatus?
     @objc public dynamic var title: String?
-    
+
     override public func mapping(map: Map) {
         super.mapping(map: map)
         state <- (map["status"], EnumTransform())

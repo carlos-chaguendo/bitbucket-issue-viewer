@@ -41,7 +41,7 @@ public struct FiltrableArray<Element> {
 
     }
 
-    public init(from array: Array<Element>) {
+    public init(from array: [Element]) {
         original = array
         filtered = []
     }
@@ -62,7 +62,7 @@ public struct FiltrableArray<Element> {
     }
 
     /// filtra los datos conservendo anteriores y filtrados
-    public mutating func filter(_ isIncluded: @escaping (Element) -> Bool) {
+    public mutating func setFilter(_ isIncluded: @escaping (Element) -> Bool) {
         filter = isIncluded
         filtered = original.filter(isIncluded)
     }
@@ -91,7 +91,7 @@ extension FiltrableArray: ExpressibleByArrayLiteral {
 extension FiltrableArray: Collection {
 
     public subscript(index: Index) -> Element {
-        get { return source[index] }
+        return source[index]
     }
 
     public typealias Index = Int
@@ -123,7 +123,7 @@ extension FiltrableArray where Element: Hashable {
     public subscript (safe index: Int) -> Element? {
         return index >= 0 && index < count ? self[index] : nil
     }
-    
+
     public subscript(index: Index) -> Element {
         get { return source[index] }
         set {
@@ -141,8 +141,8 @@ extension FiltrableArray where Element: Hashable {
 }
 
 public extension FiltrableArray {
-    public mutating func sort(by: (_ left: Element, _ right: Element) -> Bool) {
-        original.sort(by: by)
-        filtered.sort(by: by)
+    public mutating func sort(by sorter: (_ left: Element, _ right: Element) -> Bool) {
+        original.sort(by: sorter)
+        filtered.sort(by: sorter)
     }
 }

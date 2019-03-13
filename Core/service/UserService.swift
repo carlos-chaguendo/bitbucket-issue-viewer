@@ -17,16 +17,13 @@ import AlamofireObjectMapper
 public class UserService: Service {
 
 	public class func getUser() -> Promise<User?> {
-
 		return Promise<User?> { (resolve, reject) -> Void in
-
 
 			let sessionData = realm.objects(SessionData.self)
 			if sessionData.count > 0 && sessionData[0].user != nil {
 				resolve(User(value: sessionData[0].user!))
 				return
 			}
-
 
 			Http.request(.get, route: "/2.0/user")
 				.done { (user: User?) -> Void in
@@ -35,8 +32,7 @@ public class UserService: Service {
 						preconditionFailure("No hay session")
 					}
 
-
-					try! realm.write {
+					try realm.write {
 						let session = SessionData()
 						session.user = user
 						realm.add(session, update: true)
@@ -44,7 +40,6 @@ public class UserService: Service {
 					resolve(user)
 
 				}.catch(execute: reject)
-
 		}
 	}
 

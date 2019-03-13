@@ -10,7 +10,7 @@ import UIKit
 import PromiseKit
 import Core
 
-public class UserSelectViewController: LiveScrollWithSingleSelectionTableViewController {
+public class UserSelectViewController: LiveScrollWithSingleSelectionTableViewController<Assignee> {
 
 
 
@@ -53,7 +53,7 @@ public class UserSelectViewController: LiveScrollWithSingleSelectionTableViewCon
 
 		let cell: TableViewCellWithPhoto = tableView.dequeueReusableCellWithClass(TableViewCellWithPhoto.self)!
 
-		guard let user = values[safe: indexPath.row] as? Assignee else {
+		guard let user = values[safe: indexPath.row] else {
 			return cell
 		}
 

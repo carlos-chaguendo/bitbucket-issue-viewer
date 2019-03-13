@@ -14,8 +14,7 @@ open class HairPowder {
 	private class HairPowderView: UIView {
 		static let cornerRadius: CGFloat = 40
 		static let cornerY: CGFloat = 35
-		override func draw(_ rect: CGRect)
-		{
+		override func draw(_ rect: CGRect) {
 			let width = frame.width > frame.height ? frame.height : frame.width
 
 			let rectPath = UIBezierPath()
@@ -43,7 +42,6 @@ open class HairPowder {
 			rightCornerPath.fill()
 		}
 	}
-
 
 	private var statusWindow: UIWindow = {
 		let width = UIApplication.shared.keyWindow?.frame.width ?? 0

@@ -19,7 +19,7 @@ extension NSURLRequest {
 	func cURL() -> String? {
 		if let url = self.url {
 			let length = url.absoluteString.utf16.count
-			if (length == 0) {
+			if length == 0 {
 				return nil
 			}
 
@@ -30,7 +30,7 @@ extension NSURLRequest {
 			curlCommand.appendFormat(" '%@'", url as CVarArg)
 
 			// append method if different from GET
-			if("GET" != self.httpMethod) {
+			if "GET" != self.httpMethod {
 				curlCommand.appendFormat(" -X %@", self.httpMethod!)
 			}
 
