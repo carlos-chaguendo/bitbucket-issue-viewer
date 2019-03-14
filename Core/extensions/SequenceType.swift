@@ -8,7 +8,6 @@
 
 public extension Sequence {
 
-
     public func groupBy<U: Hashable>(_ keyFunc: (Iterator.Element) -> U) -> [U: [Iterator.Element]] {
         var dict: [U: [Iterator.Element]] = [:]
         for element in self {

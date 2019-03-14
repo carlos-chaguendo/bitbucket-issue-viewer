@@ -112,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableViewCell.appearance().tintColor = Colors.primary
 
 //        UIApplication.shared.statusBarView?.backgroundColor = Colors.status_bar
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        UIApplication.shared[keyPath: \UIApplication.statusBarStyle] = .default
 
         UIToolbar.appearance().tintColor = Colors.primary
         UIToolbar.appearance().layer.borderWidth = 1;

@@ -73,7 +73,6 @@ class WhatsappViewController: UIViewController, UITextFieldDelegate, CNContactVi
 	}
 
 	@IBAction func sendMessageAction(_ sender: Any) {
-		let defa = UserDefaults(suiteName: "com.mayorgafirm.adivantus")
 
 		if phoneText.text != nil && phoneText.text?.isEmpty == false {
 			let url = URL(string: "https://api.whatsapp.com/send?phone=\(codeLabel.text.orEmpty.replacingOccurrences(of: "+", with: ""))\(phoneText.text.orEmpty)")!

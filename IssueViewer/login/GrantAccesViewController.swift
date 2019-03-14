@@ -91,14 +91,11 @@ class GrantAccesViewController: UIViewController, WKUIDelegate {
 extension GrantAccesViewController: WKNavigationDelegate {
 
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-
-		Logger.info(" didFinish \(webView.url?.scheme)")
 		activityIndicator.stopAnimating()
 	}
 
 
 	func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-		Logger.info("didStartProvisionalNavigation \(webView.url!.scheme)")
 		activityIndicator.startAnimating()
 		if "file" != webView.url?.scheme {
 //            showLoadingIndicator()

@@ -25,8 +25,8 @@ public class HashableObject<Object, Id: Hashable >: Hashable {
         }
     }
 
-    public var hashValue: Int {
-        return self.hash(self.entity).hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.hash(self.entity))
     }
 
     public static func == (lhs: HashableObject, rhs: HashableObject) -> Bool {

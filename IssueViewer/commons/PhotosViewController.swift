@@ -104,12 +104,12 @@ class PhotosViewController: NYTPhotosViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		UIApplication.shared.isStatusBarHidden = true
+        UIApplication.shared[keyPath: \UIApplication.isStatusBarHidden] = true
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		UIApplication.shared.isStatusBarHidden = false
+		UIApplication.shared[keyPath: \UIApplication.isStatusBarHidden] = false
 	}
 }
 extension PhotosViewController: NYTPhotoViewerDataSource {

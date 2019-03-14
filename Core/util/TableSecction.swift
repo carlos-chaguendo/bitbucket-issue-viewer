@@ -9,11 +9,11 @@
 import UIKit
 
 public class TableSecction<Key: Hashable, Value>: Hashable {
-
     public var items: FiltrableArray<Value>!
     public let key: Key!
-    public var hashValue: Int {
-        return key.hashValue
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.key)
     }
 
     public init( key: Key, items: [Value]) {

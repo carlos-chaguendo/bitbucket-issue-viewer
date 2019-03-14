@@ -62,7 +62,7 @@ class RepositoriesTableViewController: LiveScrollTableViewController<User> {
 
 		UIApplication.shared.do {
 			$0.statusBarView?.backgroundColor = Colors.primary
-			$0.statusBarStyle = .lightContent
+            $0[keyPath: \UIApplication.statusBarStyle] = .lightContent
 		}
 	}
 
@@ -79,7 +79,7 @@ class RepositoriesTableViewController: LiveScrollTableViewController<User> {
 
 		UIApplication.shared.do {
 			$0.statusBarView?.backgroundColor = nil
-			$0.statusBarStyle = .default
+			$0[keyPath: \UIApplication.statusBarStyle] = .default
 		}
 	}
 
