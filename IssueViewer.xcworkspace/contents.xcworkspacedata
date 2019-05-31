@@ -4,7 +4,4 @@
    <FileRef
       location = "group:IssueViewer.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:../MessengerKit/MessengerKit.xcodeproj">
-   </FileRef>
 </Workspace>
