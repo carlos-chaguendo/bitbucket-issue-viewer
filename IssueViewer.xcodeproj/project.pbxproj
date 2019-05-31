@@ -47,6 +47,7 @@
 		2FA4111A222090D60049FBCA /* Bagel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA41118222090D50049FBCA /* Bagel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FA4111F222091060049FBCA /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA4111E222091060049FBCA /* CocoaAsyncSocket.framework */; };
 		2FA41120222091060049FBCA /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA4111E222091060049FBCA /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2FB6211F22A1AF6B000861F3 /* Ionicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB6211E22A1AF6B000861F3 /* Ionicons.swift */; };
 		2FBB470620D00D91004D8A73 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBB470420D00D91004D8A73 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; };
 		2FBB470A20D00D91004D8A73 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB470220D00D91004D8A73 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -251,6 +252,7 @@
 		2FA410CE22205FAE0049FBCA /* ArrayTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTransform.swift; sourceTree = "<group>"; };
 		2FA41118222090D50049FBCA /* Bagel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bagel.framework; path = Carthage/Build/iOS/Bagel.framework; sourceTree = "<group>"; };
 		2FA4111E222091060049FBCA /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		2FB6211E22A1AF6B000861F3 /* Ionicons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ionicons.swift; sourceTree = "<group>"; };
 		2FBB470220D00D91004D8A73 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBB470420D00D91004D8A73 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		2FBB470520D00D91004D8A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -601,6 +603,7 @@
 		784988D01ED38D0E00A0724E /* ionicons */ = {
 			isa = PBXGroup;
 			children = (
+				2FB6211E22A1AF6B000861F3 /* Ionicons.swift */,
 				784988E11ED38E6800A0724E /* UIlabel+Ionicons.swift */,
 			);
 			path = ionicons;
@@ -1018,6 +1021,7 @@
 				7849893D1ED38F8400A0724E /* PopoverBackgroundView.swift in Sources */,
 				7864A0131F4E1C74009CBBD1 /* WhatsappViewController.swift in Sources */,
 				784989431ED38FBA00A0724E /* PlacesViewController.swift in Sources */,
+				2FB6211F22A1AF6B000861F3 /* Ionicons.swift in Sources */,
 				2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */,
 				784989221ED38F2800A0724E /* SelectableTableView.swift in Sources */,
 				784988C11ED38CF600A0724E /* ViewController.swift in Sources */,
