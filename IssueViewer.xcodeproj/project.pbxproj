@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F0670192225F64200CCA85E /* MessengerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA4111622208D910049FBCA /* MessengerKit.framework */; };
-		2F06701A2225F64200CCA85E /* MessengerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA4111622208D910049FBCA /* MessengerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F06944121383CE60052F61A /* Haring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F06944021383CE50052F61A /* Haring.framework */; };
 		2F06944221383CE60052F61A /* Haring.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F06944021383CE50052F61A /* Haring.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F06944721383EE70052F61A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06944621383EE70052F61A /* String.swift */; };
@@ -200,7 +198,6 @@
 				2FBB476820D01480004D8A73 /* SwipeCellKit.framework in Embed Frameworks */,
 				2FC2848120ED30850014DE4D /* PINCache.framework in Embed Frameworks */,
 				2FBB477420D01480004D8A73 /* Atributika.framework in Embed Frameworks */,
-				2F06701A2225F64200CCA85E /* MessengerKit.framework in Embed Frameworks */,
 				2F06944221383CE60052F61A /* Haring.framework in Embed Frameworks */,
 				2FBB477620D01480004D8A73 /* ToastSwiftFramework.framework in Embed Frameworks */,
 				2FC2847E20ED302C0014DE4D /* PINRemoteImage.framework in Embed Frameworks */,
@@ -252,7 +249,6 @@
 		2FA101CC1F5A2293009C1F0A /* NSURLRequest+Curl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLRequest+Curl.swift"; sourceTree = "<group>"; };
 		2FA101CE1F5A2CAC009C1F0A /* IssueEdited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEdited.swift; sourceTree = "<group>"; };
 		2FA410CE22205FAE0049FBCA /* ArrayTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTransform.swift; sourceTree = "<group>"; };
-		2FA4111622208D910049FBCA /* MessengerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MessengerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA41118222090D50049FBCA /* Bagel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bagel.framework; path = Carthage/Build/iOS/Bagel.framework; sourceTree = "<group>"; };
 		2FA4111E222091060049FBCA /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		2FBB470220D00D91004D8A73 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -389,7 +385,6 @@
 				2FBB477520D01480004D8A73 /* ToastSwiftFramework.framework in Frameworks */,
 				2FC2848020ED30850014DE4D /* PINCache.framework in Frameworks */,
 				2F06944121383CE60052F61A /* Haring.framework in Frameworks */,
-				2F0670192225F64200CCA85E /* MessengerKit.framework in Frameworks */,
 				2FA41119222090D60049FBCA /* Bagel.framework in Frameworks */,
 				2FC2847D20ED302C0014DE4D /* PINRemoteImage.framework in Frameworks */,
 				2FBB479320D01539004D8A73 /* AlamofireObjectMapper.framework in Frameworks */,
@@ -493,7 +488,6 @@
 		2FBB472420D0101F004D8A73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2FA4111622208D910049FBCA /* MessengerKit.framework */,
 				2FBB474820D01445004D8A73 /* Alamofire.framework */,
 				2FBB474C20D01445004D8A73 /* AlamofireObjectMapper.framework */,
 				2FBB474D20D01445004D8A73 /* ObjectMapper.framework */,
