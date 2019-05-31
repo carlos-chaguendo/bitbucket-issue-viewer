@@ -29,8 +29,6 @@
 		2F270B0A20D1BE5700ADB777 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F270B0920D1BE5700ADB777 /* Settings.bundle */; };
 		2F270B0C20D1C19000ADB777 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0B20D1C19000ADB777 /* UserDefaults.swift */; };
 		2F270B0E20D1C70100ADB777 /* UIPopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */; };
-		2F439C9720D15F080094766C /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; };
-		2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F439C9620D15F080094766C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F5930032143105F003BE44C /* IssueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5930022143105F003BE44C /* IssueChangeType.swift */; };
 		2F5F1A8520E4011500DDCB71 /* PromiseKit+Support4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */; };
 		2F70B17F1F7302EF0068936F /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */; };
@@ -98,8 +96,6 @@
 		2FBB475120D01445004D8A73 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB474B20D01445004D8A73 /* RealmSwift.framework */; };
 		2FBB475220D01445004D8A73 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB474C20D01445004D8A73 /* AlamofireObjectMapper.framework */; };
 		2FBB475320D01445004D8A73 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB474D20D01445004D8A73 /* ObjectMapper.framework */; };
-		2FBB476320D01480004D8A73 /* SwiftValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475420D01480004D8A73 /* SwiftValidator.framework */; };
-		2FBB476420D01480004D8A73 /* SwiftValidator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475420D01480004D8A73 /* SwiftValidator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB476520D01480004D8A73 /* NYTPhotoViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */; };
 		2FBB476620D01480004D8A73 /* NYTPhotoViewer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB476720D01480004D8A73 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475620D01480004D8A73 /* SwipeCellKit.framework */; };
@@ -108,20 +104,14 @@
 		2FBB476C20D01480004D8A73 /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB476F20D01480004D8A73 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */; };
 		2FBB477020D01480004D8A73 /* FLAnimatedImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2FBB477120D01480004D8A73 /* IoniconsSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475B20D01480004D8A73 /* IoniconsSwift.framework */; };
-		2FBB477220D01480004D8A73 /* IoniconsSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475B20D01480004D8A73 /* IoniconsSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB477320D01480004D8A73 /* Atributika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475C20D01480004D8A73 /* Atributika.framework */; };
 		2FBB477420D01480004D8A73 /* Atributika.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475C20D01480004D8A73 /* Atributika.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB477520D01480004D8A73 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475D20D01480004D8A73 /* ToastSwiftFramework.framework */; };
 		2FBB477620D01480004D8A73 /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475D20D01480004D8A73 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2FBB477720D01480004D8A73 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475E20D01480004D8A73 /* SnapKit.framework */; };
-		2FBB477820D01480004D8A73 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475E20D01480004D8A73 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB477920D01480004D8A73 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475F20D01480004D8A73 /* LTMorphingLabel.framework */; };
 		2FBB477A20D01480004D8A73 /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB475F20D01480004D8A73 /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB477B20D01480004D8A73 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB476020D01480004D8A73 /* Material.framework */; };
 		2FBB477C20D01480004D8A73 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB476020D01480004D8A73 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2FBB477D20D01480004D8A73 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB476120D01480004D8A73 /* PKHUD.framework */; };
-		2FBB477E20D01480004D8A73 /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB476120D01480004D8A73 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB477F20D01480004D8A73 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB476220D01480004D8A73 /* PromiseKit.framework */; };
 		2FBB478020D01480004D8A73 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB476220D01480004D8A73 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FBB478220D014AF004D8A73 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBB478120D014AF004D8A73 /* RealmSwift.framework */; };
@@ -200,25 +190,20 @@
 				2FBB478320D014AF004D8A73 /* RealmSwift.framework in Embed Frameworks */,
 				2FBB476C20D01480004D8A73 /* NVActivityIndicatorView.framework in Embed Frameworks */,
 				2FBB477A20D01480004D8A73 /* LTMorphingLabel.framework in Embed Frameworks */,
-				2FBB477820D01480004D8A73 /* SnapKit.framework in Embed Frameworks */,
 				2FA4111A222090D60049FBCA /* Bagel.framework in Embed Frameworks */,
 				2FA41120222091060049FBCA /* CocoaAsyncSocket.framework in Embed Frameworks */,
-				2FBB477E20D01480004D8A73 /* PKHUD.framework in Embed Frameworks */,
-				2F439C9820D15F080094766C /* DropDown.framework in Embed Frameworks */,
 				2FBB478020D01480004D8A73 /* PromiseKit.framework in Embed Frameworks */,
 				2F7E543D221DBE2300A4102F /* Down.framework in Embed Frameworks */,
 				2FBB479720D01556004D8A73 /* ObjectMapper.framework in Embed Frameworks */,
 				2FBB470A20D00D91004D8A73 /* Core.framework in Embed Frameworks */,
 				2FBB477020D01480004D8A73 /* FLAnimatedImage.framework in Embed Frameworks */,
 				2FBB476820D01480004D8A73 /* SwipeCellKit.framework in Embed Frameworks */,
-				2FBB477220D01480004D8A73 /* IoniconsSwift.framework in Embed Frameworks */,
 				2FC2848120ED30850014DE4D /* PINCache.framework in Embed Frameworks */,
 				2FBB477420D01480004D8A73 /* Atributika.framework in Embed Frameworks */,
 				2F06701A2225F64200CCA85E /* MessengerKit.framework in Embed Frameworks */,
 				2F06944221383CE60052F61A /* Haring.framework in Embed Frameworks */,
 				2FBB477620D01480004D8A73 /* ToastSwiftFramework.framework in Embed Frameworks */,
 				2FC2847E20ED302C0014DE4D /* PINRemoteImage.framework in Embed Frameworks */,
-				2FBB476420D01480004D8A73 /* SwiftValidator.framework in Embed Frameworks */,
 				2FBB477C20D01480004D8A73 /* Material.framework in Embed Frameworks */,
 				2FBB478920D014DA004D8A73 /* Realm.framework in Embed Frameworks */,
 			);
@@ -249,7 +234,6 @@
 		2F270B0920D1BE5700ADB777 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2F270B0B20D1C19000ADB777 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		2F270B0D20D1C70100ADB777 /* UIPopoverPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPopoverPresentationController.swift; sourceTree = "<group>"; };
-		2F439C9620D15F080094766C /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = Carthage/Build/iOS/DropDown.framework; sourceTree = "<group>"; };
 		2F5930022143105F003BE44C /* IssueChangeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueChangeType.swift; sourceTree = "<group>"; };
 		2F5F1A8420E4011500DDCB71 /* PromiseKit+Support4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromiseKit+Support4.swift"; sourceTree = "<group>"; };
 		2F70B17E1F7302EF0068936F /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -281,18 +265,14 @@
 		2FBB474B20D01445004D8A73 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2FBB474C20D01445004D8A73 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		2FBB474D20D01445004D8A73 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
-		2FBB475420D01480004D8A73 /* SwiftValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftValidator.framework; path = Carthage/Build/iOS/SwiftValidator.framework; sourceTree = "<group>"; };
 		2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NYTPhotoViewer.framework; path = Carthage/Build/iOS/NYTPhotoViewer.framework; sourceTree = "<group>"; };
 		2FBB475620D01480004D8A73 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
 		2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAnimatedImage.framework; path = Carthage/Build/iOS/FLAnimatedImage.framework; sourceTree = "<group>"; };
-		2FBB475B20D01480004D8A73 /* IoniconsSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IoniconsSwift.framework; path = Carthage/Build/iOS/IoniconsSwift.framework; sourceTree = "<group>"; };
 		2FBB475C20D01480004D8A73 /* Atributika.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Atributika.framework; path = Carthage/Build/iOS/Atributika.framework; sourceTree = "<group>"; };
 		2FBB475D20D01480004D8A73 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
-		2FBB475E20D01480004D8A73 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		2FBB475F20D01480004D8A73 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
 		2FBB476020D01480004D8A73 /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = Carthage/Build/iOS/Material.framework; sourceTree = "<group>"; };
-		2FBB476120D01480004D8A73 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		2FBB476220D01480004D8A73 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		2FBB478120D014AF004D8A73 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2FBB478420D014C3004D8A73 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -399,23 +379,18 @@
 				2FBB476B20D01480004D8A73 /* NVActivityIndicatorView.framework in Frameworks */,
 				2FBB479620D01556004D8A73 /* ObjectMapper.framework in Frameworks */,
 				2FBB477920D01480004D8A73 /* LTMorphingLabel.framework in Frameworks */,
-				2FBB477720D01480004D8A73 /* SnapKit.framework in Frameworks */,
-				2FBB477D20D01480004D8A73 /* PKHUD.framework in Frameworks */,
 				2FA4111F222091060049FBCA /* CocoaAsyncSocket.framework in Frameworks */,
 				2FBB477F20D01480004D8A73 /* PromiseKit.framework in Frameworks */,
 				2FBB470920D00D91004D8A73 /* Core.framework in Frameworks */,
 				2F7E543C221DBE2300A4102F /* Down.framework in Frameworks */,
 				2FBB476F20D01480004D8A73 /* FLAnimatedImage.framework in Frameworks */,
 				2FBB476720D01480004D8A73 /* SwipeCellKit.framework in Frameworks */,
-				2FBB477120D01480004D8A73 /* IoniconsSwift.framework in Frameworks */,
 				2FBB477320D01480004D8A73 /* Atributika.framework in Frameworks */,
 				2FBB477520D01480004D8A73 /* ToastSwiftFramework.framework in Frameworks */,
 				2FC2848020ED30850014DE4D /* PINCache.framework in Frameworks */,
-				2FBB476320D01480004D8A73 /* SwiftValidator.framework in Frameworks */,
 				2F06944121383CE60052F61A /* Haring.framework in Frameworks */,
 				2F0670192225F64200CCA85E /* MessengerKit.framework in Frameworks */,
 				2FA41119222090D60049FBCA /* Bagel.framework in Frameworks */,
-				2F439C9720D15F080094766C /* DropDown.framework in Frameworks */,
 				2FC2847D20ED302C0014DE4D /* PINRemoteImage.framework in Frameworks */,
 				2FBB479320D01539004D8A73 /* AlamofireObjectMapper.framework in Frameworks */,
 				2FBB477B20D01480004D8A73 /* Material.framework in Frameworks */,
@@ -571,23 +546,18 @@
 				2FC2847F20ED30850014DE4D /* PINCache.framework */,
 				2FC2847C20ED302C0014DE4D /* PINRemoteImage.framework */,
 				2F270B0920D1BE5700ADB777 /* Settings.bundle */,
-				2F439C9620D15F080094766C /* DropDown.framework */,
 				2FBB478420D014C3004D8A73 /* Alamofire.framework */,
 				2FBB479220D01539004D8A73 /* AlamofireObjectMapper.framework */,
 				2FBB475C20D01480004D8A73 /* Atributika.framework */,
 				2FBB475A20D01480004D8A73 /* FLAnimatedImage.framework */,
-				2FBB475B20D01480004D8A73 /* IoniconsSwift.framework */,
 				2FBB475F20D01480004D8A73 /* LTMorphingLabel.framework */,
 				2FBB476020D01480004D8A73 /* Material.framework */,
 				2FBB475820D01480004D8A73 /* NVActivityIndicatorView.framework */,
 				2FBB475520D01480004D8A73 /* NYTPhotoViewer.framework */,
 				2FBB479520D01556004D8A73 /* ObjectMapper.framework */,
-				2FBB476120D01480004D8A73 /* PKHUD.framework */,
 				2FBB476220D01480004D8A73 /* PromiseKit.framework */,
 				2FBB478720D014DA004D8A73 /* Realm.framework */,
 				2FBB478120D014AF004D8A73 /* RealmSwift.framework */,
-				2FBB475E20D01480004D8A73 /* SnapKit.framework */,
-				2FBB475420D01480004D8A73 /* SwiftValidator.framework */,
 				2FBB475620D01480004D8A73 /* SwipeCellKit.framework */,
 				2FBB475D20D01480004D8A73 /* ToastSwiftFramework.framework */,
 				2FBB470320D00D91004D8A73 /* Core */,
@@ -873,6 +843,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
