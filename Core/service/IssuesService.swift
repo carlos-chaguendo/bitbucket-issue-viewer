@@ -68,10 +68,30 @@ public class IssuesService: Service {
     ///   - team: equipo al que pertenece el repositorio del issue
     ///   - repository: repositorio
     /// - Returns: Issue Editado
-    public class func assigne(to assigne: Assignee, issue: Issue, of team: String, inRepository repository: String) -> Promise<IssueEdited?> {
-        let parameters: [String: Any] = ["responsible": assigne.username!]
-        let url = Http.unwrapurl(route: "/1.0/repositories/\(team)/\(repository)/issues/\(issue.id)")
-        return Http.request(.put, route: url, parameters: parameters, encoding: URLEncoding())
+    public class func assigne(to assigne: Assignee, issue: Issue) -> Promise<Issue?> {
+
+        guard let repositoryId = issue.repository?.uuid, let assigneId = assigne.uuid else {
+            return Promise.init(error: Service.Error.labeled(" Assigne do not have id field"))
+        }
+
+        return RepositoryService.get(id: repositoryId)
+            .then { repository -> Promise<Issue?> in
+
+                guard let repository = repository else {
+                    throw Service.Error.labeled(" repository \(repositoryId) not found")
+                }
+                let parameters: [String: Any] = ["assignee": ["uuid": assigneId]]
+                let url = Http.unwrapurl(route: "/2.0/repositories/\(repository.fullName.orEmpty)/issues/\(issue.id)")
+                return Http.request(.put, route: url, parameters: parameters, encoding: JSONEncoding())
+
+            }.then { edited -> Promise<Issue?> in
+
+                if let local = realm.object(ofType: Issue.self, forPrimaryKey: issue.id),
+                    let assigne = realm.object(ofType: Assignee.self, forPrimaryKey: assigneId) {
+                    try realm.write { local.assignee = assigne }
+                }
+                return .value(edited)
+        }
     }
 
     public class func issue(_ id: String, of team: String, inRepository repository: String) -> Promise<Issue?> {
@@ -112,8 +132,8 @@ public class IssuesService: Service {
             var route = "/2.0/repositories/\(team.username!)/\(repository.slug!)/issues?page=\(page)&sort=-updated_on"
             var filter: [String: String] = [:]
 
-            if let username = assigne?.username {
-                filter["assignee.username"] = "\"\(username)\""
+            if let uuid = assigne?.uuid {
+                filter["assignee.uuid"] = "\"\(uuid)\""
             }
 
             if whitStatus.count > 0 {
