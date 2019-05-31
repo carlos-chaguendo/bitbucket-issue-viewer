@@ -15,10 +15,10 @@ import Core
 import NYTPhotoViewer
 import PINRemoteImage
 import Haring
-import Down
+//import Down
 
 import Foundation
-import libcmark
+//import libcmark
 import PromiseKit
 
 class IssueDetailsTableViewController: UITableViewController {

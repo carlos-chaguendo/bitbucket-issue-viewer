@@ -3,7 +3,7 @@ import RealmSwift
 import ObjectMapper
 import AlamofireObjectMapper
 
-public class BasicEntity: Object, Mappable {
+public class BasicEntity: RealmSwift.Object, Mappable {
 
     public required init(map: Map) {
         super.init()
