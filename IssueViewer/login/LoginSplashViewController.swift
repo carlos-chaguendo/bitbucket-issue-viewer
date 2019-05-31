@@ -8,7 +8,6 @@
 
 import UIKit
 import SafariServices
-//import IoniconsSwift
 
 
 final class LoginSplashViewController: UIViewController {

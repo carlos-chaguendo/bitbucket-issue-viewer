@@ -65,32 +65,32 @@ public class HttpDebugProtocol: URLProtocol {
 
     private var requestData: URLRequest!
 
-    private let delegate: HttpDebugProtocolSessionDelegate?
+    private let sessionDebug: HttpDebugProtocolSessionDelegate?
 
     // MARK: NSURLProtocol overrides
     internal override init(request: URLRequest, cachedResponse: CachedURLResponse?, client: URLProtocolClient?) {
-        self.delegate = HttpDebugProtocolSessionDelegate(request: request)
+        self.sessionDebug = HttpDebugProtocolSessionDelegate(request: request)
         super.init(request: request, cachedResponse: cachedResponse, client: client)
 
-        session = URLSession(configuration: URLSessionConfiguration.default, delegate: delegate, delegateQueue: nil)
+        session = URLSession(configuration: URLSessionConfiguration.default, delegate: sessionDebug, delegateQueue: nil)
         requestData = request
 
         let isSecure: Bool = request.allHTTPHeaderFields?["Authorization"] != nil
         Logger.info("Request \(isSecure ? "🔒" : "🔓") >>>>\(request.httpMethod!) \(request.url!.absoluteString)")
 
-        delegate?.didReceive = { [weak self] response in
+        sessionDebug?.didReceive = { [weak self] response in
             client?.urlProtocol(self!, didReceive: response, cacheStoragePolicy: URLCache.StoragePolicy.allowed)
         }
 
-        delegate?.didLoad = { [weak self] data in
+        sessionDebug?.didLoad = { [weak self] data in
             client?.urlProtocol(self!, didLoad: data)
         }
 
-        delegate?.urlProtocolDidFinishLoading = { [weak self] in
+        sessionDebug?.urlProtocolDidFinishLoading = { [weak self] in
             client?.urlProtocolDidFinishLoading(self!)
         }
 
-        delegate?.didFailWithError = { [weak self] error in
+        sessionDebug?.didFailWithError = { [weak self] error in
             client?.urlProtocol(self!, didFailWithError: error)
         }
 

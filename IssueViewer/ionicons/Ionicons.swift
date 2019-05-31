@@ -19,6 +19,7 @@ private func load(){
     loaded = true
     let inData = try? Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "ionicons", ofType: "ttf")!))
     var error : Unmanaged<CFError>?
+    
     let provider = CGDataProvider(data: inData as! CFData)
     guard let font = CGFont(provider!) else { return }
     if !CTFontManagerRegisterGraphicsFont(font, &error) {
