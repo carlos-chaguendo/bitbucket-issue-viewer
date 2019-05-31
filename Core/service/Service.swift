@@ -148,3 +148,11 @@ public class Service {
     }
 
 }
+
+public extension Service {
+
+    public enum Error: Swift.Error {
+        case labeled(String)
+    }
+
+}

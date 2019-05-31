@@ -364,8 +364,8 @@ class IssueDetailsTableViewController: UITableViewController {
         selectviewController.promise.done { (result) in
             guard let assigne = result else { return }
 
-            IssuesService.assigne(to: assigne, issue: self.issue!, of: "mayorgafirm", inRepository: self.issue!.repository!.name!)
-                .done { (edited: IssueEdited?) -> Void in
+            IssuesService.assigne(to: assigne, issue: self.issue!)
+                .done { edited in
                     Logger.info("Calros \(edited!)")
                 }.end()
 

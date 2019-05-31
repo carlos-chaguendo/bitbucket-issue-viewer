@@ -8,6 +8,7 @@
 
 import UIKit
 import ToastSwiftFramework
+import Core
 
 
 /**
@@ -31,18 +32,20 @@ extension UIViewController {
 	}
 
 	func presentError(_ error: Error) -> Void {
-
-		func showLocalizedDescription(_ nserror: Error) {
-			if let description = (nserror as NSError?)?.localizedDescription {
-				var style = ToastStyle()
-				// style.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
-				style.verticalPadding = 5.0
-				self.viewForToast.makeToast("\(description)", duration: 5.0, position: .bottom, style: style)
-			}
+		func showError(_ nserror: String) {
+			 
+            var style = ToastStyle()
+            // style.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+            style.verticalPadding = 5.0
+            self.viewForToast.makeToast("\(nserror)", duration: 5.0, position: .bottom, style: style)
+			
 		}
-
-		showLocalizedDescription(error)
-
+        switch error {
+        case Service.Error.labeled(let message):
+            showError(message)
+        default:
+            showError(error.localizedDescription)
+        }
 
 	}
 

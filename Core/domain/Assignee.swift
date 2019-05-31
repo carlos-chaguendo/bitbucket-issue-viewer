@@ -16,6 +16,7 @@ public class Assignee: BasicEntity {
 
 	@objc public dynamic var displayName: String?
 	@objc public dynamic var type: String?
+    @available(*, deprecated, message: "EL servio ya no lo regresa")
 	@objc public dynamic var username: String?
 	@objc public dynamic var uuid: String?
 	@objc public dynamic var avatar: String?

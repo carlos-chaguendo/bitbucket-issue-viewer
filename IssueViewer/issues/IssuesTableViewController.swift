@@ -268,16 +268,17 @@ extension IssuesTableViewController: SwipeTableViewCellDelegate {
 
         let sendQAAction = SwipeAction(style: .default, title: "Send to QA") { action, indexPath in
 
-            guard let issue = self.values[safe: indexPath.row] else {
+            guard let selected = self.values[safe: indexPath.row] else {
                 return
             }
+   
 
-            let assigne = Assignee();
-            assigne.username = "pruebasMayorgafirm"
-            IssuesService.assigne(to: assigne, issue: issue, of: "mayorgafirm", inRepository: issue.repository!.name!)
-                .done { (edited: IssueEdited?) -> Void in
-                    UIApplication.shared.keyWindow?.makeToast("Enviado a q \(issue.id)")
-                }.end()
+            let qauser = Assignee();
+            qauser.username = "pruebasMayorgafirm"
+            IssuesService.assigne(to: qauser, issue: selected )
+                .done { edited in
+                    UIApplication.shared.keyWindow?.makeToast("Enviado a q \(selected.id)")
+                }.catch(self.presentError)
         }
         sendQAAction.backgroundColor = Colors.primary
         return [sendQAAction]

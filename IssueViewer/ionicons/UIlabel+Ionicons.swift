@@ -7,20 +7,17 @@
 //
 
 import UIKit
-//import IoniconsSwift
 
 public extension UIFont {
 
 	public static func ionicon(ofSize size: CGFloat) -> UIFont {
-//        return Ionicons.ionic.label(size).font
-        return .systemFont(ofSize: size)
+        return Ionicons.ionic.label(size).font
 	}
 
 }
 
 public extension String {
 	public static func ionicon(of icon: Ionicons) -> String {
-        return  "icon"
-//        return icon.description
+        return icon.description
 	}
 }
