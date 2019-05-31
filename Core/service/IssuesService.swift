@@ -71,7 +71,7 @@ public class IssuesService: Service {
     public class func assigne(to assigne: Assignee, issue: Issue, of team: String, inRepository repository: String) -> Promise<IssueEdited?> {
         let parameters: [String: Any] = ["responsible": assigne.username!]
         let url = Http.unwrapurl(route: "/1.0/repositories/\(team)/\(repository)/issues/\(issue.id)")
-        return Http.request(.put, route: url, parameters: parameters, encoding: URLEncoding(), headers: [:], manager: Http.sharedInstance)
+        return Http.request(.put, route: url, parameters: parameters, encoding: URLEncoding())
     }
 
     public class func issue(_ id: String, of team: String, inRepository repository: String) -> Promise<Issue?> {
@@ -112,8 +112,8 @@ public class IssuesService: Service {
             var route = "/2.0/repositories/\(team.username!)/\(repository.slug!)/issues?page=\(page)&sort=-updated_on"
             var filter: [String: String] = [:]
 
-            if assigne != nil {
-                filter["assignee.username"] = "\"\(assigne!.username!)\""
+            if let username = assigne?.username {
+                filter["assignee.username"] = "\"\(username)\""
             }
 
             if whitStatus.count > 0 {

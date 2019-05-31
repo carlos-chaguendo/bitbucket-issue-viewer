@@ -18,29 +18,23 @@ class ADVNavigationCollisionTransition: NSObject, UIViewControllerAnimatedTransi
 
 	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
-		let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
-
-		guard let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
+		guard let toVC = transitionContext.viewController(forKey: .to),
+              let fromVC = transitionContext.viewController(forKey: .from) else {
 			return
 		}
 
 		let containerView = transitionContext.containerView
 		containerView.backgroundColor = .clear
 
-		let navigationController: UINavigationController
-
-		if isShowing {
-			navigationController = toVC as! UINavigationController
-		} else {
-			navigationController = fromVC as! UINavigationController
-		}
-
+        let navigationController = (isShowing ? toVC : fromVC ) as! UINavigationController
 		let navigationContainer = (navigationController.value(forKey: "navigationTransitionView") as! UIView)
-
-
+        let navigationBar = navigationController.navigationBar
+        
+        let navBarHeight = UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.frame.height
+        
 		// Preparacion para a animacion
 		if isShowing {
-			navigationController.navigationBar.transform = CGAffineTransform(translationX: 0, y: -64)
+			navigationController.navigationBar.transform = CGAffineTransform(translationX: 0, y: -navBarHeight)
 			navigationContainer.transform = CGAffineTransform(translationX: 0, y: navigationContainer.frame.height)
 			containerView.addSubview(navigationController.view)
 		} else {
@@ -48,32 +42,22 @@ class ADVNavigationCollisionTransition: NSObject, UIViewControllerAnimatedTransi
 			containerView.insertSubview(toVC.view, at: 0)
 		}
 
-
-
-		UIView.animate(withDuration: 0.2, animations: {
-
-			if self.isShowing {
-				navigationController.navigationBar.transform = CGAffineTransform.identity
-			} else {
-				navigationController.navigationBar.transform = CGAffineTransform(translationX: 0, y: -64)
-			}
-		}) { finished in
-
-		}
-
-		UIView.animate(withDuration: 0.3, animations: {
-			if self.isShowing {
-				navigationContainer.transform = CGAffineTransform.identity
-			} else {
-				navigationContainer.transform = CGAffineTransform(translationX: 0, y: navigationContainer.frame.height)
-			}
-		}) { finished in
-
-			transitionContext.completeTransition(true)
-
-		}
-
-
+        
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            options: [ !self.isShowing ? .curveEaseIn :  .curveEaseOut ],
+            animations: {
+                if self.isShowing {
+                    navigationBar.transform = CGAffineTransform.identity
+                    navigationContainer.transform = CGAffineTransform.identity
+                } else {
+                    navigationBar.transform = CGAffineTransform(translationX: 0, y: -navBarHeight)
+                    navigationContainer.transform = CGAffineTransform(translationX: 0, y: navigationContainer.frame.height)
+                }
+        }, completion:  { _ in
+            transitionContext.completeTransition(true)
+        })
 	}
 
 }

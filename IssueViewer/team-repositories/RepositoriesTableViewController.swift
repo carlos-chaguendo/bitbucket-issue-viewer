@@ -8,7 +8,7 @@
 
 import UIKit
 import Core
-import Material
+//import Material
 import Alamofire
 
 class RepositoriesTableViewController: LiveScrollTableViewController<User> {
@@ -25,7 +25,7 @@ class RepositoriesTableViewController: LiveScrollTableViewController<User> {
 			$0.separatorColor = UIColor.clear
 		}
 
-		if Device.userInterfaceIdiom == .pad {
+		if UIDevice.current.userInterfaceIdiom == .pad {
 			let margin = UITableViewController().tableView.layoutMargins.left
 			tableView.layoutMargins.left = margin
 			tableView.layoutMargins.right = margin

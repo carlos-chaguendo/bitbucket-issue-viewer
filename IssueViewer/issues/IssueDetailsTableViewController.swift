@@ -8,7 +8,7 @@
 
 import UIKit
 import LTMorphingLabel
-import IoniconsSwift
+//import IoniconsSwift
 import Atributika
 import Alamofire
 import Core
@@ -229,7 +229,7 @@ class IssueDetailsTableViewController: UITableViewController {
 
         IssuesService.comments(of: team!.username!, inRepository: repository, forIssue: issue!.id, refreshFromServer: refreshFromServer)
             .done(Strong.weak(self, message: "El ctrl ya no existe") { this, result in
-                guard let values = result?.values else {
+                guard  let values = result?.values else {
                     Logger.info("No hay comentarios")
                     return
                 }

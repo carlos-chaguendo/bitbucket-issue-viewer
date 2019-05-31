@@ -9,10 +9,9 @@
 import UIKit
 import ToastSwiftFramework
 import NVActivityIndicatorView
-import DropDown
 import PromiseKit
 import SwipeCellKit
-import Material
+//import Material
 import Core
 
 public class IssuesTableViewController: LiveScrollTableViewController<Issue> {
@@ -58,7 +57,7 @@ public class IssuesTableViewController: LiveScrollTableViewController<Issue> {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 250
 
-        if Device.userInterfaceIdiom == .pad {
+        if UIDevice.current.userInterfaceIdiom == .pad {
             let margin = UITableViewController().tableView.layoutMargins.left
             tableView.layoutMargins.left = margin
             tableView.layoutMargins.right = margin
@@ -154,11 +153,7 @@ public class IssuesTableViewController: LiveScrollTableViewController<Issue> {
         selectviewController.team = team
 
         // present the popover
-        var position = CGRect.zero
-        position.origin.x = sender.plainView.bounds.midX
-        position.origin.y = sender.plainView.bounds.midY - 10
-
-        let popController = NavigationForPopoverViewController(rootViewController: selectviewController, sourceView: sender.plainView, sourceRect: position)
+        let popController = NavigationForPopoverViewController(rootViewController: selectviewController,  barButtonItem: sender )
 
         self.present(popController, animated: true, completion: nil)
     }
@@ -173,11 +168,7 @@ public class IssuesTableViewController: LiveScrollTableViewController<Issue> {
         }.end()
 
         // present the popover
-        var position = CGRect.zero
-        position.origin.x = sender.plainView.bounds.midX
-        position.origin.y = sender.plainView.bounds.midY - 10
-
-        let popController = NavigationForPopoverViewController(rootViewController: selectviewController, sourceView: sender.plainView, sourceRect: position)
+        let popController = NavigationForPopoverViewController(rootViewController: selectviewController, barButtonItem: sender )
         self.present(popController, animated: true, completion: nil)
     }
 
@@ -192,13 +183,8 @@ public class IssuesTableViewController: LiveScrollTableViewController<Issue> {
         }.end()
 
         // present the popover
-        var position = CGRect.zero
-        position.origin.x = sender.plainView.bounds.midX
-        position.origin.y = sender.plainView.bounds.midY - 10
 
-
-
-        let popController = NavigationForPopoverViewController(rootViewController: selectviewController, sourceView: sender.plainView, sourceRect: position)
+        let popController = NavigationForPopoverViewController(rootViewController: selectviewController, barButtonItem: sender )
         self.present(popController, animated: true, completion: nil)
     }
 

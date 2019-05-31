@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IoniconsSwift
+//import IoniconsSwift
 import Core
 
 public class SettingsViewController: UITableViewController {

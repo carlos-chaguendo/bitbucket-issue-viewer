@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import IoniconsSwift
 import Core
 
 

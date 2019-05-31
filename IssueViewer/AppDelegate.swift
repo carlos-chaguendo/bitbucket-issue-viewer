@@ -10,7 +10,6 @@ import UIKit
 import ContactsUI
 import RealmSwift
 import Core
-import MessengerKit
 import Bagel
 
 
@@ -23,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Bagel.start()
 
+        /*
         let receipt = ReceiptPayload()
         receipt.name = "Carlos Chaguendo"
         receipt.number = "#CA-123456"
@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }.catch { (error) in
 //                Logger.error("Error", error)
 //        }
-        
+        */
 
         UINavigationBar.appearance().tintColor = Colors.NavBar.buttons//UIColor.Hex(0xffffff) // Color de los botones
         UINavigationBar.appearance().barTintColor = Colors.NavBar.background

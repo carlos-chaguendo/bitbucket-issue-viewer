@@ -8,7 +8,7 @@
 
 import UIKit
 import Core
-import Material
+//import Material
 
 class NavigationForPopoverViewController: UINavigationController, UIPopoverPresentationControllerDelegate, UIViewControllerTransitioningDelegate {
 
@@ -52,11 +52,11 @@ class NavigationForPopoverViewController: UINavigationController, UIPopoverPrese
 	}
 
 
-	convenience init(rootViewController: UIViewController, sourceView: UIView?, sourceRect: CGRect?) {
+    convenience init(rootViewController: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect = .zero, barButtonItem: UIBarButtonItem? = nil) {
 		self.init(rootViewController: rootViewController)
-
+        popoverPresentationController?.barButtonItem = barButtonItem
 		popoverPresentationController?.sourceView = sourceView
-		popoverPresentationController?.sourceRect = sourceRect ?? CGRect.zero
+		popoverPresentationController?.sourceRect = sourceRect
 	}
 
 	required init?(coder aDecoder: NSCoder) {

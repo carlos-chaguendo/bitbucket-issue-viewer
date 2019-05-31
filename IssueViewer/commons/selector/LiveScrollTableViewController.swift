@@ -9,7 +9,7 @@
 import UIKit
 import PromiseKit
 import NVActivityIndicatorView
-import IoniconsSwift
+//import IoniconsSwift
 import Core
 
 public enum LiveScrollError: Error {
