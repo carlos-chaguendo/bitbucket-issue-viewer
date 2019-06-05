@@ -23,7 +23,7 @@ public protocol SelectableTableView {
 }
 
 
-public extension SelectableTableView where Self: UITableViewController {
+extension SelectableTableView where Self: UITableViewController {
 
 	public func stylesForSelected(cell: UITableViewCell) {
 		cell.backgroundColor = Colors.primary.withAlphaComponent(0.1)
@@ -37,8 +37,4 @@ public extension SelectableTableView where Self: UITableViewController {
 		cell.textLabel?.backgroundColor = UIColor.clear
 		cell.accessoryType = .none
 	}
-
-
-
-
 }

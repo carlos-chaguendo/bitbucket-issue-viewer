@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UserDefaults {
+extension UserDefaults {
 
     public subscript<T>(key: String) -> T? {
         get {
@@ -32,7 +32,7 @@ public extension UserDefaults {
     }
 }
 
-public extension UserDefaults {
+extension UserDefaults {
 
     public struct Key: Hashable, RawRepresentable, ExpressibleByStringLiteral {
         public var rawValue: String
@@ -75,7 +75,7 @@ public extension UserDefaults {
 
 }
 
-public extension UserDefaults.Key {
+extension UserDefaults.Key {
 
     /// La url que el usario puede configurar manualmente la del usuario tiene prioridad
     public static let token: UserDefaults.Key = "access_token"

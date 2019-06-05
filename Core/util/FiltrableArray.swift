@@ -140,7 +140,7 @@ extension FiltrableArray where Element: Hashable {
     }
 }
 
-public extension FiltrableArray {
+extension FiltrableArray {
     public mutating func sort(by sorter: (_ left: Element, _ right: Element) -> Bool) {
         original.sort(by: sorter)
         filtered.sort(by: sorter)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension String {
+extension String {
 
     /// Referencia  unica a una cadena vacia
     public static let empty = ""

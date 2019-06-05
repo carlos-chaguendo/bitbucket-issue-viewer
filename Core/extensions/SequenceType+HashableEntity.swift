@@ -35,9 +35,9 @@ public class HashableObject<Object, Id: Hashable >: Hashable {
 
 }
 
-public extension Sequence {
+extension Sequence {
 
-    typealias ComparationResult = (commons: [Iterator.Element], added: [Iterator.Element], removed: [Iterator.Element])
+    public typealias ComparationResult = (commons: [Iterator.Element], added: [Iterator.Element], removed: [Iterator.Element])
 
     /// Crea una tupla (comunes,aggregados,eliminados) con las diferencias del array respecto a otro array dadas usando un comparador  de igualdad.
     /// El orden y las referencias de los valores de los resultados se determinan por la primera matriz.

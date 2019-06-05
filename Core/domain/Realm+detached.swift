@@ -10,7 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 
-public extension Object {
+extension Object {
 
 	public func detached() -> Self {
 		let detached = type(of: self).init()
@@ -26,7 +26,7 @@ public extension Object {
 	}
 }
 
-public extension Sequence where Iterator.Element: Object {
+extension Sequence where Iterator.Element: Object {
 
 	public var detached: [Element] {
 		return self.map({ $0.detached() })

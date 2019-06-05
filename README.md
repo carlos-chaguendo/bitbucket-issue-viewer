@@ -5,6 +5,13 @@ Un cliente simple de bitbucket, para la visualizar incidencias. Escrito en swift
 ![](https://raw.githubusercontent.com/carlos-chaguendo/bitbucket-issue-viewer/master/img/IMG_1753.JPG)
 
 
+# Requirements
+
+- Xcode 10.2
+- Swift 5.0
+
+# License
+
 [Care home](https://adivantus.com/)
 
 [Adivantus](https://adivantus.com/)

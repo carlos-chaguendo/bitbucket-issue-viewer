@@ -24,7 +24,7 @@ public func clamp<T>(_ value: T, between lower: T, and upper: T) -> T where T: C
     return max(min(value, upper), lower)
 }
 
-public extension Comparable {
+extension Comparable {
 
     /**
      (Restringir, Bloquear) limita un valor dentro de 2 valores.

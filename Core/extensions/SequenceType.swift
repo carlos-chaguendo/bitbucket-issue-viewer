@@ -6,7 +6,7 @@
 //  Copyright © 2016 Mayorgafirm. All rights reserved.
 //
 
-public extension Sequence {
+extension Sequence {
 
     public func groupBy<U: Hashable>(_ keyFunc: (Iterator.Element) -> U) -> [U: [Iterator.Element]] {
         var dict: [U: [Iterator.Element]] = [:]
@@ -34,7 +34,7 @@ public extension Sequence {
 
 }
 
-public extension Collection where Index == Int {
+extension Collection where Index == Int {
 
     public subscript (safe index: Index) -> Element? {
         return index >= 0 && index < count ? self[index] : nil
@@ -59,7 +59,7 @@ public extension Collection where Index == Int {
     }
 }
 
-public extension Array {
+extension Array {
 
     /// Removes all elements from an array that the callback returns true.
     ///

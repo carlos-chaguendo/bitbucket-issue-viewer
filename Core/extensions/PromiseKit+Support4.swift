@@ -9,10 +9,10 @@
 import UIKit
 import PromiseKit
 
-public extension Promise {
+extension Promise {
 
 	/// support PromiseKit 4 initializer
-	internal convenience init(previusResolvers: (_ fulfill: @escaping (T) -> Void, _ reject: @escaping (Error) -> Void) throws -> Void) {
+	convenience init(previusResolvers: (_ fulfill: @escaping (T) -> Void, _ reject: @escaping (Error) -> Void) throws -> Void) {
 		self.init(resolver: { seal in
 			do {
 				try previusResolvers(seal.fulfill, seal.reject)

@@ -7,7 +7,7 @@
 //
 import UIKit
 
-public extension Date {
+extension Date {
 
 	public func yearsFrom(_ date: Date) -> Int {
 		return (Calendar.current as NSCalendar).components(.year, from: date, to: self, options: NSCalendar.Options()).year!

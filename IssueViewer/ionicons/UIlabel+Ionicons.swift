@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIFont {
+extension UIFont {
 
 	public static func ionicon(ofSize size: CGFloat) -> UIFont {
         return Ionicons.ionic.label(size).font
@@ -16,7 +16,7 @@ public extension UIFont {
 
 }
 
-public extension String {
+extension String {
 	public static func ionicon(of icon: Ionicons) -> String {
         return icon.description
 	}

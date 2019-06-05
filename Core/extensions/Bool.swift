@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension Bool {
+extension Bool {
 
 	/// Intercambia el valor existende
 	public mutating func toogle() {
