@@ -1,0 +1,13 @@
+# la version que actualmente esta instaladas
+cp Cartfile-5_0 Cartfile.private
+rm Cartfile.resolved
+
+xcrun -f swift
+xcodebuild -version
+xcodebuild -showBuildSettings | grep SWIFT_VERSION
+
+# La aplicacion actualmente se compila mediante swift 4.2.1
+TOOLCHAINS=com.apple.dt.toolchain.Swift_4_2_1
+
+carthage bootstrap --no-build 
+carthage build --no-use-binaries --cache-builds --platform ios

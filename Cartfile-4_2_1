@@ -5,9 +5,7 @@
 
 
 
-# Dependencias actualizadas Swift 5 copatibles
-# github "Alamofire/Alamofire" == 4.8.2
-# github "Hearst-DD/ObjectMapper" == 3.4.2
+
 
 
  github "bryx-inc/BRYXBanner" == 0.8.3
@@ -43,6 +41,10 @@
 # 5.0 	= 6.8.4
 # 4.2.1 = 6.3.5
  github "mxcl/PromiseKit" == 6.8.4
+
+# Dependencias actualizadas Swift 5 copatibles
+ github "Alamofire/Alamofire" == 4.8.2
+ github "Hearst-DD/ObjectMapper" == 3.4.2
 
 # Compatibilidad
 # 5.1 	= 6.0
