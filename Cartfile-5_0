@@ -23,8 +23,7 @@ github "ninjaprox/NVActivityIndicatorView" == 4.7.0
 
 github "Alamofire/Alamofire" == 4.8.2
 github "Hearst-DD/ObjectMapper" == 3.4.2
-
-github "tristanhimmelman/AlamofireObjectMapper" == 6.0.0
+github "tristanhimmelman/AlamofireObjectMapper" == 5.2.1
 
 
 

@@ -114,7 +114,7 @@ extension FiltrableArray where Element: Hashable {
             // hay que eliminarlo del listado filtrado y del original
             Logger.info("[FiltrableArray]  Eliminando del filtrado \(index)")
             let filteredElement = filtered.remove(at: index)
-            let originalELement = original.index(of: filteredElement)!
+            let originalELement = original.firstIndex(of: filteredElement)!
             Logger.info("[FiltrableArray]  Eliminando del original \(originalELement)")
             original.remove(at: originalELement)
         }
@@ -132,7 +132,7 @@ extension FiltrableArray where Element: Hashable {
             } else {
                 // hay que actualizarlo del listado filtrado y del original
                 let prev = filtered[index]
-                let prevIndex = original.index(of: prev)!
+                let prevIndex = original.firstIndex(of: prev)!
                 original[prevIndex] = newValue
                 filtered[index] = newValue
             }
