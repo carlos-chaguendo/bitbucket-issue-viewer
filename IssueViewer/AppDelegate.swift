@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Bagel.start()
 
-        /*
+        /* */
         let receipt = ReceiptPayload()
         receipt.name = "Carlos Chaguendo"
         receipt.number = "#CA-123456"
@@ -85,19 +85,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 1674813829258653
         // 2177295419019984  Magangue
         // 2030419673694526
-//        MessengerService.send(message: message, to: "1674813829258653")
-//            .done { (response) in
-//
-//                guard let response = response else {
-//                    return
-//                }
-//
-//                Logger.info("Capina  \(response)")
-//
-//            }.catch { (error) in
-//                Logger.error("Error", error)
-//        }
-        */
+        MessengerService.send(message: message, to: "1674813829258653")
+            .done { (response) in
+
+                guard let response = response else {
+                    return
+                }
+
+                Logger.info("Capina  \(response)")
+
+            }.catch { (error) in
+                Logger.error("Error", error)
+        }
+    
 
         UINavigationBar.appearance().tintColor = Colors.NavBar.buttons//UIColor.Hex(0xffffff) // Color de los botones
         UINavigationBar.appearance().barTintColor = Colors.NavBar.background
